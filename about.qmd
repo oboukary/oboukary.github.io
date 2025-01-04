@@ -6,8 +6,7 @@ comments: false
 nav: false
 ---
 
-Ingénieur statisticien-économiste de formation, je suis par les sciences de la donnée et l'IA et leur application aux problématiques concrètes.
-
+Ingénieur statisticien-économiste de formation, je suis passionné par la statistique, la data science, le machine learning et l'IA et leur application aux problématiques concrètes. J'ai acquis une expérience significative dans le domaine de la statistique et de la data science, notamment dans le domaine de la protection sociale et de la finance.
 <hr>
 
 ## Formation
