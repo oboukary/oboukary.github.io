@@ -1,8 +1,8 @@
 {
-  "hash": "44ee9ee9001acc51fed9d82c2e3ee310",
+  "hash": "41129c24917d985ed7f9a33c65228ded",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"La regression linéaire sous R\"\nsubtitle: \"Application avec divers langage de programmation\"\nauthor: \n  - \"Boukary O.\"\n  - \"Angélica Custódio\"\ndate: 2025-01-01\ncategories:\n  - Events\n  - Communities\n  - tidyverse\n  - RStudio\n  - R Packages\ntoc: true  \n#img: \"featured-photo.jpeg\"\n---\n\n",
+    "markdown": "---\ntitle: \"La regression linéaire sous R\"\nsubtitle: \"Application avec divers langage de programmation\"\nauthor: \n  - \"Boukary O.\"\ndate: 2025-01-01\ncategories:\n  - Events\n  - Communities\n  - tidyverse\n  - RStudio\n  - R Packages\ntoc: true  \nimg: \"linear_regression_featured_image.png\"\n---\n\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

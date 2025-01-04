@@ -3,7 +3,6 @@ title: "La regression linéaire sous R"
 subtitle: "Application avec divers langage de programmation"
 author: 
   - "Boukary O."
-  - "Angélica Custódio"
 date: 2025-01-01
 categories:
   - Events
@@ -12,7 +11,7 @@ categories:
   - RStudio
   - R Packages
 toc: true  
-#img: "featured-photo.jpeg"
+img: "linear_regression_featured_image.png"
 ---
 
 ```{r setup, include=FALSE}
