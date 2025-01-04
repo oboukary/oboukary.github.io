@@ -1,0 +1,20 @@
+{
+  "about.qmd": {
+    "about.html": "4db327a4"
+  },
+  "index.qmd": {
+    "index.html": "a7d68030"
+  },
+  "post.qmd": {
+    "post.html": "5f908e59"
+  },
+  "posts/01_regression_lineaire/index.qmd": {
+    "index.html": "da00975e"
+  },
+  "posts/index.qmd": {
+    "index.html": "e2cbcc94"
+  },
+  "projet.qmd": {
+    "projet.html": "d135ae6b"
+  }
+}

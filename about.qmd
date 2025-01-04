@@ -1,0 +1,27 @@
+---
+about:
+  template: trestles
+  image: profile.jpg
+comments: false
+nav: false
+---
+
+Ingénieur statisticien-économiste de formation, je suis par les sciences de la donnée et l'IA et leur application aux problématiques concrètes.
+
+<hr>
+
+## Formation
+
+**Université Paris Nanterre** \| Nanterre <br/> Master en modélisation prospective \| Sept 2016 - Juin 2017
+
+**INSEA** \| Rabat <br/> Ingénieur statisticien-économiste \| Sept 2012 - Juil 2015
+
+**Université Ibn Tofail** \| Kenitra, Maroc <br/> DEUG en mathématiques \| Sept 2010 - Juil 2012
+
+## Experience
+
+**Arval BNP Paribas** \| Statisticien & Analyst Pricing \| Février 2022 - présent
+
+**CCMSA** \| Statisticien & Data scientist \| Janv 2018 - Janv 2022
+
+

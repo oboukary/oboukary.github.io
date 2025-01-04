@@ -1,0 +1,54 @@
+project:
+  type: website
+  preview: 
+    port: 4200
+  output-dir: docs  
+lang: fr
+website:
+  title: "Boukary Ouedraogo"
+  page-navigation: false
+  site-url: "https://ouedraogo-boukary.com/"
+  
+  page-footer:
+    left: '<p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Boukary Ouedraogo</p>'
+    center: "Site crée par avec ❤️, [Quarto](https://quarto.org/) et <img width='20' height='20' src='https://img.icons8.com/fluency/48/r-project.png' alt='r-project'/>"
+    right:
+      - icon: github
+        href: https://github.com/oboukary/
+      - icon: linkedin
+        href: https://www.linkedin.com/in/oboukary/
+      - icon: envelope
+        href: mailto:ouedraogo.boukary89@gmail.com
+  
+  
+  navbar:
+    pinned: true
+    right:
+      - href: index.qmd
+        text: Accueil
+        
+      - href: about.qmd
+        text: A propos
+        
+      - text: Blog
+        href: posts/index.qmd
+        
+      - text: Projets
+        href: projet.qmd
+        
+format:
+  html:
+    theme: [custom.scss]
+    include-before-body: assets/include-before-body.html
+    
+    link-external-icon: false
+    link-external-newwindow: true
+    link-external-filter: '^(?:http:|https:)\/\/www\.ouedraogo-boukary\.com\/**'
+    citations-hover: true
+    footnotes-hover: true
+    toc: false
+    code-link: true
+execute:
+  freeze: auto
+resources:
+  - assets/**

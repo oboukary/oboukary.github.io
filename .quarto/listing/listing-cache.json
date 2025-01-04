@@ -1,0 +1,10 @@
+{
+  "listingMap": {
+    "index.qmd": [
+      "posts/**/*/index.qmd"
+    ],
+    "posts\\index.qmd": [
+      "**/*/index.qmd"
+    ]
+  }
+}

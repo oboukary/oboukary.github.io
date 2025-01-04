@@ -1,0 +1,20 @@
+---
+title: "La regression linéaire sous R"
+subtitle: "Application avec divers langage de programmation"
+author: 
+  - "Boukary O."
+  - "Angélica Custódio"
+date: 2025-01-01
+categories:
+  - Events
+  - Communities
+  - tidyverse
+  - RStudio
+  - R Packages
+toc: true  
+#img: "featured-photo.jpeg"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
