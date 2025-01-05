@@ -20,18 +20,3 @@ toc: true
 ::: {#projects}
 :::
 
-
-```{=html}
-<!-- Appeler le fichier CSS -->
-<link rel="stylesheet" href="assets/projects.css">
-```
-
-```{r, echo=FALSE}
-# Lister les projets comme dans un blog Quarto
-quarto::quarto_render("projects/", output_format = "html")
-```
-
-```{=html}
-<!-- Appeler le fichier JavaScript -->
-<script src="assets/projects.js"></script>
-```
