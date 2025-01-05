@@ -1,22 +1,32 @@
 ---
-title: "Mes projets"
 listing:
-  - id: projects
+  - id: posts
     contents: "**/*/index.qmd"
     type: grid
-    fields: [image, date, title, subtitle]
+    fields: [image, date, title]
     sort: "date desc"
-    categories: false
+    categories: unnumbered
     sort-ui: false
     filter-ui: false
-    page-size: 42     
+    page-size: 42
 page-layout: full
 title-block-banner: false
 comments: false
-toc: true
+toc: false
 ---
 
+```{=html}
+<link rel="stylesheet" href="../../assets/projects.css">
+<!-- Conteneur pour les boutons de filtre -->
+<div id="filters">
 
-::: {#projects}
-:::
+<!-- Conteneur pour les projets -->
+
+<div id="projects">
+ 
+ 
+</div>
+<script type="text/javascript"  src="../../assets/projects.js"></script>
+
+```
 

@@ -40,6 +40,7 @@ format:
   html:
     theme: [pulse, custom.scss]
     include-before-body: assets/include-before-body.html
+    include-after-body: assets/projects.html  # Inclure le fichier JavaScript
     
     link-external-icon: false
     link-external-newwindow: true

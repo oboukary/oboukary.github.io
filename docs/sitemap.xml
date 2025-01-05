@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ouedraogo-boukary.com/projects/index.html</loc>
-    <lastmod>2025-01-05T18:25:56.298Z</lastmod>
+    <lastmod>2025-01-05T21:49:57.763Z</lastmod>
   </url>
   <url>
     <loc>https://ouedraogo-boukary.com/projects/01-modélisation-de-la-pd/index.html</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://ouedraogo-boukary.com/about.html</loc>
-    <lastmod>2025-01-04T21:52:25.512Z</lastmod>
+    <lastmod>2025-01-05T21:40:47.834Z</lastmod>
   </url>
   <url>
     <loc>https://ouedraogo-boukary.com/posts/index.html</loc>
@@ -19,5 +19,17 @@
   <url>
     <loc>https://ouedraogo-boukary.com/index.html</loc>
     <lastmod>2025-01-04T20:25:07.703Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ouedraogo-boukary.com/projects/project2.html</loc>
+    <lastmod>2025-01-05T20:10:06.677Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ouedraogo-boukary.com/projects/project1.html</loc>
+    <lastmod>2025-01-05T20:09:38.507Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ouedraogo-boukary.com/projects/02-SAS-pour-IML/index.html</loc>
+    <lastmod>2025-01-05T20:10:06.677Z</lastmod>
   </url>
 </urlset>

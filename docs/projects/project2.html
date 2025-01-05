@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Publications – Boukary Ouedraogo</title>
+<title>Projet SAS – Boukary Ouedraogo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,69 +65,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Recherche"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-posts .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-posts'] = new List('listing-posts', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -155,7 +95,7 @@ window.Quarto = {
 <span class="menu-text">A propos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../posts/index.html" aria-current="page"> 
+    <a class="nav-link" href="../posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
@@ -170,14 +110,12 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tous <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29tbXVuaXRpZXM=">Communities <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXZlbnRz">Events <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UiUyMFBhY2thZ2Vz">R Packages <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UlN0dWRpbw==">RStudio <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGlkeXZlcnNl">tidyverse <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -186,14 +124,25 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Publications</h1>
-</div>
+<h1 class="title">Projet SAS</h1>
+<p class="subtitle lead">Analyse financière avec SAS.</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">SAS</div>
+    <div class="quarto-category">Finance</div>
+  </div>
+  </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2 octobre 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -203,61 +152,156 @@ window.Quarto = {
 </header>
 
 
-<div id="listing-posts" class="quarto-listing quarto-listing-container-grid">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-posts-sort" class="form-select" aria-label="Trier par" onchange="window['quarto-listings']['listing-posts'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Trier par</option>
-       <option value="index" data-direction="asc">Ordre par défaut</option>
-         <option value="listing-title" data-direction="asc">
-          Titre
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Le plus ancien
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Le plus récent
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filtre">
-    </div>
-</div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RXZlbnRzJTJDQ29tbXVuaXRpZXMlMkN0aWR5dmVyc2UlMkNSU3R1ZGlvJTJDUiUyMFBhY2thZ2Vz" data-listing-date-sort="1735686000000" data-listing-file-modified-sort="1736028169209" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5">
-<a href="../posts/01_regression_lineaire/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-La regression linéaire sous R
-</h5>
-<div class="card-subtitle listing-subtitle">
-Application avec divers langage de programmation
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-1 janv. 2025
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-Aucun article correspondant
-</div>
-</div>
-
+<p>Ce projet utilise SAS pour l’analyse financière.</p>
 
 
 
 </main> <!-- /main -->
-<script src="projects.js"></script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    const projectsContainer = document.getElementById('projects');
+
+    const filtersContainer = document.getElementById('filters');
+
+    const categories = new Set();
+
+
+
+    // Données des projets (remplacez par la récupération dynamique si nécessaire)
+
+    const projectsData = [
+
+        { title: "Projet Python", categories: ["Python", "Data Science"], description: "Un projet utilisant Python pour l'analyse de données.", image: "python.jpg" },
+
+        { title: "Projet SAS", categories: ["SAS", "Finance"], description: "Analyse financière avec SAS.", image: "sas.jpg" },
+
+        { title: "Projet R", categories: ["R", "Data Science"], description: "Analyse statistique avec R.", image: "r.jpg" },
+
+        // Ajoutez plus de projets ici
+
+    ];
+
+
+
+    // Générer les projets et collecter les catégories
+
+    projectsData.forEach(project =&gt; {
+
+        const projectElement = document.createElement('div');
+
+        projectElement.classList.add('project');
+
+        projectElement.setAttribute('data-categories', JSON.stringify(project.categories));
+
+        projectElement.innerHTML = `
+
+            <img src="${project.image}" alt="${project.title}">
+
+            <h3>${project.title}</h3>
+
+            <p>${project.description}</p>
+
+        `;
+
+        projectsContainer.appendChild(projectElement);
+
+
+
+        // Compter les projets par catégorie
+
+        project.categories.forEach(cat =&gt; categories.add(cat));
+
+    });
+
+
+
+    // Générer les boutons de filtre
+
+    const allButton = document.createElement('button');
+
+    allButton.textContent = `Tous (${projectsData.length})`;
+
+    allButton.classList.add('filter-btn', 'active');
+
+    allButton.setAttribute('data-category', 'all');
+
+    allButton.onclick = () =&gt; {
+
+        filterProjects('all');
+
+        setActiveButton(allButton);
+
+    };
+
+    filtersContainer.appendChild(allButton);
+
+
+
+    categories.forEach(cat =&gt; {
+
+        const count = projectsData.filter(project =&gt; project.categories.includes(cat)).length;
+
+        const button = document.createElement('button');
+
+        button.textContent = `${cat} (${count})`;
+
+        button.classList.add('filter-btn');
+
+        button.setAttribute('data-category', cat);
+
+        button.onclick = () =&gt; {
+
+            filterProjects(cat);
+
+            setActiveButton(button);
+
+        };
+
+        filtersContainer.appendChild(button);
+
+    });
+
+});
+
+
+
+// Fonction pour filtrer les projets
+
+function filterProjects(category) {
+
+    const projects = document.querySelectorAll('.project');
+
+    projects.forEach(project =&gt; {
+
+        const projectCategories = JSON.parse(project.getAttribute('data-categories'));
+
+        if (category === 'all' || projectCategories.includes(category)) {
+
+            project.style.display = 'block';
+
+        } else {
+
+            project.style.display = 'none';
+
+        }
+
+    });
+
+}
+
+
+
+// Fonction pour définir le bouton actif
+
+function setActiveButton(activeButton) {
+
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(button =&gt; button.classList.remove('active'));
+
+    activeButton.classList.add('active');
+
+}
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

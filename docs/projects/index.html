@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mes projets – Boukary Ouedraogo</title>
+<title>index – Boukary Ouedraogo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,20 +70,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-projects .list');
+    const listingTargetEl = window.document.querySelector('#listing-posts .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-projects'] = new List('listing-projects', options);
+    window['quarto-listings']['listing-posts'] = new List('listing-posts', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -173,37 +173,36 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="RmluYW5jZQ==">Finance</div><div class="category" data-category="UHl0aG9u">Python</div><div class="category" data-category="Ug==">R</div><div class="category" data-category="U0FT">SAS</div></div></div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Mes projets</h1>
+
+
+
+<link rel="stylesheet" href="../../assets/projects.css">
+<!-- Conteneur pour les boutons de filtre -->
+<div id="filters">
+
+<!-- Conteneur pour les projets -->
+
+<div id="projects">
+ 
+ 
 </div>
+<script type="text/javascript" src="../../assets/projects.js"></script>
 
 
 
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<div id="listing-projects" class="quarto-listing quarto-listing-container-grid">
+</div><div class="quarto-listing quarto-listing-container-grid" id="listing-posts">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="U0FTJTJDUiUyQ1B5dGhvbg==" data-listing-date-sort="1735686000000" data-listing-file-modified-sort="1736101302623" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5">
 <a href="../projects/01-modélisation-de-la-pd/index.html" class="quarto-grid-link">
@@ -213,12 +212,28 @@ window.Quarto = {
 <h5 class="no-anchor card-title listing-title">
 Modélisation de la probabilté de défaut
 </h5>
-<div class="card-subtitle listing-subtitle">
-Application avec divers langage de programmation
-</div>
 <div class="card-attribution card-text-small end">
 <div class="listing-date">
 1 janv. 2025
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="U0FTJTJDRmluYW5jZQ==" data-listing-date-sort="1696197600000" data-listing-file-modified-sort="1736107806677" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
+<a href="../projects/02-SAS-pour-IML/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../projects/02-SAS-pour-IML/sas.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Projet SAS
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+2 oct. 2023
 </div>
 </div>
 </div>
@@ -229,12 +244,8 @@ Application avec divers langage de programmation
 <div class="listing-no-matching d-none">
 Aucun article correspondant
 </div>
-</div>
-
-
-
-
-</main> <!-- /main -->
+</div></main> <!-- /main -->
+<script src="projects.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

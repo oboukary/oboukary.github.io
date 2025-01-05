@@ -1,0 +1,9 @@
+---
+title: "Projet SAS"
+categories: ["SAS", "Finance"]
+date: 2023-10-02
+image: "sas.jpg"
+subtitle: "Analyse financière avec SAS."
+---
+
+Ce projet utilise SAS pour l'analyse financière.

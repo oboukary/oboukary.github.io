@@ -25,5 +25,14 @@
   },
   "projects/01-modélisation-de-la-pd/index.qmd": {
     "index.html": "a6f0c01f"
+  },
+  "projects/project1.qmd": {
+    "project1.html": "c4ba648e"
+  },
+  "projects/project2.qmd": {
+    "project2.html": "b79dc584"
+  },
+  "projects/02-SAS-pour-IML/index.qmd": {
+    "index.html": "f689ec46"
   }
 }

@@ -1,29 +1,53 @@
-name: generate metadata
-
 on:
+  workflow_dispatch:
   push:
     branches: main
 
+name: Render and Publish
+
+
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Check out repository
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      # add software dependencies here
+
+      - uses: r-lib/actions/setup-r@v2
         with:
-          node-version: '16'
+          use-public-rspm: true
 
-      - name: Install dependencies
-        run: npm install js-yaml
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::rmarkdown
+            any::tidyverse
+            any::xml2
+            any::downlit
+            any::here
+            any::janitor
+            any::fs
+            any::yaml
 
+      - name: Install Python and Dependencies
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - run: pip install jupyter
+      - run: pip install -r requirements.txt
       - name: Generate metadata
-        run: node generate-metadata.js
+        run: python generate-metadata.py
+
+      - name: Publish to GitHub Pages (and render)
+        uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: master
+          path: "docs/"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
-
