@@ -2,9 +2,16 @@
   {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
-    "title": "Boukary Ouedraogo",
+    "title": "Projets",
     "section": "",
     "text": "Modélisation de la probabilté de défaut\n\n\n\n1 janv. 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProjet SAS\n\n\n\n2 oct. 2023\n\n\n\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "index.html#publications-récentes",
+    "href": "index.html#publications-récentes",
+    "title": "Boukary OUEDRAOGO",
+    "section": "Publications récentes",
+    "text": "Publications récentes\n\n\n\n\n\n\n\n\nLa regression linéaire sous R\n\n\n\n1 janv. 2025\n\n\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "about.html#formation",
@@ -26,27 +33,6 @@
     "title": "Publications",
     "section": "",
     "text": "Trier par\n       Ordre par défaut\n         \n          Titre\n        \n         \n          Date - Le plus ancien\n        \n         \n          Date - Le plus récent\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nLa regression linéaire sous R\n\n\nApplication avec divers langage de programmation\n\n\n\n1 janv. 2025\n\n\n\n\n\n\n\n\nAucun article correspondant"
-  },
-  {
-    "objectID": "index.html#publications-récentes",
-    "href": "index.html#publications-récentes",
-    "title": "Boukary OUEDRAOGO",
-    "section": "Publications récentes",
-    "text": "Publications récentes\n\n\n\n\n\n\n\n\nLa regression linéaire sous R\n\n\n\n1 janv. 2025\n\n\n\n\n\n\n\n\nAucun article correspondant"
-  },
-  {
-    "objectID": "projects/project2.html",
-    "href": "projects/project2.html",
-    "title": "Projet SAS",
-    "section": "",
-    "text": "Ce projet utilise SAS pour l’analyse financière."
-  },
-  {
-    "objectID": "projects/project1.html",
-    "href": "projects/project1.html",
-    "title": "Projet Python",
-    "section": "",
-    "text": "Ce projet utilise Python pour l’analyse de données. Il inclut des visualisations et des modèles prédictifs."
   },
   {
     "objectID": "projects/02-SAS-pour-IML/index.html",

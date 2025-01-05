@@ -4,6 +4,8 @@ project:
     port: 4200
   output-dir: docs  
 lang: fr
+language: 
+  title-block-author-single: "Auteur"
 website:
   title: "Boukary Ouedraogo"
   page-navigation: false

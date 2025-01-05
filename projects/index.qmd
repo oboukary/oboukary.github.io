@@ -1,6 +1,7 @@
 ---
+title: "Projets"
 listing:
-  - id: posts
+  - id: projects
     contents: "**/*/index.qmd"
     type: grid
     fields: [image, date, title]
@@ -15,18 +16,6 @@ comments: false
 toc: false
 ---
 
-```{=html}
-<link rel="stylesheet" href="../../assets/projects.css">
-<!-- Conteneur pour les boutons de filtre -->
-<div id="filters">
 
-<!-- Conteneur pour les projets -->
-
-<div id="projects">
- 
- 
-</div>
-<script type="text/javascript"  src="../../assets/projects.js"></script>
-
-```
-
+::: {#projects}
+:::
