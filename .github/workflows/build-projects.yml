@@ -2,7 +2,7 @@ name: generate metadata
 
 on:
   push:
-    branches: master
+    branches: main
 
 jobs:
   build:
@@ -22,5 +22,9 @@ jobs:
 
       - name: Generate metadata
         run: node generate-metadata.js
-
+        with:
+          target: master
+          path: "docs/"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
 
