@@ -1,4 +1,4 @@
-name: Build Quarto Site
+name: generate metadata
 
 on:
   push:
@@ -23,8 +23,4 @@ jobs:
       - name: Generate metadata
         run: node generate-metadata.js
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Build Quarto site
-        run: quarto render
