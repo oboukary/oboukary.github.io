@@ -1,0 +1,29 @@
+<!-- Related Posts -->
+{% for doc in site.pages | where("type", "post") | where("projects", page.projects) %}
+  <h2>Related Posts</h2>
+  <ul>
+    <li>
+      <a href="{{ doc.url }}">{{ doc.title }}</a> - {{ doc.date | date("long") }}
+    </li>
+  </ul>
+{% endfor %}
+
+<!-- Related Publications -->
+{% for doc in site.pages | where("type", "publication") | where("projects", page.projects) %}
+  <h2>Related Publications</h2>
+  <ul>
+    <li>
+      <a href="{{ doc.url }}">{{ doc.title }}</a> - {{ doc.date | date("long") }}
+    </li>
+  </ul>
+{% endfor %}
+
+<!-- Related Talks -->
+{% for doc in site.pages | where("type", "talk") | where("projects", page.projects) %}
+  <h2>Related Talks</h2>
+  <ul>
+    <li>
+      <a href="{{ doc.url }}">{{ doc.title }}</a> - {{ doc.date | date("long") }}
+    </li>
+  </ul>
+{% endfor %}

@@ -1,12 +1,12 @@
 [
   {
-    "listing": "/posts/index.html",
+    "listing": "/projects/index.html",
     "items": [
-      "/posts/01_regression_lineaire/index.html"
+      "/projects/01-modélisation-de-la-pd/index.html"
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/posts/index.html",
     "items": [
       "/posts/01_regression_lineaire/index.html"
     ]

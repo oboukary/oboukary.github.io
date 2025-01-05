@@ -5,6 +5,9 @@
     ],
     "posts\\index.qmd": [
       "**/*/index.qmd"
+    ],
+    "projects\\index.qmd": [
+      "**/*/index.qmd"
     ]
   }
 }

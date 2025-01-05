@@ -16,5 +16,14 @@
   },
   "projet.qmd": {
     "projet.html": "d135ae6b"
+  },
+  "404.qmd": {
+    "404.html": "69d9f40b"
+  },
+  "projects/index.qmd": {
+    "index.html": "df654e4d"
+  },
+  "projects/01-modélisation-de-la-pd/index.qmd": {
+    "index.html": "a6f0c01f"
   }
 }

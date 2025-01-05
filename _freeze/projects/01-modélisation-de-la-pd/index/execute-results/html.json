@@ -1,0 +1,15 @@
+{
+  "hash": "f13bd0a194236d6cdf88d64b3e2cb9d2",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Modélisation de la probabilté de défaut\"\nsubtitle: \"Application avec divers langage de programmation\"\nauthor: \n  - \"Boukary O.\"\ndate: 2025-01-01\ncategories: [SAS,R, Python]\ntoc: true  \nimg: \"linear_regression_featured_image.png\"\n---\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

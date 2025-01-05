@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ouedraogo-boukary.com/projects/index.html</loc>
+    <lastmod>2025-01-05T18:25:56.298Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ouedraogo-boukary.com/projects/01-modélisation-de-la-pd/index.html</loc>
+    <lastmod>2025-01-05T18:21:42.623Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ouedraogo-boukary.com/about.html</loc>
+    <lastmod>2025-01-04T21:52:25.512Z</lastmod>
+  </url>
+  <url>
     <loc>https://ouedraogo-boukary.com/posts/index.html</loc>
-    <lastmod>2025-01-04T20:25:07.707Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ouedraogo-boukary.com/posts/01_regression_lineaire/index.html</loc>
-    <lastmod>2025-01-04T22:02:49.209Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ouedraogo-boukary.com/index.html</loc>
-    <lastmod>2025-01-04T20:25:07.703Z</lastmod>
+    <lastmod>2025-01-05T13:16:54.736Z</lastmod>
   </url>
 </urlset>

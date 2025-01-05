@@ -34,11 +34,11 @@ website:
         href: posts/index.qmd
         
       - text: Projets
-        href: projet.qmd
+        href: projects/index.qmd
         
 format:
   html:
-    theme: [custom.scss]
+    theme: [pulse, custom.scss]
     include-before-body: assets/include-before-body.html
     
     link-external-icon: false

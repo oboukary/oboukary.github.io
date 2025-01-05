@@ -1,0 +1,9 @@
+title: _extensions
+author: boukary
+version: 1.0.0
+quarto-required: ">=1.6.0"
+contributes:
+  metadata:
+    project:
+      # your per-project metadata goes here
+

@@ -1,0 +1,14 @@
+---
+title: "Modélisation de la probabilté de défaut"
+subtitle: "Application avec divers langage de programmation"
+author: 
+  - "Boukary O."
+date: 2025-01-01
+categories: [SAS,R, Python]
+toc: true  
+img: "linear_regression_featured_image.png"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
