@@ -2,6 +2,7 @@ name: Build Quarto Site
 
 on:
   push:
+    branches: master
 
 jobs:
   build:
