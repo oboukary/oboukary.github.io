@@ -1,6 +1,0 @@
-typography:
-  fonts:
-    - family: Jura
-      source: google
-  base: Jura
-  headings: Jura

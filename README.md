@@ -1,2 +1,0 @@
-# oboukary.github.io
-Portfolio
