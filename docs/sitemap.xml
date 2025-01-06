@@ -2,10 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ouedraogo-boukary.com/about.html</loc>
-    <lastmod>2025-01-06T12:59:08.594Z</lastmod>
+    <lastmod>2025-01-06T13:21:58.419Z</lastmod>
   </url>
   <url>
     <loc>https://ouedraogo-boukary.com/posts/posts.html</loc>
     <lastmod>2025-01-06T12:43:08.928Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ouedraogo-boukary.com/projects/projects.html</loc>
+    <lastmod>2025-01-06T13:21:37.290Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ouedraogo-boukary.com/index.html</loc>
+    <lastmod>2025-01-04T20:25:07.703Z</lastmod>
   </url>
 </urlset>
