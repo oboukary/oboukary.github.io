@@ -33,10 +33,10 @@ website:
         text: A propos
         
       - text: Blog
-        href: posts/index.qmd
+        href: posts/posts.qmd
         
       - text: Projets
-        href: projects/index.qmd
+        href: projects/projects.qmd
         
 format:
   html:

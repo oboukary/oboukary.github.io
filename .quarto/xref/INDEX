@@ -34,5 +34,11 @@
   },
   "projects/02-SAS-pour-IML/index.qmd": {
     "index.html": "f689ec46"
+  },
+  "posts/posts.qmd": {
+    "posts.html": "06b0aceb"
+  },
+  "projects/projects.qmd": {
+    "projects.html": "60801307"
   }
 }

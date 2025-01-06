@@ -72,3 +72,10 @@ div.quarto-post .listing-categories .listing-category {
 .quarto-listing-category.category-cloud {
     font-size: .55em
 }
+
+.quarto-post .thumbnail img {
+    object-fit: contain;
+    max-height: 150px;
+    max-width: 350px;
+  
+}

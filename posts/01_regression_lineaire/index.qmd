@@ -11,7 +11,7 @@ categories:
   - RStudio
   - R Packages
 toc: true  
-img: "linear_regression_featured_image.png"
+image: "linear_regression_featured_image.png"
 ---
 
 ```{r setup, include=FALSE}

@@ -3,10 +3,10 @@
     "index.qmd": [
       "posts/**/*/index.qmd"
     ],
-    "posts\\index.qmd": [
+    "posts\\posts.qmd": [
       "**/*/index.qmd"
     ],
-    "projects\\index.qmd": [
+    "projects\\projects.qmd": [
       "**/*/index.qmd"
     ]
   }

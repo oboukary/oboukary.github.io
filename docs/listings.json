@@ -1,19 +1,6 @@
 [
   {
-    "listing": "/projects/index.html",
-    "items": [
-      "/projects/01-modélisation-de-la-pd/index.html",
-      "/projects/02-SAS-pour-IML/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/posts/01_regression_lineaire/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/index.html",
+    "listing": "/posts/posts.html",
     "items": [
       "/posts/01_regression_lineaire/index.html"
     ]
