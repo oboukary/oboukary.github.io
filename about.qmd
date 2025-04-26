@@ -28,34 +28,6 @@ Je suis certifié SAS et je maîtrise les langages de programmation R et Python.
 **CCMSA** \| Statisticien & Data scientist \| Janv 2018 - Janv 2022
 
 
-## 🌟 Compétences Techniques  
-
-### 🧮 Statistiques et Analyse de Données  
-- 📊 **Modélisation statistique**  
-- 📈 **Analyse exploratoire des données**  
-- 🔍 **Data mining**  
-- 🤖 **Machine learning**  
-
-### 💻 Programmation  
-- ![Python](https://img.icons8.com/color/48/000000/python.png) **Python**  
-- ![R](https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-r-data-science-flatart-icons-outline-flatarticons.png) **R**  
-- ![SAS](https://img.icons8.com/color/48/000000/sas.png) **SAS**  
-
-### 📊 Data Science et Outils BI  
-- ![Dataiku](https://img.icons8.com/color/48/000000/dataiku.png) **Dataiku**  
-- ![SQL](https://img.icons8.com/color/48/000000/sql.png) **SQL**  
-- ![Tableau](https://img.icons8.com/color/48/000000/tableau-software.png) **Tableau**  
-- ![Power BI](https://img.icons8.com/color/48/000000/power-bi.png) **Power BI**  
-
-### 📉 Économétrie et Séries Temporelles  
-- 🧮 **Modélisation économétrique**  
-- ⏳ **Analyse et prévision de séries temporelles**  
-
----
-
-## 🌍 Compétences Linguistiques  
-- 🇫🇷 **Français** : Langue maternelle  
-- 🇬🇧 **Anglais** : Professionnel (courant, écrit et oral)  
 
 
 
