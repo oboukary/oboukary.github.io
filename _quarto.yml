@@ -9,7 +9,7 @@ language:
 website:
   title: "Boukary Ouedraogo"
   page-navigation: false
-  site-url: "https://ouedraogo-boukary.com/"
+  site-url: "www.ouedraogo-boukary.com"
   
   page-footer:
     left: '<p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Boukary Ouedraogo</p>'
