@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "projects/projects.html",
+    "href": "projects/projects.html",
+    "title": "Projets",
+    "section": "",
+    "text": "Aucun article correspondant"
+  },
+  {
+    "objectID": "index.html#publications-récentes",
+    "href": "index.html#publications-récentes",
+    "title": "Boukary OUEDRAOGO",
+    "section": "Publications récentes",
+    "text": "Publications récentes\n\n\n\n\n\n\n\n\n\n\nLa regression linéaire sous R\n\n\n\n1 janv. 2025\n\n\n\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Boukary Ouedraogo",
@@ -21,34 +35,6 @@
     "text": "Experience\nArval BNP Paribas | Statisticien & Analyst Pricing | Février 2022 - présent\nCCMSA | Statisticien & Data scientist | Janv 2018 - Janv 2022"
   },
   {
-    "objectID": "posts/posts.html",
-    "href": "posts/posts.html",
-    "title": "Publications",
-    "section": "",
-    "text": "Trier par\n       Ordre par défaut\n         \n          Titre\n        \n         \n          Date - Le plus ancien\n        \n         \n          Date - Le plus récent\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nLa regression linéaire sous R\n\n\nApplication avec divers langage de programmation\n\n\n\n\n\n1 janv. 2025\n\n\n\n\n\n\nAucun article correspondant"
-  },
-  {
-    "objectID": "projects/projects.html",
-    "href": "projects/projects.html",
-    "title": "Projets",
-    "section": "",
-    "text": "Aucun article correspondant"
-  },
-  {
-    "objectID": "index.html#publications-récentes",
-    "href": "index.html#publications-récentes",
-    "title": "Boukary OUEDRAOGO",
-    "section": "Publications récentes",
-    "text": "Publications récentes\n\n\n\n\n\n\n\n\n\n\nLa regression linéaire sous R\n\n\n\n1 janv. 2025\n\n\n\n\n\n\n\n\nAucun article correspondant"
-  },
-  {
-    "objectID": "about.html#compétences",
-    "href": "about.html#compétences",
-    "title": "Boukary Ouedraogo",
-    "section": "Compétences",
-    "text": "Compétences\n\nStatistique : Modélisation statistique, Analyse de données, Data mining, Machine learning\nProgrammation : R, Python, SAS\nData science : Dataiku, SQL, Tableau, Power BI\nEconométrie : Modélisation économétrique, Analyse de séries temporelles\nLangues : Français, Anglais"
-  },
-  {
     "objectID": "about.html#compétences-techniques",
     "href": "about.html#compétences-techniques",
     "title": "Boukary Ouedraogo",
@@ -61,5 +47,12 @@
     "title": "Boukary Ouedraogo",
     "section": "🌍 Compétences Linguistiques",
     "text": "🌍 Compétences Linguistiques\n\n🇫🇷 Français : Langue maternelle\n\n🇬🇧 Anglais : Professionnel (courant, écrit et oral)"
+  },
+  {
+    "objectID": "posts/posts.html",
+    "href": "posts/posts.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Trier par\n       Ordre par défaut\n         \n          Titre\n        \n         \n          Date - Le plus ancien\n        \n         \n          Date - Le plus récent\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nLa regression linéaire sous R\n\n\nApplication avec divers langage de programmation\n\n\n\n\n\n1 janv. 2025\n\n\n\n\n\n\nAucun article correspondant"
   }
 ]
