@@ -9,7 +9,8 @@ language:
 website:
   title: "Boukary Ouedraogo"
   page-navigation: false
-  site-url: "www.ouedraogo-boukary.com"
+  site-url: "https://oboukary.com"
+  description: "Bienvenue sur mon site personnel. Je suis Boukary Ouedraogo, un passionné de la data science et ses applications business à forte value ajoutée. Explorez mes projets, articles de blog et plus encore !"
   
   page-footer:
     left: '<p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Boukary Ouedraogo</p>'
