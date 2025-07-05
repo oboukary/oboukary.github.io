@@ -1,7 +1,7 @@
 ---
 about:
   template: broadside
-  image: profile.jpg
+  image: Boukary.png
 comments: false
 nav: false
 ---
