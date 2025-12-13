@@ -1,8 +1,8 @@
 {
-  "hash": "8a06e2bc6f32c26586d1199fc3d24d0b",
+  "hash": "7fc858e0c273197c8778e912e45a42d7",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"La regression linéaire sous R\"\nsubtitle: \"Application avec divers langage de programmation\"\nauthor: \n  - \"Boukary O.\"\ndate: 2025-01-01\ncategories:\n  - Events\n  - Communities\n  - tidyverse\n  - RStudio\n  - R Packages\ntoc: true  \nimage: \"linear_regression_featured_image.png\"\n---\n\n\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stderr}\n\n```\nWarning: le package 'readr' a été compilé avec la version R 4.5.2\n```\n\n\n:::\n:::\n\n\n\n",
+    "markdown": "---\ntitle: \"La regression linéaire sous R\"\nsubtitle: \"Application avec divers langage de programmation\"\nauthor: \n  - \"Boukary O.\"\ndate: 2025-01-01\ncategories:\n  - Events\n  - Communities\n  - tidyverse\n  - RStudio\n  - R Packages\ntoc: true  \nimage: \"linear_regression_featured_image.png\"\n---\n\n\n\n\n::: {.cell}\n\n:::\n\n\n```{ class=\"sas\"}\nproc contents data=sashelp.cars;\nrun;\n\n```\n\n",
     "supporting": [
       "index_files"
     ],

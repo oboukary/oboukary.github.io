@@ -18,8 +18,18 @@ image: "linear_regression_featured_image.png"
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r message=FALSE}
+```{r message=FALSE, warning=FALSE}
 library(readr)
 ```
 
+```{ class="sas"}
+%macro afficher(tab=);
+title "Afficher les données de &tab.";
+proc print data=&tab. noobs;
+run;
+%mend afficher;
+
+%afficher(tab=sashelp.cars)
+
+```
 

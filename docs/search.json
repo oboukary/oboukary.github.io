@@ -11,7 +11,7 @@
     "href": "posts/01_regression_lineaire/index.html",
     "title": "La regression linéaire sous R",
     "section": "",
-    "text": "Warning: le package 'readr' a été compilé avec la version R 4.5.2"
+    "text": "proc contents data=sashelp.cars;\nrun;"
   },
   {
     "objectID": "index.html#publications-récentes",
@@ -21,6 +21,20 @@
     "text": "Publications récentes\n\n\n\n\n\n\n\n\n\n\nLa regression linéaire sous R\n\n\n\n1 janv. 2025\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Boukary Ouedraogo",
+    "section": "",
+    "text": "Ingénieur statisticien-économiste avec plus de 8 ans d’expérience, j’accompagne les organisations dans la valorisation de leurs données et la diffusion d’une culture analytique. Mon parcours m’a conduit à piloter des projets structurants : modélisation prédictive pour la détection de fraude à la MSA, analyse de rentabilité et pilotage financier chez Arval BNP Paribas, ou encore modélisation macroéconomique pour France Stratégie. Je combine expertise technique (Power BI, Python, SQL, SAS, Dataiku) et approche pédagogique pour aider les équipes à s’approprier les enjeux Data et gagner en autonomie."
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Boukary Ouedraogo",
+    "section": "Experience",
+    "text": "Experience\nFinInsight Data Analytics  | Consultant indépendant data | Mai. 2025 - Présent\nArval BNP Paribas | Statisticien & Analyst Pricing | Fév. 2022 - Mai 2025\nCCMSA | Statisticien & Data scientist | Janv. 2018 - Janv. 2022"
+  },
+  {
     "objectID": "about.html#formation",
     "href": "about.html#formation",
     "title": "Boukary Ouedraogo",
@@ -28,11 +42,11 @@
     "text": "Formation\nUniversité Paris Nanterre & Université Paris Saclay | France  Master en modélisation prospective | Sept 2016 - Juin 2017\nINSEA | Rabat, Maroc  Ingénieur statisticien-économiste | Sept 2012 - Juil 2015\nUniversité Ibn Tofail | Kenitra, Maroc  DEUG en mathématiques | Sept 2010 - Juil 2012"
   },
   {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
+    "objectID": "about.html#certifications",
+    "href": "about.html#certifications",
     "title": "Boukary Ouedraogo",
-    "section": "Experience",
-    "text": "Experience\nFinInsight Data Analytics  | Independant consultant in data analytics | Mai. 2025 - Présent\nArval BNP Paribas | Statisticien & Analyst Pricing | Fév. 2022 - Mai 2025\nCCMSA | Statisticien & Data scientist | Janv. 2018 - Janv. 2022"
+    "section": "Certifications",
+    "text": "Certifications\n\nSAS (Base, Advanced, Statistical Business Analyst)\nDataiku (5 certifications)\nPower BI Data Analyst Associate (PL-300).\nFabric PL600 (en cours)\nFabric PL700 (en cours)\nFMVA (en corus)"
   },
   {
     "objectID": "posts/posts.html",

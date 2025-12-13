@@ -12,8 +12,16 @@ nav: false
 Ingénieur statisticien-économiste avec plus de 8 ans d'expérience, j'accompagne les organisations dans la valorisation de leurs données et la diffusion d'une culture analytique.
 Mon parcours m'a conduit à piloter des projets structurants : modélisation prédictive pour la détection de fraude à la MSA, analyse de rentabilité et pilotage financier chez Arval BNP Paribas, ou encore modélisation macroéconomique pour France Stratégie.
 Je combine expertise technique (Power BI, Python, SQL, SAS, Dataiku) et approche pédagogique pour aider les équipes à s'approprier les enjeux Data et gagner en autonomie.
-Certifications : SAS (Base, Advanced, Statistical Business Analyst), Dataiku (5 certifications), Power BI Data Analyst Associate (PL-300).
+
 <hr>
+## Experience
+
+**FinInsight Data Analytics ** \| Consultant indépendant data \| Mai. 2025 - Présent
+
+**Arval BNP Paribas** \| Statisticien & Analyst Pricing \| Fév. 2022 - Mai 2025
+
+**CCMSA** \| Statisticien & Data scientist \| Janv. 2018 - Janv. 2022
+
 
 ## Formation
 
@@ -23,13 +31,15 @@ Certifications : SAS (Base, Advanced, Statistical Business Analyst), Dataiku (5 
 
 **Université Ibn Tofail** \| Kenitra, Maroc <br/> DEUG en mathématiques \| Sept 2010 - Juil 2012
 
-## Experience
 
-**FinInsight Data Analytics ** \| Consultant indépendant en data \| Mai. 2025 - Présent
+## Certifications
 
-**Arval BNP Paribas** \| Statisticien & Analyst Pricing \| Fév. 2022 - Mai 2025
-
-**CCMSA** \| Statisticien & Data scientist \| Janv. 2018 - Janv. 2022
+- SAS (Base, Advanced, Statistical Business Analyst)
+- Dataiku (5 certifications)
+- Power BI Data Analyst Associate (PL-300).
+- Fabric PL600 (en cours)
+- Fabric PL700 (en cours)
+- FMVA (en corus)
 
 
 

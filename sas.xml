@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language name="SAS" section="Scripts" version="4" kateversion="5.0" extensions="*.sas;*.SAS" mimetype="text/x-sas" author="Custom" license="MIT" casesensitive="0">
+  <highlighting>
+    <list name="keywords">
+      <item>abort</item>
+      <item>array</item>
+      <item>attrib</item>
+      <item>by</item>
+      <item>call</item>
+      <item>cards</item>
+      <item>cards4</item>
+      <item>class</item>
+      <item>continue</item>
+      <item>data</item>
+      <item>datalines</item>
+      <item>delete</item>
+      <item>describe</item>
+      <item>do</item>
+      <item>drop</item>
+      <item>else</item>
+      <item>end</item>
+      <item>error</item>
+      <item>file</item>
+      <item>filename</item>
+      <item>footnote</item>
+      <item>format</item>
+      <item>goto</item>
+      <item>if</item>
+      <item>infile</item>
+      <item>informat</item>
+      <item>input</item>
+      <item>keep</item>
+      <item>label</item>
+      <item>leave</item>
+      <item>length</item>
+      <item>libname</item>
+      <item>link</item>
+      <item>list</item>
+      <item>merge</item>
+      <item>missing</item>
+      <item>model</item>
+      <item>modify</item>
+      <item>ods</item>
+      <item>options</item>
+      <item>otherwise</item>
+      <item>output</item>
+      <item>proc</item>
+      <item>put</item>
+      <item>quit</item>
+      <item>rename</item>
+      <item>retain</item>
+      <item>return</item>
+      <item>run</item>
+      <item>select</item>
+      <item>set</item>
+      <item>stop</item>
+      <item>table</item>
+      <item>tables</item>
+      <item>then</item>
+      <item>title</item>
+      <item>to</item>
+      <item>until</item>
+      <item>update</item>
+      <item>var</item>
+      <item>weight</item>
+      <item>when</item>
+      <item>where</item>
+      <item>while</item>
+      <item>with</item>
+      <item>and</item>
+      <item>or</item>
+      <item>not</item>
+      <item>eq</item>
+      <item>ne</item>
+      <item>lt</item>
+      <item>le</item>
+      <item>gt</item>
+      <item>ge</item>
+      <item>in</item>
+    </list>
+    <list name="procs">
+      <item>append</item>
+      <item>catalog</item>
+      <item>chart</item>
+      <item>compare</item>
+      <item>contents</item>
+      <item>copy</item>
+      <item>corr</item>
+      <item>datasets</item>
+      <item>export</item>
+      <item>format</item>
+      <item>freq</item>
+      <item>gplot</item>
+      <item>import</item>
+      <item>means</item>
+      <item>options</item>
+      <item>plot</item>
+      <item>print</item>
+      <item>printto</item>
+      <item>rank</item>
+      <item>reg</item>
+      <item>report</item>
+      <item>sgpanel</item>
+      <item>sgplot</item>
+      <item>sort</item>
+      <item>sql</item>
+      <item>summary</item>
+      <item>tabulate</item>
+      <item>template</item>
+      <item>transpose</item>
+      <item>univariate</item>
+    </list>
+    <list name="functions">
+      <item>abs</item>
+      <item>ceil</item>
+      <item>compress</item>
+      <item>cos</item>
+      <item>date</item>
+      <item>datepart</item>
+      <item>datetime</item>
+      <item>day</item>
+      <item>exp</item>
+      <item>floor</item>
+      <item>index</item>
+      <item>input</item>
+      <item>int</item>
+      <item>intck</item>
+      <item>intnx</item>
+      <item>left</item>
+      <item>length</item>
+      <item>log</item>
+      <item>log10</item>
+      <item>lowcase</item>
+      <item>max</item>
+      <item>mean</item>
+      <item>min</item>
+      <item>missing</item>
+      <item>mod</item>
+      <item>month</item>
+      <item>n</item>
+      <item>nmiss</item>
+      <item>put</item>
+      <item>ranuni</item>
+      <item>right</item>
+      <item>round</item>
+      <item>scan</item>
+      <item>sin</item>
+      <item>sqrt</item>
+      <item>std</item>
+      <item>strip</item>
+      <item>substr</item>
+      <item>sum</item>
+      <item>tan</item>
+      <item>time</item>
+      <item>timepart</item>
+      <item>today</item>
+      <item>translate</item>
+      <item>tranwrd</item>
+      <item>trim</item>
+      <item>upcase</item>
+      <item>var</item>
+      <item>year</item>
+    </list>
+    <list name="macros">
+      <item>%bquote</item>
+      <item>%do</item>
+      <item>%else</item>
+      <item>%end</item>
+      <item>%eval</item>
+      <item>%global</item>
+      <item>%goto</item>
+      <item>%if</item>
+      <item>%include</item>
+      <item>%let</item>
+      <item>%local</item>
+      <item>%macro</item>
+      <item>%mend</item>
+      <item>%put</item>
+      <item>%scan</item>
+      <item>%str</item>
+      <item>%substr</item>
+      <item>%sysfunc</item>
+      <item>%then</item>
+      <item>%to</item>
+      <item>%until</item>
+      <item>%upcase</item>
+      <item>%while</item>
+    </list>
+    <contexts>
+      <context name="Normal" attribute="Normal" lineEndContext="#stay">
+        <Detect2Chars char="/" char1="*" attribute="Comment" context="Comment"/>
+        <DetectChar char="*" attribute="Comment" context="LineComment" firstNonSpace="true"/>
+        <DetectChar char="&quot;" attribute="String" context="String"/>
+        <DetectChar char="'" attribute="String" context="String2"/>
+        <keyword String="keywords" attribute="Keyword" context="#stay"/>
+        <keyword String="procs" attribute="Keyword" context="#stay"/>
+        <keyword String="functions" attribute="Function" context="#stay"/>
+        <keyword String="macros" attribute="Keyword" context="#stay"/>
+        <RegExpr String="&amp;[a-zA-Z_][a-zA-Z0-9_]*\.?" attribute="Variable" context="#stay"/>
+        <RegExpr String="%[a-zA-Z_][a-zA-Z0-9_]*" attribute="Keyword" context="#stay"/>
+        <Float attribute="Float" context="#stay"/>
+        <Int attribute="DecVal" context="#stay"/>
+      </context>
+      <context name="Comment" attribute="Comment" lineEndContext="#stay">
+        <Detect2Chars char="*" char1="/" attribute="Comment" context="#pop"/>
+      </context>
+      <context name="LineComment" attribute="Comment" lineEndContext="#stay">
+        <DetectChar char=";" attribute="Comment" context="#pop"/>
+      </context>
+      <context name="String" attribute="String" lineEndContext="#stay">
+        <RegExpr String="&amp;[a-zA-Z_][a-zA-Z0-9_]*\.?" attribute="Variable" context="#stay"/>
+        <DetectChar char="&quot;" attribute="String" context="#pop"/>
+      </context>
+      <context name="String2" attribute="String" lineEndContext="#stay">
+        <DetectChar char="'" attribute="String" context="#pop"/>
+      </context>
+    </contexts>
+    <itemDatas>
+      <itemData name="Normal" defStyleNum="dsNormal"/>
+      <itemData name="Keyword" defStyleNum="dsKeyword"/>
+      <itemData name="Function" defStyleNum="dsFunction"/>
+      <itemData name="Variable" defStyleNum="dsVariable"/>
+      <itemData name="String" defStyleNum="dsString"/>
+      <itemData name="Comment" defStyleNum="dsComment"/>
+      <itemData name="Float" defStyleNum="dsFloat"/>
+      <itemData name="DecVal" defStyleNum="dsDecVal"/>
+    </itemDatas>
+  </highlighting>
+  <general>
+    <comments>
+      <comment name="multiLine" start="/*" end="*/"/>
+    </comments>
+    <keywords casesensitive="0"/>
+  </general>
+</language>

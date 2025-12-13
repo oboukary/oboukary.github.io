@@ -39,6 +39,9 @@ website:
 format:
   html:
     theme: [pulse, custom.scss]
+    highlight-style: sas-studio.theme
+    syntax-definitions:
+      - sas.xml
     include-before-body: assets/include-before-body.html
     include-after-body: assets/projects.html  # Inclure le fichier JavaScript
     
