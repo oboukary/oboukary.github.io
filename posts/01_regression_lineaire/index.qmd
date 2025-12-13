@@ -17,3 +17,9 @@ image: "linear_regression_featured_image.png"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+```{r}
+library(readr)
+```
+
+

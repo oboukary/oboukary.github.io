@@ -7,6 +7,13 @@
     "text": "Aucun article correspondant"
   },
   {
+    "objectID": "posts/01_regression_lineaire/index.html",
+    "href": "posts/01_regression_lineaire/index.html",
+    "title": "La regression linéaire sous R",
+    "section": "",
+    "text": "Warning: le package 'readr' a été compilé avec la version R 4.5.2"
+  },
+  {
     "objectID": "index.html#publications-récentes",
     "href": "index.html#publications-récentes",
     "title": "Boukary Ouedraogo",
@@ -32,7 +39,7 @@
     "href": "about.html#experience",
     "title": "Boukary Ouedraogo",
     "section": "Experience",
-    "text": "Experience\nArval BNP Paribas | Statisticien & Analyst Pricing | Février 2022 - présent\nCCMSA | Statisticien & Data scientist | Janv 2018 - Janv 2022"
+    "text": "Experience\nFinInsight Data Analytics  | Independant consultant in data analytics | Mai. 2025 - Présent\nArval BNP Paribas | Statisticien & Analyst Pricing | Fév. 2022 - Mai 2025\nCCMSA | Statisticien & Data scientist | Janv. 2018 - Janv. 2022"
   },
   {
     "objectID": "posts/posts.html",
