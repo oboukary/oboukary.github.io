@@ -27,11 +27,8 @@ website:
   navbar:
     pinned: true
     right:
-      - href: index.qmd
-        text: Accueil
-        
       - href: about.qmd
-        text: A propos
+        text: Accueil
         
       - text: Blog
         href: posts/posts.qmd

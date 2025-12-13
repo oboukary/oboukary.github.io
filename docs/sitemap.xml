@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://oboukary.com/post.html</loc>
-    <lastmod>2025-07-05T22:58:04.225Z</lastmod>
+    <loc>https://oboukary.com/projects/projects.html</loc>
+    <lastmod>2025-12-13T10:52:59.612Z</lastmod>
   </url>
   <url>
     <loc>https://oboukary.com/posts/01_regression_lineaire/index.html</loc>
-    <lastmod>2025-07-05T22:58:04.225Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oboukary.com/about.html</loc>
-    <lastmod>2025-07-05T23:01:45.903Z</lastmod>
+    <lastmod>2025-12-13T10:52:59.608Z</lastmod>
   </url>
   <url>
     <loc>https://oboukary.com/index.html</loc>
-    <lastmod>2025-07-05T22:58:04.225Z</lastmod>
+    <lastmod>2025-12-13T11:01:11.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.com/about.html</loc>
+    <lastmod>2025-12-13T11:02:02.350Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.com/post.html</loc>
+    <lastmod>2025-12-13T10:57:14.624Z</lastmod>
   </url>
   <url>
     <loc>https://oboukary.com/posts/posts.html</loc>
-    <lastmod>2025-07-05T22:58:04.225Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oboukary.com/projects/projects.html</loc>
-    <lastmod>2025-07-05T22:58:04.225Z</lastmod>
+    <lastmod>2025-12-13T10:59:43.032Z</lastmod>
   </url>
 </urlset>
