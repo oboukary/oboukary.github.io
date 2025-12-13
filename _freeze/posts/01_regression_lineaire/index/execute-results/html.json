@@ -1,5 +1,5 @@
 {
-  "hash": "e3729eea97d691876da53e622735f395",
+  "hash": "8a06e2bc6f32c26586d1199fc3d24d0b",
   "result": {
     "engine": "knitr",
     "markdown": "---\ntitle: \"La regression linéaire sous R\"\nsubtitle: \"Application avec divers langage de programmation\"\nauthor: \n  - \"Boukary O.\"\ndate: 2025-01-01\ncategories:\n  - Events\n  - Communities\n  - tidyverse\n  - RStudio\n  - R Packages\ntoc: true  \nimage: \"linear_regression_featured_image.png\"\n---\n\n\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stderr}\n\n```\nWarning: le package 'readr' a été compilé avec la version R 4.5.2\n```\n\n\n:::\n:::\n\n\n\n",

@@ -6,7 +6,8 @@ comments: false
 nav: false
 ---
 
-## Consultant Data | Finance & Business Intelligence
+<span style="font-size: 250%; color: #023475;font-weight:bold;"> Consultant Indépendant </span> <br>
+<span style="font-size: 150%; color: #023475;font-style: italic;"> Data Analytics | Data science | BI </span>
 <hr>
 Ingénieur statisticien-économiste avec plus de 8 ans d'expérience, j'accompagne les organisations dans la valorisation de leurs données et la diffusion d'une culture analytique.
 Mon parcours m'a conduit à piloter des projets structurants : modélisation prédictive pour la détection de fraude à la MSA, analyse de rentabilité et pilotage financier chez Arval BNP Paribas, ou encore modélisation macroéconomique pour France Stratégie.
@@ -24,7 +25,7 @@ Certifications : SAS (Base, Advanced, Statistical Business Analyst), Dataiku (5 
 
 ## Experience
 
-**FinInsight Data Analytics ** \| Independant consultant in data analytics \| Mai. 2025 - Présent
+**FinInsight Data Analytics ** \| Consultant indépendant en data \| Mai. 2025 - Présent
 
 **Arval BNP Paribas** \| Statisticien & Analyst Pricing \| Fév. 2022 - Mai 2025
 
