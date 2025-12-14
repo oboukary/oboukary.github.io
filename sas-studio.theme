@@ -2,7 +2,7 @@
     "metadata": {
         "name": "SAS Studio",
         "author": "Custom theme mimicking SAS Studio colors",
-        "revision": 1
+        "revision": 6
     },
     "text-color": "#000000",
     "background-color": "#FFFFFF",
@@ -38,9 +38,9 @@
             "underline": false
         },
         "ControlFlow": {
-            "text-color": "#0000FF",
+            "text-color": "#000080",
             "background-color": null,
-            "bold": false,
+            "bold": true,
             "italic": false,
             "underline": false
         },
@@ -66,17 +66,17 @@
             "underline": false
         },
         "Preprocessor": {
-            "text-color": "#000000",
+            "text-color": "#0000FF",
             "background-color": null,
             "bold": false,
             "italic": false,
             "underline": false
         },
         "Attribute": {
-            "text-color": "#0000FF",
+            "text-color": "#000000",
             "background-color": null,
-            "bold": false,
-            "italic": false,
+            "bold": true,
+            "italic": true,
             "underline": false
         },
         "Char": {

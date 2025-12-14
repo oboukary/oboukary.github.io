@@ -3,12 +3,12 @@
   --quarto-hl-kw-color: #0000FF;
   --quarto-hl-fu-color: #0000FF;
   --quarto-hl-va-color: #000000;
-  --quarto-hl-cf-color: #0000FF;
+  --quarto-hl-cf-color: #000080;
   --quarto-hl-op-color: #000000;
   --quarto-hl-bu-color: #0000FF;
   --quarto-hl-ex-color: #0000FF;
-  --quarto-hl-pp-color: #000000;
-  --quarto-hl-at-color: #0000FF;
+  --quarto-hl-pp-color: #0000FF;
+  --quarto-hl-at-color: #000000;
   --quarto-hl-ch-color: #800080;
   --quarto-hl-sc-color: #800080;
   --quarto-hl-st-color: #800080;
@@ -74,8 +74,9 @@ code span.an {
 
 /* Attribute */
 code span.at {
-  color: #0000FF;
-  font-style: inherit;
+  color: #000000;
+  font-weight: bold;
+  font-style: italic;
 }
 
 /* BaseN */
@@ -92,7 +93,8 @@ code span.bu {
 
 /* ControlFlow */
 code span.cf {
-  color: #0000FF;
+  color: #000080;
+  font-weight: bold;
   font-style: inherit;
 }
 
@@ -195,7 +197,7 @@ code span.ot {
 
 /* Preprocessor */
 code span.pp {
-  color: #000000;
+  color: #0000FF;
   font-style: inherit;
 }
 
@@ -239,4 +241,4 @@ code span.wa {
   content: "</";
 }
 
-/*# sourceMappingURL=46d99a2bc03b46ca525926f631ec92a6.css.map */
+/*# sourceMappingURL=fc2b694e97fa30a1e07881e4c2aa90f6.css.map */

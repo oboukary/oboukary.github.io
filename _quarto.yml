@@ -39,9 +39,14 @@ website:
 format:
   html:
     theme: [pulse, custom.scss]
+    include-in-header:
+      - text: |
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sas.min.js"></script>
     highlight-style: sas-studio.theme
     syntax-definitions:
       - sas.xml
+    css: syntax-languages.css
     include-before-body: assets/include-before-body.html
     include-after-body: assets/projects.html  # Inclure le fichier JavaScript
     

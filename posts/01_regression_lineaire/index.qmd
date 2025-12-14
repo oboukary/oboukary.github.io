@@ -12,24 +12,39 @@ categories:
   - R Packages
 toc: true  
 image: "linear_regression_featured_image.png"
+draft: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, echo=TRUE}
 library(readr)
+library(reticulate)
+print("bonjour")
 ```
 
 ```{ class="sas"}
 %macro afficher(tab=);
 title "Afficher les données de &tab.";
-proc print data=&tab. noobs;
-run;
+PROC print data=&tab. noobs;
+RUN;
 %mend afficher;
 
 %afficher(tab=sashelp.cars)
 
+proc sql;
+select Name, Age, Height*2.54 as HeightCM format 5.1,
+       Birthdate format=date9.
+    from pg1.class_birthdate
+    where age > 14
+    order by Height desc;
+quit; 
+
+```
+
+```{python echo=TRUE}
+print("Hello World")
 ```
 
