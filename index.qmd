@@ -31,7 +31,9 @@ about:
 ---
 
 ::: {#hero-heading}
-Bienvenue sur mon site internet! Vous trouverez ici mes posts et d'autres projets sur lesquels je travaille.
+<p align="center">
+  <img src="assets/welcome.svg" width="750" />
+</p>
 
 :::
 
