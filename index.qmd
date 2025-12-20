@@ -32,7 +32,7 @@ about:
 
 ::: {#hero-heading}
 <p align="center">
-  <img src="assets/welcome.svg" width="750" />
+  <img src="assets/svg/welcome.svg" width="750" />
 </p>
 
 :::

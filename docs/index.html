@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -190,7 +190,7 @@ window.Quarto = {
     <header id="title-block-header" class="quarto-title-block"></header> <main class="content column-page" id="quarto-document-content">
 <div id="hero-heading">
 <p align="center">
-<img src="assets/welcome.svg" width="750">
+<img src="assets/svg/welcome.svg" width="750">
 </p>
 </div>
 <hr>
@@ -198,6 +198,24 @@ window.Quarto = {
 <h2 data-anchor-id="publications-récentes">Publications récentes</h2>
 <div id="listing-posts" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="RXZlbnRzJTJDQ29tbXVuaXRpZXMlMkN0aWR5dmVyc2UlMkNSU3R1ZGlvJTJDUiUyMFBhY2thZ2Vz" data-listing-date-sort="1735686000000" data-listing-file-modified-sort="1766266139726" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="97">
+<a href="./posts/01_regression_lineaire/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/01_regression_lineaire/linear_regression_featured_image.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+La regression linéaire sous R
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+1 janv. 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
 </div>
 <div class="listing-no-matching d-none">Aucun article correspondant</div>
 </div>

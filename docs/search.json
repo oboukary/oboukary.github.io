@@ -11,7 +11,7 @@
     "href": "index.html#publications-récentes",
     "title": "Boukary Ouedraogo<br><span class='nav-subtitle'>Consultant Data & Analytics – Finance, Risque & Décision</span>",
     "section": "Publications récentes",
-    "text": "Publications récentes\n\n\n\nAucun article correspondant"
+    "text": "Publications récentes\n\n\n\n\n\n\n\n\n\n\nLa regression linéaire sous R\n\n\n\n1 janv. 2025\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "about.html",
@@ -32,13 +32,6 @@
     "href": "posts/posts.html",
     "title": "Publications",
     "section": "",
-    "text": "Trier par\n      Ordre par défaut\n      \n        Titre\n      \n      \n        Date - Le plus ancien\n      \n      \n        Date - Le plus récent\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nLa regression linéaire sous R\n\n\nApplication avec divers langage de programmation\n\n\n\n\n\n1 janv. 2025\n\n\n\n\n\nAucun article correspondant"
-  },
-  {
-    "objectID": "posts/01_regression_lineaire/index.html",
-    "href": "posts/01_regression_lineaire/index.html",
-    "title": "La regression linéaire sous R",
-    "section": "",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nlibrary(readr)\nlibrary(reticulate)\nprint(\"bonjour\")\n\n[1] \"bonjour\"\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n%macro afficher(tab=);\ntitle \"Afficher les données de &tab.\";\nPROC print data=&tab. noobs;\nRUN;\n%mend afficher;\n\n%afficher(tab=sashelp.cars)\n\nproc sql;\nselect Name, Age, Height*2.54 as HeightCM format 5.1,\n       Birthdate format=date9.\n    from pg1.class_birthdate\n    where age &gt; 14\n    order by Height desc;\nquit; \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nprint(\"Hello World\")\n\nHello World\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. # 3 paragraphes"
+    "text": "Trier par\n      Ordre par défaut\n      \n        Titre\n      \n      \n        Date - Le plus ancien\n      \n      \n        Date - Le plus récent\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nAucun article correspondant"
   }
 ]
