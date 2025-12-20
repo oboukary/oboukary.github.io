@@ -1,0 +1,111 @@
+/*-- scss:defaults --*/
+$bs-blue: #023475 !default;
+$bs-pagination-active-bg: $bs-blue !default;
+$bs-primary: $bs-blue !default;
+$bs-btn-hover-bg: $bs-blue !default;
+
+/*-- scss:rules --*/
+
+.navbar {
+  background-color: $bs-blue;
+  position: sticky;
+}
+
+.quarto-title-banner{
+  background-color: #0c2e42 ;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: $bs-blue;
+    border-color: $bs-blue;
+}
+
+
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: $bs-blue;
+    border-color: $bs-blue;
+}
+
+.quarto-title-banner {
+    margin-bottom: 1em;
+    color: rgba(255,255,255,.7);
+    background: $bs-blue;
+}
+
+
+.page-link {
+      color: $bs-blue;
+}
+
+
+.page-link:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: $bs-blue;
+    border-color: $bs-blue;
+}
+
+a{
+  color: $bs-blue;
+}
+
+b, strong {
+    color: $bs-blue;
+    font-weight: bolder;
+}
+
+div.quarto-post .listing-categories .listing-category {
+    color: $bs-blue;
+    border: solid 1px var(--bs-gray-400);
+    font-size: .8em;
+}
+
+
+#quarto-document-content {
+  width: 125%;
+}
+
+.quarto-listing-category.category-cloud {
+    font-size: .55em
+}
+
+.quarto-post .thumbnail img {
+    object-fit: contain;
+    max-height: 150px;
+    max-width: 350px;
+  
+}
+/*---------*/
+pre.sourceCode {
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  padding: 1em;
+  background-color: #fafafa;
+}
+
+code {
+  background-color: #f5f5f5;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+.quarto-title-meta-contents{
+  color: $bs-blue;
+}
+
+.nav-subtitle {
+  font-size: 0.75em;
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+
+/* ===========================================
+   PAGE D'ACCUEIL - STYLES (HTML pur)
+   =========================================== */
+@import "_home";
+@import "_contact";

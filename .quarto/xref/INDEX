@@ -40,5 +40,11 @@
   },
   "projects/projects.qmd": {
     "projects.html": "60801307"
+  },
+  "assets/about_initial.qmd": {
+    "about_initial.html": "5c71207f"
+  },
+  "contact.qmd": {
+    "contact.html": "1be3239e"
   }
 }

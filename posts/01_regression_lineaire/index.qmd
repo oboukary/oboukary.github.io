@@ -12,22 +12,22 @@ categories:
   - R Packages
 toc: true  
 image: "linear_regression_featured_image.png"
-draft: false
+draft: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-{{< lipsum 3 >}}       # 3 paragraphes
-{{< lipsum 1-2 >}}     # paragraphes 1 à 2
+{{< lipsum 1 >}}      
+
 
 ```{r message=FALSE, warning=FALSE, echo=TRUE}
 library(readr)
 library(reticulate)
 print("bonjour")
 ```
-{{< lipsum 3 >}}       # 3 paragraphes
-{{< lipsum 1-2 >}}     # paragraphes 1 à 2
+{{< lipsum 1 >}}       
+
 
 ```{ class="sas"}
 %macro afficher(tab=);
@@ -47,10 +47,11 @@ select Name, Age, Height*2.54 as HeightCM format 5.1,
 quit; 
 
 ```
-{{< lipsum 3 >}}       # 3 paragraphes
-{{< lipsum 1-2 >}}     # paragraphes 1 à 2
+{{< lipsum 1 >}}      
+
+
 ```{python echo=TRUE}
 print("Hello World")
 ```
-{{< lipsum 3 >}}       # 3 paragraphes
-{{< lipsum 1-2 >}}     # paragraphes 1 à 2
+{{< lipsum 1 >}}       # 3 paragraphes
+

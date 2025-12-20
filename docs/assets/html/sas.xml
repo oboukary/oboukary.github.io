@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language name="SAS" section="Scripts" version="14" kateversion="5.0" extensions="*.sas;*.SAS" mimetype="text/x-sas" author="Custom" license="MIT" casesensitive="0">
+  <highlighting>
+    <list name="boldkeywords">
+      <item>proc</item>
+      <item>run</item>
+      <item>quit</item>
+      <item>append</item>
+      <item>catalog</item>
+      <item>chart</item>
+      <item>compare</item>
+      <item>contents</item>
+      <item>copy</item>
+      <item>corr</item>
+      <item>datasets</item>
+      <item>export</item>
+      <item>freq</item>
+      <item>gplot</item>
+      <item>import</item>
+      <item>means</item>
+      <item>options</item>
+      <item>plot</item>
+      <item>print</item>
+      <item>printto</item>
+      <item>rank</item>
+      <item>reg</item>
+      <item>report</item>
+      <item>sgpanel</item>
+      <item>sgplot</item>
+      <item>sort</item>
+      <item>sql</item>
+      <item>summary</item>
+      <item>tabulate</item>
+      <item>template</item>
+      <item>transpose</item>
+      <item>univariate</item>
+      <item>logistic</item>
+      <item>glm</item>
+      <item>mixed</item>
+      <item>anova</item>
+      <item>ttest</item>
+      <item>npar1way</item>
+      <item>lifetest</item>
+      <item>phreg</item>
+      <item>genmod</item>
+      <item>surveyselect</item>
+      <item>surveymeans</item>
+      <item>surveyfreq</item>
+      <item>surveyreg</item>
+      <item>factor</item>
+      <item>princomp</item>
+      <item>cluster</item>
+      <item>varclus</item>
+      <item>discrim</item>
+      <item>candisc</item>
+      <item>stdize</item>
+      <item>standard</item>
+      <item>score</item>
+      <item>boxplot</item>
+      <item>gchart</item>
+      <item>gmap</item>
+      <item>sgrender</item>
+      <item>sgscatter</item>
+      <item>odstext</item>
+      <item>document</item>
+      <item>odstable</item>
+      <item>odslist</item>
+      <item>json</item>
+      <item>lua</item>
+      <item>groovy</item>
+      <item>ds2</item>
+      <item>fedsql</item>
+      <item>cas</item>
+      <item>http</item>
+    </list>
+    <list name="keywords">
+      <item>abort</item>
+      <item>array</item>
+      <item>attrib</item>
+      <item>by</item>
+      <item>call</item>
+      <item>cards</item>
+      <item>cards4</item>
+      <item>class</item>
+      <item>continue</item>
+      <item>data</item>
+      <item>datalines</item>
+      <item>delete</item>
+      <item>describe</item>
+      <item>do</item>
+      <item>drop</item>
+      <item>else</item>
+      <item>end</item>
+      <item>error</item>
+      <item>file</item>
+      <item>filename</item>
+      <item>footnote</item>
+      <item>format</item>
+      <item>goto</item>
+      <item>if</item>
+      <item>infile</item>
+      <item>informat</item>
+      <item>input</item>
+      <item>keep</item>
+      <item>label</item>
+      <item>leave</item>
+      <item>length</item>
+      <item>libname</item>
+      <item>link</item>
+      <item>list</item>
+      <item>merge</item>
+      <item>missing</item>
+      <item>model</item>
+      <item>modify</item>
+      <item>ods</item>
+      <item>otherwise</item>
+      <item>output</item>
+      <item>put</item>
+      <item>rename</item>
+      <item>retain</item>
+      <item>return</item>
+      <item>select</item>
+      <item>set</item>
+      <item>stop</item>
+      <item>table</item>
+      <item>tables</item>
+      <item>then</item>
+      <item>title</item>
+      <item>to</item>
+      <item>until</item>
+      <item>update</item>
+      <item>var</item>
+      <item>weight</item>
+      <item>when</item>
+      <item>where</item>
+      <item>while</item>
+      <item>with</item>
+      <item>and</item>
+      <item>or</item>
+      <item>not</item>
+      <item>eq</item>
+      <item>ne</item>
+      <item>lt</item>
+      <item>le</item>
+      <item>gt</item>
+      <item>ge</item>
+      <item>in</item>
+      <item>noobs</item>
+      <item>obs</item>
+      <item>firstobs</item>
+      <item>nodupkey</item>
+      <item>dupout</item>
+      <item>out</item>
+      <item>descending</item>
+      <item>ascending</item>
+      <item>create</item>
+      <item>insert</item>
+      <item>into</item>
+      <item>from</item>
+      <item>group</item>
+      <item>having</item>
+      <item>order</item>
+      <item>distinct</item>
+      <item>left</item>
+      <item>right</item>
+      <item>inner</item>
+      <item>outer</item>
+      <item>full</item>
+      <item>join</item>
+      <item>on</item>
+      <item>as</item>
+      <item>case</item>
+      <item>between</item>
+      <item>like</item>
+      <item>is</item>
+      <item>null</item>
+      <item>union</item>
+      <item>except</item>
+      <item>intersect</item>
+      <item>all</item>
+      <item>any</item>
+      <item>exists</item>
+      <item>calculated</item>
+    </list>
+    <list name="macrokeywords">
+      <item>%let</item>
+      <item>%if</item>
+      <item>%then</item>
+      <item>%else</item>
+      <item>%do</item>
+      <item>%end</item>
+      <item>%global</item>
+      <item>%local</item>
+      <item>%bquote</item>
+      <item>%eval</item>
+      <item>%goto</item>
+      <item>%include</item>
+      <item>%put</item>
+      <item>%scan</item>
+      <item>%str</item>
+      <item>%substr</item>
+      <item>%sysfunc</item>
+      <item>%to</item>
+      <item>%until</item>
+      <item>%upcase</item>
+      <item>%while</item>
+      <item>%nrstr</item>
+      <item>%nrbquote</item>
+      <item>%qscan</item>
+      <item>%qsubstr</item>
+      <item>%qsysfunc</item>
+      <item>%superq</item>
+      <item>%symexist</item>
+      <item>%symglobl</item>
+      <item>%symlocal</item>
+      <item>%sysevalf</item>
+      <item>%index</item>
+      <item>%length</item>
+      <item>%lowcase</item>
+      <item>%qupcase</item>
+      <item>%qlowcase</item>
+      <item>%cmpres</item>
+      <item>%qcmpres</item>
+      <item>%left</item>
+      <item>%qleft</item>
+      <item>%trim</item>
+      <item>%qtrim</item>
+      <item>%verify</item>
+      <item>%datatyp</item>
+    </list>
+    <list name="functions">
+      <item>abs</item>
+      <item>addr</item>
+      <item>airy</item>
+      <item>arcos</item>
+      <item>arsin</item>
+      <item>atan</item>
+      <item>band</item>
+      <item>betainv</item>
+      <item>blshift</item>
+      <item>bnot</item>
+      <item>bor</item>
+      <item>brshift</item>
+      <item>bxor</item>
+      <item>byte</item>
+      <item>cat</item>
+      <item>catq</item>
+      <item>cats</item>
+      <item>catt</item>
+      <item>catx</item>
+      <item>ceil</item>
+      <item>ceilz</item>
+      <item>char</item>
+      <item>choosec</item>
+      <item>choosen</item>
+      <item>cinv</item>
+      <item>cmiss</item>
+      <item>coalesce</item>
+      <item>coalescec</item>
+      <item>collate</item>
+      <item>comb</item>
+      <item>compare</item>
+      <item>compbl</item>
+      <item>compged</item>
+      <item>complev</item>
+      <item>compound</item>
+      <item>compress</item>
+      <item>constant</item>
+      <item>cos</item>
+      <item>cosh</item>
+      <item>count</item>
+      <item>countc</item>
+      <item>countw</item>
+      <item>css</item>
+      <item>cv</item>
+      <item>datdif</item>
+      <item>date</item>
+      <item>datepart</item>
+      <item>datetime</item>
+      <item>day</item>
+      <item>dequote</item>
+      <item>dhms</item>
+      <item>dif</item>
+      <item>digamma</item>
+      <item>dim</item>
+      <item>exp</item>
+      <item>fact</item>
+      <item>find</item>
+      <item>findc</item>
+      <item>findw</item>
+      <item>fipname</item>
+      <item>fipnamel</item>
+      <item>fipstate</item>
+      <item>floor</item>
+      <item>floorz</item>
+      <item>fuzz</item>
+      <item>gaminv</item>
+      <item>gamma</item>
+      <item>geomean</item>
+      <item>harmean</item>
+      <item>hbound</item>
+      <item>hms</item>
+      <item>hour</item>
+      <item>ifc</item>
+      <item>ifn</item>
+      <item>index</item>
+      <item>indexc</item>
+      <item>indexw</item>
+      <item>input</item>
+      <item>inputc</item>
+      <item>inputn</item>
+      <item>int</item>
+      <item>intck</item>
+      <item>intnx</item>
+      <item>intrr</item>
+      <item>iqr</item>
+      <item>irr</item>
+      <item>kurtosis</item>
+      <item>lag</item>
+      <item>largest</item>
+      <item>lbound</item>
+      <item>left</item>
+      <item>length</item>
+      <item>lengthc</item>
+      <item>lengthm</item>
+      <item>lengthn</item>
+      <item>lgamma</item>
+      <item>log</item>
+      <item>log10</item>
+      <item>log2</item>
+      <item>logbeta</item>
+      <item>lowcase</item>
+      <item>mad</item>
+      <item>max</item>
+      <item>md5</item>
+      <item>mdy</item>
+      <item>mean</item>
+      <item>median</item>
+      <item>min</item>
+      <item>minute</item>
+      <item>missing</item>
+      <item>mod</item>
+      <item>modz</item>
+      <item>month</item>
+      <item>n</item>
+      <item>netpv</item>
+      <item>nmiss</item>
+      <item>notalnum</item>
+      <item>notalpha</item>
+      <item>notcntrl</item>
+      <item>notdigit</item>
+      <item>notfirst</item>
+      <item>notgraph</item>
+      <item>notlower</item>
+      <item>notname</item>
+      <item>notprint</item>
+      <item>notpunct</item>
+      <item>notspace</item>
+      <item>notupper</item>
+      <item>npv</item>
+      <item>ordinal</item>
+      <item>pctl</item>
+      <item>perm</item>
+      <item>poisson</item>
+      <item>prxchange</item>
+      <item>prxmatch</item>
+      <item>prxparen</item>
+      <item>prxparse</item>
+      <item>prxposn</item>
+      <item>put</item>
+      <item>putc</item>
+      <item>putn</item>
+      <item>qtr</item>
+      <item>quote</item>
+      <item>ranbin</item>
+      <item>rancau</item>
+      <item>rand</item>
+      <item>ranexp</item>
+      <item>rangam</item>
+      <item>range</item>
+      <item>rank</item>
+      <item>rannor</item>
+      <item>ranpoi</item>
+      <item>rantbl</item>
+      <item>rantri</item>
+      <item>ranuni</item>
+      <item>repeat</item>
+      <item>resolve</item>
+      <item>reverse</item>
+      <item>right</item>
+      <item>round</item>
+      <item>rounde</item>
+      <item>roundz</item>
+      <item>saving</item>
+      <item>scan</item>
+      <item>second</item>
+      <item>sign</item>
+      <item>sin</item>
+      <item>sinh</item>
+      <item>skewness</item>
+      <item>smallest</item>
+      <item>soundex</item>
+      <item>spedis</item>
+      <item>sqrt</item>
+      <item>std</item>
+      <item>stderr</item>
+      <item>stfips</item>
+      <item>stname</item>
+      <item>stnamel</item>
+      <item>strip</item>
+      <item>subpad</item>
+      <item>substr</item>
+      <item>substrn</item>
+      <item>sum</item>
+      <item>sumabs</item>
+      <item>symget</item>
+      <item>symexist</item>
+      <item>sysget</item>
+      <item>sysmsg</item>
+      <item>sysprod</item>
+      <item>tan</item>
+      <item>tanh</item>
+      <item>time</item>
+      <item>timepart</item>
+      <item>tinv</item>
+      <item>today</item>
+      <item>translate</item>
+      <item>transtrn</item>
+      <item>tranwrd</item>
+      <item>trigamma</item>
+      <item>trim</item>
+      <item>trimn</item>
+      <item>trunc</item>
+      <item>uniform</item>
+      <item>upcase</item>
+      <item>uss</item>
+      <item>var</item>
+      <item>verify</item>
+      <item>vformat</item>
+      <item>vlabel</item>
+      <item>vlength</item>
+      <item>vname</item>
+      <item>vtype</item>
+      <item>vvalue</item>
+      <item>week</item>
+      <item>weekday</item>
+      <item>whichc</item>
+      <item>whichn</item>
+      <item>year</item>
+      <item>yrdif</item>
+      <item>yyq</item>
+      <item>zipfips</item>
+      <item>zipname</item>
+      <item>zipnamel</item>
+      <item>zipstate</item>
+    </list>
+    <contexts>
+      <context name="Normal" attribute="Normal" lineEndContext="#stay">
+        <!-- Block comments -->
+        <Detect2Chars char="/" char1="*" attribute="Comment" context="Comment"/>
+        <!-- Line comments starting with * -->
+        <RegExpr String="^\s*\*[^;]*;" attribute="Comment" context="#stay"/>
+        
+        <!-- Macro variables: &var. -> & is normal, var. is green -->
+        <RegExpr String="&amp;+(?=[a-zA-Z_][a-zA-Z0-9_]*\.)" attribute="Normal" context="MacroVarResolved"/>
+        <!-- Macro variables: &var (no dot) -> all normal/black -->
+        <RegExpr String="&amp;+[a-zA-Z_][a-zA-Z0-9_]*" attribute="Normal" context="#stay"/>
+        
+        <!-- Strings -->
+        <DetectChar char="&quot;" attribute="String" context="String"/>
+        <DetectChar char="'" attribute="String" context="String2"/>
+        
+        <!-- DATA step: data followed by space and identifier (not data=) -->
+        <RegExpr String="\bdata\s+(?=[a-zA-Z_])" attribute="BoldKeyword" context="#stay" insensitive="true"/>
+        
+        <!-- PROC FORMAT: format followed by space (not format=) -->
+        <RegExpr String="\bformat\s+(?=[a-zA-Z_]|\;)" attribute="BoldKeyword" context="#stay" insensitive="true"/>
+        
+        <!-- Bold keywords: proc, run, quit, proc names -->
+        <keyword String="boldkeywords" attribute="BoldKeyword" context="#stay"/>
+        
+        <!-- %macro and %mend - bold -->
+        <RegExpr String="%(macro|mend)\b" attribute="BoldKeyword" context="#stay" insensitive="true"/>
+        
+        <!-- Macro keywords (%let, %if, etc.) - blue -->
+        <keyword String="macrokeywords" attribute="Keyword" context="#stay"/>
+        
+        <!-- Regular keywords (includes data for data= option) -->
+        <keyword String="keywords" attribute="Keyword" context="#stay"/>
+        
+        <!-- Functions -->
+        <keyword String="functions" attribute="Keyword" context="#stay"/>
+        
+        <!-- User macro calls (%myMacro) - black bold italic -->
+        <RegExpr String="%[a-zA-Z_][a-zA-Z0-9_]*" attribute="MacroCall" context="#stay"/>
+        
+        <!-- Numbers -->
+        <Float attribute="Float" context="#stay"/>
+        <Int attribute="DecVal" context="#stay"/>
+      </context>
+      
+      <!-- Context for resolved macro variable (after &) -->
+      <context name="MacroVarResolved" attribute="MacroVar" lineEndContext="#pop">
+        <RegExpr String="[a-zA-Z_][a-zA-Z0-9_]*\." attribute="MacroVar" context="#pop"/>
+      </context>
+      
+      <!-- Block comment -->
+      <context name="Comment" attribute="Comment" lineEndContext="#stay">
+        <Detect2Chars char="*" char1="/" attribute="Comment" context="#pop"/>
+      </context>
+      
+      <!-- Double-quoted string with macro variable resolution -->
+      <context name="String" attribute="String" lineEndContext="#stay">
+        <RegExpr String="&amp;+(?=[a-zA-Z_][a-zA-Z0-9_]*\.)" attribute="String" context="MacroVarInString"/>
+        <DetectChar char="&quot;" attribute="String" context="#pop"/>
+      </context>
+      
+      <!-- Macro var inside string -->
+      <context name="MacroVarInString" attribute="MacroVar" lineEndContext="#pop">
+        <RegExpr String="[a-zA-Z_][a-zA-Z0-9_]*\." attribute="MacroVar" context="#pop"/>
+      </context>
+      
+      <!-- Single-quoted string (no macro resolution) -->
+      <context name="String2" attribute="String" lineEndContext="#stay">
+        <DetectChar char="'" attribute="String" context="#pop"/>
+      </context>
+    </contexts>
+    <itemDatas>
+      <itemData name="Normal" defStyleNum="dsNormal"/>
+      <itemData name="BoldKeyword" defStyleNum="dsControlFlow"/>
+      <itemData name="Keyword" defStyleNum="dsKeyword"/>
+      <itemData name="MacroVar" defStyleNum="dsComment"/>
+      <itemData name="MacroCall" defStyleNum="dsAttribute"/>
+      <itemData name="String" defStyleNum="dsString"/>
+      <itemData name="Comment" defStyleNum="dsComment"/>
+      <itemData name="Float" defStyleNum="dsFloat"/>
+      <itemData name="DecVal" defStyleNum="dsDecVal"/>
+    </itemDatas>
+  </highlighting>
+  <general>
+    <comments>
+      <comment name="multiLine" start="/*" end="*/"/>
+    </comments>
+    <keywords casesensitive="0"/>
+  </general>
+</language>

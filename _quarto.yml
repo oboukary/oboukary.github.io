@@ -7,7 +7,7 @@ lang: fr
 language: 
   title-block-author-single: "Auteur"
 website:
-  title: "Boukary Ouedraogo"
+  title: "Boukary Ouedraogo<br><span class='nav-subtitle'>Consultant Data & Analytics – Finance, Risque & Décision</span>"
   page-navigation: false
   site-url: "https://oboukary.com"
   description: "Bienvenue sur mon site personnel. Je suis Boukary Ouedraogo, un passionné de la data science et ses applications business à forte value ajoutée. Explorez mes projets, articles de blog et plus encore !"
@@ -29,26 +29,31 @@ website:
     right:
       - href: about.qmd
         text: Accueil
+      
+      - text: Mes services
+        
         
       - text: Blog
         href: posts/posts.qmd
         
+      - text: Contact
+        href: contact.qmd
+        
       - text: Projets
         href: projects/projects.qmd
-        
 format:
   html:
-    theme: [pulse, custom.scss]
+    theme: [pulse, assets/scss/custom.scss]
     include-in-header:
       - text: |
           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sas.min.js"></script>
     highlight-style:  assets/sas-studio.theme
     syntax-definitions:
-      -  assets/sas.xml
-    css:  assets/syntax-languages.css
+      -  assets/xml/sas.xml
+    css:  assets/css/syntax-languages.css
     include-after-body: 
-      - assets/clean_pages_title.html  # Inclure le fichier JavaScript
+      - assets/html/clean_pages_title.html  # Inclure le fichier JavaScript
     
     link-external-icon: false
     link-external-newwindow: true

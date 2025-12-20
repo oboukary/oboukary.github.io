@@ -1,0 +1,430 @@
+/* ===========================================
+   PAGE D'ACCUEIL - STYLES PROFESSIONNELS
+   =========================================== */
+
+// ===========================================
+// VARIABLES
+// ===========================================
+$primary: #023475;
+$primary-dark: #012050;
+$primary-light: #0a4a9c;
+$text-dark: #2d3748;
+$text-medium: #4a5568;
+$text-light: #718096;
+$border-light: #e2e8f0;
+$bg-light: #f7fafc;
+$white: #ffffff;
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08);
+$radius: 8px;
+$transition: all 0.2s ease;
+
+// ===========================================
+// RESET & BASE
+// ===========================================
+.hero-section,
+.experience-section,
+.services-section,
+.cta-section {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+// ===========================================
+// HERO SECTION
+// ===========================================
+.hero-section {
+  display: flex;
+  gap: 2.5rem;
+  padding: 0.5rem 1.5rem 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.hero-photo {
+  flex-shrink: 0;
+  
+  img {
+    width: 320px;
+    height: 420px;
+    border-radius: $radius;
+    object-fit: cover;
+    object-position: center 15%;
+    box-shadow: $shadow-lg;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5rem;
+}
+
+.hero-title {
+  color: $primary;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem !important;
+}
+
+.hero-subtitle {
+  color: $text-light;
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem !important;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 3px;
+  background: $primary;
+  border-radius: 2px;
+  margin-bottom: 1rem !important;
+}
+
+.hero-description {
+  color: $text-medium;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem !important;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+// ===========================================
+// BOUTONS
+// ===========================================
+.btn-primary-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary;
+  color: $white !important;
+  padding: 0.7rem 1.4rem;
+  border-radius: $radius;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 2px solid $primary;
+  transition: $transition;
+  
+  &:hover {
+    background: $primary-dark;
+    border-color: $primary-dark;
+    color: $white !important;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+  
+  &.btn-lg {
+    padding: 0.85rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+.btn-outline-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: $text-dark !important;
+  padding: 0.7rem 1.4rem;
+  border-radius: $radius;
+  border: 2px solid $border-light;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: $transition;
+  
+  &:hover {
+    background: $primary;
+    color: $white !important;
+    border-color: $primary;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+// ===========================================
+// SECTION HEADER
+// ===========================================
+.section-header {
+  margin-bottom: 1.2rem;
+  
+  &.centered {
+    text-align: center;
+  }
+}
+
+.section-title {
+  color: $primary;
+  font-size: 1.6rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: $primary;
+    border-radius: 2px;
+  }
+  
+  .centered & {
+    &::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+// ===========================================
+// EXPERIENCE SECTION
+// ===========================================
+.experience-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.experience-list {
+  margin-top: 0.5rem;
+}
+
+.experience-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 0 0.3rem;
+  border-top: 1px solid $border-light;
+  
+  &:first-child {
+    border-top: none;
+    padding-top: 0.3rem;
+  }
+}
+
+.experience-main {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.experience-company {
+  color: $primary;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.experience-separator {
+  color: $text-light;
+  font-weight: 300;
+}
+
+.experience-role {
+  color: $text-medium;
+  font-size: 0.95rem;
+}
+
+.experience-date {
+  color: $text-light;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.experience-description {
+  color: $text-light;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding-bottom: 0.8rem;
+  margin-top: 0.2rem !important;
+}
+
+// ===========================================
+// SERVICES SECTION
+// ===========================================
+.services-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: $bg-light;
+  border-radius: $radius;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.service-card {
+  background: $white;
+  border: 1px solid $border-light;
+  border-radius: $radius;
+  padding: 1.5rem;
+  transition: $transition;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-3px);
+    border-color: transparent;
+  }
+}
+
+.service-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba($primary, 0.08), rgba($primary, 0.15));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.service-card-title {
+  color: $primary;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.3;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+  flex-grow: 1;
+  
+  li {
+    color: $text-medium;
+    font-size: 0.9rem;
+    padding: 0.35rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.4;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 6px;
+      height: 6px;
+      background: $primary;
+      border-radius: 50%;
+    }
+  }
+}
+
+// ===========================================
+// CTA SECTION
+// ===========================================
+.cta-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.cta-content {
+  text-align: center;
+  background: linear-gradient(135deg, rgba($primary, 0.03), rgba($primary, 0.08));
+  border-radius: $radius;
+  padding: 2rem;
+}
+
+.cta-text {
+  font-size: 1.25rem;
+  color: $text-dark;
+  margin-bottom: 1.2rem !important;
+  
+  strong {
+    color: $primary;
+  }
+}
+
+// ===========================================
+// RESPONSIVE
+// ===========================================
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .hero-photo img {
+    width: 250px;
+    height: 320px;
+    object-position: center 15%;
+  }
+  
+  .hero-content {
+    align-items: center;
+  }
+  
+  .hero-divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .experience-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .experience-date {
+    align-self: flex-start;
+  }
+  
+  .section-title::after {
+    left: 0 !important;
+    transform: none !important;
+  }
+}

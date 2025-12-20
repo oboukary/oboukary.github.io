@@ -1,41 +1,124 @@
 ---
-about:
-  template: broadside
-  image: Boukary.png
 comments: false
 nav: false
 pagetitle: "A propos de moi"
 ---
 
-<span style="font-size: 250%; color: #023475;font-weight:bold;"> Consultant Indépendant </span> <br>
-<span style="font-size: 150%; color: #023475;font-style: italic;"> Data Analytics | Data science | BI </span>
-<hr>
-Ingénieur statisticien-économiste avec plus de 8 ans d'expérience, j'accompagne les organisations dans la valorisation de leurs données et la diffusion d'une culture analytique.
-Mon parcours m'a conduit à piloter des projets structurants : modélisation prédictive pour la détection de fraude à la MSA, analyse de rentabilité et pilotage financier chez Arval BNP Paribas, ou encore modélisation macroéconomique pour France Stratégie.
-Je combine expertise technique (Power BI, Python, SQL, SAS, Dataiku) et approche pédagogique pour aider les équipes à s'approprier les enjeux Data et gagner en autonomie.
 
-<hr>
-## Experience
+```{=html}
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-photo">
+    <img src="Boukary.png" alt="Boukary Ouedraogo">
+  </div>
+  <div class="hero-content">
+    <div class="hero-title">Consultant Data – Analytics & Modélisation</div>
+    <div class="hero-subtitle">Finance, pilotage et aide à la décision</div>
+    <div class="hero-divider"></div>
+    <p class="hero-description">Ingénieur statisticien-économiste avec plus de 8 ans d'expérience, j'accompagne les organisations dans la valorisation de leurs données et la prise de décision. Spécialisé en analytics, BI et data science, j'interviens sur des projets à fort enjeu métier et réglementaire.</p>
+    <div class="hero-buttons">
+      <a href="services.html" class="btn-primary-custom">Voir mes services</a>
+      <a href="posts/posts.html" class="btn-outline-custom">Lire mes analyses</a>
+      <a href="contact.html" class="btn-outline-custom">Me contacter</a>
+    </div>
+  </div>
+</section>
 
-**FinInsight Data Analytics ** \| Consultant indépendant data \| Mai. 2025 - Présent
+<!-- Experience Section -->
+<section class="experience-section">
+  <div class="section-header">
+    <div class="section-title">Expérience</div>
+  </div>
+  
+  <div class="experience-list">
+    <div class="experience-item">
+      <div class="experience-main">
+        <span class="experience-company">FinInsight Data Analytics</span>
+        <span class="experience-separator">|</span>
+        <span class="experience-role">Consultant indépendant</span>
+      </div>
+      <span class="experience-date">Mai 2025 – Présent</span>
+    </div>
+    <p class="experience-description">Accompagnement des organisations sur des projets data analytics, BI et aide à la décision.</p>
+    
+    <div class="experience-item">
+      <div class="experience-main">
+        <span class="experience-company">Arval BNP Paribas</span>
+        <span class="experience-separator">|</span>
+        <span class="experience-role">Statisticien & Analyst Pricing</span>
+      </div>
+      <span class="experience-date">Fév. 2022 – Mai 2025</span>
+    </div>
+    <p class="experience-description">Analyses de rentabilité, pilotage financier et modèles statistiques pour la prise de décision.</p>
+    
+    <div class="experience-item">
+      <div class="experience-main">
+        <span class="experience-company">CCMSA</span>
+        <span class="experience-separator">|</span>
+        <span class="experience-role">Statisticien & Data scientist</span>
+      </div>
+      <span class="experience-date">Janv. 2018 – Janv. 2022</span>
+    </div>
+    <p class="experience-description">Modélisation prédictive pour la détection de fraude à la MSA (plus de 2 millions d'assuré.e.s).</p>
+  </div>
+</section>
 
-**Arval BNP Paribas** \| Statisticien & Analyst Pricing \| Fév. 2022 - Mai 2025
+<!-- Services Section -->
+<section class="services-section">
+  <div class="section-header centered">
+    <div class="section-title">Ce que je peux faire pour vous</div>
+  </div>
+  
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#023475" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+      </div>
+      <div class="service-card-title">Data Analytics & BI</div>
+      <ul class="service-list">
+        <li>Tableaux de bord décisionnels</li>
+        <li>KPI fiables</li>
+        <li>Power BI, SQL, DAX</li>
+      </ul>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#023475" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      </div>
+      <div class="service-card-title">Data Science & Modélisation</div>
+      <ul class="service-list">
+        <li>Modèles prédictifs</li>
+        <li>Scoring, prévision, segmentation</li>
+        <li>Python, SAS, Dataiku</li>
+      </ul>
+    </div>
+    
+    <div class="service-card">
+      <div class="service-icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#023475" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      </div>
+      <div class="service-card-title">Accompagnement & Formation</div>
+      <ul class="service-list">
+        <li>Structuration des usages data</li>
+        <li>Pédagogie</li>
+        <li>Autonomie des équipes</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-**CCMSA** \| Statisticien & Data scientist \| Janv. 2018 - Janv. 2022
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="cta-content">
+    <div class="cta-text">👉 <strong>Discutons</strong> de votre problématique <strong>data</strong></div>
+    <a href="contact.html" class="btn-primary-custom btn-lg">Me contacter</a>
+  </div>
+</section>
 
 
-## Formation
 
-**Université Paris Nanterre & Université Paris Saclay** \| France <br/> Master en modélisation prospective \| Sept 2016 - Juin 2017
-
-**INSEA** \| Rabat, Maroc <br/> Ingénieur statisticien-économiste \| Sept 2012 - Juil 2015
-
-**Université Ibn Tofail** \| Kenitra, Maroc <br/> DEUG en mathématiques \| Sept 2010 - Juil 2012
-
-
-## Certifications
-
-
+```
 
 
 

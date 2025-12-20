@@ -66,7 +66,7 @@ div.quarto-post .listing-categories .listing-category {
 
 
 #quarto-document-content {
-  width: 135%;
+  width: 125%;
 }
 
 .quarto-listing-category.category-cloud {
@@ -79,7 +79,7 @@ div.quarto-post .listing-categories .listing-category {
     max-width: 350px;
   
 }
-
+/*---------*/
 pre.sourceCode {
   border: 1px solid #eaeaea;
   border-radius: 4px;
@@ -93,5 +93,19 @@ code {
   border-radius: 3px;
 }
 
+.quarto-title-meta-contents{
+  color: $bs-blue;
+}
+
+.nav-subtitle {
+  font-size: 0.75em;
+  opacity: 0.8;
+  font-weight: normal;
+}
 
 
+/* ===========================================
+   PAGE D'ACCUEIL - STYLES (HTML pur)
+   =========================================== */
+@import "_home";
+@import "_contact";
