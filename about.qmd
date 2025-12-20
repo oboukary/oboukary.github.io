@@ -4,6 +4,7 @@ about:
   image: Boukary.png
 comments: false
 nav: false
+pagetitle: "A propos de moi"
 ---
 
 <span style="font-size: 250%; color: #023475;font-weight:bold;"> Consultant Indépendant </span> <br>
@@ -34,12 +35,6 @@ Je combine expertise technique (Power BI, Python, SQL, SAS, Dataiku) et approche
 
 ## Certifications
 
-- SAS (Base, Advanced, Statistical Business Analyst)
-- Dataiku (5 certifications)
-- Power BI Data Analyst Associate (PL-300).
-- Fabric PL600 (en cours)
-- Fabric PL700 (en cours)
-- FMVA (en corus)
 
 
 

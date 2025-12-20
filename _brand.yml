@@ -1,6 +1,9 @@
 typography:
   fonts:
-    - family: Jura
+    - family: Karla
       source: google
-  base: Jura
-  headings: Jura
+  base: Karla
+  headings: Arapey
+  monospace-inline:
+    family: Fira Code
+    weight: 100

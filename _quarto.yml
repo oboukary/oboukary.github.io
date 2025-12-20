@@ -47,8 +47,8 @@ format:
     syntax-definitions:
       -  assets/sas.xml
     css:  assets/syntax-languages.css
-    include-before-body: assets/include-before-body.html
-    include-after-body: assets/projects.html  # Inclure le fichier JavaScript
+    include-after-body: 
+      - assets/clean_pages_title.html  # Inclure le fichier JavaScript
     
     link-external-icon: false
     link-external-newwindow: true
