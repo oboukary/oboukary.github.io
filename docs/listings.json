@@ -11,6 +11,8 @@
   },
   {
     "listing": "/posts/posts.html",
-    "items": []
+    "items": [
+      "/posts/01_regression_lineaire/index.html"
+    ]
   }
 ]

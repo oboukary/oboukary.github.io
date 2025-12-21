@@ -30,14 +30,8 @@ website:
       - href: about.qmd
         text: Accueil
       
-      - text: Mes services
-        
-        
       - text: Blog
         href: posts/posts.qmd
-        
-      - text: Contact
-        href: contact.qmd
         
       - text: Projets
         href: projects/projects.qmd

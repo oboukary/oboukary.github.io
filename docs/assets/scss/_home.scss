@@ -56,6 +56,7 @@ $transition: all 0.2s ease;
     object-fit: cover;
     object-position: center 15%;
     box-shadow: $shadow-lg;
+    
   }
 }
 
@@ -67,7 +68,7 @@ $transition: all 0.2s ease;
 
 .hero-title {
   color: $primary;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5rem !important;
