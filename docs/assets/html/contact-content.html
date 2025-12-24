@@ -101,7 +101,7 @@
       <p class="ct-form-card__subtitle">Je vous réponds sous 24-48h</p>
     </div>
     
-    <form class="ct-form" id="contactForm">
+    <form class="ct-form" id="contactForm" action="https://formspree.io/f/mbdregnk" method="POST">
       
       <div class="ct-form__row">
         <div class="ct-form__field">
@@ -128,12 +128,12 @@
         <label for="ct-type">Type de mission *</label>
         <select id="ct-type" name="type" required>
           <option value="" disabled selected>Choisir...</option>
-          <option value="bi">Data Analytics & BI</option>
-          <option value="ds">Data Science</option>
-          <option value="finance">Pilotage Financier</option>
-          <option value="migration">Migration SAS</option>
-          <option value="formation">Formation</option>
-          <option value="autre">Autre</option>
+          <option value="Data Analytics & BI">Data Analytics & BI</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Pilotage Financier">Pilotage Financier</option>
+          <option value="Migration SAS">Migration SAS</option>
+          <option value="Formation">Formation</option>
+          <option value="Autre">Autre</option>
         </select>
       </div>
       
@@ -141,6 +141,9 @@
         <label for="ct-message">Votre message *</label>
         <textarea id="ct-message" name="message" rows="5" required placeholder="Décrivez brièvement votre besoin, le contexte et vos objectifs..."></textarea>
       </div>
+      
+      <!-- Champ caché pour le sujet de l'email -->
+      <input type="hidden" name="_subject" value="Nouveau message depuis le site web">
       
       <button type="submit" class="ct-form__submit">
         Envoyer
