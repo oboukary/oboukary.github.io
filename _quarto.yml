@@ -35,6 +35,9 @@ website:
         
       - text: Projets
         href: projects/projects.qmd
+        
+      - text: Contact
+        href: contact.qmd
 format:
   html:
     theme: [pulse, assets/scss/custom.scss]

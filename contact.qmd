@@ -2,104 +2,11 @@
 pagetitle: "Contact - Boukary Ouedraogo"
 comments: false
 toc: false
-page-layout: full
+body-class: page-contact
 ---
 
 
 
 ```{=html}
-<!-- Contact Hero -->
-<section class="contact-hero">
-  <div class="contact-hero-content">
-    <div class="contact-title">Me contacter</div>
-    <p class="contact-subtitle">Une question, un projet, une collaboration ? N'hésitez pas à me contacter.</p>
-  </div>
-</section>
-
-<!-- Contact Content -->
-<section class="contact-section">
-  <div class="contact-grid">
-    
-    <!-- Info Cards -->
-    <div class="contact-info">
-      <div class="info-card">
-        <div class="info-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        </div>
-        <div class="info-content">
-          <div class="info-label">Email</div>
-          <a href="mailto:ouedraogo.boukary89@gmail.com" class="info-value">ouedraogo.boukary89@gmail.com</a>
-        </div>
-      </div>
-      
-      <div class="info-card">
-        <div class="info-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        </div>
-        <div class="info-content">
-          <div class="info-label">LinkedIn</div>
-          <a href="https://www.linkedin.com/in/oboukary/" target="_blank" class="info-value">linkedin.com/in/oboukary</a>
-        </div>
-      </div>
-      
-      <div class="info-card">
-        <div class="info-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-        </div>
-        <div class="info-content">
-          <div class="info-label">GitHub</div>
-          <a href="https://github.com/oboukary/" target="_blank" class="info-value">github.com/oboukary</a>
-        </div>
-      </div>
-      
-      <div class="info-card">
-        <div class="info-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-        </div>
-        <div class="info-content">
-          <div class="info-label">Localisation</div>
-          <span class="info-value">France (Île-de-France / Grand Est)</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Contact Message -->
-    <div class="contact-message">
-      <div class="message-card">
-        <div class="message-title">Travaillons ensemble</div>
-        <p class="message-text">
-          Je suis disponible pour des missions de conseil en data analytics, business intelligence et data science. Que ce soit pour un projet ponctuel ou un accompagnement de long terme, je serais ravi d'échanger avec vous.
-        </p>
-        <div class="message-divider"></div>
-        <div class="availability">
-          <div class="availability-indicator"></div>
-          <span>Disponible pour de nouvelles missions</span>
-        </div>
-        <a href="mailto:ouedraogo.boukary89@gmail.com" class="btn-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          Envoyer un email
-        </a>
-      </div>
-    </div>
-    
-  </div>
-</section>
-
-<!-- Expertise Section -->
-<section class="expertise-section">
-  <div class="expertise-title">Domaines d'intervention</div>
-  <div class="expertise-tags">
-    <span class="expertise-tag">Power BI</span>
-    <span class="expertise-tag">Python</span>
-    <span class="expertise-tag">SAS</span>
-    <span class="expertise-tag">SQL</span>
-    <span class="expertise-tag">Dataiku</span>
-    <span class="expertise-tag">Machine Learning</span>
-    <span class="expertise-tag">Data Visualization</span>
-    <span class="expertise-tag">Finance</span>
-    <span class="expertise-tag">Risk Analytics</span>
-    <span class="expertise-tag">KPI & Reporting</span>
-  </div>
-</section>
-
+{{< include assets/html/contact-content.html >}}
 ```
