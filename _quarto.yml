@@ -29,7 +29,10 @@ website:
     right:
       - href: about.qmd
         text: Accueil
-      
+        
+      - text: Mes services
+        href: services.qmd
+        
       - text: Blog
         href: posts/posts.qmd
         

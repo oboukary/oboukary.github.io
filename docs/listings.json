@@ -1,16 +1,14 @@
 [
   {
-    "listing": "/projects/projects.html",
+    "listing": "/posts/posts.html",
     "items": []
   },
   {
     "listing": "/index.html",
-    "items": [
-      "/posts/01_regression_lineaire/index.html"
-    ]
+    "items": []
   },
   {
-    "listing": "/posts/posts.html",
+    "listing": "/projects/projects.html",
     "items": []
   }
 ]
