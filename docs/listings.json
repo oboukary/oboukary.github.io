@@ -5,7 +5,9 @@
   },
   {
     "listing": "/index.html",
-    "items": []
+    "items": [
+      "/posts/01_regression_lineaire/index.html"
+    ]
   },
   {
     "listing": "/projects/projects.html",
