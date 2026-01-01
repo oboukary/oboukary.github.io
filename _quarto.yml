@@ -8,13 +8,14 @@ language:
   title-block-author-single: "Auteur"
 website:
   title: "Boukary Ouedraogo<br><span class='nav-subtitle'>Consultant Data & Analytics – Finance, Risque & Décision</span>"
+  favicon: assets/svg/favicon.svg
   page-navigation: false
   site-url: "https://oboukary.com"
   description: "Bienvenue sur mon site personnel. Je suis Boukary Ouedraogo, un passionné de la data science et ses applications business à forte value ajoutée. Explorez mes projets, articles de blog et plus encore !"
   
   page-footer:
-    left: '<p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Boukary Ouedraogo</p>'
-    center: "Site crée par avec ❤️, [Quarto](https://quarto.org/) et <img width='20' height='20' src='https://img.icons8.com/fluency/48/r-project.png' alt='r-project'/>"
+    left: '<p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> </p>'
+    center: "Site crée par Boukary Ouedraogo avec ❤️, [Quarto](https://quarto.org/) et <img width='20' height='20' src='https://img.icons8.com/fluency/48/r-project.png' alt='r-project'/>"
     right:
       - icon: github
         href: https://github.com/oboukary/
@@ -28,7 +29,7 @@ website:
     pinned: true
     right:
       - href: about.qmd
-        text: Accueil
+        text: A Propos
         
       - text: Mes services
         href: services.qmd
