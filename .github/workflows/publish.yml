@@ -1,28 +1,31 @@
+name: Render and Publish
+
 on:
   workflow_dispatch:
   push:
-    branches: main
+    branches: master
 
-name: Render and Publish
-
+permissions:
+  contents: write
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      # add software dependencies here
-
-      - uses: r-lib/actions/setup-r@v2
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - name: Install R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
             any::rmarkdown
@@ -33,20 +36,22 @@ jobs:
             any::janitor
             any::fs
             any::yaml
-      - name: Install Python and Dependencies
+
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
-      - run: pip install jupyter
-      - run: pip install -r requirements.txt
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
       - name: Generate metadata
         run: python generate-metadata.py
 
-      - name: Publish to GitHub Pages (and render)
+      - name: Render and publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          path: "_site/"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # this secret is always available for github actions
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
