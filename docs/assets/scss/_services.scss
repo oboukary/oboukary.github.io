@@ -485,7 +485,9 @@ $sv-transition-slow: 300ms ease;
   flex: 1;
   min-width: 0;
 }
-
+.ct-sidebar {
+  width: 350px;  /* ou une valeur similaire */
+}
 .sv-cert__title {
   font-size: 0.9375rem;
   font-weight: 600;

@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 
 /* Police système moderne */
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+$font-family-sans-serif: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
                          Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif !default;
 $font-family-monospace: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', 
                         Consolas, 'Courier New', monospace !default;
@@ -102,8 +102,13 @@ div.quarto-post .listing-categories .listing-category {
     font-size: .8em;
 }
 
+
 #quarto-document-content {
-  width: 125%;
+  max-width: 1600px;
+  width: 135%;
+  position: relative;
+  left: -100px;  /* Ajuste la valeur */
+  
 }
 
 .quarto-listing-category.category-cloud {

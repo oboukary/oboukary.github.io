@@ -29,7 +29,7 @@ website:
     pinned: true
     right:
       - href: about.qmd
-        text: A Propos
+        text: A propos
         
       - text: Mes services
         href: services.qmd

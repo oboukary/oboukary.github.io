@@ -198,11 +198,11 @@ $$
 
 Les modifications apportées par Bâle IV répondent à des constats précis sur les limites du dispositif antérieur :
 
-**Nouveaux planchers (floors)** — Ces mécanismes limitent la dispersion des RWA entre banques utilisant des modèles internes, renforçant ainsi la comparabilité des ratios de solvabilité.
+**Nouveaux planchers (floors)**: Ces mécanismes limitent la dispersion des RWA entre banques utilisant des modèles internes, renforçant ainsi la comparabilité des ratios de solvabilité.
 
-**Obligation de l'approche F-IRB pour certaines classes** — Cette contrainte reconnaît que, pour certains portefeuilles, les banques ne disposent pas d'un historique de défauts suffisant pour développer des modèles statistiques fiables.
+**Obligation de l'approche F-IRB pour certaines classes**: Cette contrainte reconnaît que, pour certains portefeuilles, les banques ne disposent pas d'un historique de défauts suffisant pour développer des modèles statistiques fiables.
 
-**Suppression de l'IRB pour les actions** — Cette mesure acte l'inadaptation des modèles internes à la valorisation du risque sur instruments de capitaux propres.
+**Suppression de l'IRB pour les actions**: Cette mesure acte l'inadaptation des modèles internes à la valorisation du risque sur instruments de capitaux propres.
 
 ---
 
@@ -219,7 +219,7 @@ Ces évolutions participent au renforcement de la stabilité financière tout en
 ## Références
 
 - Règlement CRR3 (Capital Requirements Regulation 3)
-- Comité de Bâle sur le contrôle bancaire — Finalisation des réformes de Bâle III (décembre 2017)
+- Comité de Bâle sur le contrôle bancaire: Finalisation des réformes de Bâle III (décembre 2017)
 
 ---
 

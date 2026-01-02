@@ -345,10 +345,19 @@ $hm-transition-slow: 300ms ease;
   width: 40px;
   height: 2px;
   background: $hm-primary;
+  font-size: 2.25rem;
+}
+
+.hm-hero_consultant{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: $hm-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .hm-hero__title {
-  font-size: 2.25rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: $hm-text;
   line-height: 1.2;
@@ -383,15 +392,54 @@ $hm-transition-slow: 300ms ease;
 }
 
 .hm-hero__text {
-  font-size: 1.0625rem;
-  color: $hm-text-secondary;
-  line-height: 1.7;
-  margin: 0 0 1.5rem;
-  max-width: 540px;
-  animation: hm-fadeInUp 0.5s ease 0.4s both;
+  // ... styles existants ...
   
-  @media (max-width: 900px) {
-    max-width: 100%;
+  // Styles pour les éléments internes
+  p {
+    margin: 0 0 1rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.hm-hero__text-subtitle {
+  font-weight: 600;
+  color: $hm-text;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.hm-hero__domains {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  
+  li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9375rem;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      background: $hm-primary;
+      border-radius: 50%;
+    }
+    
+    strong {
+      color: $hm-text;
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -624,9 +672,11 @@ $hm-transition-slow: 300ms ease;
     gap: 0.5rem;
   }
   
-  .hm-hero {
-    padding: 1rem 0 2rem;
-  }
+.hm-hero {
+  padding: 1rem 0 2rem;
+  position: relative;
+  left: -50px;  /* Ajuste la valeur */
+}
   
   .hm-expertise,
   .hm-stack {
