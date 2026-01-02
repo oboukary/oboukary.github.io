@@ -1,0 +1,157 @@
+/* =================================================================
+   Multi-language Syntax Highlighting for Quarto
+   
+   - SAS: Géré par sas.xml + sas-studio.theme (ne pas modifier ici)
+   - Python: Jupyter Notebook style
+   - R: RStudio default style
+   ================================================================= */
+
+
+/* -----------------------------------------------------------------
+   Python - Jupyter Notebook Style
+   Couleurs basées sur le thème par défaut de Jupyter
+   ----------------------------------------------------------------- */
+
+/* Keywords (def, class, if, for, while, return, etc.) - vert gras */
+.sourceCode.python .kw,
+.sourceCode.python .cf {
+    color: #008000 !important;
+    font-weight: bold !important;
+}
+
+/* Built-in functions (print, len, range, type, etc.) - vert */
+.sourceCode.python .bu {
+    color: #008000 !important;
+    font-weight: normal !important;
+}
+
+/* User-defined functions - bleu */
+.sourceCode.python .fu {
+    color: #0055AA !important;
+    font-weight: normal !important;
+}
+
+/* Strings - rouge */
+.sourceCode.python .st,
+.sourceCode.python .vs {
+    color: #BA2220 !important;
+    font-weight: normal !important;
+}
+
+/* Comments - teal/gris italique */
+.sourceCode.python .co {
+    color: #408080 !important;
+    font-style: italic !important;
+}
+
+/* Numbers - vert */
+.sourceCode.python .dv,
+.sourceCode.python .bn,
+.sourceCode.python .fl {
+    color: #008000 !important;
+    font-weight: normal !important;
+}
+
+/* Operators - violet gras */
+.sourceCode.python .op {
+    color: #AA23FF !important;
+    font-weight: bold !important;
+}
+
+/* Decorators (@) - violet */
+.sourceCode.python .at {
+    color: #AA23FF !important;
+    font-weight: normal !important;
+}
+
+/* Variables - noir */
+.sourceCode.python .va {
+    color: #212121 !important;
+    font-weight: normal !important;
+}
+
+/* Self, cls - vert */
+.sourceCode.python .bp {
+    color: #008000 !important;
+    font-weight: normal !important;
+}
+
+/* Import statements - vert gras */
+.sourceCode.python .im {
+    color: #008000 !important;
+    font-weight: bold !important;
+}
+
+/* Class names - bleu gras */
+.sourceCode.python .nc {
+    color: #0055AA !important;
+    font-weight: bold !important;
+}
+
+
+/* -----------------------------------------------------------------
+   R - RStudio Default Style
+   ----------------------------------------------------------------- */
+
+/* Keywords (if, else, for, while, function, return, etc.) - bleu */
+.sourceCode.r .kw,
+.sourceCode.r .cf {
+    color: #0033B3 !important;
+    font-weight: normal !important;
+}
+
+/* Functions - bleu */
+.sourceCode.r .fu {
+    color: #0033B3 !important;
+    font-weight: normal !important;
+}
+
+/* Strings - vert */
+.sourceCode.r .st,
+.sourceCode.r .ch {
+    color: #067D17 !important;
+    font-weight: normal !important;
+}
+
+/* Comments - gris italique */
+.sourceCode.r .co {
+    color: #8C8C8C !important;
+    font-style: italic !important;
+}
+
+/* Numbers - bleu */
+.sourceCode.r .dv,
+.sourceCode.r .fl {
+    color: #1750EB !important;
+    font-weight: normal !important;
+}
+
+/* Operators - noir */
+.sourceCode.r .op {
+    color: #000000 !important;
+    font-weight: normal !important;
+}
+
+/* Variables - noir */
+.sourceCode.r .va {
+    color: #000000 !important;
+    font-weight: normal !important;
+}
+
+/* Constants (TRUE, FALSE, NA, NULL, Inf, NaN) - bleu */
+.sourceCode.r .cn {
+    color: #0033B3 !important;
+    font-weight: normal !important;
+}
+
+/* Special characters in strings */
+.sourceCode.r .sc {
+    color: #067D17 !important;
+    font-weight: normal !important;
+}
+
+/* Other tokens */
+.sourceCode.r .ot {
+    color: #0033B3 !important;
+    font-weight: normal !important;
+}
