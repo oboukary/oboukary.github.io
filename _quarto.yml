@@ -35,7 +35,7 @@ website:
         href: services.qmd
         
       - text: Blog
-        href: posts/posts.qmd
+        href: posts/index.qmd
         
       - text: Projets
         href: projects/projects.qmd
