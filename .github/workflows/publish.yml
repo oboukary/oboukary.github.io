@@ -1,9 +1,9 @@
 name: Render and Publish
 
 on:
-  workflow_dispatch:
   push:
     branches: master
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Set up Quarto
@@ -40,11 +40,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
           cache: 'pip'
 
       - name: Install Python dependencies
         run: pip install -r requirements.txt
+
+      - name: Generate metadata
+        run: python generate-metadata.py
 
       - name: Render and publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
