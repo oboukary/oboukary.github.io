@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://oboukary.com/post.html</loc>
-    <lastmod>2026-01-03T17:33:44.772Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oboukary.com/services.html</loc>
-    <lastmod>2026-01-03T17:33:44.775Z</lastmod>
-  </url>
-  <url>
     <loc>https://oboukary.com/contact.html</loc>
-    <lastmod>2026-01-03T17:33:44.772Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oboukary.com/projects/projects.html</loc>
-    <lastmod>2026-01-03T17:33:44.774Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oboukary.com/index.html</loc>
-    <lastmod>2026-01-03T17:33:44.772Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oboukary.com/posts/index.html</loc>
-    <lastmod>2026-01-03T17:33:44.773Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oboukary.com/posts/bale_4/index.html</loc>
-    <lastmod>2026-01-03T17:33:44.773Z</lastmod>
+    <lastmod>2026-04-26T20:19:54.732Z</lastmod>
   </url>
   <url>
     <loc>https://oboukary.com/about.html</loc>
-    <lastmod>2026-01-03T17:33:44.769Z</lastmod>
+    <lastmod>2026-04-26T20:19:54.730Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.com/posts/index.html</loc>
+    <lastmod>2026-04-26T20:19:54.733Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.com/post.html</loc>
+    <lastmod>2026-04-26T20:19:54.732Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.com/resume.html</loc>
+    <lastmod>2026-04-26T20:19:54.734Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.com/projects/projects.html</loc>
+    <lastmod>2026-04-26T20:19:54.734Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.com/services.html</loc>
+    <lastmod>2026-04-26T20:19:54.734Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.com/posts/bale_4/index.html</loc>
+    <lastmod>2026-04-26T20:19:54.733Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.com/index.html</loc>
+    <lastmod>2026-04-26T20:19:54.732Z</lastmod>
   </url>
 </urlset>

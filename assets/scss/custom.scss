@@ -173,6 +173,10 @@ a {
 
 
 
+p3{
+  opacity: 0 !important;
+}
+
 /* Tables */
 table {
   font-size: 0.95rem;
@@ -195,3 +199,4 @@ table {
 @import "_home";  
 @import "_contact"; 
 @import "_services";
+@import "_cv";
