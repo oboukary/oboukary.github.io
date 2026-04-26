@@ -227,5 +227,5 @@ Ces évolutions participent au renforcement de la stabilité financière tout en
 ## À propos de l'auteur
 Boukary Ouedraogo est consultant Data spécialisé en Analytics, Business Intelligence et gestion financière. Fort de plus de 8 ans d'expérience en analyse de données et modélisation du risque, il accompagne les institutions financières dans leurs projets de transformation data et de mise en conformité réglementaire.
 
-Pour en savoir plus : [www.boukaryouedraogo.com](https://www.boukaryouedraogo.com)
+Pour en savoir plus : [https://oboukary.github.io/](https://oboukary.github.io/)
 :::
