@@ -1,0 +1,7 @@
+---
+page-layout: full
+---
+
+```{=html}
+{{< include assets/html/cv.html >}}
+```

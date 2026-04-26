@@ -7,7 +7,7 @@ lang: fr
 language: 
   title-block-author-single: "Auteur"
 website:
-  title: "Boukary Ouedraogo<br><span class='nav-subtitle'>Consultant Data & Analytics – Finance, Risque & Décision</span>"
+  title: "Boukary Ouedraogo <br> <span class='nav-subtitle'> Consultant Data & Analytics – Finance, Risque & Décision </span>"
   favicon: assets/svg/favicon.svg
   page-navigation: false
   site-url: "https://oboukary.com"
@@ -42,6 +42,9 @@ website:
         
       - text: Contact
         href: contact.qmd
+        
+      - text: CV
+        href: resume.qmd
 format:
   html:
     theme: [pulse, assets/scss/custom.scss]
@@ -49,6 +52,7 @@ format:
       - text: |
           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sas.min.js"></script>
+          <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     highlight-style:  assets/sas-studio.theme
     syntax-definitions:
       -  assets/xml/sas.xml
