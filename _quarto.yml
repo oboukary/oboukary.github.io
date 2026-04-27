@@ -10,7 +10,7 @@ website:
   title: "Boukary Ouedraogo <br> <span class='nav-subtitle'> Consultant Data & Analytics – Finance, Risque & Décision </span>"
   favicon: assets/svg/favicon.svg
   page-navigation: false
-  site-url: "https://oboukary.com"
+  site-url: "https://oboukary.github.io/"
   description: "Bienvenue sur mon site personnel. Je suis Boukary Ouedraogo, un passionné de la data science et ses applications business à forte value ajoutée. Explorez mes projets, articles de blog et plus encore !"
   
   page-footer:
