@@ -2,7 +2,6 @@ project:
   type: website
   preview: 
     port: 4200
-  output-dir: docs  
 lang: fr
 language: 
   title-block-author-single: "Auteur"
