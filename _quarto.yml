@@ -6,7 +6,7 @@ lang: fr
 language: 
   title-block-author-single: "Auteur"
 website:
-  title: "Boukary Ouedraogo <br> <span class='nav-subtitle'> Consultant Data & Analytics – Finance, Risque & Décision </span>"
+  title: "Boukary Ouedraogo <br>  Consultant Data & Analytics – Finance, Risque & Décision"
   favicon: assets/svg/favicon.svg
   page-navigation: false
   site-url: "https://oboukary.github.io/"
