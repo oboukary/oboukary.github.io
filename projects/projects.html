@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -192,7 +192,7 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-unnumbered"></div></div>
+    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="Qkk=">BI</div><div class="category" data-category="QmlnJTIwRGF0YQ==">Big Data</div><div class="category" data-category="RmluYW5jZQ==">Finance</div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning</div><div class="category" data-category="UHJpY2luZw==">Pricing</div><div class="category" data-category="UmlzcXVl">Risque</div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -225,7 +225,81 @@ window.Quarto = {
 </div>
 <div id="listing-projects" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="UmlzcXVlJTJDTWFjaGluZSUyMExlYXJuaW5nJTJDRmluYW5jZQ==" data-listing-date-sort="1757894400000" data-listing-file-modified-sort="1777586924047" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="76">
+<a href="../projects/01-credit-scoring/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../projects/01-credit-scoring/featured.svg" class="thumbnail-image card-img" style="height: 220px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Modèle de scoring crédit
+</h5>
+<div class="listing-categories">
 
+<div class="listing-category" onclick="window.quartoListingCategory('UmlzcXVl'); return false;">Risque</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmluYW5jZQ=='); return false;">Finance</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Construction d’un modèle de scoring pour estimer la probabilité de défaut sur un portefeuille retail, conforme aux exigences prudentielles.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="RmluYW5jZSUyQ0JJJTJDUHJpY2luZw==" data-listing-date-sort="1749513600000" data-listing-file-modified-sort="1777586924047" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="89">
+<a href="../projects/02-pricing-optimisation/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../projects/02-pricing-optimisation/featured.svg" class="thumbnail-image card-img" style="height: 220px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Optimisation tarifaire LLD
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmluYW5jZQ=='); return false;">Finance</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Qkk='); return false;">BI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHJpY2luZw=='); return false;">Pricing</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Refonte de la grille tarifaire d’un acteur de location longue durée à partir d’une analyse de rentabilité véhicule par véhicule.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDUmlzcXVlJTJDQmlnJTIwRGF0YQ==" data-listing-date-sort="1732233600000" data-listing-file-modified-sort="1777586924047" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="87">
+<a href="../projects/03-detection-fraude/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../projects/03-detection-fraude/featured.svg" class="thumbnail-image card-img" style="height: 220px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Détection de fraude en temps réel
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmlzcXVl'); return false;">Risque</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QmlnJTIwRGF0YQ=='); return false;">Big Data</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Modèle de détection d’anomalies dans les déclarations sociales, exposé via API temps réel et alimenté par un pipeline Spark.</p>
+</div>
+</div>
+</div></a>
+</div>
 </div>
 <div class="listing-no-matching d-none">Aucun article correspondant</div>
 </div>

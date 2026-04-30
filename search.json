@@ -21,6 +21,48 @@
     "text": "Trier par\n      Ordre par défaut\n      \n        Titre\n      \n      \n        Date - Le plus ancien\n      \n      \n        Date - Le plus récent\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBâle IV : Évolutions du cadre prudentiel du risque de crédit\n\n\n\n\n\n\n\n\n25 déc. 2025\n\n\n\n\n\nAucun article correspondant"
   },
   {
+    "objectID": "projects/projects.html",
+    "href": "projects/projects.html",
+    "title": "Projets",
+    "section": "",
+    "text": "Modèle de scoring crédit\n\n\n\nRisque\n\nMachine Learning\n\nFinance\n\n\n\nConstruction d’un modèle de scoring pour estimer la probabilité de défaut sur un portefeuille retail, conforme aux exigences prudentielles.\n\n\n\n\n\n\n\n\n\n\n\n\nOptimisation tarifaire LLD\n\n\n\nFinance\n\nBI\n\nPricing\n\n\n\nRefonte de la grille tarifaire d’un acteur de location longue durée à partir d’une analyse de rentabilité véhicule par véhicule.\n\n\n\n\n\n\n\n\n\n\n\n\nDétection de fraude en temps réel\n\n\n\nMachine Learning\n\nRisque\n\nBig Data\n\n\n\nModèle de détection d’anomalies dans les déclarations sociales, exposé via API temps réel et alimenté par un pipeline Spark.\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "projects/03-detection-fraude/index.html",
+    "href": "projects/03-detection-fraude/index.html",
+    "title": "Détection de fraude en temps réel",
+    "section": "",
+    "text": "Projet fictif inspiré d’un cas réel : système de détection de fraude opéré sur des déclarations sociales, capable de scorer en temps réel les nouveaux dossiers et de prioriser les contrôles humains."
+  },
+  {
+    "objectID": "projects/03-detection-fraude/index.html#contexte",
+    "href": "projects/03-detection-fraude/index.html#contexte",
+    "title": "Détection de fraude en temps réel",
+    "section": "",
+    "text": "Projet fictif inspiré d’un cas réel : système de détection de fraude opéré sur des déclarations sociales, capable de scorer en temps réel les nouveaux dossiers et de prioriser les contrôles humains."
+  },
+  {
+    "objectID": "projects/03-detection-fraude/index.html#approche",
+    "href": "projects/03-detection-fraude/index.html#approche",
+    "title": "Détection de fraude en temps réel",
+    "section": "Approche",
+    "text": "Approche\n\nFeature engineering sur données déclaratives + comportementales\nModèle Isolation Forest + GBM combiné en stacking\nDéploiement API Flask sur cluster Kubernetes\nPipeline batch nocturne sur Hadoop / Spark"
+  },
+  {
+    "objectID": "projects/03-detection-fraude/index.html#résultats",
+    "href": "projects/03-detection-fraude/index.html#résultats",
+    "title": "Détection de fraude en temps réel",
+    "section": "Résultats",
+    "text": "Résultats\n\n1,2M de bénéficiaires couverts\nTaux de précision des alertes amélioré de +27 %\nLatence moyenne du scoring : 80 ms"
+  },
+  {
+    "objectID": "projects/03-detection-fraude/index.html#stack",
+    "href": "projects/03-detection-fraude/index.html#stack",
+    "title": "Détection de fraude en temps réel",
+    "section": "Stack",
+    "text": "Stack\nPython, PySpark, Dataiku, Hadoop, Flask, Power BI"
+  },
+  {
     "objectID": "resume.html",
     "href": "resume.html",
     "title": "Boukary Ouedraogo",
@@ -28,11 +70,74 @@
     "text": "Télécharger le CV\n  \n\n\n\n\n  \n    \n      \n        \n        Consultant Data & Finance\n        \n          \n            \n            ouedraogo.boukary89@gmail.com\n          \n          \n            \n            +33 6 60 78 66 82\n          \n          \n            \n            LinkedIn\n          \n          \n            \n            Île-de-France, France\n          \n        \n      \n      BO\n    \n  \n\n  \n    \n      \n        Profil\n        \n          Consultant Data expérimenté, j'accompagne les organisations dans la valorisation de leurs données et la diffusion d'une culture analytique. Fort de plus de 8 ans d'expérience au sein d'institutions majeures, j'ai mené des projets complets en modélisation prédictive, pilotage financier et business intelligence. Mon expertise technique et ma pédagogie me permettent d'aider les équipes à adopter les outils Data et IA pour des décisions éclairées.\n        \n      \n\n      \n        Expérience\n        \n        \n          \n            \n              Data Scientist | Analyste Pricing & Rentabilité\n              Arval BNP Paribas — Direction Financière\n            \n            2022 — 2025\n          \n          \n            \n              Développement de modèles statistiques pour la prévision des valeurs de revente véhicules et l'estimation des coûts de services\n              Conception de tableaux de bord Power BI pour le pilotage de la rentabilité (PNB, RONE, RNAI) à destination de la direction financière\n              Production de KPI stratégiques et rapports analytiques pour l'aide à la décision\n              Industrialisation des processus analytiques et accompagnement des équipes métier\n            \n            PythonDataikuPower BISQLSAS\n          \n        \n\n        \n          \n            \n              Data Scientist — Lutte contre la fraude\n              Caisse Centrale de la MSA — Direction des Statistiques\n            \n            2018 — 2022\n          \n          \n            \n              Développement de modèles ML de détection de fraude sur Dataiku DSS (périmètre de 1,2M de bénéficiaires)\n              Architecture complète : feature engineering, training, scoring, déploiement API temps réel\n              Requêtage Big Data sur clusters Hadoop (HDFS, Hive), optimisation Spark\n              Conception de modèles sémantiques Power BI et reportings automatisés pour les organismes de tutelle\n            \n            PythonPySparkDataikuPower BIHadoop\n          \n        \n\n        \n          \n            \n              Data Analyst | Chargé d'études économiques\n              France Stratégie\n            \n            2017\n          \n          \n            \n              Calibration d'un modèle macroéconomique Stock-Flow Consistent pour la zone Euro\n              Simulation d'impact de politiques climatiques sur la stabilité financière\n              Développement de dashboards R Shiny pour la visualisation de scénarios économiques\n            \n            RR ShinyGit\n          \n        \n      \n    \n\n    \n      \n        Compétences\n        \n          \n            Langages & Data\n            \n              PythonSQLRSASPySparkDAX\n            \n          \n          \n            Plateformes\n            \n              Power BIDataikuAzureDatabricksHadoop\n            \n          \n          \n            Data Science\n            \n              Machine LearningScoringDétection fraudeÉconométrie\n            \n          \n          \n            Métier\n            \n              FinanceRisk ManagementKYC / AML\n            \n          \n        \n      \n\n      \n        Formation\n        \n          \n            2017\n            Master Modélisation ProspectiveUniversité Paris-Saclay\n          \n          \n            2015\n            Ingénieur Statisticien-ÉconomisteINSEA — Rabat\n          \n        \n      \n\n      \n        Certifications\n        \n          \n            \n            Power BI Data AnalystMicrosoft PL-300\n          \n          \n            SAS\n            SAS CertifiedBase, Advanced, Statistical BA, Viya\n          \n          \n            \n            Dataiku CertifiedCore, Advanced, ML, Developer, MLOps\n          \n          \n            \n            DatabricksLakehouse Fundamentals\n          \n        \n      \n\n      \n        Langues\n        \n          FrançaisNatif\n          AnglaisProfessionnel"
   },
   {
-    "objectID": "projects/projects.html",
-    "href": "projects/projects.html",
-    "title": "Projets",
+    "objectID": "projects/02-pricing-optimisation/index.html",
+    "href": "projects/02-pricing-optimisation/index.html",
+    "title": "Optimisation tarifaire LLD",
     "section": "",
-    "text": "Aucun article correspondant"
+    "text": "Projet fictif : refonte de la stratégie de pricing pour un parc de location longue durée (LLD) afin d’optimiser la rentabilité tout en préservant la compétitivité commerciale."
+  },
+  {
+    "objectID": "projects/02-pricing-optimisation/index.html#contexte",
+    "href": "projects/02-pricing-optimisation/index.html#contexte",
+    "title": "Optimisation tarifaire LLD",
+    "section": "",
+    "text": "Projet fictif : refonte de la stratégie de pricing pour un parc de location longue durée (LLD) afin d’optimiser la rentabilité tout en préservant la compétitivité commerciale."
+  },
+  {
+    "objectID": "projects/02-pricing-optimisation/index.html#approche",
+    "href": "projects/02-pricing-optimisation/index.html#approche",
+    "title": "Optimisation tarifaire LLD",
+    "section": "Approche",
+    "text": "Approche\n\nCalcul de la marge nette par contrat (PNB, RONE)\nModélisation de la valeur résiduelle par segment véhicule\nSimulation d’impact tarifaire à 3 ans\nTableaux de bord exécutifs Power BI"
+  },
+  {
+    "objectID": "projects/02-pricing-optimisation/index.html#résultats",
+    "href": "projects/02-pricing-optimisation/index.html#résultats",
+    "title": "Optimisation tarifaire LLD",
+    "section": "Résultats",
+    "text": "Résultats\n\nIdentification de 12 % du parc en perte structurelle\nPlan de revalorisation tarifaire ciblé sur 5 segments\nGain projeté : +3,2 pts de RONE à 24 mois"
+  },
+  {
+    "objectID": "projects/02-pricing-optimisation/index.html#stack",
+    "href": "projects/02-pricing-optimisation/index.html#stack",
+    "title": "Optimisation tarifaire LLD",
+    "section": "Stack",
+    "text": "Stack\nPython, Dataiku, Power BI, DAX, SQL"
+  },
+  {
+    "objectID": "projects/01-credit-scoring/index.html",
+    "href": "projects/01-credit-scoring/index.html",
+    "title": "Modèle de scoring crédit",
+    "section": "",
+    "text": "Projet fictif d’illustration : développement d’un modèle de scoring de crédit pour un portefeuille de prêts à la consommation, dans le respect du cadre prudentiel Bâle IV."
+  },
+  {
+    "objectID": "projects/01-credit-scoring/index.html#contexte",
+    "href": "projects/01-credit-scoring/index.html#contexte",
+    "title": "Modèle de scoring crédit",
+    "section": "",
+    "text": "Projet fictif d’illustration : développement d’un modèle de scoring de crédit pour un portefeuille de prêts à la consommation, dans le respect du cadre prudentiel Bâle IV."
+  },
+  {
+    "objectID": "projects/01-credit-scoring/index.html#approche",
+    "href": "projects/01-credit-scoring/index.html#approche",
+    "title": "Modèle de scoring crédit",
+    "section": "Approche",
+    "text": "Approche\n\nPréparation et analyse exploratoire de ~250k observations\nEncodage des variables catégorielles (WoE)\nModèle gradient boosting (LightGBM) calibré\nBacktesting sur fenêtre glissante 24 mois"
+  },
+  {
+    "objectID": "projects/01-credit-scoring/index.html#résultats",
+    "href": "projects/01-credit-scoring/index.html#résultats",
+    "title": "Modèle de scoring crédit",
+    "section": "Résultats",
+    "text": "Résultats\n\nAUC de validation : 0.81\nStabilité PSI &lt; 0.1 sur 4 trimestres\nTaux de couverture des défauts amélioré de +18 %"
+  },
+  {
+    "objectID": "projects/01-credit-scoring/index.html#stack",
+    "href": "projects/01-credit-scoring/index.html#stack",
+    "title": "Modèle de scoring crédit",
+    "section": "Stack",
+    "text": "Stack\nPython, LightGBM, optbinning, Power BI"
   },
   {
     "objectID": "services.html",
