@@ -675,7 +675,7 @@ ul.task-list li input[type="checkbox"] {
 
     if (isHome) {
       // Page d'accueil : nom seulement
-      document.title = "Boukary OUEDRAOGO";
+      document.title = "Home";
       return;
     }
 
@@ -684,7 +684,7 @@ ul.task-list li input[type="checkbox"] {
     t = t.replace(/<[^>]*>/g, "");
     t = t.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
     t = t.replace(/\s[-–—]\s.*$/, "").trim();
-    document.title = t || "Boukary OUEDRAOGO";
+    document.title = t || "Home";
   }
   cleanTitle();
   document.addEventListener("DOMContentLoaded", cleanTitle);
