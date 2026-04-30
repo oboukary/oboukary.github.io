@@ -1,0 +1,63 @@
+/* Styles pour les boutons de filtre */
+#filters {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center
+    position: sticky;
+}
+
+.filter-btn {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #3700b3;
+}
+
+.filter-btn.active {
+    background-color: #03dac6;
+    color: #000;
+}
+
+/* Styles pour les projets */
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    width: calc(33.333% - 40px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.project h3 {
+    margin-top: 0;
+}
+
+.project p {
+    color: #666;
+}

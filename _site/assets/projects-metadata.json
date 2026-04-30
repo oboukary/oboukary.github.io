@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Modélisation de la probabilté de défaut",
+    "categories": [
+      "SAS",
+      "R",
+      "Python"
+    ],
+    "description": "Application avec divers langage de programmation",
+    "image": "",
+    "file": "01-modélisation-de-la-pd\\index.html"
+  },
+  {
+    "title": "Projet SAS",
+    "categories": [
+      "SAS",
+      "Finance"
+    ],
+    "description": "Analyse financière avec SAS.",
+    "image": "sas.jpg",
+    "file": "02-SAS-pour-IML\\index.html"
+  }
+]
