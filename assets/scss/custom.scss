@@ -145,6 +145,19 @@ code {
   font-weight: normal;
 }
 
+/* Sous-titre dans le titre de la navbar */
+.navbar-title .navbar-subtitle,
+.navbar-brand .navbar-subtitle,
+.navbar .navbar-subtitle {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  margin-top: 0.15rem;
+  line-height: 1.2;
+}
+
 /* Amélioration des callouts Quarto */
 .callout {
   border-left-width: 4px;

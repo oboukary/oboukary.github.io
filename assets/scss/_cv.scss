@@ -14,8 +14,8 @@ $cv-border: #e2e8f0;
 $cv-bg: #ffffff;
 $cv-bg-subtle: #f8fafc;
 
-$cv-font-display: 'Fraunces', Georgia, serif;
-$cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+$cv-font-display: 'Cormorant Garamond', Georgia, serif;
+$cv-font-body: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
 
 // ============ FLOATING BUTTON ============
 .cv-fab {
@@ -26,13 +26,14 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .cv-fab__btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.625rem;
   font-family: $cv-font-body;
   font-size: 0.875rem;
-  font-weight: 600;
-  color: #fff;
+  font-weight: 500;
+  color: #fff !important;
+  text-decoration: none !important;
   background: linear-gradient(135deg, $cv-primary 0%, $cv-primary-light 100%);
   border: none;
   padding: 1rem 1.75rem;
@@ -40,15 +41,16 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   cursor: pointer;
   box-shadow: 0 10px 40px rgba(15,23,42,0.25);
   transition: all 0.3s ease;
-  
+
   svg {
     width: 18px;
     height: 18px;
   }
-  
+
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 50px rgba(15,23,42,0.35);
+    color: #fff !important;
   }
 }
 
@@ -93,17 +95,19 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
 .cv-header__name {
   font-family: $cv-font-display;
-  font-size: 2.75rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
   margin-bottom: 0.25rem;
   line-height: 1.1;
 }
 
 .cv-header__title {
   font-family: $cv-font-body;
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: $cv-accent;
   margin-bottom: 1.25rem;
 }
@@ -134,18 +138,20 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .cv-header__initials {
-  width: 130px;
-  height: 130px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-  border: 4px solid rgba(255,255,255,0.2);
-  background: linear-gradient(135deg, rgba($cv-accent, 0.3), rgba($cv-primary, 0.3));
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: $cv-font-display;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #fff;
+  font-size: 2.25rem;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.9);
 }
 
 // ============ MAIN CONTENT ============
@@ -175,20 +181,22 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
 .cv-section__title {
   font-family: $cv-font-display;
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-size: 1.375rem;
+  font-weight: 400;
+  font-style: italic;
   color: $cv-primary;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid $cv-accent;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid $cv-accent;
   display: inline-block;
-  
+
   &--sidebar {
-    font-size: 0.8125rem;
+    font-size: 0.625rem;
+    font-style: normal;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.15em;
     font-family: $cv-font-body;
-    font-weight: 700;
+    font-weight: 500;
     color: $cv-text-light;
     border-bottom: none;
     margin-bottom: 0.75rem;
@@ -199,15 +207,16 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 .cv-profile {
   p {
     font-family: $cv-font-body;
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+    font-weight: 300;
     color: $cv-text;
-    line-height: 1.7;
+    line-height: 1.8;
     margin: 0;
   }
-  
+
   strong {
     color: $cv-primary;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
@@ -235,29 +244,31 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
 .cv-exp__role {
   font-family: $cv-font-body;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9375rem;
+  font-weight: 500;
   color: $cv-primary;
   margin: 0;
 }
 
 .cv-exp__company {
-  font-family: $cv-font-body;
+  font-family: $cv-font-display;
   font-size: 0.9375rem;
+  font-style: italic;
   color: $cv-accent-dark;
-  font-weight: 500;
+  font-weight: 400;
   margin: 0;
 }
 
 .cv-exp__date {
   font-family: $cv-font-body;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 400;
   color: $cv-text-light;
   background: $cv-bg-subtle;
   padding: 0.25rem 0.75rem;
   border-radius: 100px;
   white-space: nowrap;
+  letter-spacing: 0.04em;
 }
 
 .cv-exp__content {
@@ -266,30 +277,31 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     margin: 0.5rem 0 0 0;
     padding: 0;
   }
-  
+
   li {
     font-family: $cv-font-body;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 300;
     color: $cv-text;
     padding: 0.25rem 0 0.25rem 1.25rem;
     position: relative;
-    line-height: 1.6;
-    
+    line-height: 1.65;
+
     &::before {
       content: '';
       position: absolute;
       left: 0;
       top: 0.7rem;
-      width: 6px;
-      height: 6px;
+      width: 4px;
+      height: 4px;
       background: $cv-accent;
       border-radius: 50%;
     }
   }
-  
+
   strong {
     color: $cv-primary;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
@@ -322,11 +334,11 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 .cv-skill-group {
   h4 {
     font-family: $cv-font-body;
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.5625rem;
+    font-weight: 500;
     color: $cv-primary;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.12em;
     margin: 0 0 0.5rem 0;
   }
 }
@@ -335,21 +347,22 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: flex;
   flex-wrap: wrap;
   gap: 0.375rem;
-  
+
   span {
     font-family: $cv-font-body;
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
+    font-weight: 300;
     color: $cv-text;
     background: $cv-bg;
     border: 1px solid $cv-border;
-    padding: 0.375rem 0.625rem;
-    border-radius: 6px;
-    
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+
     &.highlight {
       background: $cv-primary;
       color: #fff;
       border-color: $cv-primary;
-      font-weight: 600;
+      font-weight: 500;
     }
   }
 }
@@ -368,24 +381,26 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
 .cv-edu__year {
   font-family: $cv-font-display;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  font-style: italic;
   color: $cv-accent-dark;
-  min-width: 45px;
+  min-width: 38px;
 }
 
 .cv-edu__content {
   h4 {
     font-family: $cv-font-body;
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: 0.8125rem;
+    font-weight: 500;
     color: $cv-primary;
     margin: 0 0 0.125rem 0;
   }
-  
+
   p {
     font-family: $cv-font-body;
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
+    font-weight: 300;
     color: $cv-text-light;
     margin: 0;
   }
@@ -425,15 +440,16 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 .cv-cert__info {
   h5 {
     font-family: $cv-font-body;
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: 0.75rem;
+    font-weight: 500;
     color: $cv-primary;
     margin: 0 0 0.125rem 0;
   }
-  
+
   p {
     font-family: $cv-font-body;
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
+    font-weight: 300;
     color: $cv-text-light;
     margin: 0;
   }
@@ -454,18 +470,21 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
 .cv-lang__name {
   font-family: $cv-font-body;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
   color: $cv-text;
 }
 
 .cv-lang__level {
   font-family: $cv-font-body;
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 300;
   color: $cv-text-light;
   background: $cv-bg;
   border: 1px solid $cv-border;
-  padding: 0.25rem 0.5rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 4px;
+  letter-spacing: 0.04em;
 }
 
 // ============ PRINT STYLES - MARGES ÉGALES ============
@@ -481,13 +500,13 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     print-color-adjust: exact !important; 
   }
   
-  // Reset body avec marges uniformes
-  html, body { 
-    width: 210mm;
-    height: 297mm;
-    margin: 0 !important; 
-    padding: 8mm !important; 
-    background: #fff !important; 
+  // Reset body
+  html, body {
+    width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    display: block !important;
   }
   
   // Cacher éléments Quarto
@@ -513,8 +532,9 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     display: none !important;
   }
   
-  // Reset conteneurs Quarto
+  // Reset conteneurs Quarto (y compris l'offset left: -100px du layout global)
   #quarto-content,
+  #quarto-document-content,
   .page-columns,
   main.content,
   main {
@@ -522,17 +542,20 @@ $cv-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     padding: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
+    left: 0 !important;
+    position: static !important;
+    transform: none !important;
   }
-  
-  // CV centré avec largeur fixe
-  .cv { 
-    width: 194mm !important;
-    max-width: 194mm !important;
-    margin: 0 auto !important;
-    box-shadow: none !important; 
-    border-radius: 0 !important; 
+
+  // CV pleine largeur A4
+  .cv {
+    width: 210mm !important;
+    max-width: 210mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
     font-size: 9pt;
-    position: relative !important;
+    position: static !important;
   }
   
   // Header
