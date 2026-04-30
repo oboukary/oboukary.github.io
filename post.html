@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-4f76add9ce818da769a8275ffb5affa4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7e31c7ea4108714977b70f84257b599b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-00f4d6881c5182e1ecc2fc4bae68e5e6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -158,9 +158,20 @@ ul.task-list li input[type="checkbox"] {
 
 </main> <!-- /main -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.title = document.title.replace(/\s[-–—]\s.*$/, "");
-});
+(function () {
+  // Nettoyage immédiat du titre de l'onglet :
+  // 1) supprime tout sous-titre <span>...</span> hérité du title Quarto
+  // 2) supprime les suffixes de page (" – Section")
+  function cleanTitle() {
+    var t = document.title || "";
+    t = t.replace(/<[^>]*>/g, "");          // strip toutes les balises HTML
+    t = t.replace(/\s[-–—]\s.*$/, "");       // strip suffixe page
+    t = t.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+    document.title = t.trim();
+  }
+  cleanTitle();
+  document.addEventListener("DOMContentLoaded", cleanTitle);
+})();
 </script>
 
 

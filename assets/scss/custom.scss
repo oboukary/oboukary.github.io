@@ -1,215 +1,529 @@
 /*-- scss:defaults --*/
 
-/* Police système moderne */
-$font-family-sans-serif: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
-                         Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif !default;
-$font-family-monospace: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', 
+/* ============================================================
+   Design System — Tokens
+   ============================================================ */
+
+/* Couleurs */
+$bs-blue:        #023475;
+$brand-primary:  #023475;
+$brand-primary-dark: #01234d;
+$brand-primary-light: #1d4ed8;
+$brand-accent:   #0ea5e9;
+$brand-ink:      #0f172a;
+$brand-text:     #1f2937;
+$brand-muted:    #64748b;
+$brand-border:   #e5e7eb;
+$brand-bg:       #ffffff;
+$brand-bg-soft:  #f8fafc;
+
+$bs-pagination-active-bg: $brand-primary !default;
+$bs-primary: $brand-primary !default;
+$bs-btn-hover-bg: $brand-primary-dark !default;
+
+/* Typographie */
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                         'Inter', Oxygen, Ubuntu, 'Helvetica Neue', sans-serif !default;
+$font-family-monospace: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono',
                         Consolas, 'Courier New', monospace !default;
 
-/* Tes couleurs existantes */
-$bs-blue: #023475 !default;
-$bs-pagination-active-bg: $bs-blue !default;
-$bs-primary: $bs-blue !default;
-$bs-btn-hover-bg: $bs-blue !default;
-
-/* Amélioration typographie */
 $line-height-base: 1.7 !default;
 $headings-font-weight: 600 !default;
+$headings-line-height: 1.25 !default;
+$headings-letter-spacing: -0.015em;
 
 /*-- scss:rules --*/
 
-/* Typographie améliorée */
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 body {
   font-family: $font-family-sans-serif;
   line-height: $line-height-base;
+  color: $brand-text;
+  background-color: $brand-bg;
+  font-feature-settings: 'kern', 'liga', 'calt';
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-sans-serif;
   font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  letter-spacing: $headings-letter-spacing;
+  color: $brand-ink;
 }
 
-code, pre {
-  font-family: $font-family-monospace;
-}
+h1 { font-weight: 700; }
 
-/* Meilleure lisibilité */
 p {
   margin-bottom: 1.2rem;
 }
 
 ul, ol {
-  margin-left: 1.5rem;
   margin-bottom: 1.2rem;
 }
 
 li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
-/* Tes styles existants */
-.navbar {
-  background-color: $bs-blue;
-  position: sticky;
+/* Sélection de texte */
+::selection {
+  background: rgba($brand-primary, 0.15);
+  color: $brand-ink;
 }
 
-.quarto-title-banner{
-  background-color: #0c2e42;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: $bs-blue;
-    border-color: $bs-blue;
-}
-
-.page-item.active .page-link {
-    z-index: 3;
-    color: #fff;
-    background-color: $bs-blue;
-    border-color: $bs-blue;
-}
-
-.quarto-title-banner {
-    margin-bottom: 1em;
-    color: rgba(255,255,255,.7);
-    background: $bs-blue;
-}
-
-.page-link {
-      color: $bs-blue;
-}
-
-.page-link:hover {
-    z-index: 2;
-    color: #fff;
-    background-color: $bs-blue;
-    border-color: $bs-blue;
-}
-
-a{
-  color: $bs-blue;
-}
-
-b, strong {
-    color: $bs-blue;
-    font-weight: bolder;
-}
-
-div.quarto-post .listing-categories .listing-category {
-    color: $bs-blue;
-    border: solid 1px var(--bs-gray-400);
-    font-size: .8em;
-}
-
-
-#quarto-document-content {
-  max-width: 1600px;
-  width: 135%;
-  position: relative;
-  left: -100px;  /* Ajuste la valeur */
-  
-}
-
-.quarto-listing-category.category-cloud {
-    font-size: .55em
-}
-
-.quarto-post .thumbnail img {
-    object-fit: contain;
-    max-height: 150px;
-    max-width: 350px;
-}
-
-/* Code blocks améliorés */
-pre.sourceCode {
-  border: 1px solid #eaeaea;
-  border-radius: 4px;
-  padding: 1em;
-  background-color: #fafafa;
-}
-
-code {
-  background-color: #f5f5f5;
-  padding: 0.1em 0.3em;
+/* Focus visible accessible */
+:focus-visible {
+  outline: 2px solid $brand-accent;
+  outline-offset: 3px;
   border-radius: 3px;
 }
 
-.quarto-title-meta-contents{
-  color: $bs-blue;
+/* ============================================================
+   Layout — neutralise les anciens hacks de positionnement
+   ============================================================ */
+
+#quarto-document-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  position: static;
+  left: auto;
 }
 
-.nav-subtitle {
-  font-size: 0.75em;
-  opacity: 0.8;
-  font-weight: normal;
+main.content,
+#quarto-content > main {
+  padding-inline: clamp(1rem, 4vw, 2rem);
 }
 
-/* Sous-titre dans le titre de la navbar */
+/* ============================================================
+   Navbar
+   ============================================================ */
+
+.navbar {
+  background-color: $brand-primary;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  padding-block: 0.875rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+
+  .navbar-brand,
+  .navbar-title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    transition: opacity 200ms ease;
+
+    &:hover { opacity: 0.85; }
+  }
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    padding-inline: 0.875rem !important;
+    border-radius: 6px;
+    transition: color 200ms ease, background-color 200ms ease;
+
+    &:hover,
+    &:focus {
+      color: #fff !important;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    &.active {
+      color: #fff !important;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Sous-titre dans la navbar */
 .navbar-title .navbar-subtitle,
 .navbar-brand .navbar-subtitle,
 .navbar .navbar-subtitle {
   display: block;
-  font-size: 0.6rem;
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  opacity: 0.85;
-  margin-top: 0.15rem;
-  line-height: 1.2;
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  opacity: 0.78;
+  margin-top: 0.2rem;
+  line-height: 1.3;
+  text-transform: none;
 }
 
-/* Amélioration des callouts Quarto */
+/* Sous-titre nav (legacy) */
+.nav-subtitle {
+  font-size: 0.75em;
+  opacity: 0.85;
+  font-weight: 400;
+}
+
+/* ============================================================
+   Title Banner
+   ============================================================ */
+
+.quarto-title-banner {
+  background: linear-gradient(135deg, $brand-primary 0%, #0c2e42 100%);
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 2rem;
+  padding-block: 3rem;
+
+  .title {
+    color: #fff;
+    font-weight: 700;
+  }
+}
+
+/* ============================================================
+   Liens, boutons
+   ============================================================ */
+
+a {
+  color: $brand-primary;
+  text-decoration-color: rgba($brand-primary, 0.3);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 200ms ease, text-decoration-color 200ms ease;
+
+  &:hover {
+    color: $brand-primary-dark;
+    text-decoration-color: $brand-primary-dark;
+  }
+}
+
+b, strong {
+  color: $brand-ink;
+  font-weight: 600;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  transition: all 200ms ease;
+
+  &:hover {
+    background-color: $brand-primary-dark;
+    border-color: $brand-primary-dark;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($brand-primary, 0.25);
+  }
+}
+
+.page-link {
+  color: $brand-primary;
+
+  &:hover {
+    color: #fff;
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+    z-index: 2;
+  }
+}
+
+.page-item.active .page-link {
+  color: #fff;
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  z-index: 3;
+}
+
+/* ============================================================
+   Listings (cartes de blog/projets)
+   ============================================================ */
+
+div.quarto-post {
+  border: 1px solid $brand-border;
+  border-radius: 12px;
+  padding: 1.25rem;
+  background: $brand-bg;
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba($brand-primary, 0.3);
+    box-shadow: 0 12px 28px -10px rgba(15, 23, 42, 0.15);
+  }
+
+  .listing-categories .listing-category {
+    color: $brand-primary;
+    border: 1px solid $brand-border;
+    background: $brand-bg-soft;
+    border-radius: 999px;
+    font-size: 0.7em;
+    padding: 0.2em 0.7em;
+    font-weight: 500;
+  }
+
+  .thumbnail img {
+    object-fit: cover;
+    max-height: 200px;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .listing-title {
+    color: $brand-ink;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-top: 0.75rem;
+  }
+
+  .listing-date {
+    color: $brand-muted;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+.quarto-listing-category.category-cloud {
+  font-size: 0.55em;
+}
+
+/* ============================================================
+   Code blocks
+   ============================================================ */
+
+pre.sourceCode {
+  border: 1px solid $brand-border;
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  background-color: $brand-bg-soft;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+code {
+  background-color: rgba($brand-primary, 0.06);
+  color: $brand-primary-dark;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
+pre.sourceCode code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ============================================================
+   Tables
+   ============================================================ */
+
+table {
+  font-size: 0.95rem;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table thead th {
+  background: $brand-bg-soft;
+  color: $brand-ink;
+  font-weight: 600;
+  border-bottom: 2px solid $brand-border;
+}
+
+table tbody td {
+  border-bottom: 1px solid $brand-border;
+}
+
+/* ============================================================
+   Title meta (date, auteur)
+   ============================================================ */
+
+.quarto-title-meta-contents {
+  color: $brand-primary;
+}
+
+/* ============================================================
+   Callouts
+   ============================================================ */
+
 .callout {
   border-left-width: 4px;
-  border-radius: 6px;
-  padding: 1.2rem;
-  margin: 1.5rem 0;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+  background: $brand-bg-soft;
 }
 
 .callout-title {
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: $brand-ink;
 }
 
-/* Amélioration des diagrammes Mermaid */
+/* ============================================================
+   Mermaid
+   ============================================================ */
+
 .mermaid {
-  background: #f8f9fa;
+  background: $brand-bg-soft;
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 10px;
+  border: 1px solid $brand-border;
   margin: 2rem 0;
 }
 
-/* Liens avec transition smooth */
-a {
-  transition: color 0.2s ease;
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.nav-footer,
+footer.footer {
+  background: $brand-bg-soft;
+  border-top: 1px solid $brand-border;
+  padding-block: 2rem;
+  color: $brand-muted;
+  font-size: 0.875rem;
+
+  a {
+    color: $brand-muted;
+    transition: color 200ms ease;
+
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+
+  .nav-footer-center p {
+    margin: 0;
+  }
+
+  .footer-items {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+
+    .nav-link {
+      color: $brand-muted !important;
+      padding: 0.4rem !important;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+
+      &:hover {
+        color: $brand-primary !important;
+        background: rgba($brand-primary, 0.08);
+      }
+
+      i {
+        font-size: 1.05rem;
+      }
+    }
+  }
 }
 
+/* ============================================================
+   Hero / about heading sur la home
+   ============================================================ */
 
+#hero-heading {
+  text-align: center;
+  padding-block: 1.5rem 2rem;
 
-p3{
-  opacity: 0 !important;
+  img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 12px 24px rgba(2, 52, 117, 0.08));
+  }
 }
 
-/* Tables */
-table {
-  font-size: 0.95rem;
+/* Marquee about (template) */
+.quarto-about-marquee {
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(180deg, $brand-bg 0%, $brand-bg-soft 100%);
 }
 
-/* Responsive */
+/* ============================================================
+   Misc cleanup
+   ============================================================ */
+
+p3 { opacity: 0 !important; }
+
+/* Search bar */
+.aa-DetachedSearchButton {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 8px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+  }
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
 @media (max-width: 768px) {
   body {
     font-size: 1rem;
   }
-  
+
   #quarto-document-content {
     width: 100%;
   }
+
+  .navbar {
+    padding-block: 0.625rem;
+
+    .navbar-title {
+      font-size: 0.95rem;
+    }
+
+    .navbar-subtitle {
+      font-size: 0.5625rem;
+    }
+  }
+
+  .quarto-title-banner {
+    padding-block: 2rem;
+  }
 }
 
-/* ===========================================
-   PAGE D'ACCUEIL - STYLES (HTML pur)
-   =========================================== */
-@import "_home";  
-@import "_contact"; 
+/* ============================================================
+   Imports — pages spécifiques
+   ============================================================ */
+
+@import "_home";
+@import "_contact";
 @import "_services";
 @import "_cv";
