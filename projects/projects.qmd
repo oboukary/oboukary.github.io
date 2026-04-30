@@ -1,22 +1,29 @@
 ---
 title: "Projets"
 pagetitle: "Projects"
+description: "Une sélection de projets data, finance et économie sur lesquels j'ai travaillé."
 listing:
   - id: projects
     contents: "**/*/index.qmd"
     type: grid
-    fields: [image, date, title]
+    grid-columns: 3
+    image-height: "220px"
+    fields: [image, title, description, categories]
     sort: "date desc"
     categories: unnumbered
     sort-ui: false
     filter-ui: false
-    page-size: 42
+    page-size: 30
 page-layout: full
 title-block-banner: false
 comments: false
 toc: false
+body-classes: page-projects
 ---
 
+::: {.projects-intro}
+:::
 
 ::: {#projects}
 :::
+

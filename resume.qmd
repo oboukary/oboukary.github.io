@@ -1,6 +1,9 @@
 ---
+title: ""
 pagetitle: "CV"
 page-layout: full
+title-block-style: none
+toc: false
 ---
 
 ```{=html}
