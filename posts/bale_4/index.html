@@ -486,15 +486,22 @@ window.Quarto = {
 </main> <!-- /main -->
 <script>
 (function () {
-  // Nettoyage immédiat du titre de l'onglet :
-  // 1) supprime tout sous-titre <span>...</span> hérité du title Quarto
-  // 2) supprime les suffixes de page (" – Section")
   function cleanTitle() {
+    var path = window.location.pathname.replace(/\/+$/, "");
+    var isHome = path === "" || /\/(index(\.html)?)?$/.test(path);
+
+    if (isHome) {
+      // Page d'accueil : nom seulement
+      document.title = "Boukary OUEDRAOGO";
+      return;
+    }
+
+    // Autres pages : on nettoie juste les balises HTML résiduelles et le suffixe
     var t = document.title || "";
-    t = t.replace(/<[^>]*>/g, "");          // strip toutes les balises HTML
-    t = t.replace(/\s[-–—]\s.*$/, "");       // strip suffixe page
+    t = t.replace(/<[^>]*>/g, "");
     t = t.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
-    document.title = t.trim();
+    t = t.replace(/\s[-–—]\s.*$/, "").trim();
+    document.title = t || "Boukary OUEDRAOGO";
   }
   cleanTitle();
   document.addEventListener("DOMContentLoaded", cleanTitle);

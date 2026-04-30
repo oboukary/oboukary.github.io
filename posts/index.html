@@ -239,7 +239,7 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UiVDMyVBOWdsZW1lbnRhdGlvbiUyQ1Jpc3F1ZSUyMGRlJTIwY3IlQzMlQTlkaXQlMkNCJUMzJUEybGUlMjBJViUyQ0ZpbmFuY2U=" data-listing-date-sort="1766620800000" data-listing-file-modified-sort="1777582963378" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1448">
+<div class="quarto-post image-right" data-index="0" data-categories="UiVDMyVBOWdsZW1lbnRhdGlvbiUyQ1Jpc3F1ZSUyMGRlJTIwY3IlQzMlQTlkaXQlMkNCJUMzJUEybGUlMjBJViUyQ0ZpbmFuY2U=" data-listing-date-sort="1766620800000" data-listing-file-modified-sort="1777583689707" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1448">
 <div class="thumbnail"><a href="../posts/bale_4/index.html" class="no-external">
 
 <img loading="lazy" src="../posts/bale_4/bale-iv-cover.png" class="thumbnail-image">
@@ -271,15 +271,22 @@ window.Quarto = {
 </main> <!-- /main -->
 <script>
 (function () {
-  // Nettoyage immédiat du titre de l'onglet :
-  // 1) supprime tout sous-titre <span>...</span> hérité du title Quarto
-  // 2) supprime les suffixes de page (" – Section")
   function cleanTitle() {
+    var path = window.location.pathname.replace(/\/+$/, "");
+    var isHome = path === "" || /\/(index(\.html)?)?$/.test(path);
+
+    if (isHome) {
+      // Page d'accueil : nom seulement
+      document.title = "Boukary OUEDRAOGO";
+      return;
+    }
+
+    // Autres pages : on nettoie juste les balises HTML résiduelles et le suffixe
     var t = document.title || "";
-    t = t.replace(/<[^>]*>/g, "");          // strip toutes les balises HTML
-    t = t.replace(/\s[-–—]\s.*$/, "");       // strip suffixe page
+    t = t.replace(/<[^>]*>/g, "");
     t = t.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
-    document.title = t.trim();
+    t = t.replace(/\s[-–—]\s.*$/, "").trim();
+    document.title = t || "Boukary OUEDRAOGO";
   }
   cleanTitle();
   document.addEventListener("DOMContentLoaded", cleanTitle);
