@@ -1,5 +1,6 @@
 ---
-title: "Publications"
+title: "Blog"
+pagetitle: "Blog"
 listing:
   - id: posts
     contents: "**/*/index.qmd"

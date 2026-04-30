@@ -1,4 +1,5 @@
 ---
+pagetitle: "CV"
 page-layout: full
 ---
 

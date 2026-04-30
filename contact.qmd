@@ -1,5 +1,5 @@
 ---
-pagetitle: "Contact - Boukary Ouedraogo"
+pagetitle: "Contact"
 comments: false
 toc: false
 body-class: page-contact

@@ -1,5 +1,6 @@
 ---
 title: "Projets"
+pagetitle: "Projects"
 listing:
   - id: projects
     contents: "**/*/index.qmd"
