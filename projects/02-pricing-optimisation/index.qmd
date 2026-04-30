@@ -1,0 +1,38 @@
+---
+title: "Optimisation tarifaire LLD"
+subtitle: "Pilotage de la rentabilité sur un parc de véhicules longue durée"
+description: "Refonte de la grille tarifaire d'un acteur de location longue durée à partir d'une analyse de rentabilité véhicule par véhicule."
+author: "Boukary Ouedraogo"
+date: "2025-06-10"
+image: featured.svg
+categories:
+  - Finance
+  - BI
+  - Pricing
+format:
+  html:
+    toc: true
+---
+
+## Contexte
+
+Projet fictif : refonte de la stratégie de pricing pour un parc de location
+longue durée (LLD) afin d'optimiser la rentabilité tout en préservant la
+compétitivité commerciale.
+
+## Approche
+
+- Calcul de la marge nette par contrat (PNB, RONE)
+- Modélisation de la valeur résiduelle par segment véhicule
+- Simulation d'impact tarifaire à 3 ans
+- Tableaux de bord exécutifs Power BI
+
+## Résultats
+
+- Identification de 12 % du parc en perte structurelle
+- Plan de revalorisation tarifaire ciblé sur 5 segments
+- Gain projeté : +3,2 pts de RONE à 24 mois
+
+## Stack
+
+`Python`, `Dataiku`, `Power BI`, `DAX`, `SQL`

@@ -1,0 +1,38 @@
+---
+title: "Modèle de scoring crédit"
+subtitle: "Probabilité de défaut sous cadre Bâle IV"
+description: "Construction d'un modèle de scoring pour estimer la probabilité de défaut sur un portefeuille retail, conforme aux exigences prudentielles."
+author: "Boukary Ouedraogo"
+date: "2025-09-15"
+image: featured.svg
+categories:
+  - Risque
+  - Machine Learning
+  - Finance
+format:
+  html:
+    toc: true
+---
+
+## Contexte
+
+Projet fictif d'illustration : développement d'un modèle de scoring de crédit pour
+un portefeuille de prêts à la consommation, dans le respect du cadre prudentiel
+Bâle IV.
+
+## Approche
+
+- Préparation et analyse exploratoire de ~250k observations
+- Encodage des variables catégorielles (WoE)
+- Modèle gradient boosting (LightGBM) calibré
+- Backtesting sur fenêtre glissante 24 mois
+
+## Résultats
+
+- AUC de validation : 0.81
+- Stabilité PSI < 0.1 sur 4 trimestres
+- Taux de couverture des défauts amélioré de +18 %
+
+## Stack
+
+`Python`, `LightGBM`, `optbinning`, `Power BI`

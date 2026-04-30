@@ -1,0 +1,38 @@
+---
+title: "Détection de fraude en temps réel"
+subtitle: "Scoring ML déployé sur 1,2M de bénéficiaires"
+description: "Modèle de détection d'anomalies dans les déclarations sociales, exposé via API temps réel et alimenté par un pipeline Spark."
+author: "Boukary Ouedraogo"
+date: "2024-11-22"
+image: featured.svg
+categories:
+  - Machine Learning
+  - Risque
+  - Big Data
+format:
+  html:
+    toc: true
+---
+
+## Contexte
+
+Projet fictif inspiré d'un cas réel : système de détection de fraude opéré sur
+des déclarations sociales, capable de scorer en temps réel les nouveaux dossiers
+et de prioriser les contrôles humains.
+
+## Approche
+
+- Feature engineering sur données déclaratives + comportementales
+- Modèle Isolation Forest + GBM combiné en stacking
+- Déploiement API Flask sur cluster Kubernetes
+- Pipeline batch nocturne sur Hadoop / Spark
+
+## Résultats
+
+- 1,2M de bénéficiaires couverts
+- Taux de précision des alertes amélioré de +27 %
+- Latence moyenne du scoring : 80 ms
+
+## Stack
+
+`Python`, `PySpark`, `Dataiku`, `Hadoop`, `Flask`, `Power BI`
