@@ -1,0 +1,263 @@
+// ================================================
+// _projects.scss — Page Projets (style académique)
+// Cartes propres, grille responsive, filtres par catégorie
+// ================================================
+
+$pj-text:        #1f2937;
+$pj-muted:       #64748b;
+$pj-bg:          #ffffff;
+$pj-bg-soft:     #f8fafc;
+$pj-border:      #e5e7eb;
+$pj-primary:     #023475;
+$pj-accent:      #0ea5e9;
+
+.page-projects {
+  background: $pj-bg-soft;
+}
+
+// ============ EN-TÊTE / INTRO ============
+
+body.page-projects .quarto-title,
+body.page-projects #title-block-header {
+  text-align: center;
+  padding: 3.5rem 1rem 1rem;
+  max-width: 760px;
+  margin: 0 auto;
+
+  h1.title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: $pj-primary;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .description,
+  .subtitle {
+    font-size: 1.0625rem;
+    color: $pj-muted;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// ============ FILTRES PAR CATÉGORIE ============
+
+.quarto-listing-category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem 2.5rem;
+  border-bottom: none;
+
+  .category {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1.1rem;
+    background: transparent;
+    color: $pj-muted;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid $pj-border;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 200ms ease;
+    text-transform: none;
+    letter-spacing: 0;
+
+    &:hover {
+      border-color: $pj-primary;
+      color: $pj-primary;
+      background: rgba($pj-primary, 0.04);
+    }
+
+    &.active {
+      background: $pj-primary;
+      color: #fff;
+      border-color: $pj-primary;
+      box-shadow: 0 4px 14px rgba($pj-primary, 0.18);
+    }
+  }
+}
+
+.quarto-listing-category-title {
+  display: none; // libellé "Catégories :" masqué pour un look épuré
+}
+
+// ============ GRILLE DE PROJETS ============
+
+#projects {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+#projects .list.grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+// ============ CARTE PROJET ============
+
+#projects .quarto-grid-item.card {
+  background: $pj-bg;
+  border: 1px solid $pj-border;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba($pj-primary, 0.3);
+    box-shadow: 0 18px 36px -14px rgba(15, 23, 42, 0.18);
+
+    .card-img-top,
+    .thumbnail-image {
+      transform: scale(1.04);
+    }
+
+    .card-title a,
+    .listing-title {
+      color: $pj-primary;
+    }
+  }
+
+  // Lien wrappant la carte
+  a.title,
+  a.listing-title-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  // Image de couverture
+  .card-img-top,
+  .thumbnail-image,
+  img.thumbnail-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    background: $pj-bg-soft;
+    transition: transform 500ms ease;
+    display: block;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .card-body,
+  .listing-body {
+    padding: 1.25rem 1.4rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.6rem;
+  }
+
+  .card-title,
+  .listing-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: $pj-text;
+    margin: 0;
+    transition: color 200ms ease;
+    letter-spacing: -0.01em;
+
+    a { color: inherit; }
+  }
+
+  .card-text,
+  .listing-description {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: $pj-muted;
+    margin: 0;
+    flex: 1;
+
+    p { margin: 0; }
+  }
+
+  // Catégories / tags en bas de carte
+  .listing-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 1px solid $pj-border;
+
+    .listing-category {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0.22em 0.7em;
+      background: $pj-bg-soft;
+      color: $pj-primary;
+      border: 1px solid $pj-border;
+      border-radius: 999px;
+      transition: all 180ms ease;
+
+      &:hover {
+        background: $pj-primary;
+        color: #fff;
+        border-color: $pj-primary;
+      }
+    }
+  }
+}
+
+// Card variant utilisé par Quarto en listing default
+#projects .list .quarto-post {
+  background: $pj-bg;
+  border: 1px solid $pj-border;
+  border-radius: 14px;
+  padding: 0;
+  overflow: hidden;
+}
+
+// ============ RESPONSIVE ============
+
+@media (max-width: 768px) {
+  body.page-projects .quarto-title,
+  body.page-projects #title-block-header {
+    padding-top: 2rem;
+  }
+
+  #projects .list.grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  #projects .quarto-grid-item.card {
+    .card-img-top,
+    .thumbnail-image {
+      height: 200px;
+    }
+  }
+
+  .quarto-listing-category {
+    padding: 1rem 0.5rem 1.5rem;
+  }
+}
+
+// ============ MOTION REDUITE ============
+
+@media (prefers-reduced-motion: reduce) {
+  #projects .quarto-grid-item.card,
+  #projects .quarto-grid-item.card .card-img-top,
+  #projects .quarto-grid-item.card .thumbnail-image,
+  .quarto-listing-category .category {
+    transition: none !important;
+  }
+}
