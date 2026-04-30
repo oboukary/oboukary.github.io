@@ -2,6 +2,7 @@
 pagetitle: "Services"
 comments: false
 toc: false
+page-layout: full
 ---
 
 

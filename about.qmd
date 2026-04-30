@@ -2,6 +2,8 @@
 comments: false
 nav: false
 pagetitle: "About"
+page-layout: full
+toc: false
 ---
 
 

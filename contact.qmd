@@ -2,6 +2,7 @@
 pagetitle: "Contact"
 comments: false
 toc: false
+page-layout: full
 body-class: page-contact
 ---
 
