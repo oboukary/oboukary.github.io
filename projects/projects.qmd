@@ -28,28 +28,79 @@ body-class: page-projects
 <script>
 (function () {
   function applyLayout() {
-    // Filet de sécurité : forcer la classe sur <body> au cas où
-    // body-class du frontmatter n'est pas honoré.
-    document.body.classList.add("page-projects");
-
-    var listing = document.getElementById("projects");
+    // Trouve la vraie grille de listing : Quarto crée id="listing-<configId>",
+    // pas l'id qu'on déclare. Plusieurs sélecteurs en fallback.
+    var listing = document.querySelector(".quarto-listing-container-grid")
+               || document.querySelector(".quarto-listing")
+               || document.getElementById("listing-projects")
+               || document.getElementById("projects");
     var categories = document.querySelector(".quarto-listing-category");
+    var categoryTitle = document.querySelector(".quarto-listing-category-title");
     if (!listing || !categories) return;
 
-    // Déplace le bloc filtres juste avant la grille
-    if (listing.parentNode !== categories.parentNode) {
-      listing.parentNode.insertBefore(categories, listing);
-    } else {
-      // Même parent → on insère avant la grille
-      listing.parentNode.insertBefore(categories, listing);
+    // Active les styles spécifiques à cette page
+    document.body.classList.add("page-projects");
+
+    // Force <main> à prendre toute la largeur (Quarto le met en column-page-left)
+    var mainEl = document.getElementById("quarto-document-content")
+              || document.querySelector("main.content");
+    if (mainEl) {
+      mainEl.classList.remove("column-page-left", "column-page-right");
+      mainEl.classList.add("column-screen");
     }
 
-    // Renomme le bouton "Tous" / "All"
-    categories.querySelectorAll(".category").forEach(function (el) {
-      var t = (el.textContent || "").trim();
-      if (t === "All" || t === "Tous" || el.dataset.category === "") {
-        el.textContent = "Tous";
-      }
+    // Construit la barre de filtres et l'insère AU-DESSUS de la grille
+    var wrap = document.createElement("div");
+    wrap.className = "projects-filter-bar";
+    if (categoryTitle) wrap.appendChild(categoryTitle);
+    wrap.appendChild(categories);
+    listing.parentNode.insertBefore(wrap, listing);
+
+    // Cache la sidebar marge si elle est vide après extraction
+    var marginSidebar = document.getElementById("quarto-margin-sidebar");
+    if (marginSidebar) {
+      var hasContent = marginSidebar.querySelector(":scope > *:not(:empty)");
+      if (!hasContent) marginSidebar.style.display = "none";
+    }
+
+    // Ajoute un bouton "Tous" en tête. État inactif par défaut, et son
+    // clic remet à zéro tous les filtres (aucun bouton ne reste actif).
+    var allBtn = document.createElement("div");
+    allBtn.className = "category category-all";
+    allBtn.dataset.category = "";
+    allBtn.textContent = "Tous";
+    categories.insertBefore(allBtn, categories.firstChild);
+
+    function clearActive() {
+      categories.querySelectorAll(".category.active").forEach(function (el) {
+        el.classList.remove("active");
+      });
+    }
+
+    function showAll() {
+      var cards = listing.querySelectorAll(".quarto-grid-item, .quarto-post, .g-col-1");
+      cards.forEach(function (c) { c.style.display = ""; });
+    }
+
+    allBtn.addEventListener("click", function () {
+      clearActive();
+      showAll();
+    });
+
+    categories.querySelectorAll(".category:not(.category-all)").forEach(function (el) {
+      el.addEventListener("click", function () {
+        clearActive();
+        el.classList.add("active");
+        var cat = (el.textContent || "").trim().toLowerCase();
+        var cards = listing.querySelectorAll(".quarto-grid-item, .quarto-post, .g-col-1");
+        cards.forEach(function (card) {
+          var tags = Array.prototype.map.call(
+            card.querySelectorAll(".listing-category"),
+            function (t) { return (t.textContent || "").trim().toLowerCase(); }
+          );
+          card.style.display = tags.indexOf(cat) >= 0 ? "" : "none";
+        });
+      }, true); // capture phase pour passer avant Quarto
     });
   }
 

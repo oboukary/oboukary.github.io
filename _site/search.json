@@ -11,7 +11,70 @@
     "href": "projects/projects.html",
     "title": "Projets",
     "section": "",
-    "text": "Aucun article correspondant"
+    "text": "Modèle de scoring crédit\n\n\n\nRisque\n\nMachine Learning\n\nFinance\n\n\n\nConstruction d’un modèle de scoring pour estimer la probabilité de défaut sur un portefeuille retail, conforme aux exigences prudentielles.\n\n\n\n\n\n\n\n\n\n\n\n\nOptimisation tarifaire LLD\n\n\n\nFinance\n\nBI\n\nPricing\n\n\n\nRefonte de la grille tarifaire d’un acteur de location longue durée à partir d’une analyse de rentabilité véhicule par véhicule.\n\n\n\n\n\n\n\n\n\n\n\n\nDétection de fraude en temps réel\n\n\n\nMachine Learning\n\nRisque\n\nBig Data\n\n\n\nModèle de détection d’anomalies dans les déclarations sociales, exposé via API temps réel et alimenté par un pipeline Spark.\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "projects/02-pricing-optimisation/index.html",
+    "href": "projects/02-pricing-optimisation/index.html",
+    "title": "Optimisation tarifaire LLD",
+    "section": "",
+    "text": "Projet fictif : refonte de la stratégie de pricing pour un parc de location longue durée (LLD) afin d’optimiser la rentabilité tout en préservant la compétitivité commerciale."
+  },
+  {
+    "objectID": "projects/02-pricing-optimisation/index.html#contexte",
+    "href": "projects/02-pricing-optimisation/index.html#contexte",
+    "title": "Optimisation tarifaire LLD",
+    "section": "",
+    "text": "Projet fictif : refonte de la stratégie de pricing pour un parc de location longue durée (LLD) afin d’optimiser la rentabilité tout en préservant la compétitivité commerciale."
+  },
+  {
+    "objectID": "projects/02-pricing-optimisation/index.html#approche",
+    "href": "projects/02-pricing-optimisation/index.html#approche",
+    "title": "Optimisation tarifaire LLD",
+    "section": "Approche",
+    "text": "Approche\n\nCalcul de la marge nette par contrat (PNB, RONE)\nModélisation de la valeur résiduelle par segment véhicule\nSimulation d’impact tarifaire à 3 ans\nTableaux de bord exécutifs Power BI"
+  },
+  {
+    "objectID": "projects/02-pricing-optimisation/index.html#résultats",
+    "href": "projects/02-pricing-optimisation/index.html#résultats",
+    "title": "Optimisation tarifaire LLD",
+    "section": "Résultats",
+    "text": "Résultats\n\nIdentification de 12 % du parc en perte structurelle\nPlan de revalorisation tarifaire ciblé sur 5 segments\nGain projeté : +3,2 pts de RONE à 24 mois"
+  },
+  {
+    "objectID": "projects/02-pricing-optimisation/index.html#stack",
+    "href": "projects/02-pricing-optimisation/index.html#stack",
+    "title": "Optimisation tarifaire LLD",
+    "section": "Stack",
+    "text": "Stack\nPython, Dataiku, Power BI, DAX, SQL"
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Trier par\n      Ordre par défaut\n      \n        Titre\n      \n      \n        Date - Le plus ancien\n      \n      \n        Date - Le plus récent\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBâle IV : Évolutions du cadre prudentiel du risque de crédit\n\n\n\n\n\n\n\n\n25 déc. 2025\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "index.html#publications-récentes",
+    "href": "index.html#publications-récentes",
+    "title": "Boukary Ouedraogo<span class='navbar-subtitle'>Consultant Data & Analytics – Finance, Économie, Risque & Décision</span>",
+    "section": "Publications récentes",
+    "text": "Publications récentes\n\n\n\n\n\n\n\n\n\n\nBâle IV : Évolutions du cadre prudentiel du risque de crédit\n\n\n\n25 déc. 2025\n\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "\n        Transformer vos données en décisions stratégiques\n      ",
+    "section": "",
+    "text": "Disponible\n        \n      \n      \n      \n        \n          8+\n          années\n        \n        \n          20+\n          projets\n        \n        \n          15+\n          certifications\n        \n      \n    \n    \n    \n    \n      \n        \n        Consultant Data & Analytics\n      \n      \n      \n        Transformer vos données en décisions stratégiques\n      \n      \n\n  Ingénieur Statisticien-Économiste diplômé de l'INSEA de Rabat et titulaire d'un Master de l'Université Paris-Saclay, j'accompagne les organisations dans la valorisation de leurs données pour en faire de véritables leviers de performance. Avec plus de 8 ans d'expérience à l'intersection de la Data Science, de la Finance et de l'Économie appliquée, je maîtrise l'ensemble du cycle de vie de la donnée : de l'extraction complexe à la modélisation prédictive, jusqu'à la création de dashboards décisionnels.\n  \n  Expert certifié sur Dataiku, SAS, Power BI et Microsoft Fabric, je me spécialise dans la conception d'algorithmes de machine learning, la modélisation des risques (crédit, fraude) et le pilotage de la rentabilité financière. Mon profil \"pont\" me permet de traduire des enjeux métiers stratégiques en solutions techniques robustes et industrialisées.\n  \n  Mes domaines d'intervention :\n  \n  \n    Data Science & IA : Modélisation prédictive, Deep Learning, séries temporelles.\n    Finance & Risques : Scoring, analyse de rentabilité (KPIs financiers), risk management.\n    Ingénierie de données : Migration d'environnements (SAS vers Dataiku/Python), optimisation de pipelines.\n    Business Intelligence : Conception de reportings interactifs et pilotage de la performance.\n  \n  \n  Passionné par la transformation technologique, je mets mon expertise au service de la prise de décision éclairée.\n\n      \n      \n        Finance\n        Analytics\n        Data Science\n        BI\n      \n      \n      \n        \n          Découvrir mes services\n          \n        \n        Me contacter\n      \n    \n    \n  \n\n\n\n\n  \n    01\n    Expérience\n  \n  \n  \n    \n    \n      \n      \n        \n          FinInsight Data Analytics\n          2025 – Présent\n        \n        Consultant indépendant\n        Accompagnement des organisations sur des projets data analytics, BI et aide à la décision.\n      \n    \n    \n    \n      \n      \n        \n          Arval BNP Paribas\n          2022 – 2025\n        \n        Statisticien & Analyst Pricing\n        Analyses de rentabilité, pilotage financier et modèles statistiques. Migration SAS vers Dataiku (120 programmes, 50k lignes de code).\n      \n    \n    \n    \n      \n      \n        \n          CCMSA\n          2018 – 2022\n        \n        Statisticien & Data Scientist\n        Modélisation prédictive pour la détection de fraude. Plus de 2 millions d'assurés concernés.\n      \n    \n    \n  \n\n\n\n\n  \n    Un projet data en tête ?\n    Discutons de vos enjeux et voyons comment transformer vos données en avantage compétitif.\n    \n      \n        Me contacter\n        \n      \n      Lire mes articles"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Échangeons sur votre projet",
+    "section": "",
+    "text": "Disponible pour nouvelles missions\n  \n  Échangeons sur votre projet\n  Data Analytics • Business Intelligence • Pilotage Financier\n\n\n\n\n\n  \n  \n    \n    \n    \n      Me contacter\n      \n      \n        \n          \n        \n        \n          Email\n          ouedraogo.boukary89@gmail.com\n        \n      \n      \n      \n        \n          \n        \n        \n          LinkedIn\n          linkedin.com/in/oboukary\n        \n      \n      \n      \n        \n          \n        \n        \n          GitHub\n          github.com/oboukary\n        \n      \n    \n    \n    \n    \n      Zones d'intervention\n      \n        France\n        Luxembourg\n        Suisse\n        Belgique\n        Afrique\n      \n    \n    \n    \n    \n      Modes de travail\n      \n        Sur site\n        Hybride\n        Remote\n      \n    \n    \n    \n    \n      Expertises\n      \n        Statistiques\n        Econométrie\n        Machine Learning\n        Finance\n        Power BI\n        SAS\n        Python\n        SQL\n        Dataiku\n      \n    \n    \n  \n\n  \n  \n    \n      Décrivez votre projet\n      Je vous réponds sous 24-48h\n    \n    \n    \n      \n      \n        \n          Nom *\n          \n        \n        \n          Prénom *\n          \n        \n      \n      \n      \n        Email *\n        \n      \n      \n      \n        Société\n        \n      \n      \n      \n        Type de mission *\n        \n          Choisir...\n          Data Analytics & BI\n          Data Science\n          Pilotage Financier\n          Migration SAS\n          Formation\n          Autre\n        \n      \n      \n      \n        Votre message *\n        \n      \n      \n      \n      \n      \n      \n        Envoyer"
   },
   {
     "objectID": "posts/bale_4/index.html",
@@ -91,32 +154,74 @@
     "text": "Références\n\nRèglement CRR3 (Capital Requirements Regulation 3)\nComité de Bâle sur le contrôle bancaire: Finalisation des réformes de Bâle III (décembre 2017)\n\n\n\n\n\n\n\n\nNoteÀ propos de l’auteur\n\n\n\n\n\nBoukary Ouedraogo est consultant Data spécialisé en Analytics, Business Intelligence et gestion financière. Fort de plus de 8 ans d’expérience en analyse de données et modélisation du risque, il accompagne les institutions financières dans leurs projets de transformation data et de mise en conformité réglementaire.\nPour en savoir plus : https://oboukary.github.io/"
   },
   {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Échangeons sur votre projet",
+    "objectID": "projects/01-credit-scoring/index.html",
+    "href": "projects/01-credit-scoring/index.html",
+    "title": "Modèle de scoring crédit",
     "section": "",
-    "text": "Disponible pour nouvelles missions\n  \n  Échangeons sur votre projet\n  Data Analytics • Business Intelligence • Pilotage Financier\n\n\n\n\n\n  \n  \n    \n    \n    \n      Me contacter\n      \n      \n        \n          \n        \n        \n          Email\n          ouedraogo.boukary89@gmail.com\n        \n      \n      \n      \n        \n          \n        \n        \n          LinkedIn\n          linkedin.com/in/oboukary\n        \n      \n      \n      \n        \n          \n        \n        \n          GitHub\n          github.com/oboukary\n        \n      \n    \n    \n    \n    \n      Zones d'intervention\n      \n        France\n        Luxembourg\n        Suisse\n        Belgique\n        Afrique\n      \n    \n    \n    \n    \n      Modes de travail\n      \n        Sur site\n        Hybride\n        Remote\n      \n    \n    \n    \n    \n      Expertises\n      \n        Statistiques\n        Econométrie\n        Machine Learning\n        Finance\n        Power BI\n        SAS\n        Python\n        SQL\n        Dataiku\n      \n    \n    \n  \n\n  \n  \n    \n      Décrivez votre projet\n      Je vous réponds sous 24-48h\n    \n    \n    \n      \n      \n        \n          Nom *\n          \n        \n        \n          Prénom *\n          \n        \n      \n      \n      \n        Email *\n        \n      \n      \n      \n        Société\n        \n      \n      \n      \n        Type de mission *\n        \n          Choisir...\n          Data Analytics & BI\n          Data Science\n          Pilotage Financier\n          Migration SAS\n          Formation\n          Autre\n        \n      \n      \n      \n        Votre message *\n        \n      \n      \n      \n      \n      \n      \n        Envoyer"
+    "text": "Projet fictif d’illustration : développement d’un modèle de scoring de crédit pour un portefeuille de prêts à la consommation, dans le respect du cadre prudentiel Bâle IV."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "\n        Transformer vos données en décisions stratégiques\n      ",
+    "objectID": "projects/01-credit-scoring/index.html#contexte",
+    "href": "projects/01-credit-scoring/index.html#contexte",
+    "title": "Modèle de scoring crédit",
     "section": "",
-    "text": "Disponible\n        \n      \n      \n      \n        \n          8+\n          années\n        \n        \n          20+\n          projets\n        \n        \n          15+\n          certifications\n        \n      \n    \n    \n    \n    \n      \n        \n        Consultant Data & Analytics\n      \n      \n      \n        Transformer vos données en décisions stratégiques\n      \n      \n\n  Ingénieur Statisticien-Économiste diplômé de l'INSEA de Rabat et titulaire d'un Master de l'Université Paris-Saclay, j'accompagne les organisations dans la valorisation de leurs données pour en faire de véritables leviers de performance. Avec plus de 8 ans d'expérience à l'intersection de la Data Science, de la Finance et de l'Économie appliquée, je maîtrise l'ensemble du cycle de vie de la donnée : de l'extraction complexe à la modélisation prédictive, jusqu'à la création de dashboards décisionnels.\n  \n  Expert certifié sur Dataiku, SAS, Power BI et Microsoft Fabric, je me spécialise dans la conception d'algorithmes de machine learning, la modélisation des risques (crédit, fraude) et le pilotage de la rentabilité financière. Mon profil \"pont\" me permet de traduire des enjeux métiers stratégiques en solutions techniques robustes et industrialisées.\n  \n  Mes domaines d'intervention :\n  \n  \n    Data Science & IA : Modélisation prédictive, Deep Learning, séries temporelles.\n    Finance & Risques : Scoring, analyse de rentabilité (KPIs financiers), risk management.\n    Ingénierie de données : Migration d'environnements (SAS vers Dataiku/Python), optimisation de pipelines.\n    Business Intelligence : Conception de reportings interactifs et pilotage de la performance.\n  \n  \n  Passionné par la transformation technologique, je mets mon expertise au service de la prise de décision éclairée.\n\n      \n      \n        Finance\n        Analytics\n        Data Science\n        BI\n      \n      \n      \n        \n          Découvrir mes services\n          \n        \n        Me contacter\n      \n    \n    \n  \n\n\n\n\n  \n    01\n    Expérience\n  \n  \n  \n    \n    \n      \n      \n        \n          FinInsight Data Analytics\n          2025 – Présent\n        \n        Consultant indépendant\n        Accompagnement des organisations sur des projets data analytics, BI et aide à la décision.\n      \n    \n    \n    \n      \n      \n        \n          Arval BNP Paribas\n          2022 – 2025\n        \n        Statisticien & Analyst Pricing\n        Analyses de rentabilité, pilotage financier et modèles statistiques. Migration SAS vers Dataiku (120 programmes, 50k lignes de code).\n      \n    \n    \n    \n      \n      \n        \n          CCMSA\n          2018 – 2022\n        \n        Statisticien & Data Scientist\n        Modélisation prédictive pour la détection de fraude. Plus de 2 millions d'assurés concernés.\n      \n    \n    \n  \n\n\n\n\n  \n    Un projet data en tête ?\n    Discutons de vos enjeux et voyons comment transformer vos données en avantage compétitif.\n    \n      \n        Me contacter\n        \n      \n      Lire mes articles"
+    "text": "Projet fictif d’illustration : développement d’un modèle de scoring de crédit pour un portefeuille de prêts à la consommation, dans le respect du cadre prudentiel Bâle IV."
   },
   {
-    "objectID": "index.html#publications-récentes",
-    "href": "index.html#publications-récentes",
-    "title": "Boukary Ouedraogo<span class='navbar-subtitle'>Consultant Data & Analytics – Finance, Économie, Risque & Décision</span>",
-    "section": "Publications récentes",
-    "text": "Publications récentes\n\n\n\n\n\n\n\n\n\n\nBâle IV : Évolutions du cadre prudentiel du risque de crédit\n\n\n\n25 déc. 2025\n\n\n\n\n\n\nAucun article correspondant"
+    "objectID": "projects/01-credit-scoring/index.html#approche",
+    "href": "projects/01-credit-scoring/index.html#approche",
+    "title": "Modèle de scoring crédit",
+    "section": "Approche",
+    "text": "Approche\n\nPréparation et analyse exploratoire de ~250k observations\nEncodage des variables catégorielles (WoE)\nModèle gradient boosting (LightGBM) calibré\nBacktesting sur fenêtre glissante 24 mois"
   },
   {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Publications",
+    "objectID": "projects/01-credit-scoring/index.html#résultats",
+    "href": "projects/01-credit-scoring/index.html#résultats",
+    "title": "Modèle de scoring crédit",
+    "section": "Résultats",
+    "text": "Résultats\n\nAUC de validation : 0.81\nStabilité PSI &lt; 0.1 sur 4 trimestres\nTaux de couverture des défauts amélioré de +18 %"
+  },
+  {
+    "objectID": "projects/01-credit-scoring/index.html#stack",
+    "href": "projects/01-credit-scoring/index.html#stack",
+    "title": "Modèle de scoring crédit",
+    "section": "Stack",
+    "text": "Stack\nPython, LightGBM, optbinning, Power BI"
+  },
+  {
+    "objectID": "projects/03-detection-fraude/index.html",
+    "href": "projects/03-detection-fraude/index.html",
+    "title": "Détection de fraude en temps réel",
     "section": "",
-    "text": "Trier par\n      Ordre par défaut\n      \n        Titre\n      \n      \n        Date - Le plus ancien\n      \n      \n        Date - Le plus récent\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBâle IV : Évolutions du cadre prudentiel du risque de crédit\n\n\n\n\n\n\n\n\n25 déc. 2025\n\n\n\n\n\nAucun article correspondant"
+    "text": "Projet fictif inspiré d’un cas réel : système de détection de fraude opéré sur des déclarations sociales, capable de scorer en temps réel les nouveaux dossiers et de prioriser les contrôles humains."
+  },
+  {
+    "objectID": "projects/03-detection-fraude/index.html#contexte",
+    "href": "projects/03-detection-fraude/index.html#contexte",
+    "title": "Détection de fraude en temps réel",
+    "section": "",
+    "text": "Projet fictif inspiré d’un cas réel : système de détection de fraude opéré sur des déclarations sociales, capable de scorer en temps réel les nouveaux dossiers et de prioriser les contrôles humains."
+  },
+  {
+    "objectID": "projects/03-detection-fraude/index.html#approche",
+    "href": "projects/03-detection-fraude/index.html#approche",
+    "title": "Détection de fraude en temps réel",
+    "section": "Approche",
+    "text": "Approche\n\nFeature engineering sur données déclaratives + comportementales\nModèle Isolation Forest + GBM combiné en stacking\nDéploiement API Flask sur cluster Kubernetes\nPipeline batch nocturne sur Hadoop / Spark"
+  },
+  {
+    "objectID": "projects/03-detection-fraude/index.html#résultats",
+    "href": "projects/03-detection-fraude/index.html#résultats",
+    "title": "Détection de fraude en temps réel",
+    "section": "Résultats",
+    "text": "Résultats\n\n1,2M de bénéficiaires couverts\nTaux de précision des alertes amélioré de +27 %\nLatence moyenne du scoring : 80 ms"
+  },
+  {
+    "objectID": "projects/03-detection-fraude/index.html#stack",
+    "href": "projects/03-detection-fraude/index.html#stack",
+    "title": "Détection de fraude en temps réel",
+    "section": "Stack",
+    "text": "Stack\nPython, PySpark, Dataiku, Hadoop, Flask, Power BI"
   },
   {
     "objectID": "resume.html",

@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-9702797b83edebf4921a066e7f403083.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4882c90b5397853426562b3b3ec42158.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1b3e75d98a7d3213ef3cb225a212ba20.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -159,11 +159,47 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script>
 
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
 
-  document.title = document.title.replace(/\s[-–—]\s.*$/, "");
+  function cleanTitle() {
 
-});
+    var path = window.location.pathname.replace(/\/+$/, "");
+
+    var isHome = path === "" || /\/(index(\.html)?)?$/.test(path);
+
+
+
+    if (isHome) {
+
+      // Page d'accueil : nom seulement
+
+      document.title = "Home";
+
+      return;
+
+    }
+
+
+
+    // Autres pages : on nettoie juste les balises HTML résiduelles et le suffixe
+
+    var t = document.title || "";
+
+    t = t.replace(/<[^>]*>/g, "");
+
+    t = t.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+
+    t = t.replace(/\s[-–—]\s.*$/, "").trim();
+
+    document.title = t || "Home";
+
+  }
+
+  cleanTitle();
+
+  document.addEventListener("DOMContentLoaded", cleanTitle);
+
+})();
 
 </script>
 

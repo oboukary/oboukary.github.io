@@ -2,38 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://oboukary.github.io/services.html</loc>
-    <lastmod>2026-04-29T18:06:13.531Z</lastmod>
+    <lastmod>2026-04-30T21:46:07.506Z</lastmod>
   </url>
   <url>
     <loc>https://oboukary.github.io/projects/projects.html</loc>
-    <lastmod>2026-04-29T18:06:13.526Z</lastmod>
+    <lastmod>2026-05-01T16:52:38.207Z</lastmod>
   </url>
   <url>
-    <loc>https://oboukary.github.io/posts/bale_4/index.html</loc>
-    <lastmod>2026-04-29T18:06:13.526Z</lastmod>
+    <loc>https://oboukary.github.io/projects/02-pricing-optimisation/index.html</loc>
+    <lastmod>2026-04-30T22:07:55.160Z</lastmod>
   </url>
   <url>
-    <loc>https://oboukary.github.io/post.html</loc>
-    <lastmod>2026-04-29T18:06:13.510Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oboukary.github.io/contact.html</loc>
-    <lastmod>2026-04-29T18:06:13.510Z</lastmod>
-  </url>
-  <url>
-    <loc>https://oboukary.github.io/about.html</loc>
-    <lastmod>2026-04-29T18:06:13.494Z</lastmod>
+    <loc>https://oboukary.github.io/posts/index.html</loc>
+    <lastmod>2026-04-30T21:35:07.874Z</lastmod>
   </url>
   <url>
     <loc>https://oboukary.github.io/index.html</loc>
     <lastmod>2026-04-29T18:06:13.510Z</lastmod>
   </url>
   <url>
-    <loc>https://oboukary.github.io/posts/index.html</loc>
+    <loc>https://oboukary.github.io/about.html</loc>
+    <lastmod>2026-04-30T21:46:07.476Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.github.io/contact.html</loc>
+    <lastmod>2026-04-30T21:46:07.532Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.github.io/post.html</loc>
+    <lastmod>2026-04-29T18:06:13.510Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.github.io/posts/bale_4/index.html</loc>
     <lastmod>2026-04-29T18:06:13.526Z</lastmod>
   </url>
   <url>
+    <loc>https://oboukary.github.io/projects/01-credit-scoring/index.html</loc>
+    <lastmod>2026-04-30T22:07:55.073Z</lastmod>
+  </url>
+  <url>
+    <loc>https://oboukary.github.io/projects/03-detection-fraude/index.html</loc>
+    <lastmod>2026-04-30T22:07:55.246Z</lastmod>
+  </url>
+  <url>
     <loc>https://oboukary.github.io/resume.html</loc>
-    <lastmod>2026-04-29T18:06:13.531Z</lastmod>
+    <lastmod>2026-04-30T21:59:39.803Z</lastmod>
   </url>
 </urlset>

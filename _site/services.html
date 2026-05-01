@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Contact - Boukary Ouedraogo – Boukary Ouedraogo&lt;span class='navbar-subtitle'&gt;Consultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision&lt;/span&gt;</title>
+<title>Services – Boukary Ouedraogo&lt;span class='navbar-subtitle'&gt;Consultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision&lt;/span&gt;</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-9702797b83edebf4921a066e7f403083.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4882c90b5397853426562b3b3ec42158.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1b3e75d98a7d3213ef3cb225a212ba20.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="assets/css/syntax-languages.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -127,12 +127,12 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -669,11 +669,47 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script>
 
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
 
-  document.title = document.title.replace(/\s[-–—]\s.*$/, "");
+  function cleanTitle() {
 
-});
+    var path = window.location.pathname.replace(/\/+$/, "");
+
+    var isHome = path === "" || /\/(index(\.html)?)?$/.test(path);
+
+
+
+    if (isHome) {
+
+      // Page d'accueil : nom seulement
+
+      document.title = "Home";
+
+      return;
+
+    }
+
+
+
+    // Autres pages : on nettoie juste les balises HTML résiduelles et le suffixe
+
+    var t = document.title || "";
+
+    t = t.replace(/<[^>]*>/g, "");
+
+    t = t.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+
+    t = t.replace(/\s[-–—]\s.*$/, "").trim();
+
+    document.title = t || "Home";
+
+  }
+
+  cleanTitle();
+
+  document.addEventListener("DOMContentLoaded", cleanTitle);
+
+})();
 
 </script>
 

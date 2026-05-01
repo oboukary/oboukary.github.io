@@ -1,16 +1,20 @@
 [
   {
     "listing": "/projects/projects.html",
-    "items": []
+    "items": [
+      "/projects/01-credit-scoring/index.html",
+      "/projects/02-pricing-optimisation/index.html",
+      "/projects/03-detection-fraude/index.html"
+    ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/posts/index.html",
     "items": [
       "/posts/bale_4/index.html"
     ]
   },
   {
-    "listing": "/posts/index.html",
+    "listing": "/index.html",
     "items": [
       "/posts/bale_4/index.html"
     ]

@@ -55,5 +55,14 @@
   },
   "resume.qmd": {
     "resume.html": "8d1d2d3d"
+  },
+  "projects/01-credit-scoring/index.qmd": {
+    "index.html": "58a85ab0"
+  },
+  "projects/02-pricing-optimisation/index.qmd": {
+    "index.html": "2b661d25"
+  },
+  "projects/03-detection-fraude/index.qmd": {
+    "index.html": "727f1358"
   }
 }

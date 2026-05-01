@@ -1,0 +1,30 @@
+<script>
+// Réorganise la page Projets pour qu'elle ressemble à un layout
+// "academic" : bloc filtres centré au-dessus de la grille au lieu de
+// la colonne marge droite que Quarto utilise par défaut.
+(function () {
+  function reorderProjects() {
+    if (!document.body.classList.contains("page-projects")) return;
+    var listing = document.getElementById("projects");
+    var categories = document.querySelector(".quarto-listing-category");
+    if (!listing || !categories) return;
+    if (categories.parentNode === listing.parentNode &&
+        categories.compareDocumentPosition(listing) & Node.DOCUMENT_POSITION_FOLLOWING) {
+      return; // déjà avant
+    }
+    listing.parentNode.insertBefore(categories, listing);
+
+    // Ajoute un bouton "Tous" en tête s'il n'existe pas
+    var allBtn = categories.querySelector('.category[data-category=""]');
+    if (allBtn) {
+      allBtn.textContent = "Tous";
+      categories.insertBefore(allBtn, categories.firstChild.nextSibling);
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", reorderProjects);
+  } else {
+    reorderProjects();
+  }
+})();
+</script>
