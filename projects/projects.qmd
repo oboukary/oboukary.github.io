@@ -18,11 +18,46 @@ page-layout: full
 title-block-banner: false
 comments: false
 toc: false
-body-classes: page-projects
-include-after-body:
-  - ../assets/html/projects-layout.html
+body-class: page-projects
 ---
 
 ::: {#projects}
 :::
 
+```{=html}
+<script>
+(function () {
+  function applyLayout() {
+    // Filet de sécurité : forcer la classe sur <body> au cas où
+    // body-class du frontmatter n'est pas honoré.
+    document.body.classList.add("page-projects");
+
+    var listing = document.getElementById("projects");
+    var categories = document.querySelector(".quarto-listing-category");
+    if (!listing || !categories) return;
+
+    // Déplace le bloc filtres juste avant la grille
+    if (listing.parentNode !== categories.parentNode) {
+      listing.parentNode.insertBefore(categories, listing);
+    } else {
+      // Même parent → on insère avant la grille
+      listing.parentNode.insertBefore(categories, listing);
+    }
+
+    // Renomme le bouton "Tous" / "All"
+    categories.querySelectorAll(".category").forEach(function (el) {
+      var t = (el.textContent || "").trim();
+      if (t === "All" || t === "Tous" || el.dataset.category === "") {
+        el.textContent = "Tous";
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", applyLayout);
+  } else {
+    applyLayout();
+  }
+})();
+</script>
+```
