@@ -7,7 +7,7 @@ listing:
     contents: "**/*/index.qmd"
     type: grid
     grid-columns: 3
-    image-height: "220px"
+    image-height: "240px"
     fields: [image, title, description, categories]
     sort: "date desc"
     categories: unnumbered
@@ -19,10 +19,9 @@ title-block-banner: false
 comments: false
 toc: false
 body-classes: page-projects
+include-after-body:
+  - ../assets/html/projects-layout.html
 ---
-
-::: {.projects-intro}
-:::
 
 ::: {#projects}
 :::
