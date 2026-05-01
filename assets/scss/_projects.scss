@@ -1,7 +1,5 @@
 // ================================================
 // _projects.scss — Page Projets
-// Layout type "academic" : header centré, filtres pills horizontaux,
-// grille de cartes avec image cover.
 // ================================================
 
 $pj-text:     #1f2937;
@@ -16,140 +14,159 @@ body.page-projects {
   background: $pj-bg-soft;
 }
 
-// ============ EN-TÊTE / TITRE BLOCK ============
+body.page-projects #quarto-margin-sidebar {
+  display: none !important;
+}
 
-body.page-projects .quarto-title,
+body.page-projects main.content,
+body.page-projects #quarto-document-content {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: 0 !important;
+  grid-column: page-start / page-end !important;
+}
+
+body.page-projects .quarto-container.page-columns {
+  display: block !important;
+  grid-template-columns: none !important;
+}
+
+// ============ TITRE BLOCK CENTRÉ ============
+
 body.page-projects #title-block-header {
   text-align: center;
-  padding: 3.5rem 1rem 0.5rem;
+  padding: 3rem 1rem 0.5rem;
   max-width: 760px;
   margin: 0 auto;
 
-  h1.title {
+  .quarto-title h1.title {
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 700;
     color: $pj-primary;
     letter-spacing: -0.02em;
     margin-bottom: 0.75rem;
+    text-align: center;
   }
 
-  .description,
-  .subtitle,
-  .quarto-title-meta + p,
-  > p {
+  .description {
     font-size: 1.0625rem;
     color: $pj-muted;
     line-height: 1.6;
     max-width: 600px;
-    margin: 0 auto;
-  }
-}
-
-// Quarto met parfois la description dans .quarto-title-block ou autre
-body.page-projects .quarto-title-block .description {
-  font-size: 1.0625rem;
-  color: $pj-muted;
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0.5rem auto 0;
-  text-align: center;
-}
-
-// ============ BLOC FILTRES (déplacé par JS au-dessus de la grille) ============
-
-body.page-projects .quarto-listing-category {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  width: 100% !important;
-  max-width: 900px !important;
-  margin: 1.5rem auto 2.5rem !important;
-  padding: 1rem !important;
-  position: static !important;
-  border: none !important;
-  background: transparent !important;
-  text-align: center;
-
-  // Annule les contraintes de la colonne marge Quarto
-  float: none !important;
-  clear: none !important;
-}
-
-body.page-projects .quarto-listing-category-title {
-  display: none !important;
-}
-
-body.page-projects .quarto-listing-category .category {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 1.15rem;
-  background: $pj-bg;
-  color: $pj-muted;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border: 1px solid $pj-border;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 200ms ease;
-  text-transform: none;
-  letter-spacing: 0;
-  line-height: 1.2;
-  white-space: nowrap;
-  margin: 0;
-
-  &:hover {
-    border-color: $pj-primary;
-    color: $pj-primary;
-    background: rgba($pj-primary, 0.04);
-    transform: translateY(-1px);
+    margin: 0.25rem auto 0;
+    text-align: center;
   }
 
-  &.active {
+  .quarto-title-meta { display: none; }
+}
+
+// ============ BARRE DE FILTRES ============
+
+.projects-filter-bar {
+  width: 100%;
+  max-width: 1100px;
+  margin: 1.5rem auto 2.5rem;
+  padding: 0 1rem;
+  text-align: center;
+
+  .quarto-listing-category-title { display: none; }
+
+  .quarto-listing-category {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    width: auto !important;
+    max-width: none !important;
+    position: static !important;
+    float: none !important;
+  }
+
+  .category {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 2.25rem;
     background: $pj-primary;
     color: #fff !important;
-    border-color: $pj-primary;
-    box-shadow: 0 4px 14px rgba($pj-primary, 0.22);
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background 180ms ease, transform 180ms ease;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    margin: 0;
+    user-select: none;
+    min-width: 110px;
+
+    &:hover {
+      background: lighten($pj-primary, 8%);
+    }
+
+    &.active {
+      background: darken($pj-primary, 8%);
+      color: #fff !important;
+      box-shadow: 0 4px 12px rgba($pj-primary, 0.28);
+    }
   }
 }
 
-// ============ GRILLE ============
+// ============ GRILLE 3 COLONNES ============
 
-body.page-projects #projects {
+body.page-projects .quarto-listing,
+body.page-projects .quarto-listing-container-grid {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem 4rem;
 }
 
-body.page-projects #projects .list.grid {
+body.page-projects .quarto-listing .list.grid,
+body.page-projects .quarto-listing-container-grid .list.grid {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
-  gap: 1.75rem;
-  margin: 0;
-  padding: 0;
+  gap: 1.75rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-// ============ CARTE ============
+body.page-projects .quarto-listing .list.grid .g-col-1 {
+  grid-column: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  flex: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
-body.page-projects #projects .quarto-grid-item.card,
-body.page-projects #projects .quarto-grid-item {
-  background: $pj-bg;
-  border: 1px solid $pj-border;
-  border-radius: 14px;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+// ============ CARTE VERTICALE ============
+
+body.page-projects .quarto-grid-item.card,
+body.page-projects .quarto-grid-item {
+  background: $pj-bg !important;
+  border: 1px solid $pj-border !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
   transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 
   &:hover {
     transform: translateY(-4px);
-    border-color: rgba($pj-primary, 0.3);
+    border-color: rgba($pj-primary, 0.3) !important;
     box-shadow: 0 18px 36px -14px rgba(15, 23, 42, 0.18);
 
     .card-img-top,
@@ -166,7 +183,6 @@ body.page-projects #projects .quarto-grid-item {
     }
   }
 
-  // Wrapper image : on doit cropper proprement
   .card-img-top,
   .thumbnail-image,
   img.thumbnail-image {
@@ -184,7 +200,7 @@ body.page-projects #projects .quarto-grid-item {
 
   .card-body,
   .listing-body {
-    padding: 1.25rem 1.4rem 1.4rem;
+    padding: 1.25rem 1.4rem 1.4rem !important;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -193,11 +209,11 @@ body.page-projects #projects .quarto-grid-item {
 
   .card-title,
   .listing-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    line-height: 1.35;
-    color: $pj-text;
-    margin: 0;
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    color: $pj-text !important;
+    margin: 0 !important;
     transition: color 200ms ease;
     letter-spacing: -0.01em;
 
@@ -211,10 +227,10 @@ body.page-projects #projects .quarto-grid-item {
 
   .card-text,
   .listing-description {
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: $pj-muted;
-    margin: 0;
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+    color: $pj-muted !important;
+    margin: 0 !important;
     flex: 1;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -233,63 +249,50 @@ body.page-projects #projects .quarto-grid-item {
     border-top: 1px solid $pj-border;
 
     .listing-category {
-      font-size: 0.7rem;
-      font-weight: 500;
+      font-size: 0.7rem !important;
+      font-weight: 500 !important;
       letter-spacing: 0.02em;
-      padding: 0.22em 0.7em;
-      background: $pj-bg-soft;
-      color: $pj-primary;
-      border: 1px solid $pj-border;
-      border-radius: 999px;
+      padding: 0.22em 0.7em !important;
+      background: $pj-bg-soft !important;
+      color: $pj-primary !important;
+      border: 1px solid $pj-border !important;
+      border-radius: 999px !important;
       transition: all 180ms ease;
-      text-transform: none;
+      text-transform: none !important;
 
       &:hover {
-        background: $pj-primary;
-        color: #fff;
-        border-color: $pj-primary;
+        background: $pj-primary !important;
+        color: #fff !important;
+        border-color: $pj-primary !important;
       }
     }
   }
 }
 
-// Quarto ajoute parfois une couche supplémentaire
-body.page-projects #projects .quarto-grid-item .listing-image-link,
-body.page-projects #projects .quarto-grid-item .image {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-}
-
 // ============ RESPONSIVE ============
 
 @media (max-width: 768px) {
-  body.page-projects .quarto-title,
-  body.page-projects #title-block-header {
-    padding-top: 2rem;
-  }
+  body.page-projects #title-block-header { padding-top: 2rem; }
 
-  body.page-projects #projects .list.grid {
+  body.page-projects .quarto-listing .list.grid,
+  body.page-projects .quarto-listing-container-grid .list.grid {
     grid-template-columns: 1fr !important;
-    gap: 1.25rem;
+    gap: 1.25rem !important;
   }
 
-  body.page-projects #projects .quarto-grid-item .card-img-top,
-  body.page-projects #projects .quarto-grid-item .thumbnail-image {
+  body.page-projects .quarto-grid-item .card-img-top,
+  body.page-projects .quarto-grid-item .thumbnail-image {
     height: 200px !important;
   }
 
-  body.page-projects .quarto-listing-category {
-    margin: 1rem 0.5rem 1.5rem !important;
-    padding: 0.5rem !important;
-  }
+  .projects-filter-bar { margin: 1rem 0.5rem 1.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body.page-projects #projects .quarto-grid-item.card,
-  body.page-projects #projects .quarto-grid-item.card .card-img-top,
-  body.page-projects #projects .quarto-grid-item.card .thumbnail-image,
-  body.page-projects .quarto-listing-category .category {
+  body.page-projects .quarto-grid-item.card,
+  body.page-projects .quarto-grid-item.card .card-img-top,
+  body.page-projects .quarto-grid-item.card .thumbnail-image,
+  .projects-filter-bar .category {
     transition: none !important;
   }
 }
