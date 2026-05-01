@@ -1,26 +1,27 @@
 // ================================================
-// _projects.scss — Page Projets (style académique)
-// Cartes propres, grille responsive, filtres par catégorie
+// _projects.scss — Page Projets
+// Layout type "academic" : header centré, filtres pills horizontaux,
+// grille de cartes avec image cover.
 // ================================================
 
-$pj-text:        #1f2937;
-$pj-muted:       #64748b;
-$pj-bg:          #ffffff;
-$pj-bg-soft:     #f8fafc;
-$pj-border:      #e5e7eb;
-$pj-primary:     #023475;
-$pj-accent:      #0ea5e9;
+$pj-text:     #1f2937;
+$pj-muted:    #64748b;
+$pj-bg:       #ffffff;
+$pj-bg-soft:  #f8fafc;
+$pj-border:   #e5e7eb;
+$pj-primary:  #023475;
+$pj-accent:   #0ea5e9;
 
-.page-projects {
+body.page-projects {
   background: $pj-bg-soft;
 }
 
-// ============ EN-TÊTE / INTRO ============
+// ============ EN-TÊTE / TITRE BLOCK ============
 
 body.page-projects .quarto-title,
 body.page-projects #title-block-header {
   text-align: center;
-  padding: 3.5rem 1rem 1rem;
+  padding: 3.5rem 1rem 0.5rem;
   max-width: 760px;
   margin: 0 auto;
 
@@ -33,7 +34,9 @@ body.page-projects #title-block-header {
   }
 
   .description,
-  .subtitle {
+  .subtitle,
+  .quarto-title-meta + p,
+  > p {
     font-size: 1.0625rem;
     color: $pj-muted;
     line-height: 1.6;
@@ -42,69 +45,96 @@ body.page-projects #title-block-header {
   }
 }
 
-// ============ FILTRES PAR CATÉGORIE ============
+// Quarto met parfois la description dans .quarto-title-block ou autre
+body.page-projects .quarto-title-block .description {
+  font-size: 1.0625rem;
+  color: $pj-muted;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+  text-align: center;
+}
 
-.quarto-listing-category {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1.5rem 1rem 2.5rem;
-  border-bottom: none;
+// ============ BLOC FILTRES (déplacé par JS au-dessus de la grille) ============
 
-  .category {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.45rem 1.1rem;
-    background: transparent;
-    color: $pj-muted;
-    font-size: 0.875rem;
-    font-weight: 500;
-    border: 1px solid $pj-border;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: all 200ms ease;
-    text-transform: none;
-    letter-spacing: 0;
+body.page-projects .quarto-listing-category {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 1.5rem auto 2.5rem !important;
+  padding: 1rem !important;
+  position: static !important;
+  border: none !important;
+  background: transparent !important;
+  text-align: center;
 
-    &:hover {
-      border-color: $pj-primary;
-      color: $pj-primary;
-      background: rgba($pj-primary, 0.04);
-    }
+  // Annule les contraintes de la colonne marge Quarto
+  float: none !important;
+  clear: none !important;
+}
 
-    &.active {
-      background: $pj-primary;
-      color: #fff;
-      border-color: $pj-primary;
-      box-shadow: 0 4px 14px rgba($pj-primary, 0.18);
-    }
+body.page-projects .quarto-listing-category-title {
+  display: none !important;
+}
+
+body.page-projects .quarto-listing-category .category {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.15rem;
+  background: $pj-bg;
+  color: $pj-muted;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid $pj-border;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  margin: 0;
+
+  &:hover {
+    border-color: $pj-primary;
+    color: $pj-primary;
+    background: rgba($pj-primary, 0.04);
+    transform: translateY(-1px);
+  }
+
+  &.active {
+    background: $pj-primary;
+    color: #fff !important;
+    border-color: $pj-primary;
+    box-shadow: 0 4px 14px rgba($pj-primary, 0.22);
   }
 }
 
-.quarto-listing-category-title {
-  display: none; // libellé "Catégories :" masqué pour un look épuré
-}
+// ============ GRILLE ============
 
-// ============ GRILLE DE PROJETS ============
-
-#projects {
+body.page-projects #projects {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem 4rem;
 }
 
-#projects .list.grid {
+body.page-projects #projects .list.grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
   gap: 1.75rem;
   margin: 0;
   padding: 0;
 }
 
-// ============ CARTE PROJET ============
+// ============ CARTE ============
 
-#projects .quarto-grid-item.card {
+body.page-projects #projects .quarto-grid-item.card,
+body.page-projects #projects .quarto-grid-item {
   background: $pj-bg;
   border: 1px solid $pj-border;
   border-radius: 14px;
@@ -123,36 +153,33 @@ body.page-projects #title-block-header {
     box-shadow: 0 18px 36px -14px rgba(15, 23, 42, 0.18);
 
     .card-img-top,
-    .thumbnail-image {
+    .thumbnail-image,
+    img.thumbnail-image {
       transform: scale(1.04);
     }
 
+    .card-title,
+    .listing-title,
     .card-title a,
-    .listing-title {
+    .listing-title a {
       color: $pj-primary;
     }
   }
 
-  // Lien wrappant la carte
-  a.title,
-  a.listing-title-link {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  // Image de couverture
+  // Wrapper image : on doit cropper proprement
   .card-img-top,
   .thumbnail-image,
   img.thumbnail-image {
-    width: 100%;
-    height: 220px;
+    width: 100% !important;
+    height: 240px !important;
     object-fit: cover;
-    object-position: center;
+    object-position: center center;
     background: $pj-bg-soft;
     transition: transform 500ms ease;
     display: block;
     border-radius: 0;
     margin: 0;
+    max-width: none;
   }
 
   .card-body,
@@ -174,7 +201,12 @@ body.page-projects #title-block-header {
     transition: color 200ms ease;
     letter-spacing: -0.01em;
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover { color: $pj-primary; }
+    }
   }
 
   .card-text,
@@ -184,11 +216,14 @@ body.page-projects #title-block-header {
     color: $pj-muted;
     margin: 0;
     flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 
     p { margin: 0; }
   }
 
-  // Catégories / tags en bas de carte
   .listing-categories {
     display: flex;
     flex-wrap: wrap;
@@ -207,6 +242,7 @@ body.page-projects #title-block-header {
       border: 1px solid $pj-border;
       border-radius: 999px;
       transition: all 180ms ease;
+      text-transform: none;
 
       &:hover {
         background: $pj-primary;
@@ -217,12 +253,11 @@ body.page-projects #title-block-header {
   }
 }
 
-// Card variant utilisé par Quarto en listing default
-#projects .list .quarto-post {
-  background: $pj-bg;
-  border: 1px solid $pj-border;
-  border-radius: 14px;
-  padding: 0;
+// Quarto ajoute parfois une couche supplémentaire
+body.page-projects #projects .quarto-grid-item .listing-image-link,
+body.page-projects #projects .quarto-grid-item .image {
+  display: block;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -234,30 +269,27 @@ body.page-projects #title-block-header {
     padding-top: 2rem;
   }
 
-  #projects .list.grid {
-    grid-template-columns: 1fr;
+  body.page-projects #projects .list.grid {
+    grid-template-columns: 1fr !important;
     gap: 1.25rem;
   }
 
-  #projects .quarto-grid-item.card {
-    .card-img-top,
-    .thumbnail-image {
-      height: 200px;
-    }
+  body.page-projects #projects .quarto-grid-item .card-img-top,
+  body.page-projects #projects .quarto-grid-item .thumbnail-image {
+    height: 200px !important;
   }
 
-  .quarto-listing-category {
-    padding: 1rem 0.5rem 1.5rem;
+  body.page-projects .quarto-listing-category {
+    margin: 1rem 0.5rem 1.5rem !important;
+    padding: 0.5rem !important;
   }
 }
 
-// ============ MOTION REDUITE ============
-
 @media (prefers-reduced-motion: reduce) {
-  #projects .quarto-grid-item.card,
-  #projects .quarto-grid-item.card .card-img-top,
-  #projects .quarto-grid-item.card .thumbnail-image,
-  .quarto-listing-category .category {
+  body.page-projects #projects .quarto-grid-item.card,
+  body.page-projects #projects .quarto-grid-item.card .card-img-top,
+  body.page-projects #projects .quarto-grid-item.card .thumbnail-image,
+  body.page-projects .quarto-listing-category .category {
     transition: none !important;
   }
 }

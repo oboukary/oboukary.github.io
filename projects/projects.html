@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-4f76add9ce818da769a8275ffb5affa4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-24664f1e6a9c4faa7887ceae9bade809.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-cfbceab607313c98c631894e94fce6d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -220,16 +220,13 @@ window.Quarto = {
 </header>
 
 
-<div class="projects-intro">
-
-</div>
 <div id="listing-projects" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UmlzcXVlJTJDTWFjaGluZSUyMExlYXJuaW5nJTJDRmluYW5jZQ==" data-listing-date-sort="1757894400000" data-listing-file-modified-sort="1777586924047" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="76">
+<div class="g-col-1" data-index="0" data-categories="UmlzcXVlJTJDTWFjaGluZSUyMExlYXJuaW5nJTJDRmluYW5jZQ==" data-listing-date-sort="1757894400000" data-listing-file-modified-sort="1777629370625" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="76">
 <a href="../projects/01-credit-scoring/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="../projects/01-credit-scoring/featured.svg" class="thumbnail-image card-img" style="height: 220px;">
+<img loading="lazy" src="../projects/01-credit-scoring/featured.svg" class="thumbnail-image card-img" style="height: 240px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -250,11 +247,11 @@ Modèle de scoring crédit
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="RmluYW5jZSUyQ0JJJTJDUHJpY2luZw==" data-listing-date-sort="1749513600000" data-listing-file-modified-sort="1777586924047" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="89">
+<div class="g-col-1" data-index="1" data-categories="RmluYW5jZSUyQ0JJJTJDUHJpY2luZw==" data-listing-date-sort="1749513600000" data-listing-file-modified-sort="1777629370625" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="89">
 <a href="../projects/02-pricing-optimisation/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="../projects/02-pricing-optimisation/featured.svg" class="thumbnail-image card-img" style="height: 220px;">
+<img loading="lazy" src="../projects/02-pricing-optimisation/featured.svg" class="thumbnail-image card-img" style="height: 240px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -275,11 +272,11 @@ Optimisation tarifaire LLD
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDUmlzcXVlJTJDQmlnJTIwRGF0YQ==" data-listing-date-sort="1732233600000" data-listing-file-modified-sort="1777586924047" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="87">
+<div class="g-col-1" data-index="2" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDUmlzcXVlJTJDQmlnJTIwRGF0YQ==" data-listing-date-sort="1732233600000" data-listing-file-modified-sort="1777629370625" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="87">
 <a href="../projects/03-detection-fraude/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="../projects/03-detection-fraude/featured.svg" class="thumbnail-image card-img" style="height: 220px;">
+<img loading="lazy" src="../projects/03-detection-fraude/featured.svg" class="thumbnail-image card-img" style="height: 240px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -333,6 +330,36 @@ Détection de fraude en temps réel
 </script>
 
 
+<script>
+// Réorganise la page Projets pour qu'elle ressemble à un layout
+// "academic" : bloc filtres centré au-dessus de la grille au lieu de
+// la colonne marge droite que Quarto utilise par défaut.
+(function () {
+  function reorderProjects() {
+    if (!document.body.classList.contains("page-projects")) return;
+    var listing = document.getElementById("projects");
+    var categories = document.querySelector(".quarto-listing-category");
+    if (!listing || !categories) return;
+    if (categories.parentNode === listing.parentNode &&
+        categories.compareDocumentPosition(listing) & Node.DOCUMENT_POSITION_FOLLOWING) {
+      return; // déjà avant
+    }
+    listing.parentNode.insertBefore(categories, listing);
+
+    // Ajoute un bouton "Tous" en tête s'il n'existe pas
+    var allBtn = categories.querySelector('.category[data-category=""]');
+    if (allBtn) {
+      allBtn.textContent = "Tous";
+      categories.insertBefore(allBtn, categories.firstChild.nextSibling);
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", reorderProjects);
+  } else {
+    reorderProjects();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
