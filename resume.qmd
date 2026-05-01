@@ -3,9 +3,17 @@ title: ""
 pagetitle: "CV"
 page-layout: full
 title-block-style: none
+title-block-banner: false
 toc: false
+body-class: page-resume
 ---
 
 ```{=html}
+<style>
+body.page-resume #title-block-header,
+body.page-resume .quarto-title-block,
+body.page-resume header.quarto-title-block { display: none !important; }
+</style>
+<script>document.body.classList.add('page-resume');</script>
 {{< include assets/html/cv.html >}}
 ```
