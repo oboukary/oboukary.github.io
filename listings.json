@@ -7,11 +7,7 @@
   },
   {
     "listing": "/projects/projects.html",
-    "items": [
-      "/projects/01-credit-scoring/index.html",
-      "/projects/02-pricing-optimisation/index.html",
-      "/projects/03-detection-fraude/index.html"
-    ]
+    "items": []
   },
   {
     "listing": "/index.html",
