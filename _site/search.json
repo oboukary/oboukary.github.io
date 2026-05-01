@@ -11,42 +11,7 @@
     "href": "projects/projects.html",
     "title": "Projets",
     "section": "",
-    "text": "Modèle de scoring crédit\n\n\n\nRisque\n\nMachine Learning\n\nFinance\n\n\n\nConstruction d’un modèle de scoring pour estimer la probabilité de défaut sur un portefeuille retail, conforme aux exigences prudentielles.\n\n\n\n\n\n\n\n\n\n\n\n\nOptimisation tarifaire LLD\n\n\n\nFinance\n\nBI\n\nPricing\n\n\n\nRefonte de la grille tarifaire d’un acteur de location longue durée à partir d’une analyse de rentabilité véhicule par véhicule.\n\n\n\n\n\n\n\n\n\n\n\n\nDétection de fraude en temps réel\n\n\n\nMachine Learning\n\nRisque\n\nBig Data\n\n\n\nModèle de détection d’anomalies dans les déclarations sociales, exposé via API temps réel et alimenté par un pipeline Spark.\n\n\n\n\n\nAucun article correspondant"
-  },
-  {
-    "objectID": "projects/02-pricing-optimisation/index.html",
-    "href": "projects/02-pricing-optimisation/index.html",
-    "title": "Optimisation tarifaire LLD",
-    "section": "",
-    "text": "Projet fictif : refonte de la stratégie de pricing pour un parc de location longue durée (LLD) afin d’optimiser la rentabilité tout en préservant la compétitivité commerciale."
-  },
-  {
-    "objectID": "projects/02-pricing-optimisation/index.html#contexte",
-    "href": "projects/02-pricing-optimisation/index.html#contexte",
-    "title": "Optimisation tarifaire LLD",
-    "section": "",
-    "text": "Projet fictif : refonte de la stratégie de pricing pour un parc de location longue durée (LLD) afin d’optimiser la rentabilité tout en préservant la compétitivité commerciale."
-  },
-  {
-    "objectID": "projects/02-pricing-optimisation/index.html#approche",
-    "href": "projects/02-pricing-optimisation/index.html#approche",
-    "title": "Optimisation tarifaire LLD",
-    "section": "Approche",
-    "text": "Approche\n\nCalcul de la marge nette par contrat (PNB, RONE)\nModélisation de la valeur résiduelle par segment véhicule\nSimulation d’impact tarifaire à 3 ans\nTableaux de bord exécutifs Power BI"
-  },
-  {
-    "objectID": "projects/02-pricing-optimisation/index.html#résultats",
-    "href": "projects/02-pricing-optimisation/index.html#résultats",
-    "title": "Optimisation tarifaire LLD",
-    "section": "Résultats",
-    "text": "Résultats\n\nIdentification de 12 % du parc en perte structurelle\nPlan de revalorisation tarifaire ciblé sur 5 segments\nGain projeté : +3,2 pts de RONE à 24 mois"
-  },
-  {
-    "objectID": "projects/02-pricing-optimisation/index.html#stack",
-    "href": "projects/02-pricing-optimisation/index.html#stack",
-    "title": "Optimisation tarifaire LLD",
-    "section": "Stack",
-    "text": "Stack\nPython, Dataiku, Power BI, DAX, SQL"
+    "text": "Aucun article correspondant"
   },
   {
     "objectID": "posts/index.html",
@@ -152,76 +117,6 @@
     "title": "Bâle IV : Évolutions du cadre prudentiel du risque de crédit",
     "section": "Références",
     "text": "Références\n\nRèglement CRR3 (Capital Requirements Regulation 3)\nComité de Bâle sur le contrôle bancaire: Finalisation des réformes de Bâle III (décembre 2017)\n\n\n\n\n\n\n\n\nNoteÀ propos de l’auteur\n\n\n\n\n\nBoukary Ouedraogo est consultant Data spécialisé en Analytics, Business Intelligence et gestion financière. Fort de plus de 8 ans d’expérience en analyse de données et modélisation du risque, il accompagne les institutions financières dans leurs projets de transformation data et de mise en conformité réglementaire.\nPour en savoir plus : https://oboukary.github.io/"
-  },
-  {
-    "objectID": "projects/01-credit-scoring/index.html",
-    "href": "projects/01-credit-scoring/index.html",
-    "title": "Modèle de scoring crédit",
-    "section": "",
-    "text": "Projet fictif d’illustration : développement d’un modèle de scoring de crédit pour un portefeuille de prêts à la consommation, dans le respect du cadre prudentiel Bâle IV."
-  },
-  {
-    "objectID": "projects/01-credit-scoring/index.html#contexte",
-    "href": "projects/01-credit-scoring/index.html#contexte",
-    "title": "Modèle de scoring crédit",
-    "section": "",
-    "text": "Projet fictif d’illustration : développement d’un modèle de scoring de crédit pour un portefeuille de prêts à la consommation, dans le respect du cadre prudentiel Bâle IV."
-  },
-  {
-    "objectID": "projects/01-credit-scoring/index.html#approche",
-    "href": "projects/01-credit-scoring/index.html#approche",
-    "title": "Modèle de scoring crédit",
-    "section": "Approche",
-    "text": "Approche\n\nPréparation et analyse exploratoire de ~250k observations\nEncodage des variables catégorielles (WoE)\nModèle gradient boosting (LightGBM) calibré\nBacktesting sur fenêtre glissante 24 mois"
-  },
-  {
-    "objectID": "projects/01-credit-scoring/index.html#résultats",
-    "href": "projects/01-credit-scoring/index.html#résultats",
-    "title": "Modèle de scoring crédit",
-    "section": "Résultats",
-    "text": "Résultats\n\nAUC de validation : 0.81\nStabilité PSI &lt; 0.1 sur 4 trimestres\nTaux de couverture des défauts amélioré de +18 %"
-  },
-  {
-    "objectID": "projects/01-credit-scoring/index.html#stack",
-    "href": "projects/01-credit-scoring/index.html#stack",
-    "title": "Modèle de scoring crédit",
-    "section": "Stack",
-    "text": "Stack\nPython, LightGBM, optbinning, Power BI"
-  },
-  {
-    "objectID": "projects/03-detection-fraude/index.html",
-    "href": "projects/03-detection-fraude/index.html",
-    "title": "Détection de fraude en temps réel",
-    "section": "",
-    "text": "Projet fictif inspiré d’un cas réel : système de détection de fraude opéré sur des déclarations sociales, capable de scorer en temps réel les nouveaux dossiers et de prioriser les contrôles humains."
-  },
-  {
-    "objectID": "projects/03-detection-fraude/index.html#contexte",
-    "href": "projects/03-detection-fraude/index.html#contexte",
-    "title": "Détection de fraude en temps réel",
-    "section": "",
-    "text": "Projet fictif inspiré d’un cas réel : système de détection de fraude opéré sur des déclarations sociales, capable de scorer en temps réel les nouveaux dossiers et de prioriser les contrôles humains."
-  },
-  {
-    "objectID": "projects/03-detection-fraude/index.html#approche",
-    "href": "projects/03-detection-fraude/index.html#approche",
-    "title": "Détection de fraude en temps réel",
-    "section": "Approche",
-    "text": "Approche\n\nFeature engineering sur données déclaratives + comportementales\nModèle Isolation Forest + GBM combiné en stacking\nDéploiement API Flask sur cluster Kubernetes\nPipeline batch nocturne sur Hadoop / Spark"
-  },
-  {
-    "objectID": "projects/03-detection-fraude/index.html#résultats",
-    "href": "projects/03-detection-fraude/index.html#résultats",
-    "title": "Détection de fraude en temps réel",
-    "section": "Résultats",
-    "text": "Résultats\n\n1,2M de bénéficiaires couverts\nTaux de précision des alertes amélioré de +27 %\nLatence moyenne du scoring : 80 ms"
-  },
-  {
-    "objectID": "projects/03-detection-fraude/index.html#stack",
-    "href": "projects/03-detection-fraude/index.html#stack",
-    "title": "Détection de fraude en temps réel",
-    "section": "Stack",
-    "text": "Stack\nPython, PySpark, Dataiku, Hadoop, Flask, Power BI"
   },
   {
     "objectID": "resume.html",

@@ -64,5 +64,8 @@
   },
   "projects/03-detection-fraude/index.qmd": {
     "index.html": "727f1358"
+  },
+  "projects.qmd": {
+    "projects.html": "c3fcb18a"
   }
 }

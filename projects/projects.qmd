@@ -27,21 +27,25 @@ body-class: page-projects
 ```{=html}
 <script>
 (function () {
+  // Liste FIXE des catégories affichées en filtre. Elles apparaissent toujours,
+  // même si aucun projet ne porte le tag. Modifie ce tableau pour ajouter/retirer.
+  var FIXED_CATEGORIES = [
+    "Finance",
+    "Machine Learning",
+    "Data Science",
+    "BI",
+    "Économétrie"
+  ];
+
   function applyLayout() {
-    // Trouve la vraie grille de listing : Quarto crée id="listing-<configId>",
-    // pas l'id qu'on déclare. Plusieurs sélecteurs en fallback.
     var listing = document.querySelector(".quarto-listing-container-grid")
                || document.querySelector(".quarto-listing")
                || document.getElementById("listing-projects")
                || document.getElementById("projects");
-    var categories = document.querySelector(".quarto-listing-category");
-    var categoryTitle = document.querySelector(".quarto-listing-category-title");
-    if (!listing || !categories) return;
+    if (!listing) return;
 
-    // Active les styles spécifiques à cette page
     document.body.classList.add("page-projects");
 
-    // Force <main> à prendre toute la largeur (Quarto le met en column-page-left)
     var mainEl = document.getElementById("quarto-document-content")
               || document.querySelector("main.content");
     if (mainEl) {
@@ -49,59 +53,70 @@ body-class: page-projects
       mainEl.classList.add("column-screen");
     }
 
-    // Construit la barre de filtres et l'insère AU-DESSUS de la grille
+    // Cache le bloc de filtres dynamique généré par Quarto
+    var quartoCat = document.querySelector(".quarto-listing-category");
+    if (quartoCat) quartoCat.style.display = "none";
+    var quartoCatTitle = document.querySelector(".quarto-listing-category-title");
+    if (quartoCatTitle) quartoCatTitle.style.display = "none";
+
+    var marginSidebar = document.getElementById("quarto-margin-sidebar");
+    if (marginSidebar) marginSidebar.style.display = "none";
+
+    // Évite la double injection si le script tourne deux fois
+    if (document.querySelector(".projects-filter-bar")) return;
+
+    // Construit la barre de filtres FIXE
     var wrap = document.createElement("div");
     wrap.className = "projects-filter-bar";
-    if (categoryTitle) wrap.appendChild(categoryTitle);
-    wrap.appendChild(categories);
-    listing.parentNode.insertBefore(wrap, listing);
 
-    // Cache la sidebar marge si elle est vide après extraction
-    var marginSidebar = document.getElementById("quarto-margin-sidebar");
-    if (marginSidebar) {
-      var hasContent = marginSidebar.querySelector(":scope > *:not(:empty)");
-      if (!hasContent) marginSidebar.style.display = "none";
-    }
-
-    // Ajoute un bouton "Tous" en tête. État inactif par défaut, et son
-    // clic remet à zéro tous les filtres (aucun bouton ne reste actif).
-    var allBtn = document.createElement("div");
-    allBtn.className = "category category-all";
-    allBtn.dataset.category = "";
-    allBtn.textContent = "Tous";
-    categories.insertBefore(allBtn, categories.firstChild);
+    var cats = document.createElement("div");
+    cats.className = "quarto-listing-category category-fixed";
+    wrap.appendChild(cats);
 
     function clearActive() {
-      categories.querySelectorAll(".category.active").forEach(function (el) {
+      cats.querySelectorAll(".category.active").forEach(function (el) {
         el.classList.remove("active");
       });
     }
-
     function showAll() {
       var cards = listing.querySelectorAll(".quarto-grid-item, .quarto-post, .g-col-1");
       cards.forEach(function (c) { c.style.display = ""; });
     }
 
+    // Bouton "Tous"
+    var allBtn = document.createElement("div");
+    allBtn.className = "category category-all";
+    allBtn.dataset.category = "";
+    allBtn.textContent = "Tous";
     allBtn.addEventListener("click", function () {
       clearActive();
       showAll();
     });
+    cats.appendChild(allBtn);
 
-    categories.querySelectorAll(".category:not(.category-all)").forEach(function (el) {
-      el.addEventListener("click", function () {
+    // Boutons fixes
+    FIXED_CATEGORIES.forEach(function (label) {
+      var btn = document.createElement("div");
+      btn.className = "category";
+      btn.dataset.category = label;
+      btn.textContent = label;
+      btn.addEventListener("click", function () {
         clearActive();
-        el.classList.add("active");
-        var cat = (el.textContent || "").trim().toLowerCase();
+        btn.classList.add("active");
+        var target = label.trim().toLowerCase();
         var cards = listing.querySelectorAll(".quarto-grid-item, .quarto-post, .g-col-1");
         cards.forEach(function (card) {
           var tags = Array.prototype.map.call(
             card.querySelectorAll(".listing-category"),
             function (t) { return (t.textContent || "").trim().toLowerCase(); }
           );
-          card.style.display = tags.indexOf(cat) >= 0 ? "" : "none";
+          card.style.display = tags.indexOf(target) >= 0 ? "" : "none";
         });
-      }, true); // capture phase pour passer avant Quarto
+      });
+      cats.appendChild(btn);
     });
+
+    listing.parentNode.insertBefore(wrap, listing);
   }
 
   if (document.readyState === "loading") {

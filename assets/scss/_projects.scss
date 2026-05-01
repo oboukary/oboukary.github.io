@@ -95,14 +95,15 @@ body.page-projects #title-block-header {
     padding: 0.85rem 2.25rem;
     background: $pj-primary;
     color: #fff !important;
-    font-size: 1rem;
-    font-weight: 700;
+    font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 300;
     border: none;
     border-radius: 0;
     cursor: pointer;
     transition: background 180ms ease, transform 180ms ease;
     text-transform: none;
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
     line-height: 1.2;
     white-space: nowrap;
     margin: 0;
