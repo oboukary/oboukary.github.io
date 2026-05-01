@@ -5,6 +5,7 @@ description: "Modèle de détection d'anomalies dans les déclarations sociales,
 author: "Boukary Ouedraogo"
 date: "2024-11-22"
 image: featured.svg
+draft: true
 categories:
   - Machine Learning
   - Risque

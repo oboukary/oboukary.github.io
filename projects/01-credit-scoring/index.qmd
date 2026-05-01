@@ -5,6 +5,7 @@ description: "Construction d'un modèle de scoring pour estimer la probabilité 
 author: "Boukary Ouedraogo"
 date: "2025-09-15"
 image: featured.svg
+draft: true
 categories:
   - Risque
   - Machine Learning

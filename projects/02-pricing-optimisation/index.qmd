@@ -5,6 +5,7 @@ description: "Refonte de la grille tarifaire d'un acteur de location longue dur√
 author: "Boukary Ouedraogo"
 date: "2025-06-10"
 image: featured.svg
+draft: true
 categories:
   - Finance
   - BI
