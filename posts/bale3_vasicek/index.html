@@ -9,7 +9,7 @@
 <meta name="author" content="Boukary Ouedraogo">
 <meta name="description" content="Déconstruction mathématique de la formule de capital réglementaire Bâle III : du modèle structurel de Merton au modèle ASRF de Vasicek, jusqu’à l’ajustement de maturité.">
 
-<title>Du Modèle de Vasicek à la Formule de Capital Bâle III – Boukary OuedraogoConsultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision</title>
+<title>Du Modèle de Vasicek à la formule de capital Bâle III – Boukary OuedraogoConsultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -216,29 +216,18 @@ window.Quarto = {
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#étape-1-le-cadre-structurel-et-la-décomposition-du-risque" id="toc-étape-1-le-cadre-structurel-et-la-décomposition-du-risque" class="nav-link" data-scroll-target="#étape-1-le-cadre-structurel-et-la-décomposition-du-risque"><span class="header-section-number">2</span> Étape 1 : Le Cadre Structurel et la Décomposition du Risque</a></li>
-  <li><a href="#étape-2-la-définition-du-seuil-de-défaut-inconditionnel" id="toc-étape-2-la-définition-du-seuil-de-défaut-inconditionnel" class="nav-link" data-scroll-target="#étape-2-la-définition-du-seuil-de-défaut-inconditionnel"><span class="header-section-number">3</span> Étape 2 : La Définition du Seuil de Défaut Inconditionnel</a></li>
-  <li><a href="#étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle" id="toc-étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle" class="nav-link" data-scroll-target="#étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle"><span class="header-section-number">4</span> Étape 3 : L’Effet du Cycle et la Probabilité de Défaut Conditionnelle</a></li>
-  <li><a href="#étape-4-linjection-de-la-contrainte-réglementaire" id="toc-étape-4-linjection-de-la-contrainte-réglementaire" class="nav-link" data-scroll-target="#étape-4-linjection-de-la-contrainte-réglementaire"><span class="header-section-number">5</span> Étape 4 : L’Injection de la Contrainte Réglementaire</a></li>
-  <li><a href="#étape-5-lexigence-de-capital-de-base-horizon-à-1-an" id="toc-étape-5-lexigence-de-capital-de-base-horizon-à-1-an" class="nav-link" data-scroll-target="#étape-5-lexigence-de-capital-de-base-horizon-à-1-an"><span class="header-section-number">6</span> Étape 5 : L’Exigence de Capital de Base (Horizon à 1 an)</a>
-  <ul class="collapse">
-  <li><a href="#visualisation-la-value-at-risk-du-portefeuille" id="toc-visualisation-la-value-at-risk-du-portefeuille" class="nav-link" data-scroll-target="#visualisation-la-value-at-risk-du-portefeuille"><span class="header-section-number">6.1</span> Visualisation : la Value-at-Risk du portefeuille</a></li>
-  </ul></li>
-  <li><a href="#étape-6-le-risque-de-migration-et-lajustement-de-maturité-m" id="toc-étape-6-le-risque-de-migration-et-lajustement-de-maturité-m" class="nav-link" data-scroll-target="#étape-6-le-risque-de-migration-et-lajustement-de-maturité-m"><span class="header-section-number">7</span> Étape 6 : Le Risque de Migration et l’Ajustement de Maturité (<span class="math inline">\(M\)</span>)</a>
-  <ul class="collapse">
-  <li><a href="#le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd" id="toc-le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd" class="nav-link" data-scroll-target="#le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd"><span class="header-section-number">7.1</span> 1. Le paramètre de lissage <span class="math inline">\(b\)</span> : la sensibilité temporelle liée à la PD</a></li>
-  <li><a href="#le-multiplicateur-ma-et-lancrage-à-25-ans" id="toc-le-multiplicateur-ma-et-lancrage-à-25-ans" class="nav-link" data-scroll-target="#le-multiplicateur-ma-et-lancrage-à-25-ans"><span class="header-section-number">7.2</span> 2. Le multiplicateur <span class="math inline">\(MA\)</span> et l’ancrage à 2,5 ans</a></li>
-  </ul></li>
-  <li><a href="#la-formule-finale-de-bâle-iii" id="toc-la-formule-finale-de-bâle-iii" class="nav-link" data-scroll-target="#la-formule-finale-de-bâle-iii"><span class="header-section-number">8</span> La Formule Finale de Bâle III</a></li>
-  <li><a href="#application-numérique-en-python" id="toc-application-numérique-en-python" class="nav-link" data-scroll-target="#application-numérique-en-python"><span class="header-section-number">9</span> Application Numérique en Python</a>
-  <ul class="collapse">
-  <li><a href="#le-poids-du-capital-en-fonction-de-la-pd" id="toc-le-poids-du-capital-en-fonction-de-la-pd" class="nav-link" data-scroll-target="#le-poids-du-capital-en-fonction-de-la-pd"><span class="header-section-number">9.1</span> Le poids du capital en fonction de la PD</a></li>
-  <li><a href="#leffet-de-la-maturité" id="toc-leffet-de-la-maturité" class="nav-link" data-scroll-target="#leffet-de-la-maturité"><span class="header-section-number">9.2</span> L’effet de la maturité</a></li>
-  </ul></li>
-  <li><a href="#propriétés-et-limites-du-modèle" id="toc-propriétés-et-limites-du-modèle" class="nav-link" data-scroll-target="#propriétés-et-limites-du-modèle"><span class="header-section-number">10</span> Propriétés et Limites du Modèle</a></li>
-  <li><a href="#synthèse-la-logique-de-construction" id="toc-synthèse-la-logique-de-construction" class="nav-link" data-scroll-target="#synthèse-la-logique-de-construction"><span class="header-section-number">11</span> Synthèse : la Logique de Construction</a></li>
-  <li><a href="#références-bibliographiques" id="toc-références-bibliographiques" class="nav-link" data-scroll-target="#références-bibliographiques"><span class="header-section-number">12</span> Références Bibliographiques</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">0.1</span> Introduction</a></li>
+  <li><a href="#étape-1-le-cadre-structurel-et-la-décomposition-du-risque" id="toc-étape-1-le-cadre-structurel-et-la-décomposition-du-risque" class="nav-link" data-scroll-target="#étape-1-le-cadre-structurel-et-la-décomposition-du-risque"><span class="header-section-number">0.2</span> Étape 1 : Le Cadre structurel et la décomposition du risque</a></li>
+  <li><a href="#étape-2-définition-du-seuil-de-défaut-inconditionnel" id="toc-étape-2-définition-du-seuil-de-défaut-inconditionnel" class="nav-link" data-scroll-target="#étape-2-définition-du-seuil-de-défaut-inconditionnel"><span class="header-section-number">0.3</span> Étape 2 : Définition du seuil de défaut inconditionnel</a></li>
+  <li><a href="#étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle" id="toc-étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle" class="nav-link" data-scroll-target="#étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle"><span class="header-section-number">0.4</span> Étape 3 : L’Effet du cycle et la probabilité de défaut conditionnelle</a></li>
+  <li><a href="#étape-4-linjection-de-la-contrainte-réglementaire" id="toc-étape-4-linjection-de-la-contrainte-réglementaire" class="nav-link" data-scroll-target="#étape-4-linjection-de-la-contrainte-réglementaire"><span class="header-section-number">0.5</span> Étape 4 : L’Injection de la contrainte réglementaire</a></li>
+  <li><a href="#étape-5-lexigence-de-capital-de-base-horizon-à-1-an" id="toc-étape-5-lexigence-de-capital-de-base-horizon-à-1-an" class="nav-link" data-scroll-target="#étape-5-lexigence-de-capital-de-base-horizon-à-1-an"><span class="header-section-number">0.6</span> Étape 5 : L’Exigence de capital de base (Horizon à 1 an)</a></li>
+  <li><a href="#étape-6-le-risque-de-migration-et-lajustement-de-maturité-m" id="toc-étape-6-le-risque-de-migration-et-lajustement-de-maturité-m" class="nav-link" data-scroll-target="#étape-6-le-risque-de-migration-et-lajustement-de-maturité-m"><span class="header-section-number">0.7</span> Étape 6 : Le Risque de migration et l’ajustement de maturité (<span class="math inline">\(M\)</span>)</a></li>
+  <li><a href="#la-formule-finale-de-bâle-iii" id="toc-la-formule-finale-de-bâle-iii" class="nav-link" data-scroll-target="#la-formule-finale-de-bâle-iii"><span class="header-section-number">0.8</span> La formule finale de Bâle III</a></li>
+  <li><a href="#application-numérique-avec-python" id="toc-application-numérique-avec-python" class="nav-link" data-scroll-target="#application-numérique-avec-python"><span class="header-section-number">0.9</span> Application numérique avec Python</a></li>
+  <li><a href="#propriétés-et-limites-du-modèle" id="toc-propriétés-et-limites-du-modèle" class="nav-link" data-scroll-target="#propriétés-et-limites-du-modèle"><span class="header-section-number">0.10</span> Propriétés et limites du modèle</a></li>
+  <li><a href="#synthèse-la-logique-de-construction" id="toc-synthèse-la-logique-de-construction" class="nav-link" data-scroll-target="#synthèse-la-logique-de-construction"><span class="header-section-number">0.11</span> Synthèse : la logique de construction</a></li>
+  <li><a href="#références-bibliographiques" id="toc-références-bibliographiques" class="nav-link" data-scroll-target="#références-bibliographiques"><span class="header-section-number">0.12</span> Références Bibliographiques</a></li>
   </ul>
 </nav>
     </div>
@@ -247,7 +236,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Du Modèle de Vasicek à la Formule de Capital Bâle III</h1>
+<h1 class="title">Du Modèle de Vasicek à la formule de capital Bâle III</h1>
 <p class="subtitle lead">Analyse analytique de l’approche IRB : fondements probabilistes et ajustement de maturité</p>
   <div class="quarto-categories">
     <div class="quarto-category">Risque de Crédit</div>
@@ -288,14 +277,14 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<section id="introduction" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">0.1</span> Introduction</h3>
 <p>Pour comprendre la véritable nature du facteur de capital réglementaire <span class="math inline">\(K\)</span>, il faut plonger dans les fondements probabilistes de la théorie du risque de crédit. La formule bâloise est l’héritière du <strong>modèle de portefeuille à facteur unique de Vasicek</strong> <span class="citation" data-cites="vasicek2002">(<a href="#ref-vasicek2002" role="doc-biblioref">Vasicek 2002</a>)</span>, formalisé sous le nom de modèle <em>ASRF</em> (<em>Asymptotic Single Risk Factor</em>) par Michael Gordy <span class="citation" data-cites="gordy2003">(<a href="#ref-gordy2003" role="doc-biblioref">2003</a>)</span> pour le Comité de Bâle <span class="citation" data-cites="bcbs2005">(<a href="#ref-bcbs2005" role="doc-biblioref">Basel Committee on Banking Supervision 2005</a>)</span>.</p>
 <p>Cet article déconstruit cette formule étape par étape, depuis le cadre structurel de Merton jusqu’à l’ajustement de maturité final.</p>
 <hr>
 </section>
-<section id="étape-1-le-cadre-structurel-et-la-décomposition-du-risque" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="étape-1-le-cadre-structurel-et-la-décomposition-du-risque"><span class="header-section-number">2</span> Étape 1 : Le Cadre Structurel et la Décomposition du Risque</h2>
+<section id="étape-1-le-cadre-structurel-et-la-décomposition-du-risque" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="étape-1-le-cadre-structurel-et-la-décomposition-du-risque"><span class="header-section-number">0.2</span> Étape 1 : Le Cadre structurel et la décomposition du risque</h3>
 <p>Le modèle de Vasicek repose sur une approche structurelle du défaut, dans la lignée des travaux de Robert Merton <span class="citation" data-cites="merton1974">(<a href="#ref-merton1974" role="doc-biblioref">1974</a>)</span>. On considère un portefeuille de crédits composé d’un très grand nombre d’emprunteurs. Pour un emprunteur individuel <span class="math inline">\(i\)</span>, la santé financière (la valeur de ses actifs) à l’horizon d’un an est modélisée par une variable aléatoire latente, notée <span class="math inline">\(Y_i\)</span>.</p>
 <p>Par construction mathématique, cette variable est normalisée de sorte qu’elle suit une loi normale standard (moyenne de 0, écart-type de 1) :</p>
 <p><span class="math display">\[Y_i \sim \mathcal{N}(0, 1)\]</span></p>
@@ -324,8 +313,8 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="étape-2-la-définition-du-seuil-de-défaut-inconditionnel" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="étape-2-la-définition-du-seuil-de-défaut-inconditionnel"><span class="header-section-number">3</span> Étape 2 : La Définition du Seuil de Défaut Inconditionnel</h2>
+<section id="étape-2-définition-du-seuil-de-défaut-inconditionnel" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="étape-2-définition-du-seuil-de-défaut-inconditionnel"><span class="header-section-number">0.3</span> Étape 2 : Définition du seuil de défaut inconditionnel</h3>
 <p>Dans ce cadre, un emprunteur fait défaut si la valeur de ses actifs <span class="math inline">\(Y_i\)</span> s’effondre sous un certain seuil critique, noté <span class="math inline">\(C_i\)</span>. Sous ce seuil, la dette devient insurmontable.</p>
 <p>La <strong>probabilité de défaut inconditionnelle</strong> (la <span class="math inline">\(PD\)</span> de long terme que la banque observe historiquement au travers des cycles) est donc définie par :</p>
 <p><span class="math display">\[PD_i = \mathbb{P}(Y_i &lt; C_i)\]</span></p>
@@ -335,8 +324,8 @@ window.Quarto = {
 <p><span class="math display">\[C_i = \Phi^{-1}(PD_i)\]</span></p>
 <hr>
 </section>
-<section id="étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle"><span class="header-section-number">4</span> Étape 3 : L’Effet du Cycle et la Probabilité de Défaut Conditionnelle</h2>
+<section id="étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle"><span class="header-section-number">0.4</span> Étape 3 : L’Effet du cycle et la probabilité de défaut conditionnelle</h3>
 <p>Que se passe-t-il si l’économie subit un choc ? Imaginons que nous soyons capables de « figer » la conjoncture économique, c’est-à-dire de fixer mathématiquement la valeur du facteur systématique <span class="math inline">\(X\)</span>. La probabilité que l’emprunteur fasse défaut sachant cette situation économique précise est la <strong>PD conditionnelle</strong>, notée <span class="math inline">\(PD_i(X)\)</span> :</p>
 <p><span class="math display">\[PD_i(X) = \mathbb{P}(Y_i &lt; C_i \mid X)\]</span></p>
 <p>En substituant la décomposition de Vasicek et l’expression du seuil <span class="math inline">\(C_i\)</span>, nous obtenons :</p>
@@ -348,8 +337,8 @@ window.Quarto = {
 <p>Si <span class="math inline">\(X\)</span> est très négatif (simulant une grave récession), le terme au numérateur grandit, et la probabilité de défaut de l’entreprise explose. C’est l’essence même du risque systémique.</p>
 <hr>
 </section>
-<section id="étape-4-linjection-de-la-contrainte-réglementaire" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="étape-4-linjection-de-la-contrainte-réglementaire"><span class="header-section-number">5</span> Étape 4 : L’Injection de la Contrainte Réglementaire</h2>
+<section id="étape-4-linjection-de-la-contrainte-réglementaire" class="level3" data-number="0.5">
+<h3 data-number="0.5" class="anchored" data-anchor-id="étape-4-linjection-de-la-contrainte-réglementaire"><span class="header-section-number">0.5</span> Étape 4 : L’Injection de la contrainte réglementaire</h3>
 <p>Le régulateur prudentiel n’exige pas des fonds propres pour que la banque survive aux années normales, mais pour qu’elle puisse encaisser une <strong>crise systémique d’une rare violence</strong>. Le Comité de Bâle <span class="citation" data-cites="bcbs2005">(<a href="#ref-bcbs2005" role="doc-biblioref">Basel Committee on Banking Supervision 2005</a>)</span> a fixé le seuil de survie à <strong>99,9 %</strong> : la banque doit détenir assez de capital pour que, dans 99,9 % des scénarios économiques à un an, ses pertes n’excèdent pas ses fonds propres.</p>
 <p>Le scénario d’une crise extrême correspond donc au pire <strong>0,1 %</strong> des états économiques possibles. Sur notre loi normale standard, la valeur de <span class="math inline">\(X\)</span> correspondant à cette crise profonde est :</p>
 <p><span class="math display">\[X_{\text{crise}} = \Phi^{-1}(0{,}001) \approx -3{,}09\]</span></p>
@@ -367,8 +356,8 @@ WCDR_i &amp;= PD_i(X_{\text{crise}})
 <p>Ce <span class="math inline">\(WCDR\)</span> représente ainsi la perte maximale que la banque devrait absorber sur son portefeuille avec une confiance de 99,9 % sur un horizon d’un an.</p>
 <hr>
 </section>
-<section id="étape-5-lexigence-de-capital-de-base-horizon-à-1-an" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="étape-5-lexigence-de-capital-de-base-horizon-à-1-an"><span class="header-section-number">6</span> Étape 5 : L’Exigence de Capital de Base (Horizon à 1 an)</h2>
+<section id="étape-5-lexigence-de-capital-de-base-horizon-à-1-an" class="level3" data-number="0.6">
+<h3 data-number="0.6" class="anchored" data-anchor-id="étape-5-lexigence-de-capital-de-base-horizon-à-1-an"><span class="header-section-number">0.6</span> Étape 5 : L’Exigence de capital de base (Horizon à 1 an)</h3>
 <p>Si le portefeuille subit ce taux de défaut extrême, la perte par euro d’exposition (<span class="math inline">\(EAD\)</span>) sera le produit de ce taux par la Perte en cas de Défaut (<span class="math inline">\(LGD\)</span>) :</p>
 <p><span class="math display">\[\text{Perte Maximale} = WCDR_i \times LGD_i\]</span></p>
 <p>La distinction prudentielle entre <strong>provisions</strong> et <strong>capital</strong> entre ici en jeu. Les provisions comptables couvrent la <strong>Perte Attendue</strong> (<span class="math inline">\(EL = PD_i \times LGD_i\)</span>). Les fonds propres ont pour vocation exclusive d’absorber la <strong>Perte Inattendue</strong> (<span class="math inline">\(UL\)</span>), c’est-à-dire la différence entre la catastrophe de crise et la perte habituelle déjà provisionnée.</p>
@@ -376,8 +365,8 @@ WCDR_i &amp;= PD_i(X_{\text{crise}})
 <p><span class="math display">\[K_{\text{base}} = \text{Perte Maximale} - \text{Perte Attendue} = \left[\, WCDR_i - PD_i \,\right] \times LGD_i\]</span></p>
 <p>En remplaçant <span class="math inline">\(WCDR_i\)</span> par son expression, on obtient le cœur du modèle :</p>
 <p><span class="math display">\[K_{\text{base}} = \left[\, \Phi\!\left(\frac{\Phi^{-1}(PD_i) + \sqrt{\rho}\, \Phi^{-1}(0{,}999)}{\sqrt{1-\rho}}\right) - PD_i \,\right] \times LGD_i\]</span></p>
-<section id="visualisation-la-value-at-risk-du-portefeuille" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="visualisation-la-value-at-risk-du-portefeuille"><span class="header-section-number">6.1</span> Visualisation : la Value-at-Risk du portefeuille</h3>
+<section id="visualisation-la-value-at-risk-du-portefeuille" class="level4" data-number="0.6.1">
+<h4 data-number="0.6.1" class="anchored" data-anchor-id="visualisation-la-value-at-risk-du-portefeuille"><span class="header-section-number">0.6.1</span> Visualisation : la Value-at-Risk du portefeuille</h4>
 <p>Cette logique se lit directement sur la <strong>distribution des pertes</strong> du portefeuille, dans la représentation canonique du Comité de Bâle <span class="citation" data-cites="bcbs2005">(<a href="#ref-bcbs2005" role="doc-biblioref">Basel Committee on Banking Supervision 2005</a>)</span>. Les pertes potentielles forment une distribution <strong>asymétrique à droite</strong> : la plupart du temps les pertes sont faibles, mais une longue queue concentre les scénarios catastrophiques. La <strong>Value-at-Risk (VaR)</strong> est le seuil de perte associé au niveau de confiance retenu (99,9 % sous Bâle III). Elle se décompose en deux blocs : la <strong>Perte Attendue</strong> (<span class="math inline">\(EL\)</span>, la moyenne de la distribution), couverte par les provisions, et la <strong>Perte Inattendue</strong> (<span class="math inline">\(UL = \text{VaR} - EL\)</span>), que les fonds propres doivent absorber. C’est précisément cet <span class="math inline">\(UL\)</span> qui correspond à <span class="math inline">\(K_{\text{base}}\)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -398,19 +387,19 @@ WCDR_i &amp;= PD_i(X_{\text{crise}})
 <hr>
 </section>
 </section>
-<section id="étape-6-le-risque-de-migration-et-lajustement-de-maturité-m" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="étape-6-le-risque-de-migration-et-lajustement-de-maturité-m"><span class="header-section-number">7</span> Étape 6 : Le Risque de Migration et l’Ajustement de Maturité (<span class="math inline">\(M\)</span>)</h2>
+<section id="étape-6-le-risque-de-migration-et-lajustement-de-maturité-m" class="level3" data-number="0.7">
+<h3 data-number="0.7" class="anchored" data-anchor-id="étape-6-le-risque-de-migration-et-lajustement-de-maturité-m"><span class="header-section-number">0.7</span> Étape 6 : Le Risque de migration et l’ajustement de maturité (<span class="math inline">\(M\)</span>)</h3>
 <p>Si le modèle de Bâle s’arrêtait ici, il ferait l’impasse sur un risque structurel majeur. Le modèle ASRF de Vasicek est un modèle de type <strong>Default-Mode</strong> : il ne regarde que la probabilité qu’une entreprise soit en état de « défaut » ou de « survie » à l’horizon d’<strong>exactement un an</strong>.</p>
 <p>Dans la réalité, une banque détient des prêts aux entreprises qui s’étalent sur 3, 5 ou 7 ans. Si une entreprise emprunte sur 5 ans, elle ne fera peut-être pas défaut la première année, mais sa qualité de crédit peut gravement se détériorer (par exemple, sa notation externe passe de AAA à BB). Cette dégradation entraîne une chute de la valeur du prêt sur les marchés financiers - ce qu’on appelle le risque <strong>Mark-to-Market</strong> ou <strong>Downgrade Risk</strong>. Plus la maturité résiduelle effective (<span class="math inline">\(M\)</span>) d’un prêt est longue, plus ce risque de dégradation avant l’échéance est fort, ce qui justifie de détenir des fonds propres supplémentaires.</p>
 <p>Pour intégrer cette dimension sans briser l’architecture du modèle, le Comité de Bâle a conçu un multiplicateur d’ajustement empirique de la maturité (<em>Maturity Adjustment</em>, ou <span class="math inline">\(MA\)</span>). Cet ajustement repose sur deux mécaniques.</p>
-<section id="le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd"><span class="header-section-number">7.1</span> 1. Le paramètre de lissage <span class="math inline">\(b\)</span> : la sensibilité temporelle liée à la PD</h3>
+<section id="le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd" class="level4" data-number="0.7.1">
+<h4 data-number="0.7.1" class="anchored" data-anchor-id="le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd"><span class="header-section-number">0.7.1</span> 1. Le paramètre de lissage <span class="math inline">\(b\)</span> : la sensibilité temporelle liée à la PD</h4>
 <p>L’impact de la maturité n’est pas le même pour tous les clients. Une entreprise extrêmement solide (très faible <span class="math inline">\(PD\)</span>) est située très loin du seuil de défaut ; son risque principal est de subir de multiples dégradations lentes sur plusieurs années. À l’inverse, pour une entreprise déjà au bord du gouffre (très forte <span class="math inline">\(PD\)</span>), le risque est le défaut immédiat ; rallonger la maturité n’ajoute que peu d’information.</p>
 <p>Le Comité a donc défini une fonction de sensibilité <span class="math inline">\(b\)</span>, qui s’atténue lorsque la <span class="math inline">\(PD\)</span> augmente :</p>
 <p><span class="math display">\[b = \big(\, 0{,}11852 - 0{,}05478 \times \ln(PD_i) \,\big)^2\]</span></p>
 </section>
-<section id="le-multiplicateur-ma-et-lancrage-à-25-ans" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="le-multiplicateur-ma-et-lancrage-à-25-ans"><span class="header-section-number">7.2</span> 2. Le multiplicateur <span class="math inline">\(MA\)</span> et l’ancrage à 2,5 ans</h3>
+<section id="le-multiplicateur-ma-et-lancrage-à-25-ans" class="level4" data-number="0.7.2">
+<h4 data-number="0.7.2" class="anchored" data-anchor-id="le-multiplicateur-ma-et-lancrage-à-25-ans"><span class="header-section-number">0.7.2</span> 2. Le multiplicateur <span class="math inline">\(MA\)</span> et l’ancrage à 2,5 ans</h4>
 <p>Le régulateur a calibré ce risque en considérant que la maturité moyenne « standard » d’un portefeuille de crédits d’entreprises mondiales était de <strong>2,5 ans</strong>. Le multiplicateur s’écrit :</p>
 <p><span class="math display">\[MA = \frac{1 + (M - 2{,}5) \times b}{1 - 1{,}5 \times b}\]</span></p>
 <p>La complexité de ce terme obéit à une logique stricte :</p>
@@ -421,8 +410,8 @@ WCDR_i &amp;= PD_i(X_{\text{crise}})
 <hr>
 </section>
 </section>
-<section id="la-formule-finale-de-bâle-iii" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="la-formule-finale-de-bâle-iii"><span class="header-section-number">8</span> La Formule Finale de Bâle III</h2>
+<section id="la-formule-finale-de-bâle-iii" class="level3" data-number="0.8">
+<h3 data-number="0.8" class="anchored" data-anchor-id="la-formule-finale-de-bâle-iii"><span class="header-section-number">0.8</span> La formule finale de Bâle III</h3>
 <p>En combinant le fondement probabiliste de Vasicek et la correction temporelle (risque de migration) du Comité de Bâle, nous aboutissons à l’équation maîtresse du <strong>Pilier 1</strong> pour les expositions sur les Entreprises, les Souverains et les Banques :</p>
 <p><span class="math display">\[\boxed{K = \left[\, \Phi\!\left(\frac{\Phi^{-1}(PD_i) + \sqrt{\rho}\, \Phi^{-1}(0{,}999)}{\sqrt{1-\rho}}\right) - PD_i \,\right] \times LGD_i \times \frac{1 + (M - 2{,}5) \times b}{1 - 1{,}5 \times b}}\]</span></p>
 <p>Cette exigence <span class="math inline">\(K\)</span> n’est qu’un <strong>taux</strong> (un pourcentage). Ce n’est qu’après avoir résolu cette imposante formule que la banque traduit ce risque théorique en montants réels :</p>
@@ -432,8 +421,8 @@ WCDR_i &amp;= PD_i(X_{\text{crise}})
 </ul>
 <hr>
 </section>
-<section id="application-numérique-en-python" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="application-numérique-en-python"><span class="header-section-number">9</span> Application Numérique en Python</h2>
+<section id="application-numérique-avec-python" class="level3" data-number="0.9">
+<h3 data-number="0.9" class="anchored" data-anchor-id="application-numérique-avec-python"><span class="header-section-number">0.9</span> Application numérique avec Python</h3>
 <p>Traduisons l’ensemble de la chaîne en code. On implémente d’abord chaque brique réglementaire (corrélation, <span class="math inline">\(b\)</span>, <span class="math inline">\(WCDR\)</span>, capital), puis on calcule le RWA d’une exposition type.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -517,8 +506,8 @@ WCDR_i &amp;= PD_i(X_{\text{crise}})
 </tbody>
 </table>
 <p>On observe que pour 1 € prêté, la banque doit immobiliser environ 7.4 centimes de fonds propres durs (puisque <span class="math inline">\(8\% \times 12{,}5 = 1\)</span>, le capital par euro d’EAD est exactement égal à <span class="math inline">\(K\)</span>) - au-delà des provisions qui couvrent déjà la perte attendue.</p>
-<section id="le-poids-du-capital-en-fonction-de-la-pd" class="level3" data-number="9.1">
-<h3 data-number="9.1" class="anchored" data-anchor-id="le-poids-du-capital-en-fonction-de-la-pd"><span class="header-section-number">9.1</span> Le poids du capital en fonction de la PD</h3>
+<section id="le-poids-du-capital-en-fonction-de-la-pd" class="level4" data-number="0.9.1">
+<h4 data-number="0.9.1" class="anchored" data-anchor-id="le-poids-du-capital-en-fonction-de-la-pd"><span class="header-section-number">0.9.1</span> Le poids du capital en fonction de la PD</h4>
 <p>Le graphique suivant montre comment l’exigence de capital <span class="math inline">\(K\)</span> croît avec la PD. La courbe est <strong>concave</strong> : le capital augmente vite pour les faibles PD puis sature, car au-delà d’un certain niveau de risque, la corrélation chute et la perte attendue (déjà provisionnée) absorbe une part croissante de la perte totale.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pd_grid <span class="op">=</span> np.linspace(<span class="fl">0.0003</span>, <span class="fl">0.20</span>, <span class="dv">300</span>)</span>
@@ -546,8 +535,8 @@ WCDR_i &amp;= PD_i(X_{\text{crise}})
 </div>
 </div>
 </section>
-<section id="leffet-de-la-maturité" class="level3" data-number="9.2">
-<h3 data-number="9.2" class="anchored" data-anchor-id="leffet-de-la-maturité"><span class="header-section-number">9.2</span> L’effet de la maturité</h3>
+<section id="leffet-de-la-maturité" class="level4" data-number="0.9.2">
+<h4 data-number="0.9.2" class="anchored" data-anchor-id="leffet-de-la-maturité"><span class="header-section-number">0.9.2</span> L’effet de la maturité</h4>
 <p>À PD et LGD fixées, l’allongement de la maturité accroît le capital de façon linéaire, via l’ajustement <span class="math inline">\(MA\)</span>. L’effet est d’autant plus marqué que la PD est faible (puisque <span class="math inline">\(b\)</span> décroît avec la PD).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>M_grid <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">100</span>)</span>
@@ -583,8 +572,8 @@ WCDR_i &amp;= PD_i(X_{\text{crise}})
 <hr>
 </section>
 </section>
-<section id="propriétés-et-limites-du-modèle" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="propriétés-et-limites-du-modèle"><span class="header-section-number">10</span> Propriétés et Limites du Modèle</h2>
+<section id="propriétés-et-limites-du-modèle" class="level3" data-number="0.10">
+<h3 data-number="0.10" class="anchored" data-anchor-id="propriétés-et-limites-du-modèle"><span class="header-section-number">0.10</span> Propriétés et limites du modèle</h3>
 <p>La formule Bâle III est élégante mais repose sur des hypothèses fortes dont le praticien doit être conscient :</p>
 <ul>
 <li><strong>Portefeuille infiniment granulaire.</strong> Le modèle ASRF suppose qu’aucune contrepartie ne pèse significativement dans le portefeuille (le risque idiosyncratique disparaît par diversification). Le risque de <strong>concentration</strong> n’est donc <strong>pas</strong> capturé par la formule de Pilier 1 - il relève du Pilier 2 (ICAAP).</li>
@@ -596,8 +585,8 @@ WCDR_i &amp;= PD_i(X_{\text{crise}})
 <p>Ces limites expliquent pourquoi le capital de Pilier 1 calculé par cette formule est complété par des coussins (conservation, contracyclique, systémique) et par l’évaluation interne du Pilier 2.</p>
 <hr>
 </section>
-<section id="synthèse-la-logique-de-construction" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="synthèse-la-logique-de-construction"><span class="header-section-number">11</span> Synthèse : la Logique de Construction</h2>
+<section id="synthèse-la-logique-de-construction" class="level3" data-number="0.11">
+<h3 data-number="0.11" class="anchored" data-anchor-id="synthèse-la-logique-de-construction"><span class="header-section-number">0.11</span> Synthèse : la logique de construction</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 24%">
@@ -646,8 +635,8 @@ WCDR_i &amp;= PD_i(X_{\text{crise}})
 </table>
 <hr>
 </section>
-<section id="références-bibliographiques" class="level2" data-number="12">
-<h2 data-number="12" class="anchored" data-anchor-id="références-bibliographiques"><span class="header-section-number">12</span> Références Bibliographiques</h2>
+<section id="références-bibliographiques" class="level3" data-number="0.12">
+<h3 data-number="0.12" class="anchored" data-anchor-id="références-bibliographiques"><span class="header-section-number">0.12</span> Références Bibliographiques</h3>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-bcbs2005" class="csl-entry" role="listitem">
 Basel Committee on Banking Supervision. 2005. <em>An Explanatory Note on the Basel II IRB Risk Weight Functions</em>. Bank for International Settlements.
@@ -765,7 +754,7 @@ Vasicek, Oldrich A. 2002. <span>«&nbsp;The Distribution of Loan Portfolio Value
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("^(?:http:|https:)\/\/www\.ouedraogo-boukary\.com\/**");
+        var filterRegex = new RegExp("^(?:http:|https:)\/\.oboukary.github\.io\/**");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
