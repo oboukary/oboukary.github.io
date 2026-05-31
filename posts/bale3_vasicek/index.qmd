@@ -1,5 +1,5 @@
 ---
-title: "Du Modèle de Vasicek à la Formule de Capital Bâle III"
+title: "Du Modèle de Vasicek à la formule de capital Bâle III"
 subtitle: "Analyse analytique de l'approche IRB : fondements probabilistes et ajustement de maturité"
 author: "Boukary Ouedraogo"
 date: "2026-05-31"
