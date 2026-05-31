@@ -16,7 +16,7 @@ format:
     number-sections: true
 ---
 
-## Introduction
+### Introduction
 
 Pour comprendre la véritable nature du facteur de capital réglementaire $K$, il faut plonger dans les fondements probabilistes de la théorie du risque de crédit. La formule bâloise est l'héritière du **modèle de portefeuille à facteur unique de Vasicek** [@vasicek2002], formalisé sous le nom de modèle *ASRF* (*Asymptotic Single Risk Factor*) par Michael Gordy [-@gordy2003] pour le Comité de Bâle [@bcbs2005].
 
@@ -24,7 +24,7 @@ Cet article déconstruit cette formule étape par étape, depuis le cadre struct
 
 ---
 
-## Étape 1 : Le Cadre Structurel et la Décomposition du Risque
+### Étape 1 : Le Cadre structurel et la décomposition du risque
 
 Le modèle de Vasicek repose sur une approche structurelle du défaut, dans la lignée des travaux de Robert Merton [-@merton1974]. On considère un portefeuille de crédits composé d'un très grand nombre d'emprunteurs. Pour un emprunteur individuel $i$, la santé financière (la valeur de ses actifs) à l'horizon d'un an est modélisée par une variable aléatoire latente, notée $Y_i$.
 
@@ -52,7 +52,7 @@ La corrélation varie ainsi entre **24 %** (PD faible) et **12 %** (PD élevée)
 
 ---
 
-## Étape 2 : La Définition du Seuil de Défaut Inconditionnel
+### Étape 2 : Définition du seuil de défaut inconditionnel
 
 Dans ce cadre, un emprunteur fait défaut si la valeur de ses actifs $Y_i$ s'effondre sous un certain seuil critique, noté $C_i$. Sous ce seuil, la dette devient insurmontable.
 
@@ -70,7 +70,7 @@ $$C_i = \Phi^{-1}(PD_i)$$
 
 ---
 
-## Étape 3 : L'Effet du Cycle et la Probabilité de Défaut Conditionnelle
+### Étape 3 : L'Effet du cycle et la probabilité de défaut conditionnelle
 
 Que se passe-t-il si l'économie subit un choc ? Imaginons que nous soyons capables de « figer » la conjoncture économique, c'est-à-dire de fixer mathématiquement la valeur du facteur systématique $X$. La probabilité que l'emprunteur fasse défaut sachant cette situation économique précise est la **PD conditionnelle**, notée $PD_i(X)$ :
 
@@ -92,7 +92,7 @@ Si $X$ est très négatif (simulant une grave récession), le terme au numérate
 
 ---
 
-## Étape 4 : L'Injection de la Contrainte Réglementaire
+### Étape 4 : L'Injection de la contrainte réglementaire
 
 Le régulateur prudentiel n'exige pas des fonds propres pour que la banque survive aux années normales, mais pour qu'elle puisse encaisser une **crise systémique d'une rare violence**. Le Comité de Bâle [@bcbs2005] a fixé le seuil de survie à **99,9 %** : la banque doit détenir assez de capital pour que, dans 99,9 % des scénarios économiques à un an, ses pertes n'excèdent pas ses fonds propres.
 
@@ -119,7 +119,7 @@ Ce $WCDR$ représente ainsi la perte maximale que la banque devrait absorber sur
 
 ---
 
-## Étape 5 : L'Exigence de Capital de Base (Horizon à 1 an)
+### Étape 5 : L'Exigence de capital de base (Horizon à 1 an)
 
 Si le portefeuille subit ce taux de défaut extrême, la perte par euro d'exposition ($EAD$) sera le produit de ce taux par la Perte en cas de Défaut ($LGD$) :
 
@@ -135,7 +135,7 @@ En remplaçant $WCDR_i$ par son expression, on obtient le cœur du modèle :
 
 $$K_{\text{base}} = \left[\, \Phi\!\left(\frac{\Phi^{-1}(PD_i) + \sqrt{\rho}\, \Phi^{-1}(0{,}999)}{\sqrt{1-\rho}}\right) - PD_i \,\right] \times LGD_i$$
 
-### Visualisation : la Value-at-Risk du portefeuille
+#### Visualisation : la Value-at-Risk du portefeuille
 
 Cette logique se lit directement sur la **distribution des pertes** du portefeuille, dans la représentation canonique du Comité de Bâle [@bcbs2005]. Les pertes potentielles forment une distribution **asymétrique à droite** : la plupart du temps les pertes sont faibles, mais une longue queue concentre les scénarios catastrophiques. La **Value-at-Risk (VaR)** est le seuil de perte associé au niveau de confiance retenu (99,9 % sous Bâle III). Elle se décompose en deux blocs : la **Perte Attendue** ($EL$, la moyenne de la distribution), couverte par les provisions, et la **Perte Inattendue** ($UL = \text{VaR} - EL$), que les fonds propres doivent absorber. C'est précisément cet $UL$ qui correspond à $K_{\text{base}}$.
 
@@ -215,7 +215,7 @@ Enfin, la queue rouge (au-delà de la VaR) n'est couverte **ni** par les provisi
 
 ---
 
-## Étape 6 : Le Risque de Migration et l'Ajustement de Maturité ($M$)
+### Étape 6 : Le Risque de migration et l'ajustement de maturité ($M$)
 
 Si le modèle de Bâle s'arrêtait ici, il ferait l'impasse sur un risque structurel majeur. Le modèle ASRF de Vasicek est un modèle de type **Default-Mode** : il ne regarde que la probabilité qu'une entreprise soit en état de « défaut » ou de « survie » à l'horizon d'**exactement un an**.
 
@@ -223,7 +223,7 @@ Dans la réalité, une banque détient des prêts aux entreprises qui s'étalent
 
 Pour intégrer cette dimension sans briser l'architecture du modèle, le Comité de Bâle a conçu un multiplicateur d'ajustement empirique de la maturité (*Maturity Adjustment*, ou $MA$). Cet ajustement repose sur deux mécaniques.
 
-### 1. Le paramètre de lissage $b$ : la sensibilité temporelle liée à la PD
+#### 1. Le paramètre de lissage $b$ : la sensibilité temporelle liée à la PD
 
 L'impact de la maturité n'est pas le même pour tous les clients. Une entreprise extrêmement solide (très faible $PD$) est située très loin du seuil de défaut ; son risque principal est de subir de multiples dégradations lentes sur plusieurs années. À l'inverse, pour une entreprise déjà au bord du gouffre (très forte $PD$), le risque est le défaut immédiat ; rallonger la maturité n'ajoute que peu d'information.
 
@@ -231,7 +231,7 @@ Le Comité a donc défini une fonction de sensibilité $b$, qui s'atténue lorsq
 
 $$b = \big(\, 0{,}11852 - 0{,}05478 \times \ln(PD_i) \,\big)^2$$
 
-### 2. Le multiplicateur $MA$ et l'ancrage à 2,5 ans
+#### 2. Le multiplicateur $MA$ et l'ancrage à 2,5 ans
 
 Le régulateur a calibré ce risque en considérant que la maturité moyenne « standard » d'un portefeuille de crédits d'entreprises mondiales était de **2,5 ans**. Le multiplicateur s'écrit :
 
@@ -244,7 +244,7 @@ La complexité de ce terme obéit à une logique stricte :
 
 ---
 
-## La Formule Finale de Bâle III
+### La formule finale de Bâle III
 
 En combinant le fondement probabiliste de Vasicek et la correction temporelle (risque de migration) du Comité de Bâle, nous aboutissons à l'équation maîtresse du **Pilier 1** pour les expositions sur les Entreprises, les Souverains et les Banques :
 
@@ -257,7 +257,7 @@ Cette exigence $K$ n'est qu'un **taux** (un pourcentage). Ce n'est qu'après avo
 
 ---
 
-## Application Numérique en Python
+### Application numérique avec Python
 
 Traduisons l'ensemble de la chaîne en code. On implémente d'abord chaque brique réglementaire (corrélation, $b$, $WCDR$, capital), puis on calcule le RWA d'une exposition type.
 
@@ -341,7 +341,7 @@ print("\n".join(lignes))
 
 On observe que pour 1 € prêté, la banque doit immobiliser environ `r sprintf("%.1f", 100 * py$K)` centimes de fonds propres durs (puisque $8\% \times 12{,}5 = 1$, le capital par euro d'EAD est exactement égal à $K$) - au-delà des provisions qui couvrent déjà la perte attendue.
 
-### Le poids du capital en fonction de la PD
+#### Le poids du capital en fonction de la PD
 
 Le graphique suivant montre comment l'exigence de capital $K$ croît avec la PD. La courbe est **concave** : le capital augmente vite pour les faibles PD puis sature, car au-delà d'un certain niveau de risque, la corrélation chute et la perte attendue (déjà provisionnée) absorbe une part croissante de la perte totale.
 
@@ -364,7 +364,7 @@ plt.title("Capital réglementaire en fonction de la PD (LGD = 45 %, M = 2,5 ans)
 plt.grid(color="grey", alpha=0.3)
 ```
 
-### L'effet de la maturité
+#### L'effet de la maturité
 
 À PD et LGD fixées, l'allongement de la maturité accroît le capital de façon linéaire, via l'ajustement $MA$. L'effet est d'autant plus marqué que la PD est faible (puisque $b$ décroît avec la PD).
 
@@ -389,7 +389,7 @@ plt.legend(frameon=False, loc="upper left")
 
 ---
 
-## Propriétés et Limites du Modèle
+### Propriétés et limites du modèle
 
 La formule Bâle III est élégante mais repose sur des hypothèses fortes dont le praticien doit être conscient :
 
@@ -403,7 +403,7 @@ Ces limites expliquent pourquoi le capital de Pilier 1 calculé par cette formul
 
 ---
 
-## Synthèse : la Logique de Construction
+### Synthèse : la logique de construction
 
 | Étape | Concept | Formule clé |
 |-------|---------|-------------|
@@ -416,7 +416,7 @@ Ces limites expliquent pourquoi le capital de Pilier 1 calculé par cette formul
 
 ---
 
-## Références Bibliographiques
+### Références Bibliographiques
 
 ::: {#refs}
 :::
