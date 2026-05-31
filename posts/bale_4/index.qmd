@@ -10,7 +10,7 @@ draft: false
 
 ## Introduction
 
-Le passage de Bâle III à Bâle IV répond à un objectif central : améliorer la comparabilité entre les établissements bancaires et réduire la variabilité des actifs pondérés par les risques (RWA). Cette évolution vise à restaurer la confiance dans les modèles internes utilisés par les banques pour calculer leurs exigences de fonds propres.
+Le passage de Bâle III à Bâle IV(Bâle III finalisé) répond à un objectif central : améliorer la comparabilité entre les établissements bancaires et réduire la variabilité des actifs pondérés par les risques (RWA). Cette évolution vise à restaurer la confiance dans les modèles internes utilisés par les banques pour calculer leurs exigences de fonds propres.
 
 Cet article se concentre exclusivement sur la composante **risque de crédit** de la réglementation, bien que le règlement CRR3 couvre également les autres catégories de risques (risque de marché, risque opérationnel).
 

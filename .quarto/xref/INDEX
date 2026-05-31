@@ -67,5 +67,14 @@
   },
   "projects.qmd": {
     "projects.html": "c3fcb18a"
+  },
+  "posts/ifrs9/index.qmd": {
+    "index.html": "e3875bac"
+  },
+  "posts/bale3_vasicek/index.qmd": {
+    "index.html": "622776e1"
+  },
+  "basel_iii_pd_modeling_article_v2.qmd": {
+    "basel_iii_pd_modeling_article_v2.html": "18d4b7d9"
   }
 }

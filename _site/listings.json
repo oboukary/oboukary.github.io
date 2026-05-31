@@ -6,12 +6,16 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/bale3_vasicek/index.html",
+      "/posts/ifrs9/index.html",
       "/posts/bale_4/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/bale3_vasicek/index.html",
+      "/posts/ifrs9/index.html",
       "/posts/bale_4/index.html"
     ]
   }

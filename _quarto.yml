@@ -42,10 +42,12 @@ website:
       - text: Contact
         href: contact.qmd
         
-      - text: CV
-        href: resume.qmd
 format:
   html:
+    grid:
+      body-width: 1000px
+      sidebar-width: 250px
+      margin-width: 150px
     theme: [pulse, assets/scss/custom.scss]
     include-in-header:
       - text: |

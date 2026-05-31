@@ -1,0 +1,386 @@
+﻿---
+title: "IFRS 9 : Le modèle de dépréciation en 3 stades décrypté"
+author: "Boukary Ouedraogo"
+date: "2026-05-13"
+categories: [Réglementation, Risque de crédit, IFRS 9, Finance, Comptabilité]
+description: "Maîtrisez les 15 concepts fondamentaux d'IFRS 9 : modèle ECL en 3 stades, paramètres de risque et gouvernance du provisionnement. Le vocabulaire qu'attendent banquiers, auditeurs et analystes."
+image: "ifrs9-cover.svg"
+draft: false
+---
+
+```{=html}
+<style>
+/* ── Stades ── */
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.6rem 0;
+}
+.stage-card {
+  border-left: 4px solid;
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  background: #fafafa;
+}
+.stage-1 { border-color: #2563b0; }
+.stage-2 { border-color: #d97706; }
+.stage-3 { border-color: #dc2626; }
+
+.stage-card .s-label {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: .3rem;
+}
+.stage-1 .s-label { color: #2563b0; }
+.stage-2 .s-label { color: #d97706; }
+.stage-3 .s-label { color: #dc2626; }
+
+.stage-card .s-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: .4rem;
+  color: #111;
+}
+.stage-card .s-body {
+  font-size: .87rem;
+  color: #444;
+  line-height: 1.55;
+}
+
+/* ── Formule ECL ── */
+.ecl-formula {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.2rem 1.6rem;
+  margin: 1.4rem 0;
+  text-align: center;
+  background: #f8fafc;
+}
+.ecl-formula .f-main {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: .03em;
+}
+.ecl-formula .f-sub {
+  font-size: .8rem;
+  color: #666;
+  margin-top: .4rem;
+}
+
+/* ── Timeline ── */
+.timeline {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 1.4rem 0;
+  flex-wrap: wrap;
+}
+.tl-box {
+  flex: 1;
+  min-width: 110px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: .7rem 1rem;
+  text-align: center;
+  background: #fafafa;
+  font-size: .85rem;
+  font-weight: 600;
+  color: #222;
+}
+.tl-box small {
+  display: block;
+  font-size: .72rem;
+  font-weight: 400;
+  color: #777;
+  margin-top: .15rem;
+}
+.tl-arrow { color: #aaa; font-size: 1.2rem; }
+
+/* ── Glossaire ── */
+.glossary {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+  margin: 1.4rem 0;
+}
+.glossary thead th {
+  border-bottom: 2px solid #222;
+  padding: .6rem .8rem;
+  text-align: left;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #333;
+}
+.glossary tbody td {
+  padding: .6rem .8rem;
+  vertical-align: top;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+.glossary tbody tr:last-child td { border-bottom: none; }
+.glossary td:first-child { font-weight: 700; white-space: nowrap; color: #111; }
+
+.cat { display: inline-block; font-size: .7rem; font-weight: 600; padding: .1rem .5rem; border-radius: 4px; }
+.cat-a { background: #eff6ff; color: #2563b0; }
+.cat-b { background: #f0fdf4; color: #16a34a; }
+.cat-c { background: #fff7ed; color: #c2410c; }
+</style>
+```
+
+## Introduction
+
+Avant IFRS 9, la norme IAS 39 imposait une logique de provisionnement **rétrospective** : une banque ne pouvait passer une dépréciation qu'en présence d'un événement déclencheur observable. Les provisions arrivaient souvent trop tard, amplifiant la procyclicité des bilans lors des crises.
+
+IFRS 9, entrée en vigueur le **1er janvier 2018**, renverse cette logique. Dès l'octroi d'un crédit, la banque doit reconnaître une **perte de crédit attendue** (ECL - *Expected Credit Loss*), calculée sur 12 mois pour les encours sains et sur la durée de vie entière pour les encours dégradés.
+
+Ce changement de paradigme s'articule autour de trois piliers :
+
+1. Le **modèle de classification en 3 stades** - pour déterminer l'horizon d'estimation de la perte
+2. Les **paramètres de risque** (PD, LGD, EAD) - pour quantifier l'ECL
+3. Les **mécanismes de gouvernance** (overlays, staging overrides, backstop) - pour encadrer le jugement expert
+
+---
+
+## Le modèle en 3 stades
+
+Le cœur d'IFRS 9 repose sur une segmentation dynamique du portefeuille, pilotant directement le montant de provision à constituer.
+
+```{=html}
+<div class="stage-grid">
+  <div class="stage-card stage-1">
+    <div class="s-label">Stade 1</div>
+    <div class="s-title">Performing</div>
+    <div class="s-body">Prêts sains à l'octroi, sans augmentation significative du risque depuis l'origination. Provision = <strong>ECL 12 mois</strong>.</div>
+  </div>
+  <div class="stage-card stage-2">
+    <div class="s-label">Stade 2</div>
+    <div class="s-title">Under-performing</div>
+    <div class="s-body">Augmentation significative du risque de crédit (SICR) depuis l'octroi. Provision = <strong>ECL à maturité</strong>.</div>
+  </div>
+  <div class="stage-card stage-3">
+    <div class="s-label">Stade 3</div>
+    <div class="s-title">Credit-impaired</div>
+    <div class="s-body">Encours en défaut avéré. Provision = <strong>ECL à maturité</strong> + intérêts sur la valeur nette comptable.</div>
+  </div>
+</div>
+```
+
+### Migration entre stades
+
+Le concept central est la **SICR** (*Significant Increase in Credit Risk*). IFRS 9 ne définit pas de seuil numérique universel : chaque établissement construit ses propres indicateurs quantitatifs et qualitatifs.
+
+```{=html}
+<div class="timeline">
+  <div class="tl-box">Stade 1<small>ECL 12 mois</small></div>
+  <div class="tl-arrow">⟶</div>
+  <div class="tl-box">Stade 2<small>SICR détectée</small></div>
+  <div class="tl-arrow">⟶</div>
+  <div class="tl-box">Stade 3<small>Défaut avéré</small></div>
+</div>
+```
+
+Les signaux mobilisés en pratique :
+
+- **Quantitatifs** : doublement de la PD relative depuis l'origination, dégradation de la notation interne
+- **Qualitatifs** : restructuration, mise sous surveillance, dégradation sectorielle ou géographique
+- **Backstop** : tout encours en retard de plus de 30 jours est présumé être en Stade 2
+
+::: {.callout-important}
+## L'enjeu financier du passage Stade 1 → Stade 2
+Le choc de provision représente souvent **×5 à ×15** par rapport au Stade 1 : on passe d'une ECL sur 12 mois à une ECL couvrant toute la durée de vie résiduelle de l'instrument.
+:::
+
+---
+
+## Les paramètres de risque
+
+L'ECL se calcule à partir de trois paramètres estimés en vision *point-in-time* :
+
+```{=html}
+<div class="ecl-formula">
+  <div class="f-main">ECL = PD × LGD × EAD</div>
+  <div class="f-sub">Probabilité de défaut &nbsp;·&nbsp; Perte en cas de défaut &nbsp;·&nbsp; Exposition au moment du défaut</div>
+</div>
+```
+
+| Paramètre | Définition | Spécificité IFRS 9 |
+|-----------|------------|-------------------|
+| **PD** - *Probability of Default* | Probabilité que l'emprunteur soit en défaut | Estimée en *point-in-time*, non *through-the-cycle* |
+| **LGD** - *Loss Given Default* | Fraction de l'EAD définitivement perdue | Intègre garanties, collatéraux et taux de récupération |
+| **EAD** - *Exposure at Default* | Solde dû au moment du défaut | Inclut les lignes renouvelables via un CCF |
+
+: {.striped .hover}
+
+### ECL 12 mois vs ECL à maturité
+
+| | 12-month ECL (Stade 1) | Lifetime ECL (Stades 2 & 3) |
+|--|--|--|
+| **Horizon** | 12 mois | Durée de vie résiduelle |
+| **Périmètre** | Défauts possibles dans l'année | Tous les défauts jusqu'à l'échéance |
+| **Impact bilan** | Faible - provision de base | Élevé - plusieurs années de pertes cumulées |
+
+: {.striped .hover}
+
+---
+
+## La gouvernance du modèle
+
+L'ECL modèle n'est jamais le résultat final. IFRS 9 reconnaît que les modèles statistiques ont des angles morts, d'où un cadre de gouvernance structuré.
+
+### Overlays
+
+Les **overlays** sont des ajustements post-modèle appliqués par le management pour couvrir ce que les données historiques ne capturent pas : pandémie, guerre, choc sectoriel soudain, portefeuilles sous-représentés.
+
+::: {.callout-note}
+## La doctrine des overlays
+Les overlays doivent être **documentés**, **validés par un comité indépendant** et **réversibles** dès que les conditions se normalisent. Leur utilisation abusive constitue un point d'attention majeur pour les auditeurs externes.
+:::
+
+### Forward-looking : les scénarios macro
+
+IFRS 9 impose d'intégrer des **informations prospectives** dans le calcul de l'ECL. Les banques construisent plusieurs scénarios pondérés :
+
+| Scénario | Pondération | Variables clés |
+|----------|-------------|----------------|
+| Optimiste | 25 % | PIB +, chômage bas, taux stables |
+| Central | 50 % | Trajectoire consensus |
+| Pessimiste | 25 % | Récession, hausse du chômage |
+
+: {.striped .hover}
+
+L'ECL finale est la **moyenne pondérée** de ces scénarios, capturant la non-linéarité des pertes de crédit.
+
+### Staging override et Backstop
+
+Le **staging override** permet à un expert crédit de modifier manuellement le stade attribué par le modèle, de façon documentée et encadrée.
+
+La règle **Backstop** est le filet de sécurité minimal : tout encours en retard de paiement de **plus de 90 jours** (90 DPD - *Days Past Due*) est automatiquement classé en Stade 3.
+
+---
+
+## Les 15 termes IFRS 9 en un coup d'œil
+
+```{=html}
+<table class="glossary">
+<thead>
+  <tr>
+    <th>Terme</th>
+    <th>Catégorie</th>
+    <th>Définition</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Stage 1</td>
+    <td><span class="cat cat-a">3-stage model</span></td>
+    <td>Encours sains à l'origination. ECL 12 mois comptabilisée dès le premier jour.</td>
+  </tr>
+  <tr>
+    <td>Stage 2</td>
+    <td><span class="cat cat-a">3-stage model</span></td>
+    <td>Augmentation significative du risque depuis l'octroi. Passage à l'ECL à maturité.</td>
+  </tr>
+  <tr>
+    <td>Stage 3</td>
+    <td><span class="cat cat-a">3-stage model</span></td>
+    <td>Défaut avéré. ECL à maturité + intérêts sur la valeur nette comptable résiduelle.</td>
+  </tr>
+  <tr>
+    <td>SICR</td>
+    <td><span class="cat cat-b">ECL drivers</span></td>
+    <td><em>Significant Increase in Credit Risk</em> - déclencheur du passage Stade 1 → Stade 2.</td>
+  </tr>
+  <tr>
+    <td>12-month ECL</td>
+    <td><span class="cat cat-b">ECL drivers</span></td>
+    <td>Perte attendue sur les défauts susceptibles d'intervenir dans les 12 prochains mois.</td>
+  </tr>
+  <tr>
+    <td>Lifetime ECL</td>
+    <td><span class="cat cat-b">ECL drivers</span></td>
+    <td>Perte attendue couvrant toute la durée de vie résiduelle de l'instrument financier.</td>
+  </tr>
+  <tr>
+    <td>PD</td>
+    <td><span class="cat cat-b">ECL drivers</span></td>
+    <td><em>Probability of Default</em> - probabilité de défaut, estimée en point-in-time sous IFRS 9.</td>
+  </tr>
+  <tr>
+    <td>LGD</td>
+    <td><span class="cat cat-b">ECL drivers</span></td>
+    <td><em>Loss Given Default</em> - fraction de l'EAD définitivement non recouvrée en cas de défaut.</td>
+  </tr>
+  <tr>
+    <td>EAD</td>
+    <td><span class="cat cat-b">ECL drivers</span></td>
+    <td><em>Exposure at Default</em> - encours dû au moment du défaut, y compris les engagements hors bilan.</td>
+  </tr>
+  <tr>
+    <td>Forward-looking</td>
+    <td><span class="cat cat-c">Gouvernance</span></td>
+    <td>Intégration de scénarios macroéconomiques prospectifs (PIB, chômage) dans le calcul de l'ECL.</td>
+  </tr>
+  <tr>
+    <td>Overlays</td>
+    <td><span class="cat cat-c">Gouvernance</span></td>
+    <td>Ajustements post-modèle appliqués par le management pour corriger les angles morts.</td>
+  </tr>
+  <tr>
+    <td>Staging override</td>
+    <td><span class="cat cat-c">Gouvernance</span></td>
+    <td>Modification manuelle et documentée du stade IFRS 9 attribué par le modèle automatique.</td>
+  </tr>
+  <tr>
+    <td>Backstop</td>
+    <td><span class="cat cat-c">Gouvernance</span></td>
+    <td>Règle des 90 DPD : tout retard &gt; 90 jours entraîne un classement automatique en Stade 3.</td>
+  </tr>
+  <tr>
+    <td>ACL</td>
+    <td><span class="cat cat-c">Gouvernance</span></td>
+    <td><em>Allowance for Credit Losses</em> - réserve bilancielle correspondant à l'ECL cumulée du portefeuille.</td>
+  </tr>
+  <tr>
+    <td>Vintage</td>
+    <td><span class="cat cat-c">Gouvernance</span></td>
+    <td>Cohorte de prêts originés sur une même période, utilisée pour le backtesting des modèles ECL.</td>
+  </tr>
+</tbody>
+</table>
+```
+
+---
+
+## Conclusion
+
+IFRS 9 a introduit une révolution silencieuse dans la gestion du risque de crédit : elle oblige les banques à **anticiper** plutôt qu'à **réagir**. La maîtrise de ses concepts est devenue une compétence de base pour tout professionnel de la finance, du risque ou de l'audit.
+
+Les trois dimensions à retenir :
+
+- **Le modèle en 3 stades** gouverne le provisionnement et amplifie le choc financier lors d'une migration
+- **PD × LGD × EAD** reste la formule centrale, en vision point-in-time et non through-the-cycle
+- **La gouvernance** (forward-looking, overlays, overrides) encadre la part irréductible de jugement expert
+
+Dans un environnement macroéconomique incertain, la qualité du processus d'estimation IFRS 9 est un signal direct sur la maturité du risk management d'un établissement.
+
+---
+
+## Références
+
+- IASB (2014). *IFRS 9 Financial Instruments*. International Accounting Standards Board.
+- EBA (2017). *Guidelines on credit institutions' credit risk management practices and accounting for expected credit losses*. European Banking Authority.
+- Banque de France (2018). *IFRS 9 : enjeux pour les établissements bancaires français*.
+
+---
+
+::: {.callout-note collapse="true"}
+## À propos de l'auteur
+Boukary Ouedraogo est consultant Data spécialisé en Analytics, Business Intelligence et gestion du risque financier. Fort de plus de 8 ans d'expérience en modélisation du risque de crédit et en conformité réglementaire, il accompagne les institutions financières dans leurs projets de transformation data.
+
+Pour en savoir plus : [https://oboukary.github.io/](https://oboukary.github.io/)
+:::

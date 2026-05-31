@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d2b5e"/>
+      <stop offset="60%" style="stop-color:#1a4a8a"/>
+      <stop offset="100%" style="stop-color:#2563b0"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ddeaff"/>
+      <stop offset="100%" style="stop-color:#c2d8ff"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff8e6"/>
+      <stop offset="100%" style="stop-color:#ffe9a0"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff1f0"/>
+      <stop offset="100%" style="stop-color:#ffd4d0"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1050" cy="-60" r="280" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="1100" cy="620" r="200" fill="rgba(255,255,255,0.04)"/>
+  <circle cx="80" cy="550" r="160" fill="rgba(255,255,255,0.03)"/>
+
+  <!-- Grid lines subtle -->
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Title block -->
+  <text x="80" y="110" font-family="'Segoe UI', Arial, sans-serif" font-size="72" font-weight="800" fill="#ffffff" letter-spacing="-1">IFRS 9</text>
+  <text x="80" y="170" font-family="'Segoe UI', Arial, sans-serif" font-size="30" font-weight="400" fill="rgba(255,255,255,0.85)">Le modèle de dépréciation en 3 stades décrypté</text>
+  <text x="80" y="210" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="300" fill="rgba(255,255,255,0.6)">Provisionnement · ECL · Risque de crédit · Réglementation bancaire</text>
+
+  <!-- Divider line -->
+  <rect x="80" y="228" width="480" height="3" rx="2" fill="rgba(255,255,255,0.3)"/>
+
+  <!-- Stage cards -->
+  <!-- Stage 1 -->
+  <rect x="80" y="270" width="310" height="130" rx="12" fill="url(#card1)" filter="url(#shadow)"/>
+  <rect x="80" y="270" width="6" height="130" rx="3" fill="#2563b0"/>
+  <text x="106" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#2563b0" letter-spacing="2">STADE 1</text>
+  <text x="106" y="325" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#0d2b5e">Performing</text>
+  <text x="106" y="350" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#334">ECL 12 mois</text>
+  <text x="106" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#556">Prêts sains à l'origination</text>
+  <text x="106" y="388" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#556">Pas de SICR détectée</text>
+
+  <!-- Arrow -->
+  <text x="406" y="345" font-family="Arial" font-size="28" fill="rgba(255,255,255,0.5)">⟶</text>
+
+  <!-- Stage 2 -->
+  <rect x="450" y="270" width="310" height="130" rx="12" fill="url(#card2)" filter="url(#shadow)"/>
+  <rect x="450" y="270" width="6" height="130" rx="3" fill="#e6a817"/>
+  <text x="476" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#b27a00" letter-spacing="2">STADE 2</text>
+  <text x="476" y="325" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#7a5000">Under-performing</text>
+  <text x="476" y="350" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#554">ECL Lifetime</text>
+  <text x="476" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#665">SICR détectée depuis</text>
+  <text x="476" y="388" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#665">l'origination</text>
+
+  <!-- Arrow -->
+  <text x="776" y="345" font-family="Arial" font-size="28" fill="rgba(255,255,255,0.5)">⟶</text>
+
+  <!-- Stage 3 -->
+  <rect x="820" y="270" width="310" height="130" rx="12" fill="url(#card3)" filter="url(#shadow)"/>
+  <rect x="820" y="270" width="6" height="130" rx="3" fill="#c0392b"/>
+  <text x="846" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#c0392b" letter-spacing="2">STADE 3</text>
+  <text x="846" y="325" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#7a0a0a">Credit-impaired</text>
+  <text x="846" y="350" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#544">ECL Lifetime + intérêts</text>
+  <text x="846" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#655">Défaut avéré · 90 DPD</text>
+  <text x="846" y="388" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#655">Backstop rule activée</text>
+
+  <!-- Formula block -->
+  <rect x="80" y="435" width="680" height="64" rx="10" fill="rgba(255,255,255,0.1)"/>
+  <text x="104" y="462" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,255,255,0.7)">FORMULE ECL</text>
+  <text x="104" y="488" font-family="'Courier New', monospace" font-size="22" font-weight="700" fill="#ffffff">ECL = PD × LGD × EAD</text>
+
+  <!-- Tags -->
+  <rect x="80" y="530" width="120" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="140" y="549" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">#Provisionnement</text>
+
+  <rect x="212" y="530" width="100" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="262" y="549" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">#ECL · #PD · LGD</text>
+
+  <rect x="324" y="530" width="110" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="379" y="549" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">#RisqueCrédit</text>
+
+  <!-- Author -->
+  <text x="1120" y="590" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" text-anchor="end">Boukary Ouedraogo · oboukary.github.io</text>
+</svg>

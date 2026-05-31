@@ -1,0 +1,130 @@
+---
+title: "La Modélisation de la Probabilité de Défaut (PD) sous Bâle III"
+subtitle: "De la Théorie Statistique à la Pratique Réglementaire : Cours Complet et Cas Pratique"
+author: "Modélisation des Risques"
+date: "2026-05-31"
+categories: [Risque de Crédit, Bâle III, Data Science, Finance Quantitative]
+format:
+  html:
+    toc: true
+    toc-title: "Table des matières"
+    toc-depth: 3
+    number-sections: true
+    code-fold: show
+    code-tools: true
+    theme: cosmo
+---
+
+## Introduction
+
+Au cœur de la réglementation bancaire internationale, **Bâle III** impose aux institutions financières des règles strictes pour garantir leur solvabilité face aux crises économiques. L'un des piliers majeurs de cette réglementation réside dans l'approche **IRB (Internal Ratings-Based)**, qui permet aux banques d'utiliser leurs propres modèles internes pour évaluer le risque de crédit. 
+
+Cet article propose un cours complet sur la modélisation de la **Probabilité de Défaut (PD)**, paramètre central de l'évaluation du risque, en combinant les fondements théoriques, le processus de construction d'une *scorecard*, les exigences de validation, et une analyse critique de la formule de capital réglementaire issue des travaux de Vasicek et Merton.
+
+---
+
+## Chapitre 1 : Les Fondements du Risque de Crédit et de la PD
+
+### La Formule Fondamentale de la Perte Attendue
+Dans le cadre de Bâle III, le risque de crédit d'un portefeuille est capturé par la notion de **Perte Attendue** (*Expected Loss* ou $EL$). Elle représente le coût moyen des défauts auquel la banque s'attend à faire face sur un horizon d'un an. La formule s'exprime ainsi :
+
+$$EL = PD 	imes LGD 	imes EAD$$
+
+Chaque composante répond à une question précise :
+* **PD (Probability of Default) :** Quelle est la probabilité que l'emprunteur fasse défaut au cours des 12 prochains mois ?
+* **LGD (Loss Given Default) :** Si le client fait défaut, quel pourcentage de la dette sera définitivement perdu ?
+* **EAD (Exposure At Default) :** Quel sera le montant total de l'exposition au moment exact du défaut ?
+
+### La Définition Réglementaire du Défaut
+Pour modéliser la PD, il est impératif d'adopter une définition stricte du "défaut", harmonisée par l'Autorité Bancaire Européenne (EBA, 2016). Un emprunteur est considéré en état de défaut lorsqu'au moins l'un des deux critères suivants est rempli :
+1.  **Critère quantitatif :** Le débiteur présente un retard de paiement matériel de plus de **90 jours** consécutifs.
+2.  **Critère qualitatif (*Unlikeliness to Pay*) :** La banque juge improbable que le débiteur rembourse intégralement son obligation de crédit sans réalisation des garanties.
+
+---
+
+## Chapitre 2 : La Philosophie Temporelle : PIT vs TTC
+
+Pour éviter la **procyclicité** (couper les crédits en pleine crise et l'aggraver), Bâle III distingue deux philosophies de modélisation (EBA, 2017) :
+
+* **Point-in-Time (PIT) :** Évalue le risque à un instant $t$ précis. Très volatile. Utilisée pour la norme comptable IFRS 9.
+* **Through-the-Cycle (TTC) :** Évalue le risque moyen sur un cycle économique complet. Stable. Utilisée pour le Capital Réglementaire Bâle III.
+
+> **Exigence de Bâle III :** Pour le calcul des fonds propres réglementaires, la PD doit être estimée selon une approche **TTC**. Afin de pallier les limites des données, les banques doivent obligatoirement intégrer une **Marge de Conservatisme (MoC)** lors du calibrage final (EBA, 2017).
+
+---
+
+## Chapitre 3 : Le Processus de Développement d'une Scorecard PD
+
+### 1. Transformation des Variables : Le WoE (Weight of Evidence)
+Pour linéariser la relation entre les variables explicatives et le risque de défaut, on procède à une discrétisation en classes, suivie d'une transformation en **WoE**. 
+
+$$WoE_{	ext{classe}} = \ln \left( rac{\% 	ext{ Non-Défauts}_{	ext{classe}}}{\% 	ext{ Défauts}_{	ext{classe}}} ight)$$
+
+### 2. La Régression Logistique : Le Standard de l'Industrie
+La **Régression Logistique** reste privilégiée pour les modèles réglementaires en raison de sa totale transparence. 
+
+$$PD_i = rac{1}{1 + e^{-(eta_0 + eta_1 X_{1i} + \dots + eta_k X_{ki})}}$$
+
+### 3. Le Calibrage à Long Terme (LRA)
+La sortie brute donne une estimation PIT. Pour passer à une PD réglementaire :
+1.  On regroupe les scores en **classes de risques**.
+2.  On calcule le taux de défaut moyen à long terme (**LRA**) sur un cycle complet.
+3.  On applique la **MoC** pour obtenir la PD TTC réglementaire.
+
+---
+
+## Chapitre 4 : Validation, Backtesting et Suivi du Modèle
+
+La validation exige de vérifier trois dimensions clés :
+1.  **Le Pouvoir Discriminant :** Coefficient de Gini / AUC, et Test de Kolmogorov-Smirnov (KS).
+2.  **La Précision du Calibrage :** Test Binomial ou de Hosmer-Lemeshow.
+3.  **La Stabilité de la Population :** Indice PSI (*Population Stability Index*). Si le $PSI > 0.25$, le modèle doit être ré-entraîné.
+
+---
+
+## Chapitre 5 : L'Analyse Analytique de l'Approche IRB : Du Modèle de Vasicek à l'Ajustement de Maturité
+
+Pour comprendre la véritable nature du facteur de capital réglementaire $K$, il faut plonger dans les fondements probabilistes de la théorie du risque de crédit. La formule bâloise est l'héritière du **modèle de portefeuille à facteur unique de Vasicek** (Vasicek, 2002), formalisé sous le nom de modèle *ASRF* (*Asymptotic Single Risk Factor*) par Michael Gordy (2003) pour le Comité de Bâle (BCBS, 2005).
+
+### Étape 1 : Le Cadre Structurel (Merton) et la Décomposition du Risque
+Le modèle repose sur une approche structurelle du défaut, dans la lignée des travaux fondateurs de Robert Merton (1974) sur l'évaluation de la dette d'entreprise. Pour un emprunteur $i$, la valeur de ses actifs est une variable normale standard $Y_i \sim \mathcal{N}(0, 1)$. 
+
+Vasicek postule que cette valeur dépend d'un risque macroéconomique global ($X$) et d'un risque idiosyncratique ($Z_i$) :
+$$Y_i = \sqrt{ho} X + \sqrt{1-ho} Z_i$$
+
+### Étape 2 : Le Seuil de Défaut Inconditionnel
+L'emprunteur fait défaut si ses actifs $Y_i$ tombent sous un seuil critique $C_i$. La PD de long terme est $PD_i = \mathbb{P}(Y_i < C_i) = \Phi(C_i)$.
+On en déduit le seuil : $C_i = \Phi^{-1}(PD_i)$.
+
+### Étape 3 : L'Effet du Cycle et la PD Conditionnelle
+En figeant l'économie (en fixant $X$), la PD conditionnelle démontre la procyclicité du risque :
+$$PD_i(X) = \Phi\left(rac{\Phi^{-1}(PD_i) - \sqrt{ho} X}{\sqrt{1-ho}}ight)$$
+
+### Étape 4 : L'Injection de la Contrainte Réglementaire
+Le Comité de Bâle (BCBS, 2005) exige de survivre à une crise systémique touchant **99,9 %** des scénarios ($X_{	ext{crise}} = \Phi^{-1}(0,001)$). En injectant cette valeur, on obtient le *Worst-Case Default Rate* ($WCDR$) :
+$$WCDR_i = \Phi\left(rac{\Phi^{-1}(PD_i) + \sqrt{ho} \Phi^{-1}(0,999)}{\sqrt{1-ho}}ight)$$
+
+### Étape 5 : L'Exigence de Capital de Base ($K$)
+Le capital doit absorber la **Perte Inattendue** ($UL$), soit la différence entre la Perte Maximale en crise ($WCDR_i 	imes LGD_i$) et la Perte Attendue déjà provisionnée ($PD_i 	imes LGD_i$) :
+$$K_{	ext{base}} = \left[ WCDR_i - PD_i ight] 	imes LGD_i$$
+
+### Étape 6 : Le Risque de Migration et l'Ajustement de Maturité ($M$)
+Le modèle de Vasicek est un modèle à un an. Or, les crédits d'entreprises ont des maturités plus longues, les exposant au risque de dégradation de leur notation externe avant défaut (risque *Mark-to-Market*). 
+Le Comité de Bâle a donc introduit un ajustement de maturité ($MA$), ancré sur une maturité moyenne de 2,5 ans, dépendant d'un facteur de lissage $b$ inversement proportionnel à la PD.
+
+La formule finale de Bâle III devient :
+$$K = \left[ \Phi\left(rac{\Phi^{-1}(PD_i) + \sqrt{ho} \Phi^{-1}(0,999)}{\sqrt{1-ho}}ight) - PD_i ight] 	imes LGD_i 	imes rac{1 + (M - 2,5) 	imes b}{1 - 1,5 	imes b}$$
+
+Le Capital Réglementaire est ensuite obtenu par $K 	imes EAD$, et les fameux $RWA$ ne sont qu'une conversion technique ($RWA = K 	imes EAD 	imes 12,5$).
+
+---
+
+## Références Bibliographiques
+
+* **BCBS (2005).** *An Explanatory Note on the Basel II IRB Risk Weight Functions.* Basel Committee on Banking Supervision, Bank for International Settlements.
+* **EBA (2016).** *Guidelines on the application of the definition of default under Article 178 of Regulation (EU) No 575/2013.* European Banking Authority (EBA/GL/2016/07).
+* **EBA (2017).** *Guidelines on PD estimation, LGD estimation and the treatment of defaulted exposures.* European Banking Authority (EBA/GL/2017/16).
+* **Gordy, M. B. (2003).** A risk-factor model foundation for ratings-based bank capital rules. *Journal of Financial Intermediation*, 12(3), 199-232.
+* **Merton, R. C. (1974).** On the pricing of corporate debt: The risk structure of interest rates. *The Journal of Finance*, 29(2), 449-470.
+* **Vasicek, O. A. (2002).** The distribution of loan portfolio value. *Risk*, 15(12), 160-162.
+
