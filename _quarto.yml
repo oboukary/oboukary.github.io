@@ -63,7 +63,7 @@ format:
     
     link-external-icon: false
     link-external-newwindow: true
-    link-external-filter: '^(?:http:|https:)\/\/www\.ouedraogo-boukary\.com\/**'
+    link-external-filter: '^(?:http:|https:)\/\.oboukary.github\.io\/**'
     citations-hover: true
     footnotes-hover: true
     toc: false
