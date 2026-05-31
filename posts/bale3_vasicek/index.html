@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Boukary Ouedraogo">
+<meta name="description" content="Déconstruction mathématique de la formule de capital réglementaire Bâle III : du modèle structurel de Merton au modèle ASRF de Vasicek, jusqu’à l’ajustement de maturité.">
+
+<title>Du Modèle de Vasicek à la Formule de Capital Bâle III – Boukary OuedraogoConsultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/svg/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8da81405d454fa57c0a1b373fb205796.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b8e9b03e461b3e3b52c3a30918e004aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sas.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../assets/css/syntax-languages.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Boukary Ouedraogo<span class="navbar-subtitle">Consultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">A propos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../services.html"> 
+<span class="menu-text">Mes services</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/projects.html"> 
+<span class="menu-text">Projets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#étape-1-le-cadre-structurel-et-la-décomposition-du-risque" id="toc-étape-1-le-cadre-structurel-et-la-décomposition-du-risque" class="nav-link" data-scroll-target="#étape-1-le-cadre-structurel-et-la-décomposition-du-risque"><span class="header-section-number">2</span> Étape 1 : Le Cadre Structurel et la Décomposition du Risque</a></li>
+  <li><a href="#étape-2-la-définition-du-seuil-de-défaut-inconditionnel" id="toc-étape-2-la-définition-du-seuil-de-défaut-inconditionnel" class="nav-link" data-scroll-target="#étape-2-la-définition-du-seuil-de-défaut-inconditionnel"><span class="header-section-number">3</span> Étape 2 : La Définition du Seuil de Défaut Inconditionnel</a></li>
+  <li><a href="#étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle" id="toc-étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle" class="nav-link" data-scroll-target="#étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle"><span class="header-section-number">4</span> Étape 3 : L’Effet du Cycle et la Probabilité de Défaut Conditionnelle</a></li>
+  <li><a href="#étape-4-linjection-de-la-contrainte-réglementaire" id="toc-étape-4-linjection-de-la-contrainte-réglementaire" class="nav-link" data-scroll-target="#étape-4-linjection-de-la-contrainte-réglementaire"><span class="header-section-number">5</span> Étape 4 : L’Injection de la Contrainte Réglementaire</a></li>
+  <li><a href="#étape-5-lexigence-de-capital-de-base-horizon-à-1-an" id="toc-étape-5-lexigence-de-capital-de-base-horizon-à-1-an" class="nav-link" data-scroll-target="#étape-5-lexigence-de-capital-de-base-horizon-à-1-an"><span class="header-section-number">6</span> Étape 5 : L’Exigence de Capital de Base (Horizon à 1 an)</a>
+  <ul class="collapse">
+  <li><a href="#visualisation-la-value-at-risk-du-portefeuille" id="toc-visualisation-la-value-at-risk-du-portefeuille" class="nav-link" data-scroll-target="#visualisation-la-value-at-risk-du-portefeuille"><span class="header-section-number">6.1</span> Visualisation : la Value-at-Risk du portefeuille</a></li>
+  </ul></li>
+  <li><a href="#étape-6-le-risque-de-migration-et-lajustement-de-maturité-m" id="toc-étape-6-le-risque-de-migration-et-lajustement-de-maturité-m" class="nav-link" data-scroll-target="#étape-6-le-risque-de-migration-et-lajustement-de-maturité-m"><span class="header-section-number">7</span> Étape 6 : Le Risque de Migration et l’Ajustement de Maturité (<span class="math inline">\(M\)</span>)</a>
+  <ul class="collapse">
+  <li><a href="#le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd" id="toc-le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd" class="nav-link" data-scroll-target="#le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd"><span class="header-section-number">7.1</span> 1. Le paramètre de lissage <span class="math inline">\(b\)</span> : la sensibilité temporelle liée à la PD</a></li>
+  <li><a href="#le-multiplicateur-ma-et-lancrage-à-25-ans" id="toc-le-multiplicateur-ma-et-lancrage-à-25-ans" class="nav-link" data-scroll-target="#le-multiplicateur-ma-et-lancrage-à-25-ans"><span class="header-section-number">7.2</span> 2. Le multiplicateur <span class="math inline">\(MA\)</span> et l’ancrage à 2,5 ans</a></li>
+  </ul></li>
+  <li><a href="#la-formule-finale-de-bâle-iii" id="toc-la-formule-finale-de-bâle-iii" class="nav-link" data-scroll-target="#la-formule-finale-de-bâle-iii"><span class="header-section-number">8</span> La Formule Finale de Bâle III</a></li>
+  <li><a href="#application-numérique-en-python" id="toc-application-numérique-en-python" class="nav-link" data-scroll-target="#application-numérique-en-python"><span class="header-section-number">9</span> Application Numérique en Python</a>
+  <ul class="collapse">
+  <li><a href="#le-poids-du-capital-en-fonction-de-la-pd" id="toc-le-poids-du-capital-en-fonction-de-la-pd" class="nav-link" data-scroll-target="#le-poids-du-capital-en-fonction-de-la-pd"><span class="header-section-number">9.1</span> Le poids du capital en fonction de la PD</a></li>
+  <li><a href="#leffet-de-la-maturité" id="toc-leffet-de-la-maturité" class="nav-link" data-scroll-target="#leffet-de-la-maturité"><span class="header-section-number">9.2</span> L’effet de la maturité</a></li>
+  </ul></li>
+  <li><a href="#propriétés-et-limites-du-modèle" id="toc-propriétés-et-limites-du-modèle" class="nav-link" data-scroll-target="#propriétés-et-limites-du-modèle"><span class="header-section-number">10</span> Propriétés et Limites du Modèle</a></li>
+  <li><a href="#synthèse-la-logique-de-construction" id="toc-synthèse-la-logique-de-construction" class="nav-link" data-scroll-target="#synthèse-la-logique-de-construction"><span class="header-section-number">11</span> Synthèse : la Logique de Construction</a></li>
+  <li><a href="#références-bibliographiques" id="toc-références-bibliographiques" class="nav-link" data-scroll-target="#références-bibliographiques"><span class="header-section-number">12</span> Références Bibliographiques</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Du Modèle de Vasicek à la Formule de Capital Bâle III</h1>
+<p class="subtitle lead">Analyse analytique de l’approche IRB : fondements probabilistes et ajustement de maturité</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Risque de Crédit</div>
+    <div class="quarto-category">Bâle III</div>
+    <div class="quarto-category">Finance Quantitative</div>
+    <div class="quarto-category">Modélisation</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Déconstruction mathématique de la formule de capital réglementaire Bâle III : du modèle structurel de Merton au modèle ASRF de Vasicek, jusqu’à l’ajustement de maturité.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Auteur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Boukary Ouedraogo </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">31 mai 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>Pour comprendre la véritable nature du facteur de capital réglementaire <span class="math inline">\(K\)</span>, il faut plonger dans les fondements probabilistes de la théorie du risque de crédit. La formule bâloise est l’héritière du <strong>modèle de portefeuille à facteur unique de Vasicek</strong> <span class="citation" data-cites="vasicek2002">(<a href="#ref-vasicek2002" role="doc-biblioref">Vasicek 2002</a>)</span>, formalisé sous le nom de modèle <em>ASRF</em> (<em>Asymptotic Single Risk Factor</em>) par Michael Gordy <span class="citation" data-cites="gordy2003">(<a href="#ref-gordy2003" role="doc-biblioref">2003</a>)</span> pour le Comité de Bâle <span class="citation" data-cites="bcbs2005">(<a href="#ref-bcbs2005" role="doc-biblioref">Basel Committee on Banking Supervision 2005</a>)</span>.</p>
+<p>Cet article déconstruit cette formule étape par étape, depuis le cadre structurel de Merton jusqu’à l’ajustement de maturité final.</p>
+<hr>
+</section>
+<section id="étape-1-le-cadre-structurel-et-la-décomposition-du-risque" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="étape-1-le-cadre-structurel-et-la-décomposition-du-risque"><span class="header-section-number">2</span> Étape 1 : Le Cadre Structurel et la Décomposition du Risque</h2>
+<p>Le modèle de Vasicek repose sur une approche structurelle du défaut, dans la lignée des travaux de Robert Merton <span class="citation" data-cites="merton1974">(<a href="#ref-merton1974" role="doc-biblioref">1974</a>)</span>. On considère un portefeuille de crédits composé d’un très grand nombre d’emprunteurs. Pour un emprunteur individuel <span class="math inline">\(i\)</span>, la santé financière (la valeur de ses actifs) à l’horizon d’un an est modélisée par une variable aléatoire latente, notée <span class="math inline">\(Y_i\)</span>.</p>
+<p>Par construction mathématique, cette variable est normalisée de sorte qu’elle suit une loi normale standard (moyenne de 0, écart-type de 1) :</p>
+<p><span class="math display">\[Y_i \sim \mathcal{N}(0, 1)\]</span></p>
+<p>L’apport fondamental de Vasicek consiste à postuler que la performance de cet emprunteur dépend de deux sources de variations strictement <strong>orthogonales</strong> (indépendantes) : un risque macroéconomique global qui affecte toutes les entreprises, et un risque purement idiosyncratique propre à l’entreprise. La variable <span class="math inline">\(Y_i\)</span> se décompose ainsi sous la forme d’une combinaison linéaire :</p>
+<p><span class="math display">\[Y_i = \sqrt{\rho}\, X + \sqrt{1-\rho}\, Z_i\]</span></p>
+<p>où :</p>
+<ul>
+<li><span class="math inline">\(X\)</span> représente le <strong>facteur de risque systématique</strong> (l’état général de l’économie), commun à tous les emprunteurs du portefeuille : <span class="math inline">\(X \sim \mathcal{N}(0, 1)\)</span>.</li>
+<li><span class="math inline">\(Z_i\)</span> représente le <strong>facteur de risque idiosyncratique</strong> (propre à l’emprunteur <span class="math inline">\(i\)</span>, comme une fraude interne ou un mauvais lancement de produit) : <span class="math inline">\(Z_i \sim \mathcal{N}(0, 1)\)</span>.</li>
+<li><span class="math inline">\(\rho\)</span> représente la <strong>corrélation d’actifs</strong> : ce paramètre mesure la sensibilité de l’emprunteur à la conjoncture économique globale. Plus <span class="math inline">\(\rho\)</span> est élevé, plus les défauts au sein du portefeuille seront corrélés entre eux, ce qui est précisément le risque que le capital réglementaire cherche à couvrir.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="La corrélation n'est pas libre : elle est imposée par le régulateur">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>La corrélation n’est pas libre : elle est imposée par le régulateur
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Contrairement à la PD et à la LGD, la corrélation <span class="math inline">\(\rho\)</span> n’est <strong>pas estimée</strong> par la banque. Le Comité de Bâle l’impose via une formule décroissante avec la PD. Pour les expositions « Entreprises » <span class="citation" data-cites="bcbs2005">(<a href="#ref-bcbs2005" role="doc-biblioref">Basel Committee on Banking Supervision 2005</a>)</span> :</p>
+<p><span class="math display">\[\rho(PD) = 0{,}12 \times \frac{1 - e^{-50\,PD}}{1 - e^{-50}} + 0{,}24 \times \left[1 - \frac{1 - e^{-50\,PD}}{1 - e^{-50}}\right]\]</span></p>
+<p>La corrélation varie ainsi entre <strong>24 %</strong> (PD faible) et <strong>12 %</strong> (PD élevée). L’intuition : les grandes entreprises solides dépendent surtout du cycle macroéconomique (forte corrélation systémique), tandis que les emprunteurs déjà très risqués font défaut pour des raisons idiosyncratiques (faible corrélation).</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="étape-2-la-définition-du-seuil-de-défaut-inconditionnel" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="étape-2-la-définition-du-seuil-de-défaut-inconditionnel"><span class="header-section-number">3</span> Étape 2 : La Définition du Seuil de Défaut Inconditionnel</h2>
+<p>Dans ce cadre, un emprunteur fait défaut si la valeur de ses actifs <span class="math inline">\(Y_i\)</span> s’effondre sous un certain seuil critique, noté <span class="math inline">\(C_i\)</span>. Sous ce seuil, la dette devient insurmontable.</p>
+<p>La <strong>probabilité de défaut inconditionnelle</strong> (la <span class="math inline">\(PD\)</span> de long terme que la banque observe historiquement au travers des cycles) est donc définie par :</p>
+<p><span class="math display">\[PD_i = \mathbb{P}(Y_i &lt; C_i)\]</span></p>
+<p>Puisque <span class="math inline">\(Y_i\)</span> suit une loi normale standard, nous pouvons appliquer la fonction de répartition de la loi normale (notée <span class="math inline">\(\Phi\)</span>) :</p>
+<p><span class="math display">\[PD_i = \Phi(C_i)\]</span></p>
+<p>En inversant cette fonction, nous exprimons rigoureusement le seuil de défaut théorique <span class="math inline">\(C_i\)</span> en fonction de la probabilité de défaut de l’emprunteur :</p>
+<p><span class="math display">\[C_i = \Phi^{-1}(PD_i)\]</span></p>
+<hr>
+</section>
+<section id="étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="étape-3-leffet-du-cycle-et-la-probabilité-de-défaut-conditionnelle"><span class="header-section-number">4</span> Étape 3 : L’Effet du Cycle et la Probabilité de Défaut Conditionnelle</h2>
+<p>Que se passe-t-il si l’économie subit un choc ? Imaginons que nous soyons capables de « figer » la conjoncture économique, c’est-à-dire de fixer mathématiquement la valeur du facteur systématique <span class="math inline">\(X\)</span>. La probabilité que l’emprunteur fasse défaut sachant cette situation économique précise est la <strong>PD conditionnelle</strong>, notée <span class="math inline">\(PD_i(X)\)</span> :</p>
+<p><span class="math display">\[PD_i(X) = \mathbb{P}(Y_i &lt; C_i \mid X)\]</span></p>
+<p>En substituant la décomposition de Vasicek et l’expression du seuil <span class="math inline">\(C_i\)</span>, nous obtenons :</p>
+<p><span class="math display">\[PD_i(X) = \mathbb{P}\!\left(\sqrt{\rho}\, X + \sqrt{1-\rho}\, Z_i &lt; \Phi^{-1}(PD_i) \;\middle|\; X\right)\]</span></p>
+<p>Puisque la valeur de <span class="math inline">\(X\)</span> est désormais fixée, la seule variable aléatoire restante est le risque idiosyncratique <span class="math inline">\(Z_i\)</span>. Isolons-la :</p>
+<p><span class="math display">\[PD_i(X) = \mathbb{P}\!\left(Z_i &lt; \frac{\Phi^{-1}(PD_i) - \sqrt{\rho}\, X}{\sqrt{1-\rho}} \;\middle|\; X\right)\]</span></p>
+<p>Le facteur <span class="math inline">\(Z_i\)</span> suivant une loi normale standard, nous réappliquons la fonction de répartition <span class="math inline">\(\Phi\)</span> pour obtenir l’équation fondamentale de la <strong>procyclicité</strong> :</p>
+<p><span class="math display">\[PD_i(X) = \Phi\!\left(\frac{\Phi^{-1}(PD_i) - \sqrt{\rho}\, X}{\sqrt{1-\rho}}\right)\]</span></p>
+<p>Si <span class="math inline">\(X\)</span> est très négatif (simulant une grave récession), le terme au numérateur grandit, et la probabilité de défaut de l’entreprise explose. C’est l’essence même du risque systémique.</p>
+<hr>
+</section>
+<section id="étape-4-linjection-de-la-contrainte-réglementaire" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="étape-4-linjection-de-la-contrainte-réglementaire"><span class="header-section-number">5</span> Étape 4 : L’Injection de la Contrainte Réglementaire</h2>
+<p>Le régulateur prudentiel n’exige pas des fonds propres pour que la banque survive aux années normales, mais pour qu’elle puisse encaisser une <strong>crise systémique d’une rare violence</strong>. Le Comité de Bâle <span class="citation" data-cites="bcbs2005">(<a href="#ref-bcbs2005" role="doc-biblioref">Basel Committee on Banking Supervision 2005</a>)</span> a fixé le seuil de survie à <strong>99,9 %</strong> : la banque doit détenir assez de capital pour que, dans 99,9 % des scénarios économiques à un an, ses pertes n’excèdent pas ses fonds propres.</p>
+<p>Le scénario d’une crise extrême correspond donc au pire <strong>0,1 %</strong> des états économiques possibles. Sur notre loi normale standard, la valeur de <span class="math inline">\(X\)</span> correspondant à cette crise profonde est :</p>
+<p><span class="math display">\[X_{\text{crise}} = \Phi^{-1}(0{,}001) \approx -3{,}09\]</span></p>
+<p>Une valeur de <span class="math inline">\(X\)</span> aussi négative traduit un choc macroéconomique situé à plus de <strong>trois écarts-types</strong> sous la moyenne - l’équivalent statistique d’une dépression majeure.</p>
+<p>Par propriété de symétrie de la loi normale centrée, <span class="math inline">\(\Phi^{-1}(0{,}001) = -\Phi^{-1}(0{,}999)\)</span>. Pour obtenir le taux de défaut maximal du portefeuille dans ce scénario cauchemardesque (le <em>Worst-Case Default Rate</em>, <span class="math inline">\(WCDR\)</span>), on injecte <span class="math inline">\(X_{\text{crise}}\)</span> dans l’équation conditionnelle. Les deux signes négatifs s’annulent :</p>
+<p><span class="math display">\[
+\begin{aligned}
+WCDR_i &amp;= PD_i(X_{\text{crise}})
+       = \Phi\!\left(\frac{\Phi^{-1}(PD_i) - \sqrt{\rho}\, X_{\text{crise}}}{\sqrt{1-\rho}}\right) \\[4pt]
+       &amp;= \Phi\!\left(\frac{\Phi^{-1}(PD_i) - \sqrt{\rho}\, \Phi^{-1}(0{,}001)}{\sqrt{1-\rho}}\right) \\[4pt]
+       &amp;= \Phi\!\left(\frac{\Phi^{-1}(PD_i) + \sqrt{\rho}\, \Phi^{-1}(0{,}999)}{\sqrt{1-\rho}}\right)
+\end{aligned}
+\]</span></p>
+<p>Le passage du terme <span class="math inline">\(-\sqrt{\rho}\,\Phi^{-1}(0{,}001)\)</span> à <span class="math inline">\(+\sqrt{\rho}\,\Phi^{-1}(0{,}999)\)</span> illustre bien le mécanisme : un choc économique <strong>négatif</strong> (<span class="math inline">\(X_{\text{crise}} &lt; 0\)</span>) déplace le seuil de défaut vers le <strong>haut</strong>, ce qui augmente mécaniquement le taux de défaut conditionnel.</p>
+<p>Ce <span class="math inline">\(WCDR\)</span> représente ainsi la perte maximale que la banque devrait absorber sur son portefeuille avec une confiance de 99,9 % sur un horizon d’un an.</p>
+<hr>
+</section>
+<section id="étape-5-lexigence-de-capital-de-base-horizon-à-1-an" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="étape-5-lexigence-de-capital-de-base-horizon-à-1-an"><span class="header-section-number">6</span> Étape 5 : L’Exigence de Capital de Base (Horizon à 1 an)</h2>
+<p>Si le portefeuille subit ce taux de défaut extrême, la perte par euro d’exposition (<span class="math inline">\(EAD\)</span>) sera le produit de ce taux par la Perte en cas de Défaut (<span class="math inline">\(LGD\)</span>) :</p>
+<p><span class="math display">\[\text{Perte Maximale} = WCDR_i \times LGD_i\]</span></p>
+<p>La distinction prudentielle entre <strong>provisions</strong> et <strong>capital</strong> entre ici en jeu. Les provisions comptables couvrent la <strong>Perte Attendue</strong> (<span class="math inline">\(EL = PD_i \times LGD_i\)</span>). Les fonds propres ont pour vocation exclusive d’absorber la <strong>Perte Inattendue</strong> (<span class="math inline">\(UL\)</span>), c’est-à-dire la différence entre la catastrophe de crise et la perte habituelle déjà provisionnée.</p>
+<p>L’exigence de capital de base (pour un horizon strict d’un an) se définit donc comme :</p>
+<p><span class="math display">\[K_{\text{base}} = \text{Perte Maximale} - \text{Perte Attendue} = \left[\, WCDR_i - PD_i \,\right] \times LGD_i\]</span></p>
+<p>En remplaçant <span class="math inline">\(WCDR_i\)</span> par son expression, on obtient le cœur du modèle :</p>
+<p><span class="math display">\[K_{\text{base}} = \left[\, \Phi\!\left(\frac{\Phi^{-1}(PD_i) + \sqrt{\rho}\, \Phi^{-1}(0{,}999)}{\sqrt{1-\rho}}\right) - PD_i \,\right] \times LGD_i\]</span></p>
+<section id="visualisation-la-value-at-risk-du-portefeuille" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="visualisation-la-value-at-risk-du-portefeuille"><span class="header-section-number">6.1</span> Visualisation : la Value-at-Risk du portefeuille</h3>
+<p>Cette logique se lit directement sur la <strong>distribution des pertes</strong> du portefeuille, dans la représentation canonique du Comité de Bâle <span class="citation" data-cites="bcbs2005">(<a href="#ref-bcbs2005" role="doc-biblioref">Basel Committee on Banking Supervision 2005</a>)</span>. Les pertes potentielles forment une distribution <strong>asymétrique à droite</strong> : la plupart du temps les pertes sont faibles, mais une longue queue concentre les scénarios catastrophiques. La <strong>Value-at-Risk (VaR)</strong> est le seuil de perte associé au niveau de confiance retenu (99,9 % sous Bâle III). Elle se décompose en deux blocs : la <strong>Perte Attendue</strong> (<span class="math inline">\(EL\)</span>, la moyenne de la distribution), couverte par les provisions, et la <strong>Perte Inattendue</strong> (<span class="math inline">\(UL = \text{VaR} - EL\)</span>), que les fonds propres doivent absorber. C’est précisément cet <span class="math inline">\(UL\)</span> qui correspond à <span class="math inline">\(K_{\text{base}}\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/var-el-ul-1.png" class="img-fluid figure-img" alt="Distribution des pertes asymetrique montrant EL, UL, VaR et la queue 100 pourcent moins le niveau de confiance" width="864"></p>
+<figcaption>Décomposition de la Value-at-Risk : Perte Attendue (EL), Perte Inattendue (UL) et queue résiduelle au-delà du niveau de confiance. Forme adaptée de BCBS (2005), Figure 2.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Au-delà de la simple décomposition, ce graphique met en scène l’articulation de <strong>deux dispositifs réglementaires distincts</strong> qui se partagent la distribution des pertes : la comptabilité d’un côté, le prudentiel de l’autre.</p>
+<p><strong>La zone bleue (<span class="math inline">\(EL\)</span>) relève de la comptabilité : c’est le domaine d’IFRS 9.</strong> La perte attendue n’est pas véritablement un risque, mais un <strong>coût prévisible</strong>. C’est ce que la banque sait, statistiquement, devoir perdre en moyenne sur son portefeuille année après année. La norme comptable IFRS 9 impose de reconnaître ce coût à l’avance, sous forme de <strong>provisions pour pertes de crédit attendues</strong> (<em>Expected Credit Losses</em>). Ces provisions sont passées en charge dans le compte de résultat et réduisent la valeur des actifs au bilan. Le montant provisionné suit le modèle de <em>staging</em> en trois étapes : dès l’octroi du crédit (étape 1), la banque ne provisionne que la perte attendue <strong>à 12 mois</strong> ; elle ne relève la provision au niveau de la perte attendue <strong>à maturité</strong> (<em>lifetime ECL</em>) que si le risque de crédit se dégrade significativement (étape 2) ou si l’actif devient déprécié (étape 3). En somme, l’<span class="math inline">\(EL\)</span> est financée par le <strong>résultat</strong>, pas par le capital.</p>
+<p><strong>La zone violette (<span class="math inline">\(UL\)</span>) relève du prudentiel : c’est le domaine de Bâle III.</strong> Le véritable danger pour une banque n’est pas la perte moyenne (déjà provisionnée), mais le fait qu’une année se révèle <em>bien pire</em> que la moyenne. Cette perte inattendue, l’écart entre le scénario de crise (la VaR à 99,9 %) et la perte habituelle, ne peut pas être provisionnée d’avance sans fausser en permanence le résultat comptable. Bâle III exige donc qu’elle soit couverte par des <strong>fonds propres</strong>. C’est exactement la quantité <span class="math inline">\(K_{\text{base}}\)</span> dérivée plus haut : le capital n’a pas vocation à couvrir l’<span class="math inline">\(EL\)</span>, mais uniquement l’<span class="math inline">\(UL\)</span>.</p>
+<p>Cette répartition éclaire d’ailleurs la <strong>soustraction du <span class="math inline">\(PD \times LGD\)</span></strong> dans la formule bâloise. Si le capital devait couvrir la totalité de la perte de crise (<span class="math inline">\(WCDR \times LGD\)</span>), il y aurait <strong>double comptage</strong> : la banque immobiliserait des fonds propres pour une perte déjà couverte par ses provisions. En retranchant l’<span class="math inline">\(EL\)</span>, le régulateur garantit que provisions (IFRS 9) et capital (Bâle III) sont <strong>complémentaires et non redondants</strong> : deux lignes de défense empilées, jamais superposées.</p>
+<p>Une nuance de praticien mérite d’être signalée : les deux mesures de l’<span class="math inline">\(EL\)</span> ne coïncident pas parfaitement. L’<span class="math inline">\(EL\)</span> comptable d’IFRS 9 est <em>point-in-time</em> et peut être calculée à maturité (étapes 2 et 3), tandis que l’<span class="math inline">\(EL\)</span> réglementaire de Bâle est <em>through-the-cycle</em> à horizon un an. L’écart entre la provision IFRS 9 et l’<span class="math inline">\(EL\)</span> réglementaire fait l’objet d’un traitement dédié sur les fonds propres CET1 (mécanisme de <em>shortfall / excess of provisions</em>).</p>
+<p>Enfin, la queue rouge (au-delà de la VaR) n’est couverte <strong>ni</strong> par les provisions <strong>ni</strong> par le capital : ce sont les 0,1 % de scénarios les plus extrêmes que le système accepte délibérément de ne pas garantir. C’est le risque résiduel ultime, celui qui, lorsqu’il se matérialise, conduit à la défaillance de l’établissement.</p>
+<hr>
+</section>
+</section>
+<section id="étape-6-le-risque-de-migration-et-lajustement-de-maturité-m" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="étape-6-le-risque-de-migration-et-lajustement-de-maturité-m"><span class="header-section-number">7</span> Étape 6 : Le Risque de Migration et l’Ajustement de Maturité (<span class="math inline">\(M\)</span>)</h2>
+<p>Si le modèle de Bâle s’arrêtait ici, il ferait l’impasse sur un risque structurel majeur. Le modèle ASRF de Vasicek est un modèle de type <strong>Default-Mode</strong> : il ne regarde que la probabilité qu’une entreprise soit en état de « défaut » ou de « survie » à l’horizon d’<strong>exactement un an</strong>.</p>
+<p>Dans la réalité, une banque détient des prêts aux entreprises qui s’étalent sur 3, 5 ou 7 ans. Si une entreprise emprunte sur 5 ans, elle ne fera peut-être pas défaut la première année, mais sa qualité de crédit peut gravement se détériorer (par exemple, sa notation externe passe de AAA à BB). Cette dégradation entraîne une chute de la valeur du prêt sur les marchés financiers - ce qu’on appelle le risque <strong>Mark-to-Market</strong> ou <strong>Downgrade Risk</strong>. Plus la maturité résiduelle effective (<span class="math inline">\(M\)</span>) d’un prêt est longue, plus ce risque de dégradation avant l’échéance est fort, ce qui justifie de détenir des fonds propres supplémentaires.</p>
+<p>Pour intégrer cette dimension sans briser l’architecture du modèle, le Comité de Bâle a conçu un multiplicateur d’ajustement empirique de la maturité (<em>Maturity Adjustment</em>, ou <span class="math inline">\(MA\)</span>). Cet ajustement repose sur deux mécaniques.</p>
+<section id="le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="le-paramètre-de-lissage-b-la-sensibilité-temporelle-liée-à-la-pd"><span class="header-section-number">7.1</span> 1. Le paramètre de lissage <span class="math inline">\(b\)</span> : la sensibilité temporelle liée à la PD</h3>
+<p>L’impact de la maturité n’est pas le même pour tous les clients. Une entreprise extrêmement solide (très faible <span class="math inline">\(PD\)</span>) est située très loin du seuil de défaut ; son risque principal est de subir de multiples dégradations lentes sur plusieurs années. À l’inverse, pour une entreprise déjà au bord du gouffre (très forte <span class="math inline">\(PD\)</span>), le risque est le défaut immédiat ; rallonger la maturité n’ajoute que peu d’information.</p>
+<p>Le Comité a donc défini une fonction de sensibilité <span class="math inline">\(b\)</span>, qui s’atténue lorsque la <span class="math inline">\(PD\)</span> augmente :</p>
+<p><span class="math display">\[b = \big(\, 0{,}11852 - 0{,}05478 \times \ln(PD_i) \,\big)^2\]</span></p>
+</section>
+<section id="le-multiplicateur-ma-et-lancrage-à-25-ans" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="le-multiplicateur-ma-et-lancrage-à-25-ans"><span class="header-section-number">7.2</span> 2. Le multiplicateur <span class="math inline">\(MA\)</span> et l’ancrage à 2,5 ans</h3>
+<p>Le régulateur a calibré ce risque en considérant que la maturité moyenne « standard » d’un portefeuille de crédits d’entreprises mondiales était de <strong>2,5 ans</strong>. Le multiplicateur s’écrit :</p>
+<p><span class="math display">\[MA = \frac{1 + (M - 2{,}5) \times b}{1 - 1{,}5 \times b}\]</span></p>
+<p>La complexité de ce terme obéit à une logique stricte :</p>
+<ul>
+<li>Le <strong>dénominateur</strong> <span class="math inline">\((1 - 1{,}5 \times b)\)</span> agit comme un <em>pont conceptuel</em>. Il prend la formule de base de Vasicek (centrée sur 1 an pur) et la convertit en une exigence « Mark-to-Market » pour une maturité moyenne de 2,5 ans.</li>
+<li>Le <strong>numérateur</strong> <span class="math inline">\(1 + (M - 2{,}5) \times b\)</span> crée l’<em>échelle mobile individuelle</em>. Si le crédit a exactement une maturité <span class="math inline">\(M = 2{,}5\)</span> ans, le numérateur vaut 1. Si le prêt est très long (<span class="math inline">\(M = 5\)</span> ans), l’exigence de capital est majorée proportionnellement. Si le prêt est court (<span class="math inline">\(M = 1\)</span> an), le poids du risque est allégé.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="la-formule-finale-de-bâle-iii" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="la-formule-finale-de-bâle-iii"><span class="header-section-number">8</span> La Formule Finale de Bâle III</h2>
+<p>En combinant le fondement probabiliste de Vasicek et la correction temporelle (risque de migration) du Comité de Bâle, nous aboutissons à l’équation maîtresse du <strong>Pilier 1</strong> pour les expositions sur les Entreprises, les Souverains et les Banques :</p>
+<p><span class="math display">\[\boxed{K = \left[\, \Phi\!\left(\frac{\Phi^{-1}(PD_i) + \sqrt{\rho}\, \Phi^{-1}(0{,}999)}{\sqrt{1-\rho}}\right) - PD_i \,\right] \times LGD_i \times \frac{1 + (M - 2{,}5) \times b}{1 - 1{,}5 \times b}}\]</span></p>
+<p>Cette exigence <span class="math inline">\(K\)</span> n’est qu’un <strong>taux</strong> (un pourcentage). Ce n’est qu’après avoir résolu cette imposante formule que la banque traduit ce risque théorique en montants réels :</p>
+<ul>
+<li>Elle obtient l’<strong>exigence monétaire de capital</strong> en multipliant ce taux par le montant de l’exposition : <span class="math inline">\(K \times EAD\)</span>.</li>
+<li>Enfin, par une simple ingénierie comptable visant à diviser le tout par 8 % (soit multiplier par 12,5), elle calcule ses célèbres <strong>actifs pondérés par le risque</strong> : <span class="math inline">\(RWA = K \times EAD \times 12{,}5\)</span>.</li>
+</ul>
+<hr>
+</section>
+<section id="application-numérique-en-python" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="application-numérique-en-python"><span class="header-section-number">9</span> Application Numérique en Python</h2>
+<p>Traduisons l’ensemble de la chaîne en code. On implémente d’abord chaque brique réglementaire (corrélation, <span class="math inline">\(b\)</span>, <span class="math inline">\(WCDR\)</span>, capital), puis on calcule le RWA d’une exposition type.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statistics <span class="im">import</span> NormalDist</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.use(<span class="st">"Agg"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Loi normale standard : Phi (répartition) et Phi^{-1} (quantile / fonction inverse)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>_N      <span class="op">=</span> NormalDist()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Phi     <span class="op">=</span> _N.cdf</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Phi_inv <span class="op">=</span> _N.inv_cdf</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Briques réglementaires Bâle III (expositions Entreprises) ---</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Corrélation d'actifs imposée par le régulateur</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rho_corp(pd):</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> np.exp(<span class="op">-</span><span class="dv">50</span> <span class="op">*</span> pd)) <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> np.exp(<span class="op">-</span><span class="dv">50</span>))</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">0.12</span> <span class="op">*</span> w <span class="op">+</span> <span class="fl">0.24</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> w)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Facteur de lissage de la maturité</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> b_factor(pd):</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="fl">0.11852</span> <span class="op">-</span> <span class="fl">0.05478</span> <span class="op">*</span> np.log(pd)) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Worst-Case Default Rate (PD conditionnelle au scénario de crise 99,9 %)</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> wcdr(pd, rho):</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Phi((Phi_inv(pd) <span class="op">+</span> np.sqrt(rho) <span class="op">*</span> Phi_inv(<span class="fl">0.999</span>)) <span class="op">/</span> np.sqrt(<span class="dv">1</span> <span class="op">-</span> rho))</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajustement de maturité</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> maturity_adj(pd, M):</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> b_factor(pd)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="dv">1</span> <span class="op">+</span> (M <span class="op">-</span> <span class="fl">2.5</span>) <span class="op">*</span> b) <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> b)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Exigence de capital K (par unité d'EAD)</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> capital_K(pd, lgd, M):</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    rho <span class="op">=</span> rho_corp(pd)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    ul  <span class="op">=</span> (wcdr(pd, rho) <span class="op">-</span> pd) <span class="op">*</span> lgd     <span class="co"># perte inattendue</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ul <span class="op">*</span> maturity_adj(pd, M)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Appliquons ces fonctions à une exposition « Entreprise » réaliste : <strong>PD = 1 %</strong>, <strong>LGD = 45 %</strong> (valeur prudentielle senior non garanti), <strong>maturité M = 2,5 ans</strong>, <strong>EAD = 1 000 000 €</strong>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pd, lgd, M, ead <span class="op">=</span> <span class="fl">0.01</span>, <span class="fl">0.45</span>, <span class="fl">2.5</span>, <span class="dv">1_000_000</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> rho_corp(pd)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>K   <span class="op">=</span> capital_K(pd, lgd, M)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>RWA <span class="op">=</span> K <span class="op">*</span> ead <span class="op">*</span> <span class="fl">12.5</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Indicateur</th>
+<th style="text-align: right;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Corrélation rho</td>
+<td style="text-align: right;">19.3 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WCDR</td>
+<td style="text-align: right;">14.03 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Perte attendue (EL)</td>
+<td style="text-align: right;">4 500 €</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Exigence K</td>
+<td style="text-align: right;">7.39 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RWA</td>
+<td style="text-align: right;">923 168 €</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Capital requis (8% RWA)</td>
+<td style="text-align: right;">73 853 €</td>
+</tr>
+</tbody>
+</table>
+<p>On observe que pour 1 € prêté, la banque doit immobiliser environ 7.4 centimes de fonds propres durs (puisque <span class="math inline">\(8\% \times 12{,}5 = 1\)</span>, le capital par euro d’EAD est exactement égal à <span class="math inline">\(K\)</span>) - au-delà des provisions qui couvrent déjà la perte attendue.</p>
+<section id="le-poids-du-capital-en-fonction-de-la-pd" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="le-poids-du-capital-en-fonction-de-la-pd"><span class="header-section-number">9.1</span> Le poids du capital en fonction de la PD</h3>
+<p>Le graphique suivant montre comment l’exigence de capital <span class="math inline">\(K\)</span> croît avec la PD. La courbe est <strong>concave</strong> : le capital augmente vite pour les faibles PD puis sature, car au-delà d’un certain niveau de risque, la corrélation chute et la perte attendue (déjà provisionnée) absorbe une part croissante de la perte totale.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pd_grid <span class="op">=</span> np.linspace(<span class="fl">0.0003</span>, <span class="fl">0.20</span>, <span class="dv">300</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>K_grid  <span class="op">=</span> np.array([capital_K(p, <span class="fl">0.45</span>, <span class="fl">2.5</span>) <span class="cf">for</span> p <span class="kw">in</span> pd_grid])</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">4.8</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="dv">100</span> <span class="op">*</span> pd_grid, <span class="dv">100</span> <span class="op">*</span> K_grid, lw<span class="op">=</span><span class="fl">2.5</span>, color<span class="op">=</span><span class="st">"#6f42c1"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">1</span>, ls<span class="op">=</span><span class="st">"--"</span>, color<span class="op">=</span><span class="st">"grey"</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>k1 <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> capital_K(<span class="fl">0.01</span>, <span class="fl">0.45</span>, <span class="fl">2.5</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="dv">1</span>, k1, <span class="st">"o"</span>, color<span class="op">=</span><span class="st">"#d63384"</span>, ms<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>plt.annotate(<span class="st">"PD = 1 %"</span>, (<span class="dv">1</span>, k1), xytext<span class="op">=</span>(<span class="dv">10</span>, <span class="op">-</span><span class="dv">2</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>             textcoords<span class="op">=</span><span class="st">"offset points"</span>, color<span class="op">=</span><span class="st">"#d63384"</span>, va<span class="op">=</span><span class="st">"center"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Probabilité de défaut PD (%)"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Exigence de capital K (</span><span class="sc">% d</span><span class="st">e l'EAD)"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Capital réglementaire en fonction de la PD (LGD = 45 %, M = 2,5 ans)"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.grid(color<span class="op">=</span><span class="st">"grey"</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/courbe-capital-1.png" class="img-fluid figure-img" alt="Exigence de capital K en fonction de la PD" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="leffet-de-la-maturité" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="leffet-de-la-maturité"><span class="header-section-number">9.2</span> L’effet de la maturité</h3>
+<p>À PD et LGD fixées, l’allongement de la maturité accroît le capital de façon linéaire, via l’ajustement <span class="math inline">\(MA\)</span>. L’effet est d’autant plus marqué que la PD est faible (puisque <span class="math inline">\(b\)</span> décroît avec la PD).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>M_grid <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">100</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>cols   <span class="op">=</span> [<span class="st">"#6f42c1"</span>, <span class="st">"#d63384"</span>, <span class="st">"#fd7e14"</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pds    <span class="op">=</span> [<span class="fl">0.005</span>, <span class="fl">0.02</span>, <span class="fl">0.05</span>]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">4.8</span>))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c, p <span class="kw">in</span> <span class="bu">zip</span>(cols, pds):</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    K_vals <span class="op">=</span> np.array([capital_K(p, <span class="fl">0.45</span>, m) <span class="cf">for</span> m <span class="kw">in</span> M_grid])</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    plt.plot(M_grid, <span class="dv">100</span> <span class="op">*</span> K_vals, lw<span class="op">=</span><span class="fl">2.5</span>, color<span class="op">=</span>c, label<span class="op">=</span><span class="ss">f"PD = </span><span class="sc">{</span><span class="dv">100</span> <span class="op">*</span> p<span class="sc">:.1f}</span><span class="ss"> %"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">1</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1.0, 5.0)</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">18</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(0.0, 18.0)</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maturité M (années)"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Exigence de capital K (</span><span class="sc">% d</span><span class="st">e l'EAD)"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Impact de la maturité sur le capital selon la PD"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.grid(color<span class="op">=</span><span class="st">"grey"</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.legend(frameon<span class="op">=</span><span class="va">False</span>, loc<span class="op">=</span><span class="st">"upper left"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/courbe-maturite-3.png" class="img-fluid figure-img" alt="Effet de la maturité sur le capital selon la PD" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="propriétés-et-limites-du-modèle" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="propriétés-et-limites-du-modèle"><span class="header-section-number">10</span> Propriétés et Limites du Modèle</h2>
+<p>La formule Bâle III est élégante mais repose sur des hypothèses fortes dont le praticien doit être conscient :</p>
+<ul>
+<li><strong>Portefeuille infiniment granulaire.</strong> Le modèle ASRF suppose qu’aucune contrepartie ne pèse significativement dans le portefeuille (le risque idiosyncratique disparaît par diversification). Le risque de <strong>concentration</strong> n’est donc <strong>pas</strong> capturé par la formule de Pilier 1 - il relève du Pilier 2 (ICAAP).</li>
+<li><strong>Facteur de risque unique.</strong> Un seul facteur macroéconomique <span class="math inline">\(X\)</span> gouverne toutes les corrélations. Les effets sectoriels ou géographiques ne sont pas modélisés explicitement.</li>
+<li><strong>Corrélation imposée, non estimée.</strong> Les valeurs de 12 % à 24 % sont des calibrages réglementaires forfaitaires, pas le reflet de la corrélation réelle du portefeuille de la banque.</li>
+<li><strong>Normalité gaussienne.</strong> La copule gaussienne sous-jacente sous-estime la probabilité de défauts simultanés extrêmes (queues de distribution), une critique majeure formulée après la crise de 2008.</li>
+<li><strong>Additivité du capital.</strong> Le RWA d’un portefeuille est la <strong>somme</strong> des RWA individuels, ce qui découle directement de l’hypothèse de granularité infinie et facilite le calcul, mais ignore toute diversification résiduelle.</li>
+</ul>
+<p>Ces limites expliquent pourquoi le capital de Pilier 1 calculé par cette formule est complété par des coussins (conservation, contracyclique, systémique) et par l’évaluation interne du Pilier 2.</p>
+<hr>
+</section>
+<section id="synthèse-la-logique-de-construction" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="synthèse-la-logique-de-construction"><span class="header-section-number">11</span> Synthèse : la Logique de Construction</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 31%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Étape</th>
+<th>Concept</th>
+<th>Formule clé</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Décomposition du risque (Merton/Vasicek)</td>
+<td><span class="math inline">\(Y_i = \sqrt{\rho}\,X + \sqrt{1-\rho}\,Z_i\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Seuil de défaut inconditionnel</td>
+<td><span class="math inline">\(C_i = \Phi^{-1}(PD_i)\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>PD conditionnelle au cycle</td>
+<td><span class="math inline">\(PD_i(X) = \Phi\!\left(\frac{C_i - \sqrt{\rho}\,X}{\sqrt{1-\rho}}\right)\)</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Scénario de crise à 99,9 %</td>
+<td><span class="math inline">\(WCDR_i = PD_i(X_{\text{crise}})\)</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Perte inattendue = capital de base</td>
+<td><span class="math inline">\(K_{\text{base}} = (WCDR_i - PD_i)\times LGD_i\)</span></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Ajustement de maturité</td>
+<td><span class="math inline">\(K = K_{\text{base}} \times MA\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="références-bibliographiques" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="références-bibliographiques"><span class="header-section-number">12</span> Références Bibliographiques</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bcbs2005" class="csl-entry" role="listitem">
+Basel Committee on Banking Supervision. 2005. <em>An Explanatory Note on the Basel II IRB Risk Weight Functions</em>. Bank for International Settlements.
+</div>
+<div id="ref-gordy2003" class="csl-entry" role="listitem">
+Gordy, Michael B. 2003. <span>«&nbsp;A Risk-Factor Model Foundation for Ratings-Based Bank Capital Rules&nbsp;»</span>. <em>Journal of Financial Intermediation</em> 12 (3): 199‑232.
+</div>
+<div id="ref-merton1974" class="csl-entry" role="listitem">
+Merton, Robert C. 1974. <span>«&nbsp;On the Pricing of Corporate Debt: The Risk Structure of Interest Rates&nbsp;»</span>. <em>The Journal of Finance</em> 29 (2): 449‑70.
+</div>
+<div id="ref-vasicek2002" class="csl-entry" role="listitem">
+Vasicek, Oldrich A. 2002. <span>«&nbsp;The Distribution of Loan Portfolio Value&nbsp;»</span>. <em>Risk</em> 15 (12): 160‑62.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  function cleanTitle() {
+    var path = window.location.pathname.replace(/\/+$/, "");
+    var isHome = path === "" || /\/(index(\.html)?)?$/.test(path);
+
+    if (isHome) {
+      // Page d'accueil : nom seulement
+      document.title = "Home";
+      return;
+    }
+
+    // Autres pages : on nettoie juste les balises HTML résiduelles et le suffixe
+    var t = document.title || "";
+    t = t.replace(/<[^>]*>/g, "");
+    t = t.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+    t = t.replace(/\s[-–—]\s.*$/, "").trim();
+    document.title = t || "Home";
+  }
+  cleanTitle();
+  document.addEventListener("DOMContentLoaded", cleanTitle);
+})();
+</script>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("^(?:http:|https:)\/\/www\.ouedraogo-boukary\.com\/**");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>
+Copyright ©
+<script>document.write(new Date().getFullYear())</script>
+</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Site crée par Boukary Ouedraogo avec ❤️, <a href="https://quarto.org/">Quarto</a> et <img width="20" height="20" src="https://img.icons8.com/fluency/48/r-project.png" alt="r-project"></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/oboukary/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/oboukary/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:ouedraogo.boukary89@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

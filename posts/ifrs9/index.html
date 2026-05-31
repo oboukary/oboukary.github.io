@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Boukary Ouedraogo">
-<meta name="description" content="Analyse des principales évolutions de Bâle IV par rapport à Bâle III dans le traitement du risque de crédit : output floor, approche standard et approches IRB">
+<meta name="description" content="Maîtrisez les 15 concepts fondamentaux d’IFRS 9 : modèle ECL en 3 stades, paramètres de risque et gouvernance du provisionnement. Le vocabulaire qu’attendent banquiers, auditeurs et analystes.">
 
-<title>Bâle IV : Évolutions du cadre prudentiel du risque de crédit – Boukary OuedraogoConsultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision</title>
+<title>index – Boukary Ouedraogo&lt;span class='navbar-subtitle'&gt;Consultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision&lt;/span&gt;</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -72,42 +72,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Recherche"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sas.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../assets/css/syntax-languages.css">
 </head>
@@ -166,18 +134,12 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bâle IV : Évolutions du cadre prudentiel du risque de crédit</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Réglementation</div>
-    <div class="quarto-category">Risque de crédit</div>
-    <div class="quarto-category">Bâle IV</div>
-    <div class="quarto-category">Finance</div>
-  </div>
-  </div>
+<h1 class="title">IFRS 9 : Le modèle de dépréciation en 3 stades décrypté</h1>
+</div>
 
 <div>
   <div class="description">
-    Analyse des principales évolutions de Bâle IV par rapport à Bâle III dans le traitement du risque de crédit : output floor, approche standard et approches IRB
+    Maîtrisez les 15 concepts fondamentaux d’IFRS 9 : modèle ECL en 3 stades, paramètres de risque et gouvernance du provisionnement. Le vocabulaire qu’attendent banquiers, auditeurs et analystes.
   </div>
 </div>
 
@@ -194,7 +156,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">25 décembre 2025</p>
+      <p class="date">13 mai 2026</p>
     </div>
   </div>
   
@@ -206,260 +168,435 @@ window.Quarto = {
 </header>
 
 
+<style>
+/* ── Stades ── */
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.6rem 0;
+}
+.stage-card {
+  border-left: 4px solid;
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  background: #fafafa;
+}
+.stage-1 { border-color: #2563b0; }
+.stage-2 { border-color: #d97706; }
+.stage-3 { border-color: #dc2626; }
+
+.stage-card .s-label {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: .3rem;
+}
+.stage-1 .s-label { color: #2563b0; }
+.stage-2 .s-label { color: #d97706; }
+.stage-3 .s-label { color: #dc2626; }
+
+.stage-card .s-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: .4rem;
+  color: #111;
+}
+.stage-card .s-body {
+  font-size: .87rem;
+  color: #444;
+  line-height: 1.55;
+}
+
+/* ── Formule ECL ── */
+.ecl-formula {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.2rem 1.6rem;
+  margin: 1.4rem 0;
+  text-align: center;
+  background: #f8fafc;
+}
+.ecl-formula .f-main {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: .03em;
+}
+.ecl-formula .f-sub {
+  font-size: .8rem;
+  color: #666;
+  margin-top: .4rem;
+}
+
+/* ── Timeline ── */
+.timeline {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 1.4rem 0;
+  flex-wrap: wrap;
+}
+.tl-box {
+  flex: 1;
+  min-width: 110px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: .7rem 1rem;
+  text-align: center;
+  background: #fafafa;
+  font-size: .85rem;
+  font-weight: 600;
+  color: #222;
+}
+.tl-box small {
+  display: block;
+  font-size: .72rem;
+  font-weight: 400;
+  color: #777;
+  margin-top: .15rem;
+}
+.tl-arrow { color: #aaa; font-size: 1.2rem; }
+
+/* ── Glossaire ── */
+.glossary {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+  margin: 1.4rem 0;
+}
+.glossary thead th {
+  border-bottom: 2px solid #222;
+  padding: .6rem .8rem;
+  text-align: left;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #333;
+}
+.glossary tbody td {
+  padding: .6rem .8rem;
+  vertical-align: top;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+.glossary tbody tr:last-child td { border-bottom: none; }
+.glossary td:first-child { font-weight: 700; white-space: nowrap; color: #111; }
+
+.cat { display: inline-block; font-size: .7rem; font-weight: 600; padding: .1rem .5rem; border-radius: 4px; }
+.cat-a { background: #eff6ff; color: #2563b0; }
+.cat-b { background: #f0fdf4; color: #16a34a; }
+.cat-c { background: #fff7ed; color: #c2410c; }
+</style>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Le passage de Bâle III à Bâle IV(Bâle III finalisé) répond à un objectif central : améliorer la comparabilité entre les établissements bancaires et réduire la variabilité des actifs pondérés par les risques (RWA). Cette évolution vise à restaurer la confiance dans les modèles internes utilisés par les banques pour calculer leurs exigences de fonds propres.</p>
-<p>Cet article se concentre exclusivement sur la composante <strong>risque de crédit</strong> de la réglementation, bien que le règlement CRR3 couvre également les autres catégories de risques (risque de marché, risque opérationnel).</p>
-</section>
-<section id="vue-densemble-des-évolutions-crr3" class="level2">
-<h2 class="anchored" data-anchor-id="vue-densemble-des-évolutions-crr3">Vue d’ensemble des évolutions CRR3</h2>
-<p>Le règlement CRR3 (Capital Requirements Regulation 3) apporte trois évolutions majeures au traitement du risque de crédit :</p>
-<ul>
-<li>L’<strong>output floor</strong>, qui établit un plancher de capital minimal</li>
-<li>L’<strong>approche standard révisée</strong>, qui offre une granularité accrue</li>
-<li>Les <strong>approches IRB renforcées</strong>, qui introduisent des contraintes supplémentaires sur les modèles internes</li>
-</ul>
+<p>Avant IFRS 9, la norme IAS 39 imposait une logique de provisionnement <strong>rétrospective</strong> : une banque ne pouvait passer une dépréciation qu’en présence d’un événement déclencheur observable. Les provisions arrivaient souvent trop tard, amplifiant la procyclicité des bilans lors des crises.</p>
+<p>IFRS 9, entrée en vigueur le <strong>1er janvier 2018</strong>, renverse cette logique. Dès l’octroi d’un crédit, la banque doit reconnaître une <strong>perte de crédit attendue</strong> (ECL - <em>Expected Credit Loss</em>), calculée sur 12 mois pour les encours sains et sur la durée de vie entière pour les encours dégradés.</p>
+<p>Ce changement de paradigme s’articule autour de trois piliers :</p>
+<ol type="1">
+<li>Le <strong>modèle de classification en 3 stades</strong> - pour déterminer l’horizon d’estimation de la perte</li>
+<li>Les <strong>paramètres de risque</strong> (PD, LGD, EAD) - pour quantifier l’ECL</li>
+<li>Les <strong>mécanismes de gouvernance</strong> (overlays, staging overrides, backstop) - pour encadrer le jugement expert</li>
+</ol>
 <hr>
 </section>
-<section id="loutput-floor-un-plancher-de-capital-prudentiel" class="level2">
-<h2 class="anchored" data-anchor-id="loutput-floor-un-plancher-de-capital-prudentiel">L’Output Floor : un plancher de capital prudentiel</h2>
-<section id="contexte-et-justification" class="level3">
-<h3 class="anchored" data-anchor-id="contexte-et-justification">Contexte et justification</h3>
-<p>L’utilisation de modèles internes permet à certaines banques d’obtenir des besoins en capital significativement inférieurs à ceux calculés via l’approche standard. Cette disparité soulève des questions de comparabilité et d’équité entre établissements. Pour y remédier, Bâle IV introduit un mécanisme de plancher contraignant.</p>
+<section id="le-modèle-en-3-stades" class="level2">
+<h2 class="anchored" data-anchor-id="le-modèle-en-3-stades">Le modèle en 3 stades</h2>
+<p>Le cœur d’IFRS 9 repose sur une segmentation dynamique du portefeuille, pilotant directement le montant de provision à constituer.</p>
+<div class="stage-grid">
+  <div class="stage-card stage-1">
+    <div class="s-label">Stade 1</div>
+    <div class="s-title">Performing</div>
+    <div class="s-body">Prêts sains à l'octroi, sans augmentation significative du risque depuis l'origination. Provision = <strong>ECL 12 mois</strong>.</div>
+  </div>
+  <div class="stage-card stage-2">
+    <div class="s-label">Stade 2</div>
+    <div class="s-title">Under-performing</div>
+    <div class="s-body">Augmentation significative du risque de crédit (SICR) depuis l'octroi. Provision = <strong>ECL à maturité</strong>.</div>
+  </div>
+  <div class="stage-card stage-3">
+    <div class="s-label">Stade 3</div>
+    <div class="s-title">Credit-impaired</div>
+    <div class="s-body">Encours en défaut avéré. Provision = <strong>ECL à maturité</strong> + intérêts sur la valeur nette comptable.</div>
+  </div>
+</div>
+<section id="migration-entre-stades" class="level3">
+<h3 class="anchored" data-anchor-id="migration-entre-stades">Migration entre stades</h3>
+<p>Le concept central est la <strong>SICR</strong> (<em>Significant Increase in Credit Risk</em>). IFRS 9 ne définit pas de seuil numérique universel : chaque établissement construit ses propres indicateurs quantitatifs et qualitatifs.</p>
+<div class="timeline">
+  <div class="tl-box">Stade 1<small>ECL 12 mois</small></div>
+  <div class="tl-arrow">⟶</div>
+  <div class="tl-box">Stade 2<small>SICR détectée</small></div>
+  <div class="tl-arrow">⟶</div>
+  <div class="tl-box">Stade 3<small>Défaut avéré</small></div>
+</div>
+<p>Les signaux mobilisés en pratique :</p>
+<ul>
+<li><strong>Quantitatifs</strong> : doublement de la PD relative depuis l’origination, dégradation de la notation interne</li>
+<li><strong>Qualitatifs</strong> : restructuration, mise sous surveillance, dégradation sectorielle ou géographique</li>
+<li><strong>Backstop</strong> : tout encours en retard de plus de 30 jours est présumé être en Stade 2</li>
+</ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Règle de l’output floor
+<span class="screen-reader-only">Important</span>L’enjeu financier du passage Stade 1 → Stade 2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Le capital prudentiel calculé avec les modèles internes ne peut être inférieur à <strong>72,5%</strong> du capital qui résulterait de l’application de l’approche standard.</p>
+<p>Le choc de provision représente souvent <strong>×5 à ×15</strong> par rapport au Stade 1 : on passe d’une ECL sur 12 mois à une ECL couvrant toute la durée de vie résiduelle de l’instrument.</p>
 </div>
 </div>
-</section>
-<section id="calendrier-dapplication" class="level3">
-<h3 class="anchored" data-anchor-id="calendrier-dapplication">Calendrier d’application</h3>
-<p>L’output floor entre en vigueur en <strong>2025</strong> avec une mise en œuvre progressive sur <strong>cinq ans</strong>, permettant aux banques d’adapter leurs dispositifs de gestion du capital.</p>
-</section>
-<section id="implications-opérationnelles" class="level3">
-<h3 class="anchored" data-anchor-id="implications-opérationnelles">Implications opérationnelles</h3>
-<p>Cette mesure impose aux banques utilisant l’approche IRB de maîtriser également l’approche standard. En effet, celle-ci devient la référence minimale pour le calcul du capital réglementaire, rendant indispensable une double compétence méthodologique.</p>
 <hr>
 </section>
 </section>
-<section id="lapproche-standard-révisée" class="level2">
-<h2 class="anchored" data-anchor-id="lapproche-standard-révisée">L’approche standard révisée</h2>
-<section id="objectifs-de-la-révision" class="level3">
-<h3 class="anchored" data-anchor-id="objectifs-de-la-révision">Objectifs de la révision</h3>
-<p>La refonte de l’approche standard poursuit deux objectifs complémentaires : d’une part, accroître la <strong>granularité</strong> et la <strong>sensibilité au risque</strong> des pondérations ; d’autre part, réduire la <strong>dépendance aux notations externes</strong> délivrées par les agences de notation.</p>
+<section id="les-paramètres-de-risque" class="level2">
+<h2 class="anchored" data-anchor-id="les-paramètres-de-risque">Les paramètres de risque</h2>
+<p>L’ECL se calcule à partir de trois paramètres estimés en vision <em>point-in-time</em> :</p>
+<div class="ecl-formula">
+  <div class="f-main">ECL = PD × LGD × EAD</div>
+  <div class="f-sub">Probabilité de défaut &nbsp;·&nbsp; Perte en cas de défaut &nbsp;·&nbsp; Exposition au moment du défaut</div>
+</div>
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 28%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Paramètre</th>
+<th>Définition</th>
+<th>Spécificité IFRS 9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PD</strong> - <em>Probability of Default</em></td>
+<td>Probabilité que l’emprunteur soit en défaut</td>
+<td>Estimée en <em>point-in-time</em>, non <em>through-the-cycle</em></td>
+</tr>
+<tr class="even">
+<td><strong>LGD</strong> - <em>Loss Given Default</em></td>
+<td>Fraction de l’EAD définitivement perdue</td>
+<td>Intègre garanties, collatéraux et taux de récupération</td>
+</tr>
+<tr class="odd">
+<td><strong>EAD</strong> - <em>Exposure at Default</em></td>
+<td>Solde dû au moment du défaut</td>
+<td>Inclut les lignes renouvelables via un CCF</td>
+</tr>
+</tbody>
+</table>
+<section id="ecl-12-mois-vs-ecl-à-maturité" class="level3">
+<h3 class="anchored" data-anchor-id="ecl-12-mois-vs-ecl-à-maturité">ECL 12 mois vs ECL à maturité</h3>
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>12-month ECL (Stade 1)</th>
+<th>Lifetime ECL (Stades 2 &amp; 3)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Horizon</strong></td>
+<td>12 mois</td>
+<td>Durée de vie résiduelle</td>
+</tr>
+<tr class="even">
+<td><strong>Périmètre</strong></td>
+<td>Défauts possibles dans l’année</td>
+<td>Tous les défauts jusqu’à l’échéance</td>
+</tr>
+<tr class="odd">
+<td><strong>Impact bilan</strong></td>
+<td>Faible - provision de base</td>
+<td>Élevé - plusieurs années de pertes cumulées</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
-<section id="évolutions-structurantes" class="level3">
-<h3 class="anchored" data-anchor-id="évolutions-structurantes">Évolutions structurantes</h3>
-<p><strong>Segmentation affinée des expositions retail</strong></p>
-<p>La nouvelle réglementation introduit des catégories de clientèle bénéficiant de pondérations plus favorables. En contrepartie, les expositions retail libellées dans une devise différente de celle des revenus de l’emprunteur font l’objet d’une pondération majorée, reflétant le risque de change supporté par le débiteur.</p>
-<p><strong>Création d’une classe dédiée aux financements spécialisés</strong></p>
-<p>Une classe d’exposition distincte est désormais prévue pour les financements spécialisés, couvrant notamment le financement d’actifs, le financement de projets et le financement de matières premières. Cette segmentation permet d’appliquer des pondérations mieux calibrées au profil de risque spécifique de ces opérations.</p>
-<p><strong>Renforcement de l’exigence de diligence raisonnable</strong></p>
-<p>Les banques doivent désormais faire preuve d’une diligence raisonnable formelle à l’égard des notations attribuées par les agences externes. Cette exigence vise à ce que les établissements ne se reposent pas mécaniquement sur les notations tierces, mais développent leur propre appréciation du risque de crédit.</p>
 </section>
-<section id="mécanisme-de-calcul-des-rwa" class="level3">
-<h3 class="anchored" data-anchor-id="mécanisme-de-calcul-des-rwa">Mécanisme de calcul des RWA</h3>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    A[RWA] --&gt; E[=]
-    E --&gt; B[Montant d'exposition]
-    B --&gt; C[×]
-    C --&gt; D[Pondération du risque &lt;br/&gt; Risk Weight]
-
-    style A fill:#e1f5ff,stroke:#0077b6,stroke-width:2px
-    style B fill:#fff4e6,stroke:#fb8c00
-    style D fill:#f0f0f0,stroke:#666
-    style C fill:none,stroke:none
-    style E fill:none,stroke:none
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p><span class="math display">\[
-\text{RWA} = \text{Montant d'exposition} \times \text{Risk Weight (RW)}
-\]</span></p>
+<section id="la-gouvernance-du-modèle" class="level2">
+<h2 class="anchored" data-anchor-id="la-gouvernance-du-modèle">La gouvernance du modèle</h2>
+<p>L’ECL modèle n’est jamais le résultat final. IFRS 9 reconnaît que les modèles statistiques ont des angles morts, d’où un cadre de gouvernance structuré.</p>
+<section id="overlays" class="level3">
+<h3 class="anchored" data-anchor-id="overlays">Overlays</h3>
+<p>Les <strong>overlays</strong> sont des ajustements post-modèle appliqués par le management pour couvrir ce que les données historiques ne capturent pas : pandémie, guerre, choc sectoriel soudain, portefeuilles sous-représentés.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Caractéristiques de l’approche standard
+<span class="screen-reader-only">Note</span>La doctrine des overlays
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Les pondérations (Risk Weights) sont <strong>fixées par le régulateur</strong>, différenciées selon la classe d’exposition, et peuvent intégrer les notations externes lorsque celles-ci sont jugées appropriées.</p>
+<p>Les overlays doivent être <strong>documentés</strong>, <strong>validés par un comité indépendant</strong> et <strong>réversibles</strong> dès que les conditions se normalisent. Leur utilisation abusive constitue un point d’attention majeur pour les auditeurs externes.</p>
 </div>
 </div>
+</section>
+<section id="forward-looking-les-scénarios-macro" class="level3">
+<h3 class="anchored" data-anchor-id="forward-looking-les-scénarios-macro">Forward-looking : les scénarios macro</h3>
+<p>IFRS 9 impose d’intégrer des <strong>informations prospectives</strong> dans le calcul de l’ECL. Les banques construisent plusieurs scénarios pondérés :</p>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>Scénario</th>
+<th>Pondération</th>
+<th>Variables clés</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Optimiste</td>
+<td>25 %</td>
+<td>PIB +, chômage bas, taux stables</td>
+</tr>
+<tr class="even">
+<td>Central</td>
+<td>50 %</td>
+<td>Trajectoire consensus</td>
+</tr>
+<tr class="odd">
+<td>Pessimiste</td>
+<td>25 %</td>
+<td>Récession, hausse du chômage</td>
+</tr>
+</tbody>
+</table>
+<p>L’ECL finale est la <strong>moyenne pondérée</strong> de ces scénarios, capturant la non-linéarité des pertes de crédit.</p>
+</section>
+<section id="staging-override-et-backstop" class="level3">
+<h3 class="anchored" data-anchor-id="staging-override-et-backstop">Staging override et Backstop</h3>
+<p>Le <strong>staging override</strong> permet à un expert crédit de modifier manuellement le stade attribué par le modèle, de façon documentée et encadrée.</p>
+<p>La règle <strong>Backstop</strong> est le filet de sécurité minimal : tout encours en retard de paiement de <strong>plus de 90 jours</strong> (90 DPD - <em>Days Past Due</em>) est automatiquement classé en Stade 3.</p>
 <hr>
 </section>
 </section>
-<section id="les-approches-fondées-sur-les-notations-internes-irb" class="level2">
-<h2 class="anchored" data-anchor-id="les-approches-fondées-sur-les-notations-internes-irb">Les approches fondées sur les notations internes (IRB)</h2>
-<section id="architecture-des-approches-irb" class="level3">
-<h3 class="anchored" data-anchor-id="architecture-des-approches-irb">Architecture des approches IRB</h3>
-<p>Le dispositif IRB comprend deux variantes, qui se distinguent par le degré d’autonomie accordé à la banque dans l’estimation des paramètres de risque :</p>
-<ul>
-<li><strong>Approche IRB fondation (F-IRB)</strong> : la banque estime uniquement la probabilité de défaut (PD), les autres paramètres étant prescrits par le régulateur</li>
-<li><strong>Approche IRB avancée (A-IRB)</strong> : la banque estime l’ensemble des paramètres de risque (PD, LGD, EAD, M)</li>
-</ul>
-</section>
-<section id="formule-de-calcul-des-rwa" class="level3">
-<h3 class="anchored" data-anchor-id="formule-de-calcul-des-rwa">Formule de calcul des RWA</h3>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    A[RWA] --- B["="]
-    B --- C[Montant d'exposition]
-    C --- D["×"]
-    D --- E["f(PD, LGD, M)"]
-
-    %% Suppression des bordures et fonds pour les symboles
-    style B fill:none,stroke:none
-    style D fill:none,stroke:none
-    
-    %% Styles des blocs principaux
-    style A fill:#e1f5ff,stroke:#0077b6
-    style C fill:#fff4e6,stroke:#fb8c00
-    style E fill:#f0f0f0,stroke:#333
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p><span class="math display">\[
-\text{RWA} = \text{Montant d'exposition} \times f(\text{PD}, \text{LGD}, \text{M})
-\]</span></p>
-<p>Les paramètres de cette fonction sont la <strong>probabilité de défaut (PD)</strong>, la <strong>perte en cas de défaut (LGD)</strong> et la <strong>maturité (M)</strong>.</p>
-</section>
-<section id="évolutions-réglementaires-des-approches-irb" class="level3">
-<h3 class="anchored" data-anchor-id="évolutions-réglementaires-des-approches-irb">Évolutions réglementaires des approches IRB</h3>
-<p><strong>Introduction de planchers sur les paramètres</strong></p>
-<p>Bâle IV impose des valeurs planchers (input floors) pour les paramètres de risque estimés par les banques. Un plancher de PD s’applique aux deux approches IRB. Des planchers supplémentaires pour l’EAD et la LGD sont introduits en approche A-IRB pour les expositions corporate et retail.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Avertissement</span>Champ d’application des input floors
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Les planchers d’entrée sur l’EAD et la LGD concernent <strong>exclusivement l’approche IRB avancée</strong>.</p>
-</div>
-</div>
-<p><strong>Restriction du périmètre de l’approche A-IRB</strong></p>
-<p>L’approche IRB fondation devient obligatoire pour certaines classes d’actifs, notamment les expositions sur les banques, les autres entités financières et les grandes entreprises. Cette restriction se justifie par l’insuffisance de données internes de défaut permettant de construire des modèles statistiques robustes sur ces portefeuilles.</p>
-<p><strong>Exclusion des placements en actions</strong></p>
-<p>L’approche IRB n’est plus autorisée pour les placements en actions. Cette suppression reconnaît l’inadéquation des modèles internes pour capturer le profil de risque spécifique de cette classe d’actifs.</p>
-<hr>
-</section>
-</section>
-<section id="capital-réglementaire-et-ratio-de-solvabilité" class="level2">
-<h2 class="anchored" data-anchor-id="capital-réglementaire-et-ratio-de-solvabilité">Capital réglementaire et ratio de solvabilité</h2>
-<section id="composantes-du-capital-réglementaire" class="level3">
-<h3 class="anchored" data-anchor-id="composantes-du-capital-réglementaire">Composantes du capital réglementaire</h3>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A[Capital&lt;br/&gt;réglementaire] --&gt; B[CET1&lt;br/&gt;Common Equity Tier 1&lt;br/&gt;Capital actions ordinaires]
-    A --&gt; C[AT1&lt;br/&gt;Additional Tier 1]
-    A --&gt; D[Tier 2]
-    
-    style A fill:#e1f5ff
-    style B fill:#d4edda
-    style C fill:#fff3cd
-    style D fill:#f8d7da
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>Le capital réglementaire se compose de trois strates, classées par ordre décroissant de qualité : le <strong>CET1</strong> (noyau dur constitué des actions ordinaires et des réserves), l’<strong>AT1</strong> (instruments de capital complémentaires de catégorie 1) et le <strong>Tier 2</strong> (capital de catégorie 2).</p>
-</section>
-<section id="ratio-de-solvabilité-car" class="level3">
-<h3 class="anchored" data-anchor-id="ratio-de-solvabilité-car">Ratio de solvabilité (CAR)</h3>
-<p><span class="math display">\[
-\text{CAR} = \frac{\text{Capital réglementaire}}{\text{RWA}} \geq 8\%
-\]</span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Astuce</span>Importance du ratio Tier 1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Un ratio Tier 1 élevé traduit une capacité de résistance accrue face aux chocs affectant le bilan. Cette marge de sécurité protège les déposants et renforce la stabilité de l’établissement.</p>
-</div>
-</div>
-<hr>
-</section>
-</section>
-<section id="calcul-du-montant-dexposition" class="level2">
-<h2 class="anchored" data-anchor-id="calcul-du-montant-dexposition">Calcul du montant d’exposition</h2>
-<section id="définition" class="level3">
-<h3 class="anchored" data-anchor-id="définition">Définition</h3>
-<p>Le <strong>montant d’exposition</strong> (ou valeur d’exposition) représente la perte potentielle maximale que la banque pourrait subir en cas de défaillance de l’emprunteur. Ce montant agrège deux composantes : les <strong>engagements au bilan</strong> (fonds effectivement décaissés) et les <strong>engagements hors bilan</strong> (montants que la banque pourrait être contractuellement tenue de verser).</p>
-</section>
-<section id="facteur-de-conversion-de-crédit-ccf" class="level3">
-<h3 class="anchored" data-anchor-id="facteur-de-conversion-de-crédit-ccf">Facteur de conversion de crédit (CCF)</h3>
-<p>Pour exprimer les engagements hors bilan en équivalent bilanciel, on applique un <strong>facteur de conversion de crédit (CCF)</strong>. Ce coefficient traduit la probabilité que la banque soit effectivement appelée à débloquer les fonds engagés.</p>
-<p><span class="math display">\[
-\text{EAD} = \text{Montant au bilan} + (\text{Montant hors bilan} \times \text{CCF})
-\]</span></p>
-<hr>
-</section>
-</section>
-<section id="synthèse-des-évolutions-et-de-leurs-justifications" class="level2">
-<h2 class="anchored" data-anchor-id="synthèse-des-évolutions-et-de-leurs-justifications">Synthèse des évolutions et de leurs justifications</h2>
-<p>Les modifications apportées par Bâle IV répondent à des constats précis sur les limites du dispositif antérieur :</p>
-<p><strong>Nouveaux planchers (floors)</strong>: Ces mécanismes limitent la dispersion des RWA entre banques utilisant des modèles internes, renforçant ainsi la comparabilité des ratios de solvabilité.</p>
-<p><strong>Obligation de l’approche F-IRB pour certaines classes</strong>: Cette contrainte reconnaît que, pour certains portefeuilles, les banques ne disposent pas d’un historique de défauts suffisant pour développer des modèles statistiques fiables.</p>
-<p><strong>Suppression de l’IRB pour les actions</strong>: Cette mesure acte l’inadaptation des modèles internes à la valorisation du risque sur instruments de capitaux propres.</p>
+<section id="les-15-termes-ifrs-9-en-un-coup-dœil" class="level2">
+<h2 class="anchored" data-anchor-id="les-15-termes-ifrs-9-en-un-coup-dœil">Les 15 termes IFRS 9 en un coup d’œil</h2>
+<table class="glossary caption-top table">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Terme</th>
+<th data-quarto-table-cell-role="th">Catégorie</th>
+<th data-quarto-table-cell-role="th">Définition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Stage 1</td>
+<td><span class="cat cat-a">3-stage model</span></td>
+<td>Encours sains à l'origination. ECL 12 mois comptabilisée dès le premier jour.</td>
+</tr>
+<tr class="even">
+<td>Stage 2</td>
+<td><span class="cat cat-a">3-stage model</span></td>
+<td>Augmentation significative du risque depuis l'octroi. Passage à l'ECL à maturité.</td>
+</tr>
+<tr class="odd">
+<td>Stage 3</td>
+<td><span class="cat cat-a">3-stage model</span></td>
+<td>Défaut avéré. ECL à maturité + intérêts sur la valeur nette comptable résiduelle.</td>
+</tr>
+<tr class="even">
+<td>SICR</td>
+<td><span class="cat cat-b">ECL drivers</span></td>
+<td><em>Significant Increase in Credit Risk</em> - déclencheur du passage Stade 1 → Stade 2.</td>
+</tr>
+<tr class="odd">
+<td>12-month ECL</td>
+<td><span class="cat cat-b">ECL drivers</span></td>
+<td>Perte attendue sur les défauts susceptibles d'intervenir dans les 12 prochains mois.</td>
+</tr>
+<tr class="even">
+<td>Lifetime ECL</td>
+<td><span class="cat cat-b">ECL drivers</span></td>
+<td>Perte attendue couvrant toute la durée de vie résiduelle de l'instrument financier.</td>
+</tr>
+<tr class="odd">
+<td>PD</td>
+<td><span class="cat cat-b">ECL drivers</span></td>
+<td><em>Probability of Default</em> - probabilité de défaut, estimée en point-in-time sous IFRS 9.</td>
+</tr>
+<tr class="even">
+<td>LGD</td>
+<td><span class="cat cat-b">ECL drivers</span></td>
+<td><em>Loss Given Default</em> - fraction de l'EAD définitivement non recouvrée en cas de défaut.</td>
+</tr>
+<tr class="odd">
+<td>EAD</td>
+<td><span class="cat cat-b">ECL drivers</span></td>
+<td><em>Exposure at Default</em> - encours dû au moment du défaut, y compris les engagements hors bilan.</td>
+</tr>
+<tr class="even">
+<td>Forward-looking</td>
+<td><span class="cat cat-c">Gouvernance</span></td>
+<td>Intégration de scénarios macroéconomiques prospectifs (PIB, chômage) dans le calcul de l'ECL.</td>
+</tr>
+<tr class="odd">
+<td>Overlays</td>
+<td><span class="cat cat-c">Gouvernance</span></td>
+<td>Ajustements post-modèle appliqués par le management pour corriger les angles morts.</td>
+</tr>
+<tr class="even">
+<td>Staging override</td>
+<td><span class="cat cat-c">Gouvernance</span></td>
+<td>Modification manuelle et documentée du stade IFRS 9 attribué par le modèle automatique.</td>
+</tr>
+<tr class="odd">
+<td>Backstop</td>
+<td><span class="cat cat-c">Gouvernance</span></td>
+<td>Règle des 90 DPD : tout retard &gt; 90 jours entraîne un classement automatique en Stade 3.</td>
+</tr>
+<tr class="even">
+<td>ACL</td>
+<td><span class="cat cat-c">Gouvernance</span></td>
+<td><em>Allowance for Credit Losses</em> - réserve bilancielle correspondant à l'ECL cumulée du portefeuille.</td>
+</tr>
+<tr class="odd">
+<td>Vintage</td>
+<td><span class="cat cat-c">Gouvernance</span></td>
+<td>Cohorte de prêts originés sur une même période, utilisée pour le backtesting des modèles ECL.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Les évolutions introduites par Bâle IV constituent une inflexion majeure dans la régulation prudentielle du risque de crédit. L’output floor à 72,5%, le renforcement de l’approche standard et l’encadrement renforcé des approches IRB convergent vers un objectif commun : harmoniser les pratiques et restaurer la crédibilité des modèles de risque.</p>
-<p>Pour les établissements bancaires, cette réforme implique une maîtrise approfondie de l’approche standard (y compris pour les utilisateurs de modèles internes), un encadrement plus strict des modèles via les planchers d’entrée, et une moindre dépendance aux notations externes grâce à la granularité accrue de l’approche standard.</p>
-<p>Ces évolutions participent au renforcement de la stabilité financière tout en préservant un équilibre entre sophistication méthodologique et comparabilité entre établissements.</p>
+<p>IFRS 9 a introduit une révolution silencieuse dans la gestion du risque de crédit : elle oblige les banques à <strong>anticiper</strong> plutôt qu’à <strong>réagir</strong>. La maîtrise de ses concepts est devenue une compétence de base pour tout professionnel de la finance, du risque ou de l’audit.</p>
+<p>Les trois dimensions à retenir :</p>
+<ul>
+<li><strong>Le modèle en 3 stades</strong> gouverne le provisionnement et amplifie le choc financier lors d’une migration</li>
+<li><strong>PD × LGD × EAD</strong> reste la formule centrale, en vision point-in-time et non through-the-cycle</li>
+<li><strong>La gouvernance</strong> (forward-looking, overlays, overrides) encadre la part irréductible de jugement expert</li>
+</ul>
+<p>Dans un environnement macroéconomique incertain, la qualité du processus d’estimation IFRS 9 est un signal direct sur la maturité du risk management d’un établissement.</p>
 <hr>
 </section>
 <section id="références" class="level2">
 <h2 class="anchored" data-anchor-id="références">Références</h2>
 <ul>
-<li>Règlement CRR3 (Capital Requirements Regulation 3)</li>
-<li>Comité de Bâle sur le contrôle bancaire: Finalisation des réformes de Bâle III (décembre 2017)</li>
+<li>IASB (2014). <em>IFRS 9 Financial Instruments</em>. International Accounting Standards Board.</li>
+<li>EBA (2017). <em>Guidelines on credit institutions’ credit risk management practices and accounting for expected credit losses</em>. European Banking Authority.</li>
+<li>Banque de France (2018). <em>IFRS 9 : enjeux pour les établissements bancaires français</em>.</li>
 </ul>
 <hr>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -468,9 +605,9 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Boukary Ouedraogo est consultant Data spécialisé en Analytics, Business Intelligence et gestion financière. Fort de plus de 8 ans d’expérience en analyse de données et modélisation du risque, il accompagne les institutions financières dans leurs projets de transformation data et de mise en conformité réglementaire.</p>
+<p>Boukary Ouedraogo est consultant Data spécialisé en Analytics, Business Intelligence et gestion du risque financier. Fort de plus de 8 ans d’expérience en modélisation du risque de crédit et en conformité réglementaire, il accompagne les institutions financières dans leurs projets de transformation data.</p>
 <p>Pour en savoir plus : <a href="https://oboukary.github.io/">https://oboukary.github.io/</a></p>
 </div>
 </div>
