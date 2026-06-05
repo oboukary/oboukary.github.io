@@ -21,16 +21,23 @@ $bs-pagination-active-bg: $brand-primary !default;
 $bs-primary: $brand-primary !default;
 $bs-btn-hover-bg: $brand-primary-dark !default;
 
-/* Typographie */
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                         'Inter', Oxygen, Ubuntu, 'Helvetica Neue', sans-serif !default;
+/* Typographie - source unique de verite pour tout le site.
+   - Corps de texte : Inter (sans-serif sobre, tres lisible)
+   - Titres / affichage : Fraunces (serif elegant a fort contraste, optical sizing)
+   Les partiels de pages (_services, etc.) reutilisent ces variables pour que
+   l'ensemble du site partage la meme police, fine, professionnelle et elegante. */
+$font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                         Oxygen, Ubuntu, 'Helvetica Neue', sans-serif !default;
+$font-family-serif: 'Fraunces', Georgia, Cambria, 'Times New Roman', serif !default;
 $font-family-monospace: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono',
                         Consolas, 'Courier New', monospace !default;
+
+$headings-font-family: $font-family-serif !default;
 
 $line-height-base: 1.7 !default;
 $headings-font-weight: 600 !default;
 $headings-line-height: 1.25 !default;
-$headings-letter-spacing: -0.015em;
+$headings-letter-spacing: -0.01em;
 
 /*-- scss:rules --*/
 
@@ -62,11 +69,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-family-sans-serif;
+  font-family: $font-family-serif;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
   letter-spacing: $headings-letter-spacing;
   color: $brand-ink;
+  font-optical-sizing: auto;
 }
 
 h1 { font-weight: 700; }
@@ -566,6 +574,28 @@ footer.footer {
   border-radius: 16px;
   overflow: hidden;
   background: linear-gradient(180deg, $brand-bg 0%, $brand-bg-soft 100%);
+}
+
+/* ============================================================
+   Table des matieres (marge droite) - police plus compacte
+   ============================================================ */
+
+#TOC,
+nav[role="doc-toc"] {
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+#TOC .nav-link,
+#TOC ul > li > a,
+nav[role="doc-toc"] .nav-link,
+nav[role="doc-toc"] ul > li > a {
+  font-size: 0.75rem;
+}
+
+#TOC .toc-title,
+#toc-title {
+  font-size: 0.8rem;
 }
 
 /* ============================================================

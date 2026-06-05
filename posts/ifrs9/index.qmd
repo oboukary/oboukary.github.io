@@ -1,4 +1,4 @@
-﻿---
+---
 title: "IFRS 9 : Le modèle de dépréciation en 3 stades décrypté"
 author: "Boukary Ouedraogo"
 date: "2026-05-13"
