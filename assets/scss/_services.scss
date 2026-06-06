@@ -21,9 +21,10 @@ $os-mist: #e2e8f0;
 $os-cloud: #f1f5f9;
 $os-white: #ffffff;
 
-// Typographie
-$os-font-display: 'Playfair Display', Georgia, serif;
-$os-font-body: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
+// Typographie - unifiee avec la charte globale du site (cf. custom.scss) :
+// titres en Fraunces (serif elegant), corps en Inter.
+$os-font-display: $font-family-serif;
+$os-font-body: $font-family-sans-serif;
 
 // Espacements
 $os-space-xs: 0.5rem;

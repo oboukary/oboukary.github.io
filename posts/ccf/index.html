@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Boukary Ouedraogo">
+<meta name="description" content="Le facteur de conversion de crédit (CCF) traduit les engagements hors-bilan non tirés en exposition au défaut (EAD). Intuition, grille de l’approche standard, traitement F-IRB et A-IRB, estimation empirique et exemples concrets chiffrés.">
+
+<title>Le Credit Conversion Factor (CCF) : du hors-bilan à l’exposition au défaut – Boukary Ouedraogo&lt;span class='navbar-subtitle'&gt;Consultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision&lt;/span&gt;</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/svg/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8da81405d454fa57c0a1b373fb205796.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4a3c69d8695fe9634e1c0d48b596520d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sas.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../assets/css/syntax-languages.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Boukary Ouedraogo<span class="navbar-subtitle">Consultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">A propos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../services.html"> 
+<span class="menu-text">Mes services</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/projects.html"> 
+<span class="menu-text">Projets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#quest-ce-que-le-ccf-lintuition-dabord" id="toc-quest-ce-que-le-ccf-lintuition-dabord" class="nav-link active" data-scroll-target="#quest-ce-que-le-ccf-lintuition-dabord"><span class="header-section-number">0.1</span> Qu’est-ce que le CCF ? L’intuition d’abord</a></li>
+  <li><a href="#la-formule-convertir-lengagement-en-ead" id="toc-la-formule-convertir-lengagement-en-ead" class="nav-link" data-scroll-target="#la-formule-convertir-lengagement-en-ead"><span class="header-section-number">0.2</span> La formule : convertir l’engagement en EAD</a></li>
+  <li><a href="#la-grille-de-lapproche-standard-bâle-iii-finalisé" id="toc-la-grille-de-lapproche-standard-bâle-iii-finalisé" class="nav-link" data-scroll-target="#la-grille-de-lapproche-standard-bâle-iii-finalisé"><span class="header-section-number">0.3</span> La grille de l’approche standard (Bâle III finalisé)</a></li>
+  <li><a href="#trois-exemples-concrets" id="toc-trois-exemples-concrets" class="nav-link" data-scroll-target="#trois-exemples-concrets"><span class="header-section-number">0.4</span> Trois exemples concrets</a></li>
+  <li><a href="#au-delà-de-la-grille-le-ccf-en-approche-irb" id="toc-au-delà-de-la-grille-le-ccf-en-approche-irb" class="nav-link" data-scroll-target="#au-delà-de-la-grille-le-ccf-en-approche-irb"><span class="header-section-number">0.5</span> Au-delà de la grille : le CCF en approche IRB</a></li>
+  <li><a href="#estimer-le-ccf-sur-données" id="toc-estimer-le-ccf-sur-données" class="nav-link" data-scroll-target="#estimer-le-ccf-sur-données"><span class="header-section-number">0.6</span> Estimer le CCF sur données</a></li>
+  <li><a href="#pourquoi-le-ccf-pilote-le-capital" id="toc-pourquoi-le-ccf-pilote-le-capital" class="nav-link" data-scroll-target="#pourquoi-le-ccf-pilote-le-capital"><span class="header-section-number">0.7</span> Pourquoi le CCF pilote le capital</a></li>
+  <li><a href="#limites-et-points-de-vigilance" id="toc-limites-et-points-de-vigilance" class="nav-link" data-scroll-target="#limites-et-points-de-vigilance"><span class="header-section-number">0.8</span> Limites et points de vigilance</a></li>
+  <li><a href="#synthèse" id="toc-synthèse" class="nav-link" data-scroll-target="#synthèse"><span class="header-section-number">0.9</span> Synthèse</a></li>
+  <li><a href="#références-bibliographiques" id="toc-références-bibliographiques" class="nav-link" data-scroll-target="#références-bibliographiques"><span class="header-section-number">0.10</span> Références bibliographiques</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Le Credit Conversion Factor (CCF) : du hors-bilan à l’exposition au défaut</h1>
+<p class="subtitle lead">Comment une promesse de financement devient une dette réelle : grille standard de Bâle III finalisé, approches IRB et estimation, illustrées par des exemples chiffrés</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Risque de Crédit</div>
+    <div class="quarto-category">Bâle III</div>
+    <div class="quarto-category">EAD</div>
+    <div class="quarto-category">Finance Quantitative</div>
+    <div class="quarto-category">Réglementation</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Le facteur de conversion de crédit (CCF) traduit les engagements hors-bilan non tirés en exposition au défaut (EAD). Intuition, grille de l’approche standard, traitement F-IRB et A-IRB, estimation empirique et exemples concrets chiffrés.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Auteur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Boukary Ouedraogo </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">6 juin 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="quest-ce-que-le-ccf-lintuition-dabord" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="quest-ce-que-le-ccf-lintuition-dabord"><span class="header-section-number">0.1</span> Qu’est-ce que le CCF ? L’intuition d’abord</h3>
+<p>La réglementation bancaire est peuplée d’acronymes obscurs, mais celui-ci recouvre une idée simple et puissante : <strong>mesurer la probabilité qu’une promesse d’argent se transforme en une dette réelle</strong>. Le <em>Credit Conversion Factor</em> (CCF), traduit en français par <em>facteur de conversion en équivalent crédit</em>, est l’outil qui permet cette traduction.</p>
+<p>Pour le comprendre, il faut distinguer les deux natures d’exposition au risque d’une banque.</p>
+<ul>
+<li><strong>Au bilan</strong> (<em>on-balance sheet</em>) : l’argent a déjà été décaissé. Un prêt immobilier en cours de remboursement, par exemple. Le risque porte sur 100 % du montant prêté.</li>
+<li><strong>Hors-bilan</strong> (<em>off-balance sheet</em>) : la banque a pris un <strong>engagement</strong>, mais l’argent n’a pas encore été versé. Une ligne de crédit autorisée mais non utilisée, une caution, une garantie. Tant que rien n’est tiré, aucun euro ne figure à l’actif du bilan.</li>
+</ul>
+<p>Le souci du régulateur (au travers des accords de Bâle) tient en une phrase : <strong>une entreprise qui s’approche du défaut tire sur toutes les lignes de crédit encore disponibles juste avant de s’effondrer.</strong> À court de liquidités, elle puise dans ses réserves de précaution. L’exposition de la banque gonfle donc précisément au moment où la contrepartie devient la plus risquée. Le hors-bilan d’hier devient le bilan de demain.</p>
+<p>Le CCF est le <strong>pourcentage réglementaire</strong> qui anticipe ce basculement. Il répond à une question unique :</p>
+<blockquote class="blockquote">
+<p><em>Quelle proportion de cet engagement non utilisé risque de se transformer en crédit effectif si le client fait défaut ?</em></p>
+</blockquote>
+<p>Une fois le CCF appliqué, on obtient l’<strong>EAD</strong> (<em>Exposure At Default</em>, ou exposition au moment du défaut), qui sert de base au calcul des fonds propres exigés de la banque.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Pré-requis : la chaîne EAD vers capital">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Pré-requis : la chaîne EAD vers capital
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cet article suppose connue la chaîne qui transforme l’exposition en capital réglementaire : <span class="math inline">\(RWA = K \times EAD \times 12{,}5\)</span>, où <span class="math inline">\(K\)</span> est l’exigence de capital par euro d’exposition. La dérivation de <span class="math inline">\(K\)</span> pour les expositions Entreprises (modèle de Vasicek) est traitée dans un <a href="../../posts/bale3_vasicek/index.html">article dédié</a>. Ici, le CCF agit en amont : c’est lui qui fixe la valeur de l’<span class="math inline">\(EAD\)</span> alimentant cette formule.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="la-formule-convertir-lengagement-en-ead" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="la-formule-convertir-lengagement-en-ead"><span class="header-section-number">0.2</span> La formule : convertir l’engagement en EAD</h3>
+<p>La mécanique est d’une simplicité trompeuse. On décompose tout engagement en deux blocs : la part <strong>tirée</strong> (déjà décaissée, au bilan) et la part <strong>non tirée</strong> (disponible, hors-bilan). L’<span class="math inline">\(EAD\)</span> retient la totalité du tiré, mais seulement une <strong>fraction</strong> du non tiré, donnée par le CCF :</p>
+<p><span class="math display">\[\boxed{EAD = \text{Encours tiré} + CCF \times \text{Montant non tiré}}\]</span></p>
+<p>Le point crucial, souvent mal compris : <strong>le CCF ne s’applique qu’à la part non tirée.</strong> La part déjà décaissée constitue un risque plein, comme n’importe quel prêt. Si une ligne de 100 € est tirée à hauteur de 30 €, le risque direct au bilan est de 30 € ; le CCF ne s’applique qu’aux 70 € restants, ceux qui sont encore hors-bilan. Pour un engagement <em>pur</em> hors-bilan (une garantie qui n’a donné lieu à aucun décaissement), le tiré vaut zéro et la formule se réduit à <span class="math inline">\(EAD = CCF \times \text{Montant nominal}\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Conventions de mesure">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Conventions de mesure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’<span class="math inline">\(EAD\)</span> réglementaire est mesurée <strong>brute de provisions spécifiques et de passages en perte partiels</strong> : elle représente l’exposition économique avant tout abattement comptable. Par ailleurs, l’<span class="math inline">\(EAD\)</span> ne peut <strong>jamais être inférieure à l’encours tiré courant</strong> : on n’autorise pas un CCF négatif à l’échelle réglementaire, même si, comme on le verra, les CCF <em>réalisés</em> observés sur données peuvent l’être (remboursement partiel avant le défaut).</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="la-grille-de-lapproche-standard-bâle-iii-finalisé" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="la-grille-de-lapproche-standard-bâle-iii-finalisé"><span class="header-section-number">0.3</span> La grille de l’approche standard (Bâle III finalisé)</h3>
+<p>En approche standard (SA), la banque n’estime rien : elle applique des CCF <strong>forfaitaires</strong> fixés par le régulateur selon la nature de l’engagement. La logique est intuitive : <strong>plus un engagement est susceptible d’être appelé en cas de difficulté, plus son CCF est élevé.</strong> Bâle III finalisé <span class="citation" data-cites="bcbs2017 bcbs_cre">(<a href="#ref-bcbs2017" role="doc-biblioref">Basel Committee on Banking Supervision 2017</a>, <a href="#ref-bcbs_cre" role="doc-biblioref">2023</a>)</span>, transposé en droit européen par le règlement CRR3 <span class="citation" data-cites="crr3">(<a href="#ref-crr3" role="doc-biblioref">Parlement européen et Conseil de l’Union européenne 2024</a>)</span>, retient cinq compartiments :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Engagement hors-bilan</th>
+<th style="text-align: right;">CCF</th>
+<th style="text-align: left;">Logique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Engagement révocable sans condition à tout moment, sans préavis (UCC)</td>
+<td style="text-align: right;">10 %</td>
+<td style="text-align: left;">La banque peut théoriquement couper la ligne, mais le fait rarement à temps</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lettre de crédit documentaire à court terme, auto-liquidative, adossée au mouvement de marchandises</td>
+<td style="text-align: right;">20 %</td>
+<td style="text-align: left;">La marchandise transportée sert de garantie implicite</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Engagement (autre qu’UCC), quelle que soit la maturité</td>
+<td style="text-align: right;">40 %</td>
+<td style="text-align: left;">Ligne de crédit confirmée non tirée : tirage probable mais non certain</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Élément lié à une transaction (garantie de bonne fin, garantie de soumission, <em>standby</em> lié à une transaction)</td>
+<td style="text-align: right;">50 %</td>
+<td style="text-align: left;">Appel conditionné à la défaillance opérationnelle du client</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Substitut direct de crédit (garantie financière, <em>standby</em> tenant lieu de garantie de prêt, acceptation), achat à terme d’actifs</td>
+<td style="text-align: right;">100 %</td>
+<td style="text-align: left;">La banque paie à coup sûr à la place du client : équivalent à un prêt</td>
+</tr>
+</tbody>
+</table>
+<p>Trois évolutions de Bâle III finalisé méritent l’attention du praticien.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Ce qui a changé avec Bâle III finalisé">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Ce qui a changé avec Bâle III finalisé
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Le CCF des engagements passe à un taux unique de 40 %.</strong> Sous Bâle II, les lignes de crédit étaient converties selon leur maturité : <strong>20 %</strong> en deçà d’un an, <strong>50 %</strong> au-delà. Cette distinction encourageait un arbitrage réglementaire (fractionner un engagement long en lignes courtes renouvelables pour réduire le CCF). Bâle III finalisé y met fin avec un <strong>CCF unique de 40 %, quelle que soit la maturité</strong>. C’est ce taux que l’on retiendra dans les exemples qui suivent.</p>
+<p><strong>Le CCF des engagements révocables (UCC) passe de 0 % à 10 %.</strong> Historiquement, un engagement révocable sans condition - typiquement une autorisation de carte de crédit, annulable à tout instant - recevait un CCF de <strong>0 %</strong> : aucune exposition n’était reconnue. La crise a montré qu’en pratique, une banque n’a ni le temps ni le courage commercial de couper ces lignes avant que le client ne tire l’argent. Un <strong>plancher de 10 %</strong> matérialise désormais ce risque résiduel.</p>
+<p><strong>La règle du minimum.</strong> Lorsqu’un engagement porte sur la mise à disposition future d’un autre élément hors-bilan, la banque applique le <strong>plus faible</strong> des deux CCF applicables, pour éviter une double pénalisation en cascade.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="trois-exemples-concrets" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="trois-exemples-concrets"><span class="header-section-number">0.4</span> Trois exemples concrets</h3>
+<p>Ancrons la grille dans des situations courantes. On suivra une entreprise fictive, <strong>Alpha</strong>, dont l’exemple servira de fil rouge jusqu’au calcul de capital.</p>
+<section id="exemple-a-la-ligne-de-crédit-dentreprise" class="level4" data-number="0.4.1">
+<h4 data-number="0.4.1" class="anchored" data-anchor-id="exemple-a-la-ligne-de-crédit-dentreprise"><span class="header-section-number">0.4.1</span> Exemple A : la ligne de crédit d’entreprise</h4>
+<p>L’entreprise Alpha a négocié une ligne de crédit (découvert autorisé) de <strong>2 000 000 €</strong> pour couvrir d’éventuels besoins de trésorerie. À ce jour, elle n’en a utilisé que <strong>500 000 €</strong>.</p>
+<ul>
+<li><strong>Part au bilan</strong> (tirée) : <span class="math inline">\(500\,000\)</span> € - risque plein.</li>
+<li><strong>Part hors-bilan</strong> (non tirée) : <span class="math inline">\(2\,000\,000 - 500\,000 = 1\,500\,000\)</span> €.</li>
+<li><strong>CCF applicable</strong> : il s’agit d’un engagement confirmé, donc <strong>40 %</strong> sous Bâle III finalisé.</li>
+</ul>
+<p><span class="math display">\[EAD = \underbrace{500\,000}_{\text{tiré}} + \underbrace{0{,}40 \times 1\,500\,000}_{= \,600\,000} = 1\,100\,000 \text{ €}\]</span></p>
+<p>La banque calcule donc ses fonds propres sur <strong>1,1 M€</strong>, et non sur les 500 000 € réellement décaissés. Le supplément de 600 000 € correspond aux 40 % de la marge disponible que le régulateur anticipe de voir tirés avant un éventuel défaut.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="L'effet du changement de cadre">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>L’effet du changement de cadre
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sous Bâle II, cette ligne de maturité supérieure à un an aurait reçu un CCF de 50 %, soit <span class="math inline">\(0{,}50 \times 1\,500\,000 = 750\,000\)</span> € et une <span class="math inline">\(EAD\)</span> de <strong>1 250 000 €</strong>. Le passage au taux unique de 40 % de Bâle III finalisé abaisse ici l’<span class="math inline">\(EAD\)</span> de 150 000 €.</p>
+</div>
+</div>
+</section>
+<section id="exemple-b-la-lettre-de-crédit-documentaire" class="level4" data-number="0.4.2">
+<h4 data-number="0.4.2" class="anchored" data-anchor-id="exemple-b-la-lettre-de-crédit-documentaire"><span class="header-section-number">0.4.2</span> Exemple B : la lettre de crédit documentaire</h4>
+<p>L’entreprise <strong>Beta</strong> importe pour <strong>100 000 €</strong> de marchandises. Sa banque émet une lettre de crédit documentaire pour rassurer le fournisseur étranger. C’est un engagement hors-bilan de court terme, auto-liquidatif, adossé au mouvement physique des marchandises.</p>
+<p><span class="math display">\[EAD = 0{,}20 \times 100\,000 = 20\,000 \text{ €}\]</span></p>
+<p>La banque calcule ses exigences de fonds propres sur <strong>20 000 €</strong>, et non sur les 100 000 € de notionnel : la marchandise transportée sert de garantie implicite, ce qui justifie un CCF faible de 20 %.</p>
+</section>
+<section id="exemple-c-la-garantie-financière" class="level4" data-number="0.4.3">
+<h4 data-number="0.4.3" class="anchored" data-anchor-id="exemple-c-la-garantie-financière"><span class="header-section-number">0.4.3</span> Exemple C : la garantie financière</h4>
+<p>La banque se porte garante à hauteur de <strong>50 000 €</strong> pour l’entreprise <strong>Gamma</strong> auprès de l’administration. Si Gamma ne paie pas, la banque paiera à sa place, sans condition.</p>
+<p><span class="math display">\[EAD = 1{,}00 \times 50\,000 = 50\,000 \text{ €}\]</span></p>
+<p>C’est un <strong>substitut direct de crédit</strong> : l’appel de la garantie équivaut à un décaissement certain. Son CCF de 100 % la rend équivalente, pour le calcul du capital, à un prêt déjà accordé.</p>
+</section>
+<section id="récapitulatif" class="level4" data-number="0.4.4">
+<h4 data-number="0.4.4" class="anchored" data-anchor-id="récapitulatif"><span class="header-section-number">0.4.4</span> Récapitulatif</h4>
+<p>Les trois mêmes opérations, calculées d’un bloc en Python, illustrent comment une seule formule absorbe des engagements de natures très différentes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statistics <span class="im">import</span> NormalDist</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.use(<span class="st">"Agg"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Brique centrale : conversion du hors-bilan en EAD ---</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ead(tire, non_tire, ccf):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Exposition au defaut = tire + CCF x non tire."""</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tire <span class="op">+</span> ccf <span class="op">*</span> non_tire</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> euro(x):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="bu">round</span>(x)<span class="sc">:,}</span><span class="ss"> €"</span>.replace(<span class="st">","</span>, <span class="st">" "</span>)   <span class="co"># separateur de milliers : espace</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Opération</th>
+<th style="text-align: right;">Tiré</th>
+<th style="text-align: right;">Non tiré</th>
+<th style="text-align: right;">CCF</th>
+<th style="text-align: right;">EAD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alpha - ligne de crédit</td>
+<td style="text-align: right;">500 000 €</td>
+<td style="text-align: right;">1 500 000 €</td>
+<td style="text-align: right;">40 %</td>
+<td style="text-align: right;"><strong>1 100 000 €</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Beta - crédit documentaire</td>
+<td style="text-align: right;">0 €</td>
+<td style="text-align: right;">100 000 €</td>
+<td style="text-align: right;">20 %</td>
+<td style="text-align: right;"><strong>20 000 €</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gamma - garantie financière</td>
+<td style="text-align: right;">0 €</td>
+<td style="text-align: right;">50 000 €</td>
+<td style="text-align: right;">100 %</td>
+<td style="text-align: right;"><strong>50 000 €</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="au-delà-de-la-grille-le-ccf-en-approche-irb" class="level3" data-number="0.5">
+<h3 data-number="0.5" class="anchored" data-anchor-id="au-delà-de-la-grille-le-ccf-en-approche-irb"><span class="header-section-number">0.5</span> Au-delà de la grille : le CCF en approche IRB</h3>
+<p>En approche par notations internes (IRB), le traitement du CCF dépend du niveau d’avancement de la banque.</p>
+<section id="f-irb-des-ccf-supervisés" class="level4" data-number="0.5.1">
+<h4 data-number="0.5.1" class="anchored" data-anchor-id="f-irb-des-ccf-supervisés"><span class="header-section-number">0.5.1</span> F-IRB : des CCF supervisés</h4>
+<p>En approche fondation (F-IRB), la banque estime elle-même la <span class="math inline">\(PD\)</span>, mais reçoit du régulateur la <span class="math inline">\(LGD\)</span> <strong>et</strong> les CCF. Sous Bâle III finalisé, les CCF de la F-IRB sont <strong>alignés sur la grille de l’approche standard</strong> présentée ci-dessus. C’est un changement notable par rapport à Bâle II, où la F-IRB appliquait par exemple un CCF de 75 % aux engagements. Désormais, l’engagement non tiré d’Alpha reçoit le même CCF de 40 % qu’en approche standard.</p>
+</section>
+<section id="a-irb-des-ccf-estimés-mais-encadrés" class="level4" data-number="0.5.2">
+<h4 data-number="0.5.2" class="anchored" data-anchor-id="a-irb-des-ccf-estimés-mais-encadrés"><span class="header-section-number">0.5.2</span> A-IRB : des CCF estimés, mais encadrés</h4>
+<p>En approche avancée (A-IRB), la banque est autorisée à estimer ses propres CCF à partir de son historique de défauts. C’est le seul régime où le CCF devient un véritable <strong>paramètre modélisé</strong>, au même titre que la <span class="math inline">\(PD\)</span> et la <span class="math inline">\(LGD\)</span>. Cette liberté s’accompagne de deux garde-fous introduits par Bâle III finalisé.</p>
+<p><strong>Un plancher d’EAD.</strong> L’<span class="math inline">\(EAD\)</span> estimée en interne ne peut être inférieure à la somme de l’encours tiré et de <strong>50 % de l’exposition hors-bilan calculée avec le CCF de l’approche standard</strong> :</p>
+<p><span class="math display">\[EAD_{\text{A-IRB}} = \max\!\Big(\underbrace{\text{Tiré} + CCF_{\text{interne}} \times \text{Non tiré}}_{\text{estimation propre}},\ \underbrace{\text{Tiré} + 0{,}5 \times CCF_{\text{SA}} \times \text{Non tiré}}_{\text{plancher réglementaire}}\Big)\]</span></p>
+<p><strong>Un périmètre restreint.</strong> Bâle III finalisé a <strong>retiré l’A-IRB</strong> pour certaines classes d’actifs jugées trop peu nombreuses pour une estimation fiable : les grandes entreprises (chiffre d’affaires consolidé supérieur à 500 M€), les banques et les autres établissements financiers basculent en F-IRB. L’estimation interne du CCF reste donc concentrée sur la clientèle de détail et les PME.</p>
+<p>Reprenons la ligne d’Alpha (tiré 500 000 €, non tiré 1 500 000 €, <span class="math inline">\(CCF_{\text{SA}}\)</span> = 40 %) et confrontons deux estimations internes au plancher.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ead_airb(tire, non_tire, ccf_interne, ccf_sa):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    estimation <span class="op">=</span> ead(tire, non_tire, ccf_interne)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    plancher   <span class="op">=</span> ead(tire, non_tire, <span class="fl">0.5</span> <span class="op">*</span> ccf_sa)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">max</span>(estimation, plancher)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">CCF interne</th>
+<th style="text-align: right;">EAD estimée</th>
+<th style="text-align: right;">Plancher (50 % × CCF_SA)</th>
+<th style="text-align: right;">EAD retenue</th>
+<th style="text-align: center;">Plancher actif ?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">25 %</td>
+<td style="text-align: right;">875 000 €</td>
+<td style="text-align: right;">800 000 €</td>
+<td style="text-align: right;"><strong>875 000 €</strong></td>
+<td style="text-align: center;">Non</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10 %</td>
+<td style="text-align: right;">650 000 €</td>
+<td style="text-align: right;">800 000 €</td>
+<td style="text-align: right;"><strong>800 000 €</strong></td>
+<td style="text-align: center;">Oui</td>
+</tr>
+</tbody>
+</table>
+<p>Avec un CCF interne de 25 %, l’estimation propre (875 000 €) dépasse le plancher (800 000 €) : la banque conserve le bénéfice de son modèle. Mais avec un CCF interne de 10 %, l’estimation (650 000 €) tombe <strong>sous</strong> le plancher : l’<span class="math inline">\(EAD\)</span> est relevée à 800 000 €. Le plancher empêche un modèle trop optimiste de réduire le capital en deçà de la moitié du traitement standard.</p>
+<hr>
+</section>
+</section>
+<section id="estimer-le-ccf-sur-données" class="level3" data-number="0.6">
+<h3 data-number="0.6" class="anchored" data-anchor-id="estimer-le-ccf-sur-données"><span class="header-section-number">0.6</span> Estimer le CCF sur données</h3>
+<p>Pour les portefeuilles éligibles à l’A-IRB, encore faut-il estimer le CCF. Le principe : mesurer, sur les facilités <strong>ayant fait défaut par le passé</strong>, le tirage additionnel survenu entre une <em>date de référence</em> antérieure et la date de défaut. Le <strong>CCF réalisé</strong> d’une facilité se définit comme :</p>
+<p><span class="math display">\[CCF_{\text{réalisé}} = \frac{\text{Tiré}_{\text{défaut}} - \text{Tiré}_{\text{réf}}}{\text{Limite} - \text{Tiré}_{\text{réf}}} = \frac{\text{Tirage additionnel}}{\text{Marge disponible à la date de référence}}\]</span></p>
+<p>Reste à fixer la date de référence, ce qui distingue les principales méthodes d’estimation <span class="citation" data-cites="moral2011">(<a href="#ref-moral2011" role="doc-biblioref">Moral 2011</a>)</span> :</p>
+<ul>
+<li><strong>Méthode des cohortes</strong> (<em>cohort method</em>) : on découpe l’historique en fenêtres calendaires (typiquement 12 mois) ; la date de référence est le <strong>début de la fenêtre</strong>. C’est l’approche privilégiée par les régulateurs européens <span class="citation" data-cites="eba2017">(<a href="#ref-eba2017" role="doc-biblioref">European Banking Authority 2017</a>)</span> pour sa robustesse.</li>
+<li><strong>Méthode à horizon fixe</strong> (<em>fixed-horizon</em>) : la date de référence est fixée à un horizon constant avant le défaut (par exemple exactement 12 mois avant), ce qui cible le comportement de tirage sur l’année précédant la défaillance.</li>
+<li><strong>Méthode à horizon variable</strong> (<em>momentum</em>) : on retient toutes les dates d’observation dans l’horizon, ce qui maximise l’échantillon au prix d’une corrélation entre observations.</li>
+</ul>
+<p>Appliquons la formule à trois facilités défaillantes, toutes calquées sur Alpha : limite 2 000 000 €, tiré 500 000 € douze mois avant le défaut (marge disponible : 1 500 000 €). Seul diffère le comportement de tirage jusqu’au défaut.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ccf_realise(tire_ref, tire_defaut, limite):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    marge <span class="op">=</span> limite <span class="op">-</span> tire_ref</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (tire_defaut <span class="op">-</span> tire_ref) <span class="op">/</span> marge</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Situation</th>
+<th style="text-align: right;">Tiré au défaut</th>
+<th style="text-align: right;">CCF réalisé</th>
+<th style="text-align: right;">CCF borné [0 %, 100 %]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tirage partiel de la marge</td>
+<td style="text-align: right;">1 400 000 €</td>
+<td style="text-align: right;">60.0 %</td>
+<td style="text-align: right;">60 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Remboursement avant défaut</td>
+<td style="text-align: right;">300 000 €</td>
+<td style="text-align: right;">-13.3 %</td>
+<td style="text-align: right;">0 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dépassement de la limite</td>
+<td style="text-align: right;">2 100 000 €</td>
+<td style="text-align: right;">106.7 %</td>
+<td style="text-align: right;">100 %</td>
+</tr>
+</tbody>
+</table>
+<p>Ces trois cas résument toute la difficulté de l’estimation. La première facilité livre un CCF « propre » de 60 %. La deuxième, remboursée avant le défaut, produit un CCF <strong>négatif</strong>, borné à 0 %. La troisième, qui déborde sa limite (découvert technique, intérêts capitalisés), génère un CCF <strong>supérieur à 100 %</strong>, borné à 100 %.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Pourquoi les CCF réalisés sont délicats à manipuler">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Pourquoi les CCF réalisés sont délicats à manipuler
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les CCF observés sont <strong>statistiquement instables</strong> : ils peuvent dépasser 100 % (dépassement de limite) ou être négatifs (remboursement), et leur dénominateur explose pour les facilités déjà presque entièrement tirées à la date de référence. La pratique consiste donc à écarter les facilités sans marge disponible, à borner ou <em>winsoriser</em> les CCF dans <span class="math inline">\([0\,\%,\,100\,\%]\)</span>, et à les pondérer par le nombre de défauts (<em>default-weighted average</em>) en intégrant une <strong>marge de prudence</strong> et une composante de <strong>ralentissement</strong> (<em>downturn</em>) <span class="citation" data-cites="eba2017">(<a href="#ref-eba2017" role="doc-biblioref">European Banking Authority 2017</a>)</span>.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="pourquoi-le-ccf-pilote-le-capital" class="level3" data-number="0.7">
+<h3 data-number="0.7" class="anchored" data-anchor-id="pourquoi-le-ccf-pilote-le-capital"><span class="header-section-number">0.7</span> Pourquoi le CCF pilote le capital</h3>
+<p>Le CCF n’est pas une curiosité technique : il pilote directement le capital, puisqu’il fixe l’<span class="math inline">\(EAD\)</span> qui multiplie l’exigence <span class="math inline">\(K\)</span>. Mesurons-le sur la ligne d’Alpha (tiré 500 000 €, non tiré 1 500 000 €) en faisant varier le CCF, et en réutilisant la formule de capital Bâle III pour les expositions Entreprises <span class="citation" data-cites="bcbs2017">(<a href="#ref-bcbs2017" role="doc-biblioref">Basel Committee on Banking Supervision 2017</a>)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>_N      <span class="op">=</span> NormalDist()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Phi     <span class="op">=</span> _N.cdf</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Phi_inv <span class="op">=</span> _N.inv_cdf</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rho_corp(pd):                       <span class="co"># correlation d'actifs imposee</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> np.exp(<span class="op">-</span><span class="dv">50</span> <span class="op">*</span> pd)) <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> np.exp(<span class="op">-</span><span class="dv">50</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">0.12</span> <span class="op">*</span> w <span class="op">+</span> <span class="fl">0.24</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> w)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> b_factor(pd):                       <span class="co"># lissage de la maturite</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="fl">0.11852</span> <span class="op">-</span> <span class="fl">0.05478</span> <span class="op">*</span> np.log(pd)) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> wcdr(pd, rho):                      <span class="co"># taux de defaut en scenario de crise (99,9 %)</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Phi((Phi_inv(pd) <span class="op">+</span> np.sqrt(rho) <span class="op">*</span> Phi_inv(<span class="fl">0.999</span>)) <span class="op">/</span> np.sqrt(<span class="dv">1</span> <span class="op">-</span> rho))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> capital_K(pd, lgd, M):              <span class="co"># exigence de capital par euro d'EAD</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    rho <span class="op">=</span> rho_corp(pd)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    ul  <span class="op">=</span> (wcdr(pd, rho) <span class="op">-</span> pd) <span class="op">*</span> lgd</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    ma  <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> (M <span class="op">-</span> <span class="fl">2.5</span>) <span class="op">*</span> b_factor(pd)) <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> b_factor(pd))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ul <span class="op">*</span> ma</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tire, non_tire <span class="op">=</span> <span class="dv">500_000</span>, <span class="dv">1_500_000</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>lgd, M <span class="op">=</span> <span class="fl">0.45</span>, <span class="fl">2.5</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ccf_grid <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">200</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ead_grid <span class="op">=</span> tire <span class="op">+</span> ccf_grid <span class="op">*</span> non_tire</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">4.8</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ymax <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pd, col <span class="kw">in</span> [(<span class="fl">0.01</span>, <span class="st">"#6f42c1"</span>), (<span class="fl">0.05</span>, <span class="st">"#d63384"</span>)]:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    cap <span class="op">=</span> capital_K(pd, lgd, M) <span class="op">*</span> ead_grid <span class="op">/</span> <span class="dv">1000</span>     <span class="co"># en milliers d'euros</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    ymax <span class="op">=</span> <span class="bu">max</span>(ymax, cap.<span class="bu">max</span>())</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    plt.plot(<span class="dv">100</span> <span class="op">*</span> ccf_grid, cap, lw<span class="op">=</span><span class="fl">2.5</span>, color<span class="op">=</span>col, label<span class="op">=</span><span class="ss">f"PD = </span><span class="sc">{</span><span class="dv">100</span><span class="op">*</span>pd<span class="sc">:.0f}</span><span class="ss"> %"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>points <span class="op">=</span> {<span class="st">"UCC</span><span class="ch">\n</span><span class="st">10 %"</span>: <span class="fl">0.10</span>, <span class="st">"Crédoc</span><span class="ch">\n</span><span class="st">20 %"</span>: <span class="fl">0.20</span>, <span class="st">"Engagt</span><span class="ch">\n</span><span class="st">40 %"</span>: <span class="fl">0.40</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Transac.</span><span class="ch">\n</span><span class="st">50 %"</span>: <span class="fl">0.50</span>, <span class="st">"Substitut</span><span class="ch">\n</span><span class="st">100 %"</span>: <span class="fl">1.00</span>}</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> label, ccf <span class="kw">in</span> points.items():</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    plt.axvline(<span class="dv">100</span> <span class="op">*</span> ccf, ls<span class="op">=</span><span class="st">"--"</span>, color<span class="op">=</span><span class="st">"grey"</span>, lw<span class="op">=</span><span class="fl">0.8</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    plt.text(<span class="dv">100</span> <span class="op">*</span> ccf, ymax <span class="op">*</span> <span class="fl">0.02</span>, label, ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"bottom"</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>             fontsize<span class="op">=</span><span class="fl">7.5</span>, color<span class="op">=</span><span class="st">"#495057"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"CCF appliqué au montant non tiré (%)"</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Capital requis (milliers €)"</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Capital réglementaire de la ligne Alpha (limite 2 M€, tiré 500 k€) selon le CCF"</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>plt.grid(color<span class="op">=</span><span class="st">"grey"</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>plt.legend(frameon<span class="op">=</span><span class="va">False</span>, loc<span class="op">=</span><span class="st">"upper left"</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, ymax <span class="op">*</span> <span class="fl">1.1</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(0.0, 263.74375973274033)</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/capital-vs-ccf-1.png" class="img-fluid figure-img" alt="Capital requis en fonction du CCF pour deux niveaux de PD" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La lecture est sans appel : à <span class="math inline">\(PD\)</span> et <span class="math inline">\(LGD\)</span> fixées, le capital croît <strong>linéairement</strong> avec le CCF, qui agit comme un simple multiplicateur de l’<span class="math inline">\(EAD\)</span>. Faire passer l’engagement d’Alpha du compartiment UCC (10 %) au compartiment substitut de crédit (100 %) fait bondir l’<span class="math inline">\(EAD\)</span> de 650 000 € à 2 000 000 €, et le capital dans la même proportion. <strong>Le choix du compartiment réglementaire, ou la qualité de l’estimation interne, pèse autant sur le capital que la note de crédit de la contrepartie.</strong></p>
+<p>Il faut enfin rappeler que l’<span class="math inline">\(EAD\)</span> alimente aussi la <strong>perte attendue</strong> (<span class="math inline">\(EL = PD \times LGD \times EAD\)</span>), donc les provisions. Un CCF mal calibré fausse simultanément les deux lignes de défense de la banque : les provisions comptables <strong>et</strong> les fonds propres prudentiels.</p>
+<hr>
+</section>
+<section id="limites-et-points-de-vigilance" class="level3" data-number="0.8">
+<h3 data-number="0.8" class="anchored" data-anchor-id="limites-et-points-de-vigilance"><span class="header-section-number">0.8</span> Limites et points de vigilance</h3>
+<p>Sous son apparente simplicité, l’équation <span class="math inline">\(EAD = \text{tiré} + CCF \times \text{non tiré}\)</span> recèle plusieurs difficultés :</p>
+<ul>
+<li><strong>Instabilité statistique.</strong> Les CCF réalisés sont dispersés, bornés artificiellement et sensibles au choix de la date de référence. Deux méthodes d’estimation appliquées au même portefeuille peuvent livrer des moyennes sensiblement différentes <span class="citation" data-cites="moral2011">(<a href="#ref-moral2011" role="doc-biblioref">Moral 2011</a>)</span>.</li>
+<li><strong>Procyclicité.</strong> Les tirages se concentrent en période de stress, lorsque plusieurs contreparties subissent le même choc. Une moyenne calculée en phase d’expansion sous-estime le CCF, d’où l’exigence d’une composante de ralentissement.</li>
+<li><strong>Rareté des défauts.</strong> Sur les portefeuilles à faible taux de défaut, le nombre de facilités défaillantes est trop faible pour une estimation robuste - c’est la raison du retrait de l’A-IRB pour les grandes entreprises et les banques.</li>
+<li><strong>Définition de la limite.</strong> Le dénominateur du CCF suppose une limite contractuelle claire. Pour les engagements sans plafond explicite, la mesure du non tiré devient elle-même conventionnelle.</li>
+<li><strong>Interaction avec la LGD.</strong> Le tirage additionnel modifie la structure de l’exposition et peut affecter le taux de recouvrement : CCF et LGD ne sont pas strictement indépendants, alors que la formule les traite comme tels.</li>
+</ul>
+<p>Ces réserves expliquent l’encadrement réglementaire croissant - planchers d’<span class="math inline">\(EAD\)</span>, périmètre A-IRB restreint, alignement de la F-IRB sur la grille standard - qui réduit progressivement la latitude des modèles internes sur ce paramètre.</p>
+<hr>
+</section>
+<section id="synthèse" class="level3" data-number="0.9">
+<h3 data-number="0.9" class="anchored" data-anchor-id="synthèse"><span class="header-section-number">0.9</span> Synthèse</h3>
+<p>Le CCF est le <strong>pont indispensable</strong> entre les activités traditionnelles de prêt (le bilan) et les activités d’engagement et de garantie (le hors-bilan). Sans lui, une banque pourrait accumuler des promesses de financement quasi illimitées sans immobiliser le moindre euro de capital - jusqu’au jour où un choc transformerait simultanément toutes ces promesses en dettes réelles.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimension</th>
+<th style="text-align: left;">Contenu clé</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Équation fondamentale</td>
+<td style="text-align: left;"><span class="math inline">\(EAD = \text{Tiré} + CCF \times \text{Non tiré}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rôle économique</td>
+<td style="text-align: left;">Anticiper le tirage des lignes disponibles avant le défaut</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Grille SA (Bâle III finalisé)</td>
+<td style="text-align: left;">UCC 10 % · crédoc 20 % · engagement 40 % · transaction 50 % · substitut 100 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F-IRB</td>
+<td style="text-align: left;">CCF supervisés, alignés sur la grille SA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A-IRB</td>
+<td style="text-align: left;">CCF estimés, plancher <span class="math inline">\(EAD \geq \text{Tiré} + 0{,}5\,CCF_{\text{SA}}\times\text{Non tiré}\)</span>, périmètre restreint</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Estimation</td>
+<td style="text-align: left;"><span class="math inline">\(CCF_{\text{réalisé}} = \dfrac{\text{Tiré}_{\text{défaut}} - \text{Tiré}_{\text{réf}}}{\text{Limite} - \text{Tiré}_{\text{réf}}}\)</span>, méthodes cohortes / horizon fixe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Impact capital</td>
+<td style="text-align: left;">Multiplicateur linéaire de l’<span class="math inline">\(EAD\)</span>, donc du <span class="math inline">\(RWA\)</span> et de l’<span class="math inline">\(EL\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Maîtriser le CCF, c’est en définitive refuser de confondre ce qu’une banque a <em>prêté</em> avec ce qu’elle risque réellement de <em>perdre</em>.</p>
+<hr>
+</section>
+<section id="références-bibliographiques" class="level3" data-number="0.10">
+<h3 data-number="0.10" class="anchored" data-anchor-id="références-bibliographiques"><span class="header-section-number">0.10</span> Références bibliographiques</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bcbs2017" class="csl-entry" role="listitem">
+Basel Committee on Banking Supervision. 2017. <em>Basel III: Finalising Post-Crisis Reforms</em>. Bank for International Settlements.
+</div>
+<div id="ref-bcbs_cre" class="csl-entry" role="listitem">
+Basel Committee on Banking Supervision. 2023. <em>The Basel Framework - <span>CRE</span>: Calculation of <span>RWA</span> for Credit Risk</em>. Bank for International Settlements.
+</div>
+<div id="ref-eba2017" class="csl-entry" role="listitem">
+European Banking Authority. 2017. <em>Guidelines on <span>PD</span> Estimation, <span>LGD</span> Estimation and the Treatment of Defaulted Exposures (EBA/GL/2017/16)</em>. European Banking Authority.
+</div>
+<div id="ref-moral2011" class="csl-entry" role="listitem">
+Moral, Gregorio. 2011. <span>«&nbsp;<span>EAD</span> Estimates for Facilities with Explicit Limits&nbsp;»</span>. In <em>The Basel II Risk Parameters: Estimation, Validation, Stress Testing - with Applications to Loan Risk Management</em>, 2ᵉ éd., édité par Bernd Engelmann et Robert Rauhmeier. Springer.
+</div>
+<div id="ref-crr3" class="csl-entry" role="listitem">
+Parlement européen et Conseil de l’Union européenne. 2024. <em>Règlement (UE) 2024/1623 (CRR3) modifiant le règlement (UE) n<sup>o</sup> 575/2013 en ce qui concerne les exigences relatives au risque de crédit</em>. Journal officiel de l’Union européenne.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  function cleanTitle() {
+    var path = window.location.pathname.replace(/\/+$/, "");
+    var isHome = path === "" || /\/(index(\.html)?)?$/.test(path);
+
+    if (isHome) {
+      // Page d'accueil : nom seulement
+      document.title = "Home";
+      return;
+    }
+
+    // Autres pages : on nettoie juste les balises HTML résiduelles et le suffixe
+    var t = document.title || "";
+    t = t.replace(/<[^>]*>/g, "");
+    t = t.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+    t = t.replace(/\s[-–—]\s.*$/, "").trim();
+    document.title = t || "Home";
+  }
+  cleanTitle();
+  document.addEventListener("DOMContentLoaded", cleanTitle);
+})();
+</script>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("^(?:http:|https:)\/\.oboukary.github\.io\/**");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>
+Copyright ©
+<script>document.write(new Date().getFullYear())</script>
+</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Site crée par Boukary Ouedraogo avec ❤️, <a href="https://quarto.org/">Quarto</a> et <img width="20" height="20" src="https://img.icons8.com/fluency/48/r-project.png" alt="r-project"></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/oboukary/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/oboukary/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:ouedraogo.boukary89@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

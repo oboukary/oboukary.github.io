@@ -1,15 +1,17 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/posts/index.html",
     "items": [
+      "/posts/ccf/index.html",
       "/posts/bale3_vasicek/index.html",
       "/posts/ifrs9/index.html",
       "/posts/bale_4/index.html"
     ]
   },
   {
-    "listing": "/posts/index.html",
+    "listing": "/index.html",
     "items": [
+      "/posts/ccf/index.html",
       "/posts/bale3_vasicek/index.html",
       "/posts/ifrs9/index.html",
       "/posts/bale_4/index.html"
