@@ -34,6 +34,11 @@ jobs:
       - name: Install Python and Dependencies
         uses: actions/setup-python@v5
         with:
+          # On reste en 3.13 (ne pas passer en 3.14) : playwright 1.49.0 fige
+          # greenlet 3.1.1, qui n'a pas de wheel cp314 et ne compile pas contre
+          # l'API frame de CPython 3.14 (echec du build pip). scikit-learn 1.6.0
+          # et pandas 2.2.3 n'ont pas non plus de wheel cp314. Tout est en wheel
+          # prebuilt en 3.13. Pour passer en 3.14, bumper d'abord playwright.
           python-version: '3.13'
           cache: 'pip'
       - run: pip install jupyter
