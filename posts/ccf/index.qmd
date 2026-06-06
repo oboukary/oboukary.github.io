@@ -2,7 +2,7 @@
 title: "Le Credit Conversion Factor (CCF) : du hors-bilan à l'exposition au défaut"
 subtitle: "Comment une promesse de financement devient une dette réelle : grille standard de Bâle III finalisé, approches IRB et estimation, illustrées par des exemples chiffrés"
 author: "Boukary Ouedraogo"
-date: "2026-06-05"
+date: "2026-06-06"
 categories: [Risque de Crédit, Bâle III, EAD, Finance Quantitative, Réglementation]
 description: "Le facteur de conversion de crédit (CCF) traduit les engagements hors-bilan non tirés en exposition au défaut (EAD). Intuition, grille de l'approche standard, traitement F-IRB et A-IRB, estimation empirique et exemples concrets chiffrés."
 bibliography: references.bib
