@@ -1,0 +1,290 @@
+---
+title: "xtable : de la régression R au tableau LaTeX en une ligne"
+subtitle: "Sept astuces pour convertir la sortie d'un modèle en tableau soigné, sans recopie manuelle ni erreur de transcription"
+author: "Boukary Ouedraogo"
+date: "2026-06-09"
+categories: [R, LaTeX, Reporting, Astuces, Régression]
+description: "Le package xtable transforme la sortie d'un modèle R en tableau LaTeX en une seule ligne de code. Sept astuces pratiques - booktabs, décimales, légende, intégration Quarto - pour un reporting reproductible et sans erreur de recopie."
+format:
+  html:
+    toc: true
+    toc-title: "Table des matières"
+    toc-depth: 3
+    number-sections: true
+---
+
+Vous venez d'ajuster un modèle. Les coefficients s'affichent à l'écran, le rapport est à rendre, et commence alors le moment le plus ingrat du travail quantitatif : **recopier à la main**, chiffre par chiffre, la sortie de R dans un tableau de votre document. Une erreur de transcription, une décimale oubliée, et c'est tout un résultat qui devient faux. Pire : à la prochaine version du modèle, il faut tout recommencer.
+
+Le package **`xtable`** supprime cette étape. Il fait le pont entre l'objet statistique produit par R et le code `LaTeX` (ou `HTML`) d'un tableau prêt à publier, en **une seule ligne**. La chaîne est entièrement reproductible : on change les données, on relance, et le tableau se met à jour tout seul.
+
+Cet article déroule sept astuces, de la conversion de base au rendu de qualité académique, autour d'un fil rouge unique : la régression de la consommation automobile (`mpg`) sur le poids (`wt`) et le temps au quart de mile (`qsec`) du jeu de données `mtcars`, intégré à R.
+
+---
+
+### Le pipeline en trois objets
+
+Tout repose sur une succession de trois objets : le **modèle**, son **résumé**, puis sa **conversion**. Les deux premiers vous sont familiers.
+
+```r
+library(xtable)                                  # le pont R vers LaTeX
+
+my_mod <- lm(mpg ~ wt + qsec, data = mtcars)     # 1. le modele ajuste
+summary(my_mod)                                  # 2. la sortie console habituelle
+```
+
+La console affiche la synthèse classique d'une régression :
+
+```text
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)  19.7462     5.2521   3.760 0.000765 ***
+wt           -5.0480     0.4840 -10.430 2.52e-11 ***
+qsec          0.9292     0.2650   3.506 0.001500 **
+---
+Residual standard error: 2.596 on 29 degrees of freedom
+Multiple R-squared:  0.8264,    Adjusted R-squared:  0.8144
+F-statistic: 69.03 on 2 and 29 DF,  p-value: 9.395e-12
+```
+
+C'est lisible dans un terminal, mais inutilisable tel quel dans un document. Le troisième objet, `xtable`, prend le relais.
+
+---
+
+### Astuce 1 - La conversion LaTeX en une ligne
+
+`xtable()` enveloppe l'objet R dans une structure intermédiaire ; `print(..., type = "latex")` en émet le code `LaTeX`.
+
+```r
+print(xtable(summary(my_mod)), type = "latex")
+```
+
+```latex
+% latex table generated in R 4.6.0 by xtable 1.8-8 package
+% Tue Jun  9 21:29:22 2026
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\
+  \hline
+(Intercept) & 19.7462 & 5.2521 & 3.76 & 0.0008 \\
+  wt & -5.0480 & 0.4840 & -10.43 & 0.0000 \\
+  qsec & 0.9292 & 0.2650 & 3.51 & 0.0015 \\
+   \hline
+\end{tabular}
+\end{table}
+```
+
+Il suffit de coller ce bloc dans votre document `LaTeX` : la table se compile sans retouche. Pour un rapport `HTML`, remplacez simplement `type = "latex"` par `type = "html"`, et `xtable` produit le `<table>` correspondant.
+
+::: {.callout-note title="xtable fonctionne sur bien plus qu'un modèle"}
+`xtable()` accepte un `data.frame`, une `matrix`, une table de contingence, un objet `aov`, `glm`, `prcomp`, et beaucoup d'autres. La même ligne sert donc pour une table de statistiques descriptives, une matrice de corrélation ou un tableau de résultats : il n'y a qu'un seul réflexe à mémoriser.
+:::
+
+---
+
+### Astuce 2 - Supprimer l'horodatage avec `comment = FALSE`
+
+Vous avez remarqué les deux premières lignes du bloc précédent :
+
+```latex
+% latex table generated in R 4.6.0 by xtable 1.8-8 package
+% Tue Jun  9 21:29:22 2026
+```
+
+Ce commentaire, daté à la seconde, **change à chaque exécution**. Dans un dépôt versionné, il pollue les `diff` git : un tableau identique apparaît modifié simplement parce que l'heure a tourné. L'option `comment = FALSE` l'élimine.
+
+```r
+print(xtable(summary(my_mod)), type = "latex", comment = FALSE)
+```
+
+Le code produit est strictement le même, débarrassé de ses deux lignes parasites. **À activer systématiquement** dès lors que la sortie est suivie en gestion de version.
+
+---
+
+### Astuce 3 - Maîtriser les décimales avec `digits`
+
+Par défaut, `xtable` retient deux décimales pour les `t value` et arrondit les `p-valeurs` à quatre. L'argument `digits` reprend la main : un entier unique pour toutes les colonnes, ou un vecteur pour un contrôle colonne par colonne.
+
+```r
+print(xtable(summary(my_mod), digits = 3), type = "latex", comment = FALSE)
+```
+
+```latex
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\
+  \hline
+(Intercept) & 19.746 & 5.252 & 3.760 & 0.001 \\
+  wt & -5.048 & 0.484 & -10.430 & 0.000 \\
+  qsec & 0.929 & 0.265 & 3.506 & 0.001 \\
+   \hline
+\end{tabular}
+\end{table}
+```
+
+Pour différencier les colonnes, passez un vecteur dont la longueur vaut le nombre de colonnes **plus un** (la première position correspond aux noms de lignes) : `digits = c(0, 3, 3, 2, 4)` donnerait trois décimales aux estimations et erreurs-types, deux au `t`, et quatre à la `p-valeur`.
+
+::: {.callout-tip title="Astuce francophone : la virgule décimale"}
+Un document en français attend une **virgule** décimale, pas un point. Réglez l'option globale `OutDec` juste avant l'appel, et `xtable` localise tous les nombres :
+
+```r
+options(OutDec = ",")
+print(xtable(summary(my_mod), digits = 3), type = "latex", comment = FALSE)
+# ... 19,746 & 5,252 & 3,760 & 0,001 ...
+```
+
+Pensez à rétablir `options(OutDec = ".")` ensuite si d'autres traitements numériques suivent dans le même script.
+:::
+
+---
+
+### Astuce 4 - Un rendu professionnel avec `booktabs`
+
+Les filets épais `\hline` empilés font daté. La référence en édition scientifique est le package `LaTeX` **`booktabs`**, qui distingue filet de tête (`\toprule`), filet intérieur (`\midrule`) et filet de pied (`\bottomrule`), avec des épaisseurs calibrées. `xtable` le gère nativement avec `booktabs = TRUE`.
+
+```r
+print(xtable(summary(my_mod), digits = 3),
+      type = "latex", booktabs = TRUE, comment = FALSE)
+```
+
+```latex
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \toprule
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\
+  \midrule
+(Intercept) & 19.746 & 5.252 & 3.760 & 0.001 \\
+  wt & -5.048 & 0.484 & -10.430 & 0.000 \\
+  qsec & 0.929 & 0.265 & 3.506 & 0.001 \\
+   \bottomrule
+\end{tabular}
+\end{table}
+```
+
+::: {.callout-important title="Ne pas oublier le préambule"}
+Le rendu `booktabs` exige le package correspondant dans le préambule de votre document : `\usepackage{booktabs}`. Sans lui, la compilation `LaTeX` échoue sur `\toprule` introuvable.
+:::
+
+---
+
+### Astuce 5 - Légender et référencer avec `caption` et `label`
+
+Un tableau sans légende ni numéro est inexploitable dans un texte long. Les arguments `caption` et `label`, passés à `xtable()`, ajoutent un `\caption{}` et un `\label{}` au code généré.
+
+```r
+print(
+  xtable(summary(my_mod),
+         caption = "Régression de la consommation sur le poids et le temps au quart de mile.",
+         label   = "tab:reg-mtcars"),
+  type = "latex", comment = FALSE
+)
+```
+
+Le code obtenu se termine désormais par :
+
+```latex
+\caption{Régression de la consommation sur le poids et le temps au quart de mile.}
+\label{tab:reg-mtcars}
+\end{table}
+```
+
+Vous pouvez alors renvoyer au tableau n'importe où dans le texte avec `\ref{tab:reg-mtcars}`, et `LaTeX` insère le bon numéro automatiquement. Pour placer la légende **au-dessus** du tableau (norme de nombreuses revues), ajoutez `caption.placement = "top"` à l'appel `print()`.
+
+---
+
+### Astuce 6 - Renommer les colonnes (et exporter n'importe quel tableau)
+
+`Estimate`, `Std. Error`, `Pr(>|t|)` : ces en-têtes anglais détonnent dans un rapport en français. Comme `xtable` digère n'importe quel `data.frame`, il suffit d'extraire la matrice des coefficients, de la convertir, puis de renommer ses colonnes avant l'appel.
+
+```r
+coef_df <- as.data.frame(summary(my_mod)$coefficients)
+colnames(coef_df) <- c("Coefficient", "Erreur-type", "Valeur t", "p-valeur")
+rownames(coef_df) <- c("Constante", "Poids (wt)", "Temps 1/4 mile (qsec)")
+
+print(xtable(coef_df, digits = 3), type = "latex", comment = FALSE)
+```
+
+Cette indirection par `data.frame` est la clé de voûte de `xtable` : dès qu'un résultat tient dans un tableau rectangulaire, vous le mettez en forme, vous le traduisez, vous le réordonnez, **avant** de le convertir. La même technique sert à fusionner deux modèles, à n'afficher que certaines lignes, ou à ajouter une colonne d'intervalles de confiance calculée à la main.
+
+---
+
+### Astuce 7 - L'intégration directe dans Quarto et R Markdown
+
+Le copier-coller du code `LaTeX` reste une étape manuelle. Dans un document **Quarto** ou **R Markdown**, on l'élimine : au sein d'un bloc de code R exécutable (entête `{r}`), `xtable` injecte directement le tableau dans le document compilé. Les options de cellule, préfixées par `#|`, pilotent le rendu. La clé est `results: asis`, qui demande à knitr de traiter la sortie comme du balisage brut, et non comme du texte à afficher.
+
+```r
+#| label: tbl-reg
+#| tbl-cap: "Régression de la consommation automobile."
+#| results: asis
+#| echo: false
+library(xtable)
+my_mod <- lm(mpg ~ wt + qsec, data = mtcars)
+print(xtable(my_mod), type = "latex", comment = FALSE)
+```
+
+À la compilation, le tableau apparaît à sa place, mis à jour à chaque rendu. Quelques points de vigilance :
+
+- **Cibler le bon format.** `type = "latex"` pour une sortie PDF, `type = "html"` pour une sortie web. Pour un document qui vise les deux, testez `knitr::is_latex_output()` afin de choisir le type à la volée.
+- **Masquer le code source** avec `echo: false`, pour ne montrer que le tableau.
+- **La légende.** En Quarto, préférez souvent l'option de cellule `tbl-cap` (qui gère la numérotation et les renvois `@tbl-reg`) plutôt que l'argument `caption` de `xtable`, afin de rester dans le système de références natif du document.
+
+---
+
+### Bonus - Au-delà de xtable : les alternatives modernes
+
+`xtable` reste imbattable de simplicité pour produire du `LaTeX` brut, mais l'écosystème s'est enrichi. Selon le besoin, d'autres packages vont plus loin.
+
+| Package | Idéal pour | Formats de sortie |
+|:--|:--|:--|
+| `xtable` | Conversion directe et légère vers `LaTeX` ou `HTML` | LaTeX, HTML |
+| `stargazer` | Comparer plusieurs modèles côte à côte (économétrie) | LaTeX, HTML, texte |
+| `modelsummary` | Tableaux de modèles modernes, hautement paramétrables | LaTeX, HTML, Word, Markdown |
+| `gt` / `gtsummary` | Tableaux élégants fondés sur une grammaire des tables | HTML, LaTeX, Word |
+| `kableExtra` | Enrichir `knitr::kable` (styles, regroupements de lignes) | HTML, LaTeX |
+| `broom` | Nettoyer la sortie d'un modèle en `data.frame` avec `tidy()` | en amont des autres |
+
+Un réflexe utile : faire passer le modèle par **`broom::tidy()`** pour obtenir un `data.frame` propre (une ligne par coefficient, colonnes `term`, `estimate`, `std.error`, `statistic`, `p.value`), puis l'envoyer à `xtable`, `gt` ou `kableExtra`. On sépare ainsi proprement l'**extraction** des résultats de leur **mise en forme**.
+
+---
+
+### Le résultat, une fois compilé
+
+Au bout de la chaîne (décimales maîtrisées, en-têtes traduits, filets `booktabs`, virgule décimale), le tableau inséré dans le document ressemble à ceci :
+
+| Terme | Coefficient | Erreur-type | Valeur t | p-valeur |
+|:--|--:|--:|--:|--:|
+| Constante | 19,746 | 5,252 | 3,76 | 0,0008 |
+| Poids (`wt`) | -5,048 | 0,484 | -10,43 | < 0,001 |
+| Temps 1/4 mile (`qsec`) | 0,929 | 0,265 | 3,51 | 0,0015 |
+
+: Régression de `mpg` sur `wt` et `qsec` (jeu de données `mtcars`, $R^2 = 0{,}826$). {#tbl-final}
+
+Le poids pèse négativement et fortement sur la consommation (chaque millier de livres supplémentaire retire environ 5 miles par gallon, à temps égal), et l'effet est très significatif. Surtout, **aucun de ces chiffres n'a été recopié à la main** : ils proviennent tous, sans intermédiaire, de l'objet `lm` produit par R.
+
+---
+
+### Récapitulatif des astuces
+
+| Argument ou option | Effet | À utiliser quand |
+|:--|:--|:--|
+| `type = "latex"` / `"html"` | Choisit le langage cible | Toujours (selon le document) |
+| `comment = FALSE` | Retire l'horodatage parasite | Dépôt versionné, toujours recommandé |
+| `digits = ...` | Fixe le nombre de décimales | Soigner la précision affichée |
+| `options(OutDec = ",")` | Virgule décimale | Documents en français |
+| `booktabs = TRUE` | Filets professionnels | Rendu de qualité académique |
+| `caption` / `label` | Légende et renvoi croisé | Documents longs, articles |
+| `results: asis` (chunk) | Insertion directe sans copier-coller | Quarto et R Markdown |
+
+---
+
+### Pour aller plus loin
+
+- La [documentation officielle de `xtable`](https://cran.r-project.org/package=xtable) sur le CRAN, et sa vignette `xtableGallery` qui recense les types d'objets pris en charge.
+- Le package [`booktabs`](https://ctan.org/pkg/booktabs) et ses bonnes pratiques de filets de tableaux.
+- Pour des tableaux de modèles plus ambitieux : [`modelsummary`](https://modelsummary.com/) et [`gt`](https://gt.rstudio.com/).
+
+L'idée à retenir tient en une phrase : **un chiffre publié ne devrait jamais être recopié à la main.** Du modèle au tableau final, la chaîne reste automatique, vérifiable et reproductible. C'est moins d'erreurs, et surtout beaucoup moins de temps perdu à chaque révision.
