@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -190,7 +190,7 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-unnumbered"></div></div>
+    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="Qkk=">BI</div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science</div><div class="category" data-category="JUMzJTg5Y29ub20lQzMlQTl0cmll">Économétrie</div><div class="category" data-category="Ug==">R</div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -220,7 +220,33 @@ window.Quarto = {
 
 <div id="listing-projects" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="RGF0YSUyMFNjaWVuY2UlMkMlQzMlODljb25vbSVDMyVBOXRyaWUlMkNCSSUyQ1I=" data-listing-date-sort="1782086400000" data-listing-file-modified-sort="1782137269675" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1874">
+<a href="../projects/04-burkina-macro-dashboard/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../projects/04-burkina-macro-dashboard/featured.svg" class="thumbnail-image card-img" style="height: 240px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Burkina Faso: Indicateurs macroéconomiques
+</h5>
+<div class="listing-categories">
 
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUMzJTg5Y29ub20lQzMlQTl0cmll'); return false;">Économétrie</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Qkk='); return false;">BI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Dashboard Quarto en R consolidant les indicateurs macroéconomiques du Burkina Faso à partir des API World Bank et FRED (St.&nbsp;Louis Fed) : PIB, inflation, chômage, ouverture…</p>
+</div>
+</div>
+</div></a>
+</div>
 </div>
 <div class="listing-no-matching d-none">Aucun article correspondant</div>
 </div>

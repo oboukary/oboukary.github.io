@@ -1,9 +1,5 @@
 [
   {
-    "listing": "/projects/projects.html",
-    "items": []
-  },
-  {
     "listing": "/posts/index.html",
     "items": [
       "/posts/xtable/index.html",
@@ -11,6 +7,12 @@
       "/posts/bale3_vasicek/index.html",
       "/posts/ifrs9/index.html",
       "/posts/bale_4/index.html"
+    ]
+  },
+  {
+    "listing": "/projects/projects.html",
+    "items": [
+      "/projects/04-burkina-macro-dashboard/index.html"
     ]
   },
   {
