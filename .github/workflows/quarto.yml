@@ -28,7 +28,11 @@ jobs:
         # readr est utilisé par posts/01_regression_lineaire ; il est ajouté par
         # précaution au cas où une version de Quarto invaliderait son cache freeze
         # et forcerait une ré-exécution du chunk R.
-        run: install.packages(c("knitr", "rmarkdown", "reticulate", "readr"))
+        # Les paquets dplyr/ggplot2/plotly/scales/here/jsonlite/purrr servent au
+        # dashboard projects/04-burkina-macro-dashboard ; ils ne sont normalement
+        # pas ré-exécutés (cache freeze versionné + data/macro_data.rds commité),
+        # mais sont installés par sécurité si le freeze venait à être invalidé.
+        run: install.packages(c("knitr", "rmarkdown", "reticulate", "readr", "dplyr", "ggplot2", "plotly", "scales", "here", "jsonlite", "purrr", "tidyr"))
         shell: Rscript {0}
 
       - name: Install Python and Dependencies

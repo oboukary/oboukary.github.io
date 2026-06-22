@@ -1,0 +1,234 @@
+/* ============================================================
+   Dashboard macro Burkina Faso — Design system
+   Objectif : rendu « analytics premium », cohérent avec le site
+   (navy #023475 + Karla), sans casser le layout « fill » de bslib.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bf-navy:      #023475;
+  --bf-navy-deep: #01234d;
+  --bf-ink:       #0f2d57;
+  --bf-slate:     #475569;
+  --bf-mute:      #64748b;
+  --bf-line:      #e7edf5;
+  --bf-page:      #eef2f8;
+  --bf-card:      #ffffff;
+  --bf-shadow:    0 1px 3px rgba(15, 45, 87, .05), 0 8px 24px rgba(15, 45, 87, .06);
+  --bf-shadow-hi: 0 6px 16px rgba(15, 45, 87, .10), 0 16px 40px rgba(15, 45, 87, .12);
+}
+
+/* ---- Typographie de marque ---- */
+.quarto-dashboard,
+.quarto-dashboard .card,
+.quarto-dashboard .bslib-value-box,
+.quarto-dashboard .navbar {
+  font-family: 'Karla', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* ---- Fond de page : bleu-gris très clair pour faire respirer les cartes ---- */
+.quarto-dashboard,
+.quarto-dashboard .dashboard-page,
+.quarto-dashboard .bslib-page-fill,
+.quarto-dashboard .html-fill-container > .bslib-grid {
+  background-color: var(--bf-page);
+}
+
+/* =================================================================
+   1. Deux barres de navigation distinctes
+   ================================================================= */
+
+/* --- Navbar du site (navy) --- */
+.navbar.navbar-expand-lg {
+  background-color: var(--bf-navy) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .06) inset, 0 2px 12px rgba(2, 35, 77, .18);
+}
+.navbar-brand .navbar-subtitle {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  opacity: 0.82;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+.navbar-expand-lg .navbar-brand,
+.navbar-expand-lg .navbar-brand .navbar-subtitle {
+  color: #ffffff !important;
+}
+.navbar-expand-lg .nav-link {
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-weight: 500;
+  transition: color 200ms ease;
+}
+.navbar-expand-lg .nav-link:hover,
+.navbar-expand-lg .nav-link:focus,
+.navbar-expand-lg .nav-link.active {
+  color: #ffffff !important;
+}
+.navbar-expand-lg .nav-link.active { font-weight: 600; }
+.navbar-expand-lg .navbar-nav .nav-link .bi,
+.navbar-expand-lg .quarto-navbar-tools a,
+.navbar-expand-lg #quarto-search .aa-DetachedSearchButton,
+.navbar-expand-lg .aa-DetachedSearchButtonIcon {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.navbar-expand-lg .quarto-navbar-tools a:hover { color: #ffffff !important; }
+
+/* --- Onglets de page du dashboard (bandeau clair) --- */
+.navbar.slim {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid var(--bf-line);
+}
+.navbar.slim .navbar-title {
+  font-weight: 700;
+  color: var(--bf-ink);
+  letter-spacing: -0.01em;
+  font-size: 1rem !important;
+  line-height: 1.3;
+}
+.navbar.slim .navbar-subtitle {
+  font-size: 0.78rem !important;
+  font-weight: 400;
+  color: var(--bf-mute);
+  opacity: 0.9;
+}
+/* Masque la mention d'auteur dans le bandeau d'en-tête du dashboard */
+.navbar.slim .navbar-author {
+  display: none;
+}
+.navbar.slim .nav-link {
+  color: var(--bf-slate) !important;
+  font-weight: 500;
+  border-radius: 7px;
+  padding: 0.35rem 0.7rem !important;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+.navbar.slim .nav-link:hover,
+.navbar.slim .nav-link:focus {
+  color: var(--bf-navy) !important;
+  background-color: #f1f5fb;
+}
+.navbar.slim .nav-link.active {
+  color: var(--bf-navy) !important;
+  font-weight: 700;
+  background-color: #eaf1fb;
+}
+
+/* =================================================================
+   2. Cartes — profondeur douce, coins arrondis, en-têtes raffinés
+   ================================================================= */
+.quarto-dashboard .card {
+  border: 1px solid var(--bf-line);
+  border-radius: 14px;
+  background: var(--bf-card);
+  box-shadow: var(--bf-shadow);
+  overflow: hidden;
+}
+.quarto-dashboard .card > .card-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--bf-line);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.005em;
+  color: var(--bf-ink);
+  padding: 0.7rem 1rem;
+}
+/* léger filet d'accent à gauche de l'en-tête de carte */
+.quarto-dashboard .card > .card-header::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 0.95rem;
+  background: var(--bf-navy);
+  border-radius: 2px;
+  margin-right: 0.6rem;
+  vertical-align: -0.12rem;
+}
+
+/* =================================================================
+   3. Value boxes — palette premium (dégradés subtils, même teinte)
+   ================================================================= */
+.quarto-dashboard .bslib-value-box {
+  border: none !important;
+  border-radius: 16px;
+  box-shadow: var(--bf-shadow);
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.quarto-dashboard .bslib-value-box:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--bf-shadow-hi);
+}
+.quarto-dashboard .bslib-value-box .value-box-area {
+  padding: 0.6rem 0.9rem;
+  justify-content: center;
+}
+.quarto-dashboard .bslib-value-box .value-box-title {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.66rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-bottom: 0.2rem;
+  line-height: 1.25;
+}
+.quarto-dashboard .bslib-value-box .value-box-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+.quarto-dashboard .bslib-value-box .value-box-showcase {
+  opacity: 0.9;
+  padding-top: 0.5rem;
+}
+.quarto-dashboard .bslib-value-box .value-box-showcase .bi,
+.quarto-dashboard .bslib-value-box .value-box-showcase i {
+  font-size: 1.5rem;
+}
+
+/* Palette raffinée par catégorie (dégradé diagonal doux, texte blanc) */
+.quarto-dashboard .bslib-value-box.bg-primary {
+  background: linear-gradient(150deg, #1b5aa6 0%, #0e3f78 100%) !important;
+}
+.quarto-dashboard .bslib-value-box.bg-success {
+  background: linear-gradient(150deg, #1f9d6b 0%, #117049 100%) !important;
+}
+.quarto-dashboard .bslib-value-box.bg-warning {
+  background: linear-gradient(150deg, #e89a3c 0%, #c66f16 100%) !important;
+  color: #ffffff !important;
+}
+.quarto-dashboard .bslib-value-box.bg-warning * { color: #ffffff !important; }
+.quarto-dashboard .bslib-value-box.bg-info {
+  background: linear-gradient(150deg, #7b5cd6 0%, #553aa6 100%) !important;
+}
+.quarto-dashboard .bslib-value-box.bg-secondary {
+  background: linear-gradient(150deg, #5b6b80 0%, #36424f 100%) !important;
+}
+
+/* =================================================================
+   4. En-tête du dashboard (bandeau titre)
+   ================================================================= */
+.quarto-dashboard .quarto-dashboard-header .navbar-title {
+  color: var(--bf-ink);
+}
+
+/* =================================================================
+   5. Cartes de la page Méthodologie (.card avec titre)
+   ================================================================= */
+.quarto-dashboard .card .card-body table {
+  font-size: 0.84rem;
+}
+.quarto-dashboard .card .card-body table th {
+  color: var(--bf-navy);
+  border-bottom: 2px solid var(--bf-line);
+}
+.quarto-dashboard .card .card-body code {
+  background: #f1f5fb;
+  color: #0b3a82;
+  padding: 0.05rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.82em;
+}

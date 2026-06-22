@@ -1,10 +1,12 @@
 [
   {
     "listing": "/projects/projects.html",
-    "items": []
+    "items": [
+      "/projects/04-burkina-macro-dashboard/index.html"
+    ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/posts/index.html",
     "items": [
       "/posts/xtable/index.html",
       "/posts/ccf/index.html",
@@ -14,7 +16,7 @@
     ]
   },
   {
-    "listing": "/posts/index.html",
+    "listing": "/index.html",
     "items": [
       "/posts/xtable/index.html",
       "/posts/ccf/index.html",

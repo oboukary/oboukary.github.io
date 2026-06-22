@@ -1,0 +1,462 @@
+---
+title: "Burkina Faso: Indicateurs macroéconomiques"
+subtitle: "Dashboard de reporting macro : croissance, prix, démographie, commerce et industrie"
+description: "Dashboard Quarto en R consolidant les indicateurs macroéconomiques du Burkina Faso à partir des API World Bank et FRED (St. Louis Fed) : PIB, inflation, chômage, ouverture commerciale et structure sectorielle."
+author: "Boukary Ouedraogo"
+date: "2026-06-22"
+image: featured.svg
+draft: false
+categories:
+  - Data Science
+  - Économétrie
+  - BI
+  - R
+format:
+  dashboard:
+    theme: cosmo
+    css: dashboard.css
+    nav-buttons:
+      - icon: github
+        href: https://github.com/oboukary/
+    scrolling: true
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: true
+---
+
+```{r setup}
+#| include: false
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(ggplot2)
+  library(plotly)
+  library(scales)
+  library(here)
+})
+
+data_path <- here::here("projects", "04-burkina-macro-dashboard", "data", "macro_data.rds")
+script_path <- here::here("projects", "04-burkina-macro-dashboard", "R", "get_data.R")
+
+if (!file.exists(data_path)) {
+  source(script_path)
+}
+macro <- readRDS(data_path)
+
+serie <- function(name) macro |> dplyr::filter(.data$serie == name) |> dplyr::arrange(year)
+
+latest_value <- function(name) {
+  d <- serie(name)
+  if (nrow(d) == 0) return(NA_real_)
+  d$value[nrow(d)]
+}
+
+latest_year <- function(name) {
+  d <- serie(name)
+  if (nrow(d) == 0) return(NA_integer_)
+  d$year[nrow(d)]
+}
+
+pal <- list(
+  navy  = "#023475",
+  sky   = "#0ea5e9",
+  green = "#16a34a",
+  amber = "#d97706",
+  red   = "#dc2626",
+  grey  = "#64748b"
+)
+
+dash_font <- "Karla, system-ui, -apple-system, 'Segoe UI', sans-serif"
+
+theme_dash <- function() {
+  theme_minimal(base_size = 13) +
+    theme(
+      plot.title = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_line(color = "#edf1f7", linewidth = 0.4),
+      axis.text = element_text(color = "#64748b", size = 11),
+      axis.ticks = element_blank(),
+      legend.title = element_blank()
+    )
+}
+
+# Post-traitement commun : typographie de marque, fond transparent,
+# étiquettes de survol élégantes, barre d'outils masquée.
+finish <- function(gg, legend = FALSE, tooltip = "text") {
+  p <- plotly::ggplotly(gg, tooltip = tooltip)
+  p <- plotly::layout(
+    p,
+    margin = list(t = 14, r = 14, b = 10, l = 10),
+    font = list(family = dash_font, color = "#334155", size = 12),
+    paper_bgcolor = "rgba(0,0,0,0)",
+    plot_bgcolor = "rgba(0,0,0,0)",
+    hoverlabel = list(
+      bgcolor = "#0f2d57",
+      bordercolor = "#0f2d57",
+      font = list(color = "#ffffff", family = dash_font, size = 12)
+    ),
+    legend = if (legend) list(orientation = "h", x = 0, y = 1.14,
+                              font = list(size = 11, family = dash_font),
+                              bgcolor = "rgba(0,0,0,0)") else NULL,
+    showlegend = legend
+  )
+  plotly::config(p, displayModeBar = FALSE)
+}
+
+line_chart <- function(name, title = NULL, color = pal$navy, suffix = "", accuracy = 0.1) {
+  d <- serie(name)
+  p <- ggplot(d, aes(x = year, y = value)) +
+    geom_line(color = color, linewidth = 1.2, lineend = "round") +
+    geom_point(aes(text = paste0("<b>", year, "</b><br>",
+                                 scales::number(value, accuracy = accuracy, big.mark = " "), suffix)),
+               color = color, fill = "#ffffff", shape = 21, stroke = 1.1, size = 1.6) +
+    labs(x = NULL, y = NULL) +
+    theme_dash()
+  finish(p, legend = FALSE)
+}
+
+dual_line_chart <- function(name1, label1, name2, label2, title = NULL, color1 = pal$navy, color2 = pal$sky, suffix = "") {
+  d1 <- serie(name1) |> mutate(serie_label = label1)
+  d2 <- serie(name2) |> mutate(serie_label = label2)
+  d <- bind_rows(d1, d2)
+  d$serie_label <- factor(d$serie_label, levels = c(label1, label2))
+  p <- ggplot(d, aes(x = year, y = value, color = serie_label, group = serie_label)) +
+    geom_line(linewidth = 1.2, lineend = "round") +
+    geom_point(aes(text = paste0("<b>", serie_label, "</b><br>", year, " : ",
+                                 scales::number(value, accuracy = 0.1), suffix)),
+               size = 1.4) +
+    scale_color_manual(values = setNames(c(color1, color2), c(label1, label2))) +
+    labs(x = NULL, y = NULL, color = NULL) +
+    theme_dash()
+  finish(p, legend = TRUE)
+}
+
+area_chart_sectors <- function(title = NULL) {
+  d <- bind_rows(
+    serie("agriculture_pib") |> mutate(secteur = "Agriculture"),
+    serie("industrie_pib")   |> mutate(secteur = "Industrie"),
+    serie("services_pib")    |> mutate(secteur = "Services")
+  )
+  d$secteur <- factor(d$secteur, levels = c("Services", "Industrie", "Agriculture"))
+  p <- ggplot(d, aes(x = year, y = value, fill = secteur)) +
+    geom_area(position = "stack", alpha = 0.9, linewidth = 0) +
+    scale_fill_manual(values = c("Agriculture" = pal$amber, "Industrie" = pal$navy, "Services" = pal$sky)) +
+    labs(x = NULL, y = NULL, fill = NULL) +
+    theme_dash()
+  finish(p, legend = TRUE, tooltip = c("fill", "x", "y"))
+}
+
+fmt_usd_b   <- function(x) paste0(scales::number(x / 1e9, accuracy = 0.1), " Md $")
+fmt_pct     <- function(x, accuracy = 0.1) paste0(scales::number(x, accuracy = accuracy), " %")
+fmt_int     <- function(x) scales::number(x, big.mark = " ")
+fmt_million <- function(x) paste0(scales::number(x / 1e6, accuracy = 0.1), " M")
+
+# Construit le contenu d'une value box en accolant l'année de référence
+# de l'indicateur au titre (ex. « PIB courant · 2024 »).
+vbox <- function(title, value_str, name) {
+  yr <- latest_year(name)
+  ttl <- if (is.na(yr)) title else paste0(title, " · ", yr)
+  list(title = ttl, value = value_str)
+}
+```
+
+# Vue d'ensemble
+
+## Row {height="22%"}
+
+```{r}
+#| content: valuebox
+#| icon: cash-coin
+#| color: primary
+vbox("PIB courant", fmt_usd_b(latest_value("pib_usd")), "pib_usd")
+```
+
+```{r}
+#| content: valuebox
+#| icon: graph-up-arrow
+#| color: success
+vbox("Croissance du PIB", fmt_pct(latest_value("croissance_pib")), "croissance_pib")
+```
+
+```{r}
+#| content: valuebox
+#| icon: percent
+#| color: warning
+vbox("Inflation (IPC)", fmt_pct(latest_value("inflation_ipc")), "inflation_ipc")
+```
+
+```{r}
+#| content: valuebox
+#| icon: people-fill
+#| color: info
+vbox("Population", fmt_million(latest_value("population")), "population")
+```
+
+```{r}
+#| content: valuebox
+#| icon: briefcase
+#| color: secondary
+vbox("Taux de chômage", fmt_pct(latest_value("taux_chomage")), "taux_chomage")
+```
+
+## Row {height="78%"}
+
+### Column {width="60%"}
+
+```{r}
+#| title: "PIB courant (Md $) — World Bank"
+line_chart("pib_usd", "Produit Intérieur Brut (US$ courants)", color = pal$navy, suffix = " $")
+```
+
+### Column {width="40%"}
+
+```{r}
+#| title: "Structure sectorielle du PIB (%)"
+area_chart_sectors("Agriculture · Industrie · Services")
+```
+
+# Croissance & PIB
+
+## Row {height="50%"}
+
+```{r}
+#| title: "PIB par habitant (US$ courants) — World Bank"
+line_chart("pib_par_habitant", "PIB par habitant", color = pal$navy, suffix = " $")
+```
+
+```{r}
+#| title: "Taux de croissance annuel du PIB réel (%)"
+line_chart("croissance_pib", "Croissance du PIB réel", color = pal$green, suffix = " %")
+```
+
+## Row {height="50%"}
+
+```{r}
+#| title: "PIB courant : recoupement World Bank / FRED"
+dual_line_chart("pib_usd", "World Bank", "pib_usd_fred", "FRED (mirror WB)",
+                 "Comparaison des sources — PIB courant (US$)", suffix = " $")
+```
+
+```{r}
+#| title: "Taux de change FCFA / USD — FRED"
+line_chart("taux_change_fcfa", "Taux de change nominal (FCFA pour 1 USD)", color = pal$sky, suffix = " FCFA")
+```
+
+# Inflation & prix
+
+## Row {height="50%"}
+
+```{r}
+#| title: "Inflation : IPC vs déflateur du PIB (%)"
+dual_line_chart("inflation_ipc", "Inflation IPC", "inflation_deflateur", "Déflateur du PIB",
+                 "Deux mesures de l'inflation — World Bank", color1 = pal$amber, color2 = pal$navy, suffix = " %")
+```
+
+```{r}
+#| title: "Inflation IPC : recoupement World Bank / FRED"
+dual_line_chart("inflation_ipc", "World Bank", "inflation_ipc_fred", "FRED (mirror WB)",
+                 "Comparaison des sources — Inflation IPC", color1 = pal$amber, color2 = pal$sky, suffix = " %")
+```
+
+## Row {height="50%"}
+
+```{r}
+#| title: "Dette extérieure (% du PIB) — FRED (IMF)"
+line_chart("dette_exterieure", "Dette extérieure officielle", color = pal$red, suffix = " % PIB")
+```
+
+```{r}
+#| title: "Lecture"
+#| padding: 20px
+htmltools::HTML(
+  "<p style='font-size:0.92rem;line-height:1.6;color:#334155;'>
+  Le <strong>déflateur du PIB</strong> capture l'évolution des prix de l'ensemble des biens
+  produits dans l'économie, tandis que l'<strong>IPC</strong> se concentre sur le panier de
+  consommation des ménages. Leur écart reflète les variations relatives des prix à l'export
+  (coton, or) par rapport aux prix domestiques.</p>"
+)
+```
+
+# Démographie
+
+## Row {height="22%"}
+
+```{r}
+#| content: valuebox
+#| icon: people-fill
+#| color: info
+vbox("Population totale", fmt_million(latest_value("population")), "population")
+```
+
+```{r}
+#| content: valuebox
+#| icon: arrow-up-right
+#| color: primary
+vbox("Croissance démographique", fmt_pct(latest_value("croissance_pop")), "croissance_pop")
+```
+
+```{r}
+#| content: valuebox
+#| icon: lightning-charge-fill
+#| color: warning
+vbox("Accès à l'électricité", fmt_pct(latest_value("acces_electricite")), "acces_electricite")
+```
+
+## Row {height="78%"}
+
+```{r}
+#| title: "Population totale - World Bank"
+line_chart("population", "Évolution de la population", color = pal$navy, suffix = " hab.", accuracy = 0)
+```
+
+```{r}
+#| title: "Accès à l'électricité (% population) - World Bank"
+line_chart("acces_electricite", "Accès à l'électricité", color = pal$amber, suffix = " %")
+```
+
+# Commerce & investissement
+
+## Row {height="22%"}
+
+```{r}
+#| content: valuebox
+#| icon: globe2
+#| color: primary
+vbox("Taux d'ouverture", fmt_pct(latest_value("taux_ouverture")), "taux_ouverture")
+```
+
+```{r}
+#| content: valuebox
+#| icon: box-arrow-up-right
+#| color: success
+vbox("Exportations (% PIB)", fmt_pct(latest_value("exportations_pib")), "exportations_pib")
+```
+
+```{r}
+#| content: valuebox
+#| icon: box-arrow-in-down-left
+#| color: secondary
+vbox("Importations (% PIB)", fmt_pct(latest_value("importations_pib")), "importations_pib")
+```
+
+```{r}
+#| content: valuebox
+#| icon: cash-stack
+#| color: info
+vbox("IDE net entrant (% PIB)", fmt_pct(latest_value("ide_net_pib")), "ide_net_pib")
+```
+
+## Row {height="78%"}
+
+### Column {width="55%"}
+
+```{r}
+#| title: "Exportations vs Importations (% du PIB) — World Bank"
+dual_line_chart("exportations_pib", "Exportations", "importations_pib", "Importations",
+                 "Échanges extérieurs", color1 = pal$green, color2 = pal$red, suffix = " %")
+```
+
+### Column {width="45%"}
+
+```{r}
+#| title: "Taux d'ouverture commerciale (% PIB)"
+line_chart("taux_ouverture", "Commerce total (exports + imports) / PIB", color = pal$sky, suffix = " %")
+```
+
+# Emploi & industrie
+
+## Row {height="22%"}
+
+```{r}
+#| content: valuebox
+#| icon: briefcase
+#| color: secondary
+vbox("Taux de chômage", fmt_pct(latest_value("taux_chomage")), "taux_chomage")
+```
+
+```{r}
+#| content: valuebox
+#| icon: gear-fill
+#| color: primary
+vbox("Valeur ajoutée industrie", fmt_pct(latest_value("industrie_pib")), "industrie_pib")
+```
+
+```{r}
+#| content: valuebox
+#| icon: tools
+#| color: warning
+vbox("Dont manufacture", fmt_pct(latest_value("manufacture_pib")), "manufacture_pib")
+```
+
+## Row {height="78%"}
+
+### Column {width="40%"}
+
+```{r}
+#| title: "Taux de chômage (% population active) - World Bank"
+line_chart("taux_chomage", "Estimation modélisée OIT", color = pal$grey, suffix = " %")
+```
+
+### Column {width="60%"}
+
+```{r}
+#| title: "Industrie totale vs Manufacture (% du PIB)"
+dual_line_chart("industrie_pib", "Industrie (total)", "manufacture_pib", "Manufacture",
+                 "Taux d'industrialisation", color1 = pal$navy, color2 = pal$amber, suffix = " %")
+```
+
+# Méthodologie
+
+## Row
+
+### Column {width="60%"}
+
+::: {.card title="Sources et indicateurs"}
+
+Ce dashboard agrège des **données publiques et vérifiables**, consolidées automatiquement
+par un script R (`R/get_data.R`) au moment du rendu du site.
+
+**World Bank Open Data API** (`api.worldbank.org`) - source principale, pour sa couverture
+exhaustive des indicateurs structurels du Burkina Faso (code pays `BFA`) :
+
+| Indicateur | Code World Bank |
+|---|---|
+| PIB courant, PIB/habitant, croissance | `NY.GDP.MKTP.CD`, `NY.GDP.PCAP.CD`, `NY.GDP.MKTP.KD.ZG` |
+| Inflation (IPC, déflateur) | `FP.CPI.TOTL.ZG`, `NY.GDP.DEFL.KD.ZG` |
+| Population, croissance démographique | `SP.POP.TOTL`, `SP.POP.GROW` |
+| Accès à l'électricité | `EG.ELC.ACCS.ZS` |
+| Taux de chômage (estimation OIT) | `SL.UEM.TOTL.ZS` |
+| Commerce, exports, imports, IDE | `NE.TRD.GNFS.ZS`, `NE.EXP.GNFS.ZS`, `NE.IMP.GNFS.ZS`, `BX.KLT.DINV.WD.GD.ZS` |
+| Valeur ajoutée sectorielle | `NV.AGR.TOTL.ZS`, `NV.IND.TOTL.ZS`, `NV.IND.MANF.ZS`, `NV.SRV.TOTL.ZS` |
+
+**FRED — Federal Reserve Bank of St. Louis** (`fred.stlouisfed.org`) — utilisé en
+**recoupement** des séries World Bank et pour des séries complémentaires (IMF, UN) :
+
+| Série | Code FRED |
+|---|---|
+| PIB courant (mirror World Bank) | `MKTGDPBFA646NWDB` |
+| PIB par habitant (mirror World Bank) | `PCAGDPBFA646NWDB` |
+| Inflation IPC (mirror World Bank) | `FPCPITOTLZGBFA` |
+| Dette extérieure officielle (IMF) | `BFADGGDPPT` |
+| Taux de change FCFA/USD (UN) | `XRNCUSBFA618NRUG` |
+
+:::
+
+### Column {width="40%"}
+
+::: {.card title="Limites & avertissements"}
+
+- Les séries **World Bank** sont mises à jour annuellement, avec un décalage de
+  publication de 12 à 24 mois selon l'indicateur.
+- Le **taux de chômage** repose sur une estimation modélisée de l'OIT, sensible aux
+  hypothèses méthodologiques (informalité élevée au Burkina Faso).
+- Les valeurs **FRED** mirroirent en grande partie les mêmes sources primaires (World
+  Bank, IMF) : leur usage ici vise la **validation croisée**, pas l'indépendance statistique.
+- Données arrêtées aux dernières publications disponibles au moment du rendu du site.
+
+:::
+
+::: {.card title="Stack technique"}
+`R` · `Quarto (format: dashboard)` · `World Bank API` · `FRED API` · `ggplot2` · `plotly` · `dplyr`
+:::
