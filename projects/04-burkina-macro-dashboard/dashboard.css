@@ -101,8 +101,9 @@
 .navbar.slim .nav-link {
   color: var(--bf-slate) !important;
   font-weight: 500;
+  font-size: 0.8rem !important;
   border-radius: 7px;
-  padding: 0.35rem 0.7rem !important;
+  padding: 0.3rem 0.6rem !important;
   transition: color 180ms ease, background-color 180ms ease;
 }
 .navbar.slim .nav-link:hover,

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Boukary Ouedraogo">
+<meta name="description" content="Application web interactive (Streamlit) qui agrège en temps réel les indicateurs macroéconomiques des huit pays de l’UEMOA depuis l’API de la Banque mondiale : croissance, inflation, dette, commerce extérieur, démographie. Conteneurisée (Docker) et intégrée en CI/CD.">
 
-<title>Boukary Ouedraogo&lt;span class="navbar-subtitle"&gt;Consultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision&lt;/span&gt;</title>
+<title>UEMOA Macro Dashboard – Boukary OuedraogoConsultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,24 +28,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./assets/svg/favicon.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-a1bcd7724060418013ebc5af03ccdf8e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-24f1f11da23861e7e8a7bbb107a02e0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/svg/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a1bcd7724060418013ebc5af03ccdf8e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-24f1f11da23861e7e8a7bbb107a02e0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,73 +72,14 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Recherche"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-posts .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 3,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-posts'] = new List('listing-posts', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sas.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&amp;family=Karla:wght@300;400;500;600;700&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="assets/css/syntax-languages.css">
+<link rel="stylesheet" href="../../assets/css/syntax-languages.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -147,7 +89,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Boukary Ouedraogo<span class="navbar-subtitle">Consultant Data &amp; Analytics – Finance, Économie, Risque &amp; Décision</span></span>
     </a>
   </div>
@@ -158,23 +100,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">A propos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./services.html"> 
+    <a class="nav-link" href="../../services.html"> 
 <span class="menu-text">Mes services</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts/index.html"> 
+    <a class="nav-link" href="../../posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/projects.html"> 
+    <a class="nav-link" href="../../projects/projects.html"> 
 <span class="menu-text">Projets</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> 
+    <a class="nav-link" href="../../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
@@ -185,139 +127,194 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
-<!-- main -->
-<div class="quarto-about-marquee column-page">
-  <div class="about-image-container">
-  </div>
-  <div class="about-contents">
-    <header id="title-block-header" class="quarto-title-block"></header> <main class="content column-page" id="quarto-document-content">
-<div id="hero-heading">
-<p align="center">
-<img src="assets/svg/welcome.svg" width="750">
-</p>
-</div>
-<hr>
-<section id="publications-récentes" class="level2">
-<h2 data-anchor-id="publications-récentes">Publications récentes</h2>
-<div id="listing-posts" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UiUyQ0xhVGVYJTJDUmVwb3J0aW5nJTJDQXN0dWNlcyUyQ1IlQzMlQTlncmVzc2lvbg==" data-listing-date-sort="1780963200000" data-listing-file-modified-sort="1782225877974" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2039">
-<a href="./posts/xtable/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-xtable : de la régression R au tableau LaTeX en une ligne
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-9 juin 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="UmlzcXVlJTIwZGUlMjBDciVDMyVBOWRpdCUyQ0IlQzMlQTJsZSUyMElJSSUyQ0VBRCUyQ0ZpbmFuY2UlMjBRdWFudGl0YXRpdmUlMkNSJUMzJUE5Z2xlbWVudGF0aW9u" data-listing-date-sort="1780704000000" data-listing-file-modified-sort="1782225877974" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3566">
-<a href="./posts/ccf/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="posts/ccf/index_files/figure-html/capital-vs-ccf-1.png" alt="Capital requis en fonction du CCF pour deux niveaux de PD" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Le Credit Conversion Factor (CCF) : du hors-bilan à l’exposition au défaut
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-6 juin 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="UmlzcXVlJTIwZGUlMjBDciVDMyVBOWRpdCUyQ0IlQzMlQTJsZSUyMElJSSUyQ0ZpbmFuY2UlMjBRdWFudGl0YXRpdmUlMkNNb2QlQzMlQTlsaXNhdGlvbg==" data-listing-date-sort="1780185600000" data-listing-file-modified-sort="1782225877973" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3984">
-<a href="./posts/bale3_vasicek/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="posts/bale3_vasicek/index_files/figure-html/var-el-ul-1.png" alt="Distribution des pertes asymetrique montrant EL, UL, VaR et la queue 100 pourcent moins le niveau de confiance" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Du Modèle de Vasicek à la formule de capital Bâle III
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-31 mai 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="UiVDMyVBOWdsZW1lbnRhdGlvbiUyQ1Jpc3F1ZSUyMGRlJTIwY3IlQzMlQTlkaXQlMkNJRlJTJTIwOSUyQ0ZpbmFuY2UlMkNDb21wdGFiaWxpdCVDMyVBOQ==" data-listing-date-sort="1778630400000" data-listing-file-modified-sort="1782225877974" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1865">
-<a href="./posts/ifrs9/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" data-src="./posts/ifrs9/ifrs9-cover.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-IFRS 9 : Le modèle de dépréciation en 3 stades décrypté
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-13 mai 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="UiVDMyVBOWdsZW1lbnRhdGlvbiUyQ1Jpc3F1ZSUyMGRlJTIwY3IlQzMlQTlkaXQlMkNCJUMzJUEybGUlMjBJViUyQ0ZpbmFuY2U=" data-listing-date-sort="1766620800000" data-listing-file-modified-sort="1782225877974" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1450">
-<a href="./posts/bale_4/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" data-src="./posts/bale_4/bale-iv-cover.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Bâle IV : Évolutions du cadre prudentiel du risque de crédit
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-25 déc. 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">Aucun article correspondant</div>
-<nav id="posts-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#contexte" id="toc-contexte" class="nav-link active" data-scroll-target="#contexte">Contexte</a></li>
+  <li><a href="#lapplication" id="toc-lapplication" class="nav-link" data-scroll-target="#lapplication">L’application</a></li>
+  <li><a href="#un-choix-de-visualisation-éviter-le-graphique-spaghetti" id="toc-un-choix-de-visualisation-éviter-le-graphique-spaghetti" class="nav-link" data-scroll-target="#un-choix-de-visualisation-éviter-le-graphique-spaghetti">Un choix de visualisation : éviter le « graphique spaghetti »</a></li>
+  <li><a href="#données-sources" id="toc-données-sources" class="nav-link" data-scroll-target="#données-sources">Données &amp; sources</a></li>
+  <li><a href="#architecture-technique" id="toc-architecture-technique" class="nav-link" data-scroll-target="#architecture-technique">Architecture technique</a></li>
+  <li><a href="#feuille-de-route" id="toc-feuille-de-route" class="nav-link" data-scroll-target="#feuille-de-route">Feuille de route</a></li>
+  <li><a href="#stack" id="toc-stack" class="nav-link" data-scroll-target="#stack">Stack</a></li>
+  </ul>
 </nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">UEMOA Macro Dashboard</h1>
+<p class="subtitle lead">Application Streamlit des indicateurs macroéconomiques des 8 pays de l’UEMOA</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Économie</div>
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">BI</div>
+    <div class="quarto-category">Python</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Application web interactive (Streamlit) qui agrège en temps réel les indicateurs macroéconomiques des huit pays de l’UEMOA depuis l’API de la Banque mondiale : croissance, inflation, dette, commerce extérieur, démographie. Conteneurisée (Docker) et intégrée en CI/CD.
+  </div>
 </div>
-<hr>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Auteur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Boukary Ouedraogo </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 juin 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>🚀 <strong>Application en ligne</strong> &nbsp; <a href="https://uemoa-macroecomics-indicators.streamlit.app/" class="btn btn-success btn-sm" target="_blank" rel="noopener">Ouvrir le dashboard</a> &nbsp; <a href="https://github.com/oboukary/uemoa-macro-dashboard" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener">Code source (GitHub)</a></p>
+</div>
+</div>
+</div>
+<section id="contexte" class="level2">
+<h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
+<p>L’<strong>UEMOA</strong> (Union Économique et Monétaire Ouest-Africaine) regroupe huit pays partageant le franc CFA : Bénin, Burkina Faso, Côte d’Ivoire, Guinée-Bissau, Mali, Niger, Sénégal et Togo. Suivre leur conjoncture suppose habituellement de jongler entre plusieurs portails statistiques, formats et millésimes.</p>
+<p>L’objectif de ce projet : offrir un <strong>point d’entrée unique et interactif</strong> pour explorer, comparer et exporter les grands indicateurs macroéconomiques de la zone, avec des données tirées <strong>en direct</strong> des sources officielles — sans base de données à maintenir.</p>
+</section>
+<section id="lapplication" class="level2">
+<h2 class="anchored" data-anchor-id="lapplication">L’application</h2>
+<p>Construite avec <strong>Streamlit</strong>, l’application s’organise en quatre vues :</p>
+<ul>
+<li><strong>Vue régionale</strong>: synthèse, évolution et classement des huit pays pour un indicateur donné.</li>
+<li><strong>Comparaison pays</strong>: trajectoires comparées sur une période ajustable.</li>
+<li><strong>Fiche pays</strong>: tableau de bord mono-pays (cartes d’indicateurs clés + graphiques d’évolution), avec drapeau et dernière année disponible.</li>
+<li><strong>Sources &amp; méthodologie</strong>: provenance des données, catalogue d’indicateurs et limites d’interprétation.</li>
+</ul>
+<p>Chaque vue propose un <strong>export CSV</strong>, des graphiques <strong>Plotly</strong> interactifs et une interface soignée (barre latérale sombre, cartes KPI, drapeaux des pays).</p>
+<p>Douze indicateurs sont disponibles (PIB, croissance, inflation, population, chômage, dette publique, solde courant, exportations, importations, IDE, espérance de vie…), pilotés par un simple fichier de configuration <code>YAML</code>.</p>
+</section>
+<section id="un-choix-de-visualisation-éviter-le-graphique-spaghetti" class="level2">
+<h2 class="anchored" data-anchor-id="un-choix-de-visualisation-éviter-le-graphique-spaghetti">Un choix de visualisation : éviter le « graphique spaghetti »</h2>
+<p>Tracer huit séries volatiles sur soixante ans dans un même graphique produit un enchevêtrement illisible. L’application privilégie donc, pour la vue régionale, des <strong>petits multiples</strong> : un panneau par pays, à axes partagés, avec la <strong>médiane régionale</strong> rappelée en gris derrière chaque courbe. C’est le standard des publications macroéconomiques (FMI, <em>The Economist</em>) : on compare les huit pays d’un coup d’œil tout en gardant chaque trajectoire lisible.</p>
+</section>
+<section id="données-sources" class="level2">
+<h2 class="anchored" data-anchor-id="données-sources">Données &amp; sources</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Rôle</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Banque mondiale</strong> (API v2)</td>
+<td>Source principale : PIB, prix, démographie, dette, commerce</td>
+<td>✅ Active</td>
+</tr>
+<tr class="even">
+<td><strong>FMI / WEO</strong> (DataMapper)</td>
+<td>Prévisions, solde budgétaire, compte courant</td>
+<td>🧩 Intégrée</td>
+</tr>
+<tr class="odd">
+<td><strong>FRED</strong> (St.&nbsp;Louis Fed)</td>
+<td>Contexte mondial (pétrole, dollar, taux)</td>
+<td>🔑 Optionnelle</td>
+</tr>
+</tbody>
+</table>
+<p>Les pays sont identifiés par leur code <strong>ISO 3166-1 alpha-3</strong>, commun à la Banque mondiale et au FMI, ce qui permet de croiser les sources sans ambiguïté. Les appels API sont <strong>mis en cache</strong> pour limiter la charge réseau.</p>
+</section>
+<section id="architecture-technique" class="level2">
+<h2 class="anchored" data-anchor-id="architecture-technique">Architecture technique</h2>
+<ul>
+<li><strong>Frontend &amp; logique</strong> : Python, Streamlit (multipage), Plotly.</li>
+<li><strong>Extraction</strong> : modules dédiés par source (<code>requests</code> + pandas), renvoyant un format <em>tidy</em> unique.</li>
+<li><strong>Configuration</strong> : catalogue d’indicateurs en YAML, référentiel pays isolé.</li>
+<li><strong>Conteneurisation</strong> : <code>Dockerfile</code> + <code>docker-compose</code> (image légère <code>python:3.11-slim</code>).</li>
+<li><strong>CI/CD</strong> : workflow <strong>GitHub Actions</strong> qui, à chaque <em>push</em>, installe les dépendances, compile et teste les imports, puis construit et publie l’image Docker sur <strong>GitHub Container Registry</strong>.</li>
+<li><strong>Déploiement</strong> : Streamlit Community Cloud (redéploiement automatique à chaque <em>push</em>).</li>
+</ul>
+</section>
+<section id="feuille-de-route" class="level2">
+<h2 class="anchored" data-anchor-id="feuille-de-route">Feuille de route</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>V1</strong> ✅</td>
+<td>Banque mondiale · 8 pays · 12 indicateurs · petits multiples · export CSV</td>
+</tr>
+<tr class="even">
+<td><strong>V2</strong> 🧩</td>
+<td>FMI (WEO) et FRED dans l’interface · cache analytique · rafraîchissement auto</td>
+</tr>
+<tr class="odd">
+<td><strong>V3</strong> 🔭</td>
+<td>Prévisions simples · scoring macro par pays · rapport PDF automatique</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stack" class="level2">
+<h2 class="anchored" data-anchor-id="stack">Stack</h2>
+<p><code>Python</code> · <code>Streamlit</code> · <code>Plotly</code> · <code>pandas</code> · <code>World Bank API</code> · <code>FMI DataMapper</code> · <code>Docker</code> · <code>GitHub Actions</code></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>👉 <a href="https://uemoa-macroecomics-indicators.streamlit.app/" target="_blank" rel="noopener">Explorer l’application interactive</a></p>
+</div>
+</div>
+</div>
 
 
 </section>
-</main> 
-    <div class="about-footer"><div class="about-links">
-  <a href="mailto:bo.ouedraogo7@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-  <a href="https://github.com/oboukary" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="https://www.linkedin.com/in/oboukary/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-</div>
-</div>
-  </div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script>
 (function () {
   function cleanTitle() {
@@ -345,6 +342,13 @@ Bâle IV : Évolutions du cadre prudentiel du risque de crédit
 
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
