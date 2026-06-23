@@ -8,7 +8,7 @@ suppressPackageStartupMessages({
   library(readr)
 })
 
-wb_indicator <- function(indicator, country = "BFA", start = 1990, end = 2024, retries = 3) {
+wb_indicator <- function(indicator, country = "BFA", start = 1990, end = 2026, retries = 3) {
   url <- sprintf(
     "https://api.worldbank.org/v2/country/%s/indicator/%s?format=json&per_page=20000&date=%d:%d",
     country, indicator, start, end

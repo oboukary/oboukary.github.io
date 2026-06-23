@@ -1,0 +1,107 @@
+---
+title: "UEMOA Macro Dashboard"
+subtitle: "Application Streamlit des indicateurs macroéconomiques des 8 pays de l'UEMOA"
+description: "Application web interactive (Streamlit) qui agrège en temps réel les indicateurs macroéconomiques des huit pays de l'UEMOA depuis l'API de la Banque mondiale : croissance, inflation, dette, commerce extérieur, démographie. Conteneurisée (Docker) et intégrée en CI/CD."
+author: "Boukary Ouedraogo"
+date: "2026-06-23"
+image: featured.svg
+draft: false
+categories:
+  - Économie
+  - Data Science
+  - BI
+  - Python
+format:
+  html:
+    toc: true
+---
+
+::: {.callout-note appearance="simple" icon=false}
+🚀 **Application en ligne** &nbsp;
+[Ouvrir le dashboard](https://uemoa-macroecomics-indicators.streamlit.app/){.btn .btn-success .btn-sm target="_blank" rel="noopener"}
+&nbsp;
+[Code source (GitHub)](https://github.com/oboukary/uemoa-macro-dashboard){.btn .btn-outline-secondary .btn-sm target="_blank" rel="noopener"}
+:::
+
+## Contexte
+
+L'**UEMOA** (Union Économique et Monétaire Ouest-Africaine) regroupe huit pays
+partageant le franc CFA : Bénin, Burkina Faso, Côte d'Ivoire, Guinée-Bissau,
+Mali, Niger, Sénégal et Togo. Suivre leur conjoncture suppose habituellement de
+jongler entre plusieurs portails statistiques, formats et millésimes.
+
+L'objectif de ce projet : offrir un **point d'entrée unique et interactif** pour
+explorer, comparer et exporter les grands indicateurs macroéconomiques de la
+zone, avec des données tirées **en direct** des sources officielles — sans base
+de données à maintenir.
+
+## L'application
+
+Construite avec **Streamlit**, l'application s'organise en quatre vues :
+
+- **Vue régionale**: synthèse, évolution et classement des huit pays pour un
+  indicateur donné.
+- **Comparaison pays**: trajectoires comparées sur une période ajustable.
+- **Fiche pays**: tableau de bord mono-pays (cartes d'indicateurs clés +
+  graphiques d'évolution), avec drapeau et dernière année disponible.
+- **Sources & méthodologie**: provenance des données, catalogue d'indicateurs
+  et limites d'interprétation.
+
+Chaque vue propose un **export CSV**, des graphiques **Plotly** interactifs et
+une interface soignée (barre latérale sombre, cartes KPI, drapeaux des pays).
+
+Douze indicateurs sont disponibles (PIB, croissance, inflation, population,
+chômage, dette publique, solde courant, exportations, importations, IDE,
+espérance de vie…), pilotés par un simple fichier de configuration `YAML`.
+
+## Un choix de visualisation : éviter le « graphique spaghetti »
+
+Tracer huit séries volatiles sur soixante ans dans un même graphique produit un
+enchevêtrement illisible. L'application privilégie donc, pour la vue régionale,
+des **petits multiples** : un panneau par pays, à axes partagés, avec la
+**médiane régionale** rappelée en gris derrière chaque courbe. C'est le standard
+des publications macroéconomiques (FMI, *The Economist*) : on compare les huit
+pays d'un coup d'œil tout en gardant chaque trajectoire lisible.
+
+## Données & sources
+
+| Source | Rôle | Statut |
+|---|---|---|
+| **Banque mondiale** (API v2) | Source principale : PIB, prix, démographie, dette, commerce | ✅ Active |
+| **FMI / WEO** (DataMapper) | Prévisions, solde budgétaire, compte courant | 🧩 Intégrée |
+| **FRED** (St. Louis Fed) | Contexte mondial (pétrole, dollar, taux) | 🔑 Optionnelle |
+
+Les pays sont identifiés par leur code **ISO 3166-1 alpha-3**, commun à la
+Banque mondiale et au FMI, ce qui permet de croiser les sources sans ambiguïté.
+Les appels API sont **mis en cache** pour limiter la charge réseau.
+
+## Architecture technique
+
+- **Frontend & logique** : Python, Streamlit (multipage), Plotly.
+- **Extraction** : modules dédiés par source (`requests` + pandas), renvoyant un
+  format *tidy* unique.
+- **Configuration** : catalogue d'indicateurs en YAML, référentiel pays isolé.
+- **Conteneurisation** : `Dockerfile` + `docker-compose` (image légère
+  `python:3.11-slim`).
+- **CI/CD** : workflow **GitHub Actions** qui, à chaque *push*, installe les
+  dépendances, compile et teste les imports, puis construit et publie l'image
+  Docker sur **GitHub Container Registry**.
+- **Déploiement** : Streamlit Community Cloud (redéploiement automatique à chaque
+  *push*).
+
+## Feuille de route
+
+| Version | Contenu |
+|---|---|
+| **V1** ✅ | Banque mondiale · 8 pays · 12 indicateurs · petits multiples · export CSV |
+| **V2** 🧩 | FMI (WEO) et FRED dans l'interface · cache analytique · rafraîchissement auto |
+| **V3** 🔭 | Prévisions simples · scoring macro par pays · rapport PDF automatique |
+
+## Stack
+
+`Python` · `Streamlit` · `Plotly` · `pandas` · `World Bank API` · `FMI DataMapper` ·
+`Docker` · `GitHub Actions`
+
+::: {.callout-tip appearance="simple" icon=false}
+👉 [Explorer l'application interactive](https://uemoa-macroecomics-indicators.streamlit.app/){target="_blank" rel="noopener"}
+:::

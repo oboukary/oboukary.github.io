@@ -34,7 +34,7 @@ body-class: page-projects
     "Machine Learning",
     "Data Science",
     "BI",
-    "Économétrie"
+    "Économie"
   ];
 
   function applyLayout() {

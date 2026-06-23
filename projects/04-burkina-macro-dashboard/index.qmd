@@ -7,8 +7,8 @@ date: "2026-06-22"
 image: featured.svg
 draft: false
 categories:
+  - Économie
   - Data Science
-  - Économétrie
   - BI
   - R
 format:

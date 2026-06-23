@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b3d33"/>
+      <stop offset="100%" stop-color="#0E7C66"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#bg5)"/>
+
+  <!-- Motif "petits multiples" : grille de mini sparklines (8 pays) -->
+  <g opacity="0.85" stroke-linecap="round" fill="none">
+    <!-- ligne 1 -->
+    <g transform="translate(70,205)">
+      <rect width="100" height="58" rx="6" fill="#ffffff" opacity="0.06"/>
+      <path d="M10 40 L25 30 L40 38 L55 18 L70 26 L90 14" stroke="#E2A23B" stroke-width="2"/>
+    </g>
+    <g transform="translate(190,205)">
+      <rect width="100" height="58" rx="6" fill="#ffffff" opacity="0.06"/>
+      <path d="M10 30 L25 40 L40 22 L55 34 L70 20 L90 28" stroke="#9FE2CF" stroke-width="2"/>
+    </g>
+    <g transform="translate(310,205)">
+      <rect width="100" height="58" rx="6" fill="#ffffff" opacity="0.06"/>
+      <path d="M10 44 L25 24 L40 32 L55 22 L70 30 L90 16" stroke="#E2A23B" stroke-width="2"/>
+    </g>
+    <g transform="translate(430,205)">
+      <rect width="100" height="58" rx="6" fill="#ffffff" opacity="0.06"/>
+      <path d="M10 26 L25 34 L40 18 L55 30 L70 24 L90 36" stroke="#9FE2CF" stroke-width="2"/>
+    </g>
+    <!-- ligne 2 -->
+    <g transform="translate(70,278)">
+      <rect width="100" height="58" rx="6" fill="#ffffff" opacity="0.06"/>
+      <path d="M10 32 L25 20 L40 36 L55 26 L70 40 L90 22" stroke="#9FE2CF" stroke-width="2"/>
+    </g>
+    <g transform="translate(190,278)">
+      <rect width="100" height="58" rx="6" fill="#ffffff" opacity="0.06"/>
+      <path d="M10 38 L25 28 L40 16 L55 30 L70 22 L90 32" stroke="#E2A23B" stroke-width="2"/>
+    </g>
+    <g transform="translate(310,278)">
+      <rect width="100" height="58" rx="6" fill="#ffffff" opacity="0.06"/>
+      <path d="M10 24 L25 36 L40 28 L55 18 L70 34 L90 26" stroke="#9FE2CF" stroke-width="2"/>
+    </g>
+    <g transform="translate(430,278)">
+      <rect width="100" height="58" rx="6" fill="#ffffff" opacity="0.06"/>
+      <path d="M10 40 L25 22 L40 30 L55 24 L70 16 L90 28" stroke="#E2A23B" stroke-width="2"/>
+    </g>
+  </g>
+
+  <g fill="#fff" font-family="-apple-system, Segoe UI, sans-serif" text-anchor="middle">
+    <text x="300" y="62" font-size="14" opacity="0.75" letter-spacing="3">STREAMLIT &#183; DATA APP</text>
+    <text x="300" y="108" font-size="34" font-weight="700">UEMOA Macro Dashboard</text>
+    <text x="300" y="138" font-size="15" opacity="0.85">8 pays &#183; Banque mondiale &#183; FMI</text>
+  </g>
+</svg>

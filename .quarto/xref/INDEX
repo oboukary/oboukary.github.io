@@ -85,5 +85,8 @@
   },
   "projects/04-burkina-macro-dashboard/index.qmd": {
     "index.html": "17c17298"
+  },
+  "projects/05-uemoa-streamlit-dashboard/index.qmd": {
+    "index.html": "16cd4c80"
   }
 }
