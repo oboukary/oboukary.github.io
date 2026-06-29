@@ -32,7 +32,7 @@ jongler entre plusieurs portails statistiques, formats et millésimes.
 
 L'objectif de ce projet : offrir un **point d'entrée unique et interactif** pour
 explorer, comparer et exporter les grands indicateurs macroéconomiques de la
-zone, avec des données tirées **en direct** des sources officielles — sans base
+zone, avec des données tirées **en direct** des sources officielles - sans base
 de données à maintenir.
 
 ## L'application
